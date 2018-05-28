@@ -1,5 +1,4 @@
 # ScrumAppSkripsi
-<h1>ScrumApp</h1>
 Aplikasi ini digunakan sebagai tugas akhir perkuliahan. Skripsi ini digunakan oleh PT.XYZ yang bertujuan untuk melakukan management proyek.
 <br/>Aplikasi ini menggunakan IONIC dan CORDOVA dalam pendevelopmentnya
 <br/>
