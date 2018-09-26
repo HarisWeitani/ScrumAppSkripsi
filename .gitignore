@@ -1,0 +1,21 @@
+#Common
+.vscode/
+.DS_Store
+*.txt
+
+#Ionic
+node_modules/
+plugins/
+
+#Android Ignore
+platforms/android/build.xml
+platforms/android/local.properties
+platforms/android/gradlew
+platforms/android/gradlew.bat
+platforms/android/gradle
+
+#iOS Ignore
+*.mode1v3
+*.perspectivev3
+*.pbxuser
+platforms/ios/build
