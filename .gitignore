@@ -6,6 +6,7 @@
 #Ionic
 node_modules/
 plugins/
+.svn
 
 #Android Ignore
 platforms/android/build.xml
