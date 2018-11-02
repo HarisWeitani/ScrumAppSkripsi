@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MainPage } from '../main/main';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the LoginPage page.
@@ -24,7 +25,7 @@ export class LoginPage {
   }
 
   load() {
-    this.navCtrl.push(MainPage, {
+    this.navCtrl.push(TabsPage, {
       val: 'Pemain Gundu'
     })
   }
