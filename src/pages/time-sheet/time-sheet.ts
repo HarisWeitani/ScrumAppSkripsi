@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { User } from '../../models/User';
 
 /**
  * Generated class for the TimeSheetPage page.
@@ -19,6 +20,7 @@ export class TimeSheetPage {
   }
 
   ionViewDidLoad() {
+    
     console.log('ionViewDidLoad TimeSheetPage');
   }
 

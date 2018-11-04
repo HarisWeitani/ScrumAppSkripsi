@@ -4872,6 +4872,10 @@ textarea::-webkit-input-placeholder {
   padding-left: 2px;
 }
 
+textarea:-ms-input-placeholder {
+  padding-left: 2px;
+}
+
 textarea::-ms-input-placeholder {
   padding-left: 2px;
 }
@@ -25672,4 +25676,17 @@ ion-navbar.toolbar {
   padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
+}
+
+page-user .profile-photo {
+  width: 50%;
+  height: 50%;
+  max-width: auto;
+  max-height: auto;
+  background-size: contain;
+  overflow: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
 }

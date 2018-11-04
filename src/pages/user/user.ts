@@ -1,5 +1,7 @@
+import { User } from './../../models/User';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UsersProvider } from '../../providers/users/usersProvider';
 
 /**
  * Generated class for the UserPage page.
@@ -15,11 +17,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UserPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  userdata: User;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userProvider : UsersProvider ) {
+
   }
 
   ionViewDidLoad() {
+    
     console.log('ionViewDidLoad UserPage');
+  }
+
+  press(){
+    this.userProvider.getMessages().subscribe(data => console.log(data));
+
   }
 
 }

@@ -20,19 +20,19 @@
   <ion-list inset>
 
     <ion-item>
-      <ion-label>Username</ion-label>
-      <ion-input type="text" value=""></ion-input>
+      <ion-label floating >Username</ion-label>
+      <ion-input type="text" #username ></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Password</ion-label>
-      <ion-input type="password" value=""></ion-input>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" #password ></ion-input>
     </ion-item>
 
   </ion-list>
 
   <div padding>
-    <button ion-button color="primary" block (click)="load()">Sign In</button>
+    <button ion-button color="primary" block (click)="doLogin()">Sign In</button>
   </div>
 
 </ion-content>
