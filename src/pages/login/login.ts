@@ -23,9 +23,6 @@ export class LoginPage {
   
   constructor(public navCtrl: NavController, public navParames: NavParams, public userProvider : UsersProvider, public toastCtrl:ToastController) {
 
-    var e = new User();
-    e.$username = "asd";
-    console.log(e.$username);
 
   }
 

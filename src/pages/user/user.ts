@@ -18,6 +18,9 @@ import { UsersProvider } from '../../providers/users/usersProvider';
 export class UserPage {
 
   userdata: User;
+
+    countries: any;
+  errorMessage: string;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public userProvider : UsersProvider ) {
 
@@ -29,7 +32,20 @@ export class UserPage {
   }
 
   press(){
-    this.userProvider.getMessages().subscribe(data => console.log(data));
+    // this.userProvider.getMessages().subscribe(data => console.log(data));
+
+    this.userProvider.getCountries()
+       .subscribe(
+         coeg => this.countries =coeg,
+         error =>  this.errorMessage = <any>error);
+        
+         console.log(this.countries);
+         console.log(this.userdata);
+         if(this.userdata == null){
+           console.log('kosong');
+         }else{
+           console.log(this.userdata);
+         }
 
   }
 

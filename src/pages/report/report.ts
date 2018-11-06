@@ -1,3 +1,5 @@
+import { UsersProvider } from './../../providers/users/usersProvider';
+import { User } from './../../models/User';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -15,10 +17,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ReportPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userProvider : UsersProvider ) {
   }
 
   ionViewDidLoad() {
+
+    this.userProvider.getCountries()
+    .subscribe(
+      coeg => console.log(coeg));
     console.log('ionViewDidLoad ReportPage');
   }
 
