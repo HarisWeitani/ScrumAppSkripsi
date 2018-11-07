@@ -1,3 +1,4 @@
+import { UserInterface } from './usersProvider';
 import { HttpClient , HttpHeaders, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../../models/User';
@@ -20,9 +21,11 @@ export class UsersProvider {
 
   userData: User;
   username: string;
+  data: any;
+
+  userInter : UserInterface;
 
   constructor(private http:HttpClient) {
-
     console.log('Hello UsersProvider Provider');
   }
 
@@ -46,11 +49,37 @@ export class UsersProvider {
   }
 
   getCountries(): Observable<{}> {
-    return this.http.get(this.url).pipe(
-      map(this.extractData),
-      catchError(this.handleError)
-    );
+    let data = this.http.get(this.url)
+        .pipe(map(this.extractData),
+        catchError(this.handleError)
+     );
+     data.subscribe(coeg => {
+       console.log(coeg.name),
+       console.log(coeg.email)
+      }
+     );
+    return data;
+      
   }
+
+  
+  // getCountries(): Observable<UserResponse[]> {
+  //   let data = this.http.get<UserResponse>(this.url)
+  //       .pipe(map(coeg => coeg.data),
+  //       catchError(this.handleError)
+  //    );
+  //    data.subscribe(coeg => this.userInter = coeg);
+  //   console.log(this.userInter);
+
+  //   return data;
+      
+  // }
+  // getUser(): Observable<User[]> {
+  //   // return this.http.get(this.url)
+    
+    
+  // }
+  
   
   private extractData(res: Response) {
     let body = res;
@@ -82,9 +111,13 @@ export class UsersProvider {
 
 }
 
-export interface User{
+export interface UserInterface{
 
   username: string;
   email: string;
 
+}
+
+export interface UserResponse{
+  data : UserInterface[];
 }
