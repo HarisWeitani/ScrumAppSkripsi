@@ -266,11 +266,12 @@ var UserPage = /** @class */ (function () {
     };
     UserPage.prototype.press = function () {
         // this.userProvider.getMessages().subscribe(data => console.log(data));
-        console.log(this.countries.name);
+        // console.log(this.countries.name);
+        console.log(this.userProvider.userData);
     };
     UserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-user',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\user\user.html"*/'<!--\n\n  Generated template for the UserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>User</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div class="north">\n\n    <img class="profile-photo" src="assets/imgs/user/profile_picture_example.jpg"> \n\n  </div>\n\n   \n\n  <div>\n\n    <ion-item>\n\n      <ion-label>{{userProvider.username}}</ion-label>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>{{nama}}</ion-label>\n\n    </ion-item>\n\n    <div padding>\n\n      <button ion-button color="primary" block (click)="press()">Tekan Aku Mas</button>\n\n    </div>\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\user\user.html"*/,
+            selector: 'page-user',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\user\user.html"*/'<!--\n\n  Generated template for the UserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>User</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div class="north">\n\n    <img class="profile-photo" src="assets/imgs/user/profile_picture_example.jpg"> \n\n  </div>\n\n   \n\n  <div>\n\n    <ion-item>\n\n      <ion-label>asdasd</ion-label>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>asd</ion-label>\n\n    </ion-item>\n\n    <div padding>\n\n      <button ion-button color="primary" block (click)="press()">Tekan Aku Mas</button>\n\n    </div>\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\user\user.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__["a" /* UsersProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__["a" /* UsersProvider */]) === "function" && _c || Object])
     ], UserPage);
@@ -542,6 +543,55 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 684:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
+var User = /** @class */ (function () {
+    function User($username, $email) {
+        this.username = $username;
+        this.email = $email;
+    }
+    Object.defineProperty(User.prototype, "$email", {
+        /**
+         * Getter $email
+         * @return {string}
+         */
+        get: function () {
+            return this.email;
+        },
+        /**
+         * Setter $email
+         * @param {string} value
+         */
+        set: function (value) {
+            this.email = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Getter $username
+     * @return {string}
+     */
+    User.prototype.getusername = function () {
+        return this.username;
+    };
+    /**
+     * Setter $username
+     * @param {string} value
+     */
+    User.prototype.setusername = function (value) {
+        this.username = value;
+    };
+    return User;
+}());
+
+//# sourceMappingURL=User.js.map
+
+/***/ }),
+
 /***/ 73:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -549,10 +599,11 @@ var MyApp = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(210);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(375);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_User__ = __webpack_require__(684);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -562,6 +613,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 // import 'rxjs/add/operator/map';
@@ -592,15 +644,22 @@ var UsersProvider = /** @class */ (function () {
         // return this.http.get(this.url)
         // .do( (data : Response) => console.log(res))
         // .catch(this.catchError);
-        return this.http.get(this.url);
+        this.http.get(this.url)
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators__["catchError"])(this.handleError));
     };
     UsersProvider.prototype.getCountries = function () {
+        var _this = this;
         var data = this.http.get(this.url)
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError));
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators__["catchError"])(this.handleError));
         data.subscribe(function (coeg) {
             console.log(coeg.name),
-                console.log(coeg.email);
+                console.log(coeg.email),
+                _this.userData = new __WEBPACK_IMPORTED_MODULE_2__models_User__["a" /* User */](coeg.name, coeg.email),
+                // this.userData.setusername(coeg.name);
+                //  this.userInter.email = coeg.email
+                console.log('data : ', _this.userData);
         });
+        console.log('data : ', this.userData);
         return data;
     };
     // getCountries(): Observable<UserResponse[]> {
@@ -629,11 +688,11 @@ var UsersProvider = /** @class */ (function () {
             errMsg = error.message ? error.message : error.toString();
         }
         console.error(errMsg);
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(errMsg);
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(errMsg);
     };
     UsersProvider.prototype.catchError = function (error) {
         console.log(error);
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error.json().error || "Server Error.");
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json().error || "Server Error.");
     };
     UsersProvider.prototype.logResponse = function (res) {
     };

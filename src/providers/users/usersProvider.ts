@@ -20,7 +20,9 @@ export class UsersProvider {
   private url: string= "https://jsonplaceholder.typicode.com/users/1";
 
   userData: User;
+  // userData: UserInterface;
   username: string;
+  email: string;
   data: any;
 
   userInter : UserInterface;
@@ -44,20 +46,31 @@ export class UsersProvider {
     // return this.http.get(this.url)
     // .do( (data : Response) => console.log(res))
     // .catch(this.catchError);
-    return this.http.get(this.url)
+    this.http.get(this.url)
+        .pipe(map(this.extractData),
+        catchError(this.handleError)
+     );
 
   }
 
   getCountries(): Observable<{}> {
+
     let data = this.http.get(this.url)
         .pipe(map(this.extractData),
         catchError(this.handleError)
      );
      data.subscribe(coeg => {
        console.log(coeg.name),
-       console.log(coeg.email)
+       console.log(coeg.email),
+       this.userData = new User(coeg.name, coeg.email),
+        // this.userData.setusername(coeg.name);
+      //  this.userInter.email = coeg.email
+      console.log('data : ', this.userData)
       }
      );
+     console.log('data : ', this.userData);
+
+     
     return data;
       
   }

@@ -28,6 +28,7 @@ export class UserPage {
 
   ionViewDidLoad() {
     this.userProvider.getCountries().subscribe(coeg => this.countries = coeg);
+    
     console.log("ionViewDidLoad",this.countries);
     console.log('ionViewDidLoad UserPage');
   }
@@ -36,7 +37,8 @@ export class UserPage {
     // this.userProvider.getMessages().subscribe(data => console.log(data));
 
     
-    console.log(this.countries.name);
+    // console.log(this.countries.name);
+    console.log(this.userProvider.userData);
 
   }
 

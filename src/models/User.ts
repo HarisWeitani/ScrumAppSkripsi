@@ -7,6 +7,39 @@ export class User {
 		this.username = $username;
 		this.email = $email;
   }
+
+    /**
+     * Getter $email
+     * @return {string}
+     */
+	public get $email(): string {
+		return this.email;
+	}
+
+    /**
+     * Setter $email
+     * @param {string} value
+     */
+	public set $email(value: string) {
+		this.email = value;
+	}
+
+    /**
+     * Getter $username
+     * @return {string}
+     */
+	public getusername(): string {
+		return this.username;
+	}
+
+    /**
+     * Setter $username
+     * @param {string} value
+     */
+	public setusername(value: string) {
+		this.username = value;
+	}
+
   
 
 }
