@@ -1,6 +1,5 @@
-import { HttpClient , HttpHeaders, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../../models/User';
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/do';
 // import 'rxjs/add/operator/catch';
@@ -16,45 +15,54 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable()
 export class UsersProvider {
 
-  private url: string= "https://jsonplaceholder.typicode.com/users/1";
+  private baseUrl: string= "https://jsonplaceholder.typicode.com/users";
 
-  userData: User;
-  // userData: UserInterface;
-  username: string;
+  userNameLogin: string;
   email: string;
 
   constructor(private http:HttpClient) {
     console.log('Hello UsersProvider Provider');
   }
 
-  validateUser(userData){
+  validateUser(userLogin){
 
-    if( userData.username != "" && userData.password != "" ){
+    if( userLogin.username != "" && userLogin.password != "" ){
        
-      this.username = userData.username;
+      this.userNameLogin = userLogin.username;
       
       return 'canLogin';
     }
 
   }
-  
-  getUsers(): Observable<{}> {
-    let data = this.http.get(this.url)
+
+  getUsers(): Observable<any> {
+
+    return this.http.get(this.baseUrl)
         .pipe(map(this.extractData),
-        catchError(this.handleError)
-     );
-     data.subscribe(coeg => {
-       this.userData = new User(coeg.name, coeg.email),
-       console.log('data : ', this.userData ),
-       this.username = this.userData.$username,
-        this.email = this.userData.$email
-      }
-     );
-     
-    return data;
-      
+              catchError(this.handleError)
+    );
+    // let data = this.http.get(this.baseUrl)
+    //     .pipe(map(this.extractData),
+    //     catchError(this.handleError)
+    //  );
+    //  data.subscribe(coeg => {
+    //    this.userData = new User(coeg.name, coeg.email),
+    //    console.log('data : ', this.userData ),
+    //    this.username = this.userData.$username,
+    //     this.email = this.userData.$email
+    //   }
+    //  );
+    // return data;
   }
 
+  getOneUserById(id:string){
+    return this.http.get(this.baseUrl + '/' + id)
+        .pipe(map(this.extractData),
+              catchError(this.handleError)
+    );
+  }
+
+  //helping method
   private extractData(res: Response) {
     let body = res;
     return body || { };
@@ -71,7 +79,6 @@ export class UsersProvider {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-
 
   private catchError(error : Response | any){
     console.log(error);

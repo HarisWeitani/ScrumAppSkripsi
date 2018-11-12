@@ -30,15 +30,15 @@ export class LoginPage {
   }
 
   doLogin() {
-    let userData = {
+    let userLogin = {
       username : this.username.value,
       password : this.password.value
     };
 
-    var validateLogin = this.userProvider.validateUser(userData);
+    var validateLogin = this.userProvider.validateUser(userLogin);
 
     if( validateLogin == 'canLogin' ){
-      this.navCtrl.push(TabsPage);
+      this.navCtrl.push(TabsPage, this.username);
     }else{
       this.presentToast();
     }

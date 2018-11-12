@@ -19,21 +19,34 @@ import { stringify } from '@angular/core/src/render3/util';
 export class UserPage {
 
   userData : User;
+
   username : string;
+  email : string;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public userProvider : UsersProvider ) {
-
-      userProvider.getUsers();
 
   }
 
   ionViewDidLoad() {
+    // this.userProvider.getUsers().subscribe(coeg => {
+    //   this.userData = new User(coeg.name, coeg.email),
+    //   this.username = this.userData.$username,
+    //   this.email = this.userData.$email,
+    //   console.log('data : ', this.userData )
+    //  }
+    // );
 
+    this.userProvider.getOneUserById(this.userProvider.userNameLogin.length.toString()).subscribe( (user:any) => {
+      this.userData = new User(user.name,user.email),
+      this.username = this.userData.$username,
+      this.email = this.userData.$email
+    });
+    console.log('userNameLogin length : ',this.userProvider.userNameLogin.length.toString());
     console.log('ionViewDidLoad UserPage');
   }
 
   press(){
-    console.log(this.userProvider.userData.$email);
+
   }
 
 }
