@@ -2,7 +2,6 @@ import { TabsPage } from './../tabs/tabs';
 import { UsersProvider } from '../../providers/users/usersProvider';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { User } from '../../models/User';
 
 /**
  * Generated class for the LoginPage page.

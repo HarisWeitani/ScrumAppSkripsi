@@ -23,9 +23,9 @@ export class ReportPage {
 
   ionViewDidLoad() {
 
-    this.userProvider.getCountries()
-    .subscribe(
-      coeg => console.log(coeg));
+    // this.userProvider.getCountries()
+    // .subscribe(
+    //   coeg => console.log(coeg));
     console.log('ionViewDidLoad ReportPage');
   }
 

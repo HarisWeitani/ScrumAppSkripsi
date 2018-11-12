@@ -2,6 +2,7 @@ import { User } from './../../models/User';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/usersProvider';
+import { stringify } from '@angular/core/src/render3/util';
 
 /**
  * Generated class for the UserPage page.
@@ -17,29 +18,22 @@ import { UsersProvider } from '../../providers/users/usersProvider';
 })
 export class UserPage {
 
-  userdata: User;
-  nama: any;
-    countries: any;
-  errorMessage: string;
+  userData : User;
+  username : string;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public userProvider : UsersProvider ) {
-      console.log("Construtor", this.countries);
+
+      userProvider.getUsers();
+
   }
 
   ionViewDidLoad() {
-    this.userProvider.getCountries().subscribe(coeg => this.countries = coeg);
-    
-    console.log("ionViewDidLoad",this.countries);
+
     console.log('ionViewDidLoad UserPage');
   }
 
   press(){
-    // this.userProvider.getMessages().subscribe(data => console.log(data));
-
-    
-    // console.log(this.countries.name);
-    console.log(this.userProvider.userData);
-
+    console.log(this.userProvider.userData.$email);
   }
 
 }
