@@ -31,4 +31,20 @@
     </div>
   </div>
 
+  <ion-list>
+    <ion-item-sliding *ngFor="let user of allUsers">
+      <ion-item (click)="onItemPressed({id: user.name})">
+        <ion-avatar item-left>
+          <img src="assets/imgs/user/profile_picture_example.jpg">
+        </ion-avatar>
+        <h2>{{user.name}}</h2>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="danger" (click)="onItemCOEG()">
+          <ion-icon name="trash"></ion-icon> Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
 </ion-content>

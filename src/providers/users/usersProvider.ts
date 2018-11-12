@@ -56,6 +56,7 @@ export class UsersProvider {
   }
 
   getOneUserById(id:string){
+
     return this.http.get(this.baseUrl + '/' + id)
         .pipe(map(this.extractData),
               catchError(this.handleError)
@@ -67,7 +68,6 @@ export class UsersProvider {
     let body = res;
     return body || { };
   }
-  
   private handleError (error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {
@@ -79,7 +79,6 @@ export class UsersProvider {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-
   private catchError(error : Response | any){
     console.log(error);
     return Observable.throw(error.json().error || "Server Error.");

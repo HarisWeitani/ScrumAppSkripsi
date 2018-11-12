@@ -19,7 +19,7 @@ import { stringify } from '@angular/core/src/render3/util';
 export class UserPage {
 
   userData : User;
-
+  allUsers : Array<any>;
   username : string;
   email : string;
   
@@ -46,7 +46,20 @@ export class UserPage {
   }
 
   press(){
+    this.userProvider.getUsers().subscribe(
+      allUser => {
+        this.allUsers = allUser;
+        console.log('all User',allUser)
+      }
+    )
+  }
 
+  onItemPressed(userId){
+    console.log('On Item Pressed',userId);
+  }
+
+  onItemCOEG(){
+    console.log('Pressed');
   }
 
 }
