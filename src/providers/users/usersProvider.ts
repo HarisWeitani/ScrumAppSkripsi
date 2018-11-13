@@ -16,6 +16,7 @@ import { map, catchError } from 'rxjs/operators';
 export class UsersProvider {
 
   private baseUrl: string= "https://jsonplaceholder.typicode.com/users";
+  private postUrl: string= "https://jsonplaceholder.typicode.com/posts";
 
   userNameLogin: string;
   email: string;
@@ -41,18 +42,6 @@ export class UsersProvider {
         .pipe(map(this.extractData),
               catchError(this.handleError)
     );
-    // let data = this.http.get(this.baseUrl)
-    //     .pipe(map(this.extractData),
-    //     catchError(this.handleError)
-    //  );
-    //  data.subscribe(coeg => {
-    //    this.userData = new User(coeg.name, coeg.email),
-    //    console.log('data : ', this.userData ),
-    //    this.username = this.userData.$username,
-    //     this.email = this.userData.$email
-    //   }
-    //  );
-    // return data;
   }
 
   getOneUserById(id:string){
@@ -61,6 +50,15 @@ export class UsersProvider {
         .pipe(map(this.extractData),
               catchError(this.handleError)
     );
+  }
+
+  
+  doSave(user: FormData): Observable<any> {
+    console.log(user);
+    return this.http.post(this.postUrl, user);
+    // let result: Observable<Object>;
+    // result = this.http.post(this.baseUrl, user)
+    // return result.catch(error => Observable.throw(error));
   }
 
   //helping method
@@ -84,4 +82,20 @@ export class UsersProvider {
     return Observable.throw(error.json().error || "Server Error.");
   }
 
+
+  //unused tapi sayang dihapus
+  // getUsers(): Observable<any> {
+  //   let data = this.http.get(this.baseUrl)
+  //       .pipe(map(this.extractData),
+  //       catchError(this.handleError)
+  //    );
+  //    data.subscribe(coeg => {
+  //      this.userData = new User(coeg.name, coeg.email),
+  //      console.log('data : ', this.userData ),
+  //      this.username = this.userData.$username,
+  //       this.email = this.userData.$email
+  //     }
+  //    );
+  //   return data;
+  // }
 }
