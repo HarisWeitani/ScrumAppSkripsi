@@ -22,6 +22,9 @@ export class UserPage {
   allUsers : Array<any>;
   username : string;
   email : string;
+  loading : any;
+  
+  error : any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public userProvider : UsersProvider, public loadingCtrl: LoadingController ) {
@@ -29,30 +32,49 @@ export class UserPage {
   }
 
   ionViewDidLoad() {
-    // this.userProvider.getUsers().subscribe(coeg => {
-    //   this.userData = new User(coeg.name, coeg.email),
-    //   this.username = this.userData.$username,
-    //   this.email = this.userData.$email,
-    //   console.log('data : ', this.userData )
-    //  }
-    // );
 
-    this.userProvider.getOneUserById(this.userProvider.userNameLogin.length.toString()).subscribe( (user:any) => {
-      this.userData = new User(user.name,user.email),
-      this.username = this.userData.$username,
-      this.email = this.userData.$email
-    });
+    this.loadingService('Loading...');
+
+    this.userProvider.getOneUserById(this.userProvider.userNameLogin.length.toString())
+        .subscribe( 
+            (user:any) => {
+                this.userData = new User(user.name,user.email),
+                this.username = this.userData.$username,
+                this.email = this.userData.$email,
+                this.loading.dismiss()
+            }, 
+            (error:any) => {
+              console.log(error),
+              this.loading.dismiss(),
+              this.username = 'Unknown',
+              this.email = 'Unknown'
+            }
+            
+      );
     console.log('userNameLogin length : ',this.userProvider.userNameLogin.length.toString());
     console.log('ionViewDidLoad UserPage');
+
+  }
+
+  loadingService(message : string){
+    this.loading = this.loadingCtrl.create(
+      {
+        spinner : 'bubbles',
+        content : message
+      }
+    );
+    this.loading.present();
   }
 
   press(){
+    this.loadingService('Getting All User..');
     this.userProvider.getUsers().subscribe(
       allUser => {
         this.allUsers = allUser;
-        console.log('all User',allUser)
+        this.loading.dismiss();
       }
-    )
+    );
+    console.log(this.userData);
   }
 
   onItemPressed(userId){
@@ -79,13 +101,14 @@ export class UserPage {
         loading.dismiss();
       }, 1000);
     },3000);
+
   }
 
   onItemCOEG(){
     let postData = new FormData();
     postData.append('userId', '1');
     postData.append('title','juga');
-    postData.append('body','asdasd');
+    postData.append('body',this.username);
 
     let data : any;
 
@@ -95,7 +118,7 @@ export class UserPage {
         console.log(data);
       }
     )
-    console.log(postData.get('mantab'));
+    console.log(postData.get('body'));
   }
 
 }

@@ -1,6 +1,5 @@
 export class User {
 
-
   private username: string;
   private email: string;
 
@@ -9,7 +8,6 @@ export class User {
 		this.email = $email;
   }
 
- 
     /**
      * Getter $email
      * @return {string}

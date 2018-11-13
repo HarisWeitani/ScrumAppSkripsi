@@ -13,6 +13,7 @@ import { ReportPage } from '../pages/report/report';
 import { TimeSheetPage } from '../pages/time-sheet/time-sheet';
 import { UserPage } from '../pages/user/user';
 import { UsersProvider } from '../providers/users/usersProvider';
+import { TimesheetsProvider } from '../providers/timesheets/timesheetsProvider';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { UsersProvider } from '../providers/users/usersProvider';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    UsersProvider
+    UsersProvider,
+    TimesheetsProvider
   ]
 })
 export class AppModule { }

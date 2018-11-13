@@ -15,7 +15,7 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable()
 export class UsersProvider {
 
-  private baseUrl: string= "https://jsonplaceholder.typicode.com/users";
+  private baseUrl: string= "https://jsonplaceholder.typicode.com/uses";
   private postUrl: string= "https://jsonplaceholder.typicode.com/posts";
 
   userNameLogin: string;
@@ -52,7 +52,7 @@ export class UsersProvider {
     );
   }
 
-  
+
   doSave(user: FormData): Observable<any> {
     console.log(user);
     return this.http.post(this.postUrl, user);
