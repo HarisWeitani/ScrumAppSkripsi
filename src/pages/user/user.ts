@@ -45,6 +45,8 @@ export class UserPage {
             }, 
             (error:any) => {
               console.log(error),
+              console.error(error.status),
+              console.error(error.statusText),
               this.loading.dismiss(),
               this.username = 'Unknown',
               this.email = 'Unknown'

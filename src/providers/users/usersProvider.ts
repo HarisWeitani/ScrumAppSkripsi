@@ -15,7 +15,7 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable()
 export class UsersProvider {
 
-  private baseUrl: string= "https://jsonplaceholder.typicode.com/uses";
+  private baseUrl: string= "https://jsonplaceholder.typicode.com/users";
   private postUrl: string= "https://jsonplaceholder.typicode.com/posts";
 
   userNameLogin: string;
@@ -74,8 +74,10 @@ export class UsersProvider {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
+    console.error(error.status);
+    console.error(error.statusText);
     console.error(errMsg);
-    return Observable.throw(errMsg);
+    return Observable.throw(error);
   }
   private catchError(error : Response | any){
     console.log(error);

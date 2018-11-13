@@ -226,10 +226,10 @@ var TimeSheetPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-time-sheet',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheet.html"*/'<!--\n  Generated template for the TimeSheetPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>TimeSheet</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  TIMESHEET COEKERS\n  \n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheet.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_timesheets_timesheetsProvider__["a" /* TimesheetsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_timesheets_timesheetsProvider__["a" /* TimesheetsProvider */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_timesheets_timesheetsProvider__["a" /* TimesheetsProvider */]])
     ], TimeSheetPage);
     return TimeSheetPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=time-sheet.js.map
@@ -282,6 +282,8 @@ var UserPage = /** @class */ (function () {
                 _this.loading.dismiss();
         }, function (error) {
             console.log(error),
+                console.error(error.status),
+                console.error(error.statusText),
                 _this.loading.dismiss(),
                 _this.username = 'Unknown',
                 _this.email = 'Unknown';
@@ -381,19 +383,19 @@ var map = {
 		4
 	],
 	"../pages/report/report.module": [
-		682,
+		683,
 		3
 	],
 	"../pages/tabs/tabs.module": [
-		683,
+		682,
 		2
 	],
 	"../pages/time-sheet/time-sheet.module": [
-		685,
+		684,
 		1
 	],
 	"../pages/user/user.module": [
-		684,
+		685,
 		0
 	]
 };
@@ -448,10 +450,9 @@ var TimesheetsProvider = /** @class */ (function () {
     };
     TimesheetsProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
     ], TimesheetsProvider);
     return TimesheetsProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=timesheetsProvider.js.map
@@ -580,10 +581,10 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/main/main.module#MainPageModule', name: 'MainPage', segment: 'main', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/report/report.module#ReportPageModule', name: 'ReportPage', segment: 'report', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/user/user.module#UserPageModule', name: 'UserPage', segment: 'user', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/time-sheet/time-sheet.module#TimeSheetPageModule', name: 'TimeSheetPage', segment: 'time-sheet', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/report/report.module#ReportPageModule', name: 'ReportPage', segment: 'report', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/time-sheet/time-sheet.module#TimeSheetPageModule', name: 'TimeSheetPage', segment: 'time-sheet', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/user/user.module#UserPageModule', name: 'UserPage', segment: 'user', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -748,7 +749,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var UsersProvider = /** @class */ (function () {
     function UsersProvider(http) {
         this.http = http;
-        this.baseUrl = "https://jsonplaceholder.typicode.com/uses";
+        this.baseUrl = "https://jsonplaceholder.typicode.com/users";
         this.postUrl = "https://jsonplaceholder.typicode.com/posts";
         console.log('Hello UsersProvider Provider');
     }
@@ -787,8 +788,10 @@ var UsersProvider = /** @class */ (function () {
         else {
             errMsg = error.message ? error.message : error.toString();
         }
+        console.error(error.status);
+        console.error(error.statusText);
         console.error(errMsg);
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(errMsg);
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error);
     };
     UsersProvider.prototype.catchError = function (error) {
         console.log(error);
