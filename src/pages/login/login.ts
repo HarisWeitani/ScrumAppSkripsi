@@ -45,38 +45,27 @@ export class LoginPage {
 
   doLogin() {
 
-    this.loadingService("Collecting User Info..")
+    this.loadingService("Collecting User Info..");
     let userLogin = {
       username : this.username.value,
       password : this.password.value
     };
 
-    let mantab = JSON.stringify(userLogin);
-    console.log(mantab);
-
     this.userProvider.validateLogin(userLogin).subscribe(
       (response:any) => {
         this.loading.dismiss();
         console.log(response);
-        // this.navCtrl.push(TabsPage, this.username);
-        this.navCtrl.push(TabsPage, userLogin);
+        this.navCtrl.push(TabsPage, response);
       },
       (error:any) => {
-        console.log(error),
-        console.error(error.status),
-        console.error(error.statusText),
-        this.loading.dismiss()
+        console.log(error);
+        console.error(error.status);
+        console.error(error.statusText);
+        this.loading.dismiss();
+        this.presentToast();
       }
     );
 
-    // var validateLogin = this.userProvider.validateUser(userLogin);
-
-    // if( validateLogin == 'canLogin' ){
-    //   this.navCtrl.push(TabsPage, this.username);
-    // }else{
-    //   this.presentToast();
-    // }
-    
   }
 
   //di jsonplaceholder ga bisa
@@ -129,10 +118,6 @@ export class LoginPage {
     }else{
       this.type = 'password';
     }
-
-  }
-  
-  validateIsEmpty(username:string , password:string){
 
   }
 

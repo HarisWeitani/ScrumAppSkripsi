@@ -34,32 +34,31 @@ export class UserPage {
 
   ionViewDidLoad() {
 
-    this.loadingService('Loading...');
+    // this.loadingService('Loading...');
 
-    // this.userProvider.userNameLogin = 'asdasd';
-
-    this.userProvider.getOneUserById(this.userProvider.userNameLogin.length.toString())
-        .subscribe( 
-            (user:any) => {
-                this.userData = new User(user.name,user.email),
-                this.userProvider.user = new User(user.name,user.email);
-                // this.username = this.userData.$username,
-                // this.email = this.userData.$email,
-                this.username = this.userProvider.user.$username,
-                this.email = this.userProvider.user.$email,
-                this.loading.dismiss()
-            }, 
-            (error:any) => {
-              console.log(error),
-              console.error(error.status),
-              console.error(error.statusText),
-              this.loading.dismiss(),
-              this.username = 'Unknown',
-              this.email = 'Unknown'
-            }
+    // this.userProvider.getOneUserById(this.userProvider.user.$username.length.toString())
+    //     .subscribe( 
+    //         (user:any) => {
+    //             this.userData = new User(user.name,user.email),
+    //             this.userProvider.user = new User(user.name,user.email);
+    //             // this.username = this.userData.$username,
+    //             // this.email = this.userData.$email,
+    //             this.username = this.userProvider.user.$username,
+    //             this.email = this.userProvider.user.$email,
+    //             this.loading.dismiss()
+    //         }, 
+    //         (error:any) => {
+    //           console.log(error),
+    //           console.error(error.status),
+    //           console.error(error.statusText),
+    //           this.loading.dismiss(),
+    //           this.username = 'Unknown',
+    //           this.email = 'Unknown'
+    //         }
             
-      );
-    console.log('userNameLogin length : ',this.userProvider.userNameLogin.length.toString());
+    //   );
+
+    console.log('userNameLogin length : ',this.userProvider.user.$username.length.toString());
     console.log('ionViewDidLoad UserPage');
 
   }
@@ -92,7 +91,7 @@ export class UserPage {
       {
         spinner : 'bubbles',
         content : 'mohon tunggu...'
-      }
+      } 
     );
 
     loading.present();

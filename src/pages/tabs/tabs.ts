@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReportPage } from '../report/report';
 import { TimeSheetPage } from '../time-sheet/time-sheet';
 import { UserPage } from '../user/user';
+import { User } from '../../models/User';
 /**
  * Generated class for the TabsPage tabs.
  *
@@ -25,13 +26,14 @@ export class TabsPage {
 
   constructor(public navCtrl: NavController, public navPrm:NavParams, 
     public userProvider : UsersProvider) {
+      
+      userProvider.user = new User(navPrm.data.username, navPrm.data.password);
+      console.log('Tab ',  navPrm.data);
 
-      userProvider.userNameLogin = navPrm.get('username');
-      console.log('Tab ',  navPrm.get('username'));
   }
 
   ionViewDidLoad(){
-    console.log('enter');
+    console.log('TabsPage IonViewLoad');
   }
 
 }
