@@ -18,6 +18,7 @@ import { stringify } from '@angular/core/src/render3/util';
 })
 export class UserPage {
 
+  //mau migrasi ke userprovider aja
   userData : User;
   allUsers : Array<any>;
   username : string;
@@ -35,12 +36,17 @@ export class UserPage {
 
     this.loadingService('Loading...');
 
+    // this.userProvider.userNameLogin = 'asdasd';
+
     this.userProvider.getOneUserById(this.userProvider.userNameLogin.length.toString())
         .subscribe( 
             (user:any) => {
                 this.userData = new User(user.name,user.email),
-                this.username = this.userData.$username,
-                this.email = this.userData.$email,
+                this.userProvider.user = new User(user.name,user.email);
+                // this.username = this.userData.$username,
+                // this.email = this.userData.$email,
+                this.username = this.userProvider.user.$username,
+                this.email = this.userProvider.user.$email,
                 this.loading.dismiss()
             }, 
             (error:any) => {
@@ -121,6 +127,11 @@ export class UserPage {
       }
     )
     console.log(postData.get('body'));
+  }
+
+
+  doLogout(){
+    console.log('do Logout');
   }
 
 }

@@ -17,11 +17,11 @@
 
   <img src="assets/imgs/IonicLogo.png">
 
-  <ion-list inset>
+  <!-- <ion-list inset>
 
     <ion-item>
       <ion-label floating >Username</ion-label>
-      <ion-input type="text" #username ></ion-input>
+      <ion-input type="text" #username required id="name" name="name"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -29,10 +29,34 @@
       <ion-input type="password" #password ></ion-input>
     </ion-item>
 
+  </ion-list> -->
+
+  <ion-list inset>
+
+    <form [formGroup]="loginForm">
+
+      <ion-item>
+        <ion-label floating >Username</ion-label>
+        <ion-input formControlName="username" type="text" #username ></ion-input>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input formControlName="password" type="{{type}}" #password ></ion-input>
+        <button *ngIf="!showHide" ion-button clear color="dark" type="button" item-right (click)="showHidePassword()"> <ion-icon name="ios-eye-off-outline"></ion-icon></button>
+        <button *ngIf="showHide" ion-button clear color="dark" type="button" item-right (click)="showHidePassword()"> <ion-icon name="ios-eye-outline"></ion-icon></button>
+        
+      </ion-item>
+
+    </form>
+
   </ion-list>
 
-  <div padding>
-    <button ion-button color="primary" block (click)="doLogin()">Sign In</button>
-  </div>
+  <button ion-button block color="primary"
+        [disabled]="!loginForm.valid"
+        (click)="doLogin()">
+      Sign in
+  </button>
 
 </ion-content>

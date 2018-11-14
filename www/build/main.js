@@ -6,9 +6,10 @@ webpackJsonp([6],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__tabs_tabs__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(25);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,6 +23,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -29,27 +31,89 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParames, userProvider, toastCtrl) {
+    function LoginPage(navCtrl, navParames, userProvider, toastCtrl, formBuilder, loadingCtrl) {
         this.navCtrl = navCtrl;
         this.navParames = navParames;
         this.userProvider = userProvider;
         this.toastCtrl = toastCtrl;
+        this.formBuilder = formBuilder;
+        this.loadingCtrl = loadingCtrl;
+        this.type = 'password';
+        this.showHide = false;
+        this.loginForm = formBuilder.group({
+            username: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_4__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["f" /* Validators */].minLength(3)])],
+            password: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_4__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["f" /* Validators */].minLength(3)])]
+        });
     }
     LoginPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad LoginPage');
     };
     LoginPage.prototype.doLogin = function () {
+        var _this = this;
+        this.loadingService("Collecting User Info..");
         var userLogin = {
             username: this.username.value,
             password: this.password.value
         };
-        var validateLogin = this.userProvider.validateUser(userLogin);
-        if (validateLogin == 'canLogin') {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_0__tabs_tabs__["a" /* TabsPage */], this.username);
+        var mantab = JSON.stringify(userLogin);
+        console.log(mantab);
+        this.userProvider.validateLogin(userLogin).subscribe(function (response) {
+            _this.loading.dismiss();
+            console.log(response);
+            // this.navCtrl.push(TabsPage, this.username);
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_0__tabs_tabs__["a" /* TabsPage */], userLogin);
+        }, function (error) {
+            console.log(error),
+                console.error(error.status),
+                console.error(error.statusText),
+                _this.loading.dismiss();
+        });
+        // var validateLogin = this.userProvider.validateUser(userLogin);
+        // if( validateLogin == 'canLogin' ){
+        //   this.navCtrl.push(TabsPage, this.username);
+        // }else{
+        //   this.presentToast();
+        // }
+    };
+    //di jsonplaceholder ga bisa
+    LoginPage.prototype.doLoginFormData = function () {
+        var _this = this;
+        var userLogin = new FormData();
+        userLogin.append('username', 'dasdas');
+        userLogin.append('password', 'asdasdad');
+        this.userProvider.validateLogin(userLogin).subscribe(function (response) {
+            console.log(response);
+        }, function (error) {
+            console.log(error),
+                console.error(error.status),
+                console.error(error.statusText),
+                _this.loading.dismiss();
+        });
+        // var validateLogin = this.userProvider.validateUser(userLogin);
+        // if( validateLogin == 'canLogin' ){
+        //   this.navCtrl.push(TabsPage, this.username);
+        // }else{
+        //   this.presentToast();
+        // }
+    };
+    LoginPage.prototype.loadingService = function (message) {
+        this.loading = this.loadingCtrl.create({
+            spinner: 'bubbles',
+            content: message
+        });
+        this.loading.present();
+    };
+    LoginPage.prototype.showHidePassword = function () {
+        this.showHide = !this.showHide;
+        if (this.showHide) {
+            this.type = 'text';
+            console.log;
         }
         else {
-            this.presentToast();
+            this.type = 'password';
         }
+    };
+    LoginPage.prototype.validateIsEmpty = function (username, password) {
     };
     LoginPage.prototype.presentToast = function () {
         var toast = this.toastCtrl.create({
@@ -69,9 +133,11 @@ var LoginPage = /** @class */ (function () {
     ], LoginPage.prototype, "password", void 0);
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <img src="assets/imgs/IonicLogo.png">\n\n\n\n  <ion-list inset>\n\n\n\n    <ion-item>\n\n      <ion-label floating >Username</ion-label>\n\n      <ion-input type="text" #username ></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Password</ion-label>\n\n      <ion-input type="password" #password ></ion-input>\n\n    </ion-item>\n\n\n\n  </ion-list>\n\n\n\n  <div padding>\n\n    <button ion-button color="primary" block (click)="doLogin()">Sign In</button>\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <img src="assets/imgs/IonicLogo.png">\n\n\n\n  <!-- <ion-list inset>\n\n\n\n    <ion-item>\n\n      <ion-label floating >Username</ion-label>\n\n      <ion-input type="text" #username required id="name" name="name"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Password</ion-label>\n\n      <ion-input type="password" #password ></ion-input>\n\n    </ion-item>\n\n\n\n  </ion-list> -->\n\n\n\n  <ion-list inset>\n\n\n\n    <form [formGroup]="loginForm">\n\n\n\n      <ion-item>\n\n        <ion-label floating >Username</ion-label>\n\n        <ion-input formControlName="username" type="text" #username ></ion-input>\n\n\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Password</ion-label>\n\n        <ion-input formControlName="password" type="{{type}}" #password ></ion-input>\n\n        <button *ngIf="!showHide" ion-button clear color="dark" type="button" item-right (click)="showHidePassword()"> <ion-icon name="ios-eye-off-outline"></ion-icon></button>\n\n        <button *ngIf="showHide" ion-button clear color="dark" type="button" item-right (click)="showHidePassword()"> <ion-icon name="ios-eye-outline"></ion-icon></button>\n\n        \n\n      </ion-item>\n\n\n\n    </form>\n\n\n\n  </ion-list>\n\n\n\n  <button ion-button block color="primary"\n\n        [disabled]="!loginForm.valid"\n\n        (click)="doLogin()">\n\n      Sign in\n\n  </button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__["a" /* UsersProvider */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* ToastController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__["a" /* UsersProvider */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["e" /* LoadingController */]])
     ], LoginPage);
     return LoginPage;
 }());
@@ -85,11 +151,12 @@ var LoginPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__report_report__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__time_sheet_time_sheet__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__user_user__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__report_report__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__time_sheet_time_sheet__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__user_user__ = __webpack_require__(155);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -104,6 +171,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the TabsPage tabs.
  *
@@ -111,17 +179,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var TabsPage = /** @class */ (function () {
-    function TabsPage(navCtrl) {
+    function TabsPage(navCtrl, navPrm, userProvider) {
         this.navCtrl = navCtrl;
-        this.timeSheetRoot = __WEBPACK_IMPORTED_MODULE_3__time_sheet_time_sheet__["a" /* TimeSheetPage */];
-        this.reportRoot = __WEBPACK_IMPORTED_MODULE_2__report_report__["a" /* ReportPage */];
-        this.userRoot = __WEBPACK_IMPORTED_MODULE_4__user_user__["a" /* UserPage */];
+        this.navPrm = navPrm;
+        this.userProvider = userProvider;
+        this.timeSheetRoot = __WEBPACK_IMPORTED_MODULE_4__time_sheet_time_sheet__["a" /* TimeSheetPage */];
+        this.reportRoot = __WEBPACK_IMPORTED_MODULE_3__report_report__["a" /* ReportPage */];
+        this.userRoot = __WEBPACK_IMPORTED_MODULE_5__user_user__["a" /* UserPage */];
+        userProvider.userNameLogin = navPrm.get('username');
+        console.log('Tab ', navPrm.get('username'));
     }
+    TabsPage.prototype.ionViewDidLoad = function () {
+        console.log('enter');
+    };
     TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
             selector: 'page-tabs',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\tabs\tabs.html"*/'<ion-tabs selectedIndex = "0">\n    <ion-tab [root]="timeSheetRoot" tabTitle="Time sheet" tabIcon="list-box"></ion-tab>\n    <ion-tab [root]="reportRoot" tabTitle="Report" tabIcon="stats"></ion-tab>\n    <ion-tab [root]="userRoot" tabTitle="User" tabIcon="person"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\tabs\tabs.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__["a" /* UsersProvider */]])
     ], TabsPage);
     return TabsPage;
 }());
@@ -135,7 +211,7 @@ var TabsPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(31);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -244,7 +320,7 @@ var TimeSheetPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_User__ = __webpack_require__(658);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -274,11 +350,15 @@ var UserPage = /** @class */ (function () {
     UserPage.prototype.ionViewDidLoad = function () {
         var _this = this;
         this.loadingService('Loading...');
+        // this.userProvider.userNameLogin = 'asdasd';
         this.userProvider.getOneUserById(this.userProvider.userNameLogin.length.toString())
             .subscribe(function (user) {
             _this.userData = new __WEBPACK_IMPORTED_MODULE_0__models_User__["a" /* User */](user.name, user.email),
-                _this.username = _this.userData.$username,
-                _this.email = _this.userData.$email,
+                _this.userProvider.user = new __WEBPACK_IMPORTED_MODULE_0__models_User__["a" /* User */](user.name, user.email);
+            // this.username = this.userData.$username,
+            // this.email = this.userData.$email,
+            _this.username = _this.userProvider.user.$username,
+                _this.email = _this.userProvider.user.$email,
                 _this.loading.dismiss();
         }, function (error) {
             console.log(error),
@@ -339,9 +419,12 @@ var UserPage = /** @class */ (function () {
         });
         console.log(postData.get('body'));
     };
+    UserPage.prototype.doLogout = function () {
+        console.log('do Logout');
+    };
     UserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-user',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\user\user.html"*/'<!--\n\n  Generated template for the UserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>User</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div class="north">\n\n    <img class="profile-photo" src="assets/imgs/user/profile_picture_example.jpg"> \n\n  </div>\n\n   \n\n  <div>\n\n    <ion-item>\n\n      <ion-label>{{username}}</ion-label>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>{{email}}</ion-label>\n\n    </ion-item>\n\n    <div padding>\n\n      <button ion-button color="primary" block (click)="press()">Tekan Aku Mas</button>\n\n    </div>\n\n  </div>\n\n\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let user of allUsers">\n\n      <ion-item (click)="onItemPressed({id: user.name})">\n\n        <ion-avatar item-left>\n\n          <img src="assets/imgs/user/profile_picture_example.jpg">\n\n        </ion-avatar>\n\n        <h2>{{user.name}}</h2>\n\n      </ion-item>\n\n      <ion-item-options>\n\n        <button ion-button color="danger" (click)="onItemCOEG()">\n\n          <ion-icon name="trash"></ion-icon> Delete\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\user\user.html"*/,
+            selector: 'page-user',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\user\user.html"*/'<!--\n\n  Generated template for the UserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>User</ion-title>\n\n    <ion-buttons end >\n\n      <button ion-button icon-only (click)="doLogout()">\n\n        <ion-icon name="exit"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div class="north">\n\n    <img class="profile-photo" src="assets/imgs/user/profile_picture_example.jpg"> \n\n  </div>\n\n   \n\n  <div>\n\n    <ion-item>\n\n      <ion-label>{{username}}</ion-label>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>{{email}}</ion-label>\n\n    </ion-item>\n\n    <div padding>\n\n      <button ion-button color="primary" block (click)="press()">Tekan Aku Mas</button>\n\n    </div>\n\n  </div>\n\n\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let user of allUsers">\n\n      <ion-item (click)="onItemPressed({id: user.name})">\n\n        <ion-avatar item-left>\n\n          <img src="assets/imgs/user/profile_picture_example.jpg">\n\n        </ion-avatar>\n\n        <h2>{{user.name}}</h2>\n\n      </ion-item>\n\n      <ion-item-options>\n\n        <button ion-button color="danger" (click)="onItemCOEG()">\n\n          <ion-icon name="trash"></ion-icon> Delete\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\user\user.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__["a" /* UsersProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__["a" /* UsersProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* LoadingController */]) === "function" && _d || Object])
     ], UserPage);
@@ -383,11 +466,11 @@ var map = {
 		4
 	],
 	"../pages/report/report.module": [
-		683,
+		682,
 		3
 	],
 	"../pages/tabs/tabs.module": [
-		682,
+		683,
 		2
 	],
 	"../pages/time-sheet/time-sheet.module": [
@@ -537,7 +620,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_report_report__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_time_sheet_time_sheet__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_user_user__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_users_usersProvider__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_users_usersProvider__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_timesheets_timesheetsProvider__ = __webpack_require__(306);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -581,8 +664,8 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/main/main.module#MainPageModule', name: 'MainPage', segment: 'main', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/report/report.module#ReportPageModule', name: 'ReportPage', segment: 'report', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/time-sheet/time-sheet.module#TimeSheetPageModule', name: 'TimeSheetPage', segment: 'time-sheet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user/user.module#UserPageModule', name: 'UserPage', segment: 'user', priority: 'low', defaultHistory: [] }
                     ]
@@ -611,6 +694,105 @@ var AppModule = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 55:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(376);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+// import 'rxjs/add/operator/map';
+// import 'rxjs/add/operator/do';
+// import 'rxjs/add/operator/catch';
+
+
+/*
+  Generated class for the UsersProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.0
+*/
+var UsersProvider = /** @class */ (function () {
+    function UsersProvider(http) {
+        this.http = http;
+        this.baseUrl = "https://jsonplaceholder.typicode.com/users";
+        this.postUrl = "https://jsonplaceholder.typicode.com/posts/";
+        console.log('Hello UsersProvider Provider');
+    }
+    UsersProvider.prototype.validateUser = function (userLogin) {
+        if (userLogin.username != "" && userLogin.password != "") {
+            this.userNameLogin = userLogin.username;
+            return 'canLogin';
+        }
+    };
+    UsersProvider.prototype.validateLogin = function (userLogin) {
+        console.log(userLogin);
+        return this.http.post(this.postUrl, userLogin);
+    };
+    UsersProvider.prototype.getUsers = function () {
+        return this.http.get(this.baseUrl)
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError));
+    };
+    UsersProvider.prototype.getOneUserById = function (id) {
+        return this.http.get(this.baseUrl + '/' + id)
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError));
+    };
+    UsersProvider.prototype.doSave = function (user) {
+        console.log(user);
+        return this.http.post(this.postUrl, user);
+        // let result: Observable<Object>;
+        // result = this.http.post(this.baseUrl, user)
+        // return result.catch(error => Observable.throw(error));
+    };
+    //helping method
+    UsersProvider.prototype.extractData = function (res) {
+        var body = res;
+        return body || {};
+    };
+    UsersProvider.prototype.handleError = function (error) {
+        var errMsg;
+        if (error instanceof Response) {
+            var err = error || '';
+            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+        }
+        else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(error.status);
+        console.error(error.statusText);
+        console.error(errMsg);
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error);
+    };
+    UsersProvider.prototype.catchError = function (error) {
+        console.log(error);
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error.json().error || "Server Error.");
+    };
+    UsersProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], UsersProvider);
+    return UsersProvider;
+}());
+
+//# sourceMappingURL=usersProvider.js.map
 
 /***/ }),
 
@@ -710,102 +892,6 @@ var MyApp = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=app.component.js.map
-
-/***/ }),
-
-/***/ 73:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(376);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-// import 'rxjs/add/operator/map';
-// import 'rxjs/add/operator/do';
-// import 'rxjs/add/operator/catch';
-
-
-/*
-  Generated class for the UsersProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.0
-*/
-var UsersProvider = /** @class */ (function () {
-    function UsersProvider(http) {
-        this.http = http;
-        this.baseUrl = "https://jsonplaceholder.typicode.com/users";
-        this.postUrl = "https://jsonplaceholder.typicode.com/posts";
-        console.log('Hello UsersProvider Provider');
-    }
-    UsersProvider.prototype.validateUser = function (userLogin) {
-        if (userLogin.username != "" && userLogin.password != "") {
-            this.userNameLogin = userLogin.username;
-            return 'canLogin';
-        }
-    };
-    UsersProvider.prototype.getUsers = function () {
-        return this.http.get(this.baseUrl)
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError));
-    };
-    UsersProvider.prototype.getOneUserById = function (id) {
-        return this.http.get(this.baseUrl + '/' + id)
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError));
-    };
-    UsersProvider.prototype.doSave = function (user) {
-        console.log(user);
-        return this.http.post(this.postUrl, user);
-        // let result: Observable<Object>;
-        // result = this.http.post(this.baseUrl, user)
-        // return result.catch(error => Observable.throw(error));
-    };
-    //helping method
-    UsersProvider.prototype.extractData = function (res) {
-        var body = res;
-        return body || {};
-    };
-    UsersProvider.prototype.handleError = function (error) {
-        var errMsg;
-        if (error instanceof Response) {
-            var err = error || '';
-            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
-        }
-        else {
-            errMsg = error.message ? error.message : error.toString();
-        }
-        console.error(error.status);
-        console.error(error.statusText);
-        console.error(errMsg);
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error);
-    };
-    UsersProvider.prototype.catchError = function (error) {
-        console.log(error);
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error.json().error || "Server Error.");
-    };
-    UsersProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
-    ], UsersProvider);
-    return UsersProvider;
-    var _a;
-}());
-
-//# sourceMappingURL=usersProvider.js.map
 
 /***/ })
 

@@ -1,5 +1,6 @@
+import { UsersProvider } from './../../providers/users/usersProvider';
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReportPage } from '../report/report';
 import { TimeSheetPage } from '../time-sheet/time-sheet';
 import { UserPage } from '../user/user';
@@ -22,6 +23,15 @@ export class TabsPage {
   userRoot = UserPage
 
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public navPrm:NavParams, 
+    public userProvider : UsersProvider) {
+
+      userProvider.userNameLogin = navPrm.get('username');
+      console.log('Tab ',  navPrm.get('username'));
+  }
+
+  ionViewDidLoad(){
+    console.log('enter');
+  }
 
 }

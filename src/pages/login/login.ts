@@ -1,7 +1,8 @@
 import { TabsPage } from './../tabs/tabs';
 import { UsersProvider } from '../../providers/users/usersProvider';
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, Loading, LoadingController } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,8 +21,21 @@ export class LoginPage {
   @ViewChild('username') username;
   @ViewChild('password') password;
   
-  constructor(public navCtrl: NavController, public navParames: NavParams, public userProvider : UsersProvider, public toastCtrl:ToastController) {
+  loading : any;
+  loginForm : FormGroup;
 
+  showHide : boolean;
+  type = 'password';
+
+
+  constructor(public navCtrl: NavController, public navParames: NavParams, 
+              public userProvider : UsersProvider, public toastCtrl:ToastController,
+              public formBuilder : FormBuilder, public loadingCtrl:LoadingController) {
+    this.showHide = false;            
+    this.loginForm = formBuilder.group({
+      username: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(3)])]
+    });
 
   }
 
@@ -30,19 +44,96 @@ export class LoginPage {
   }
 
   doLogin() {
+
+    this.loadingService("Collecting User Info..")
     let userLogin = {
       username : this.username.value,
       password : this.password.value
     };
 
-    var validateLogin = this.userProvider.validateUser(userLogin);
+    let mantab = JSON.stringify(userLogin);
+    console.log(mantab);
 
-    if( validateLogin == 'canLogin' ){
-      this.navCtrl.push(TabsPage, this.username);
-    }else{
-      this.presentToast();
-    }
+    this.userProvider.validateLogin(userLogin).subscribe(
+      (response:any) => {
+        this.loading.dismiss();
+        console.log(response);
+        // this.navCtrl.push(TabsPage, this.username);
+        this.navCtrl.push(TabsPage, userLogin);
+      },
+      (error:any) => {
+        console.log(error),
+        console.error(error.status),
+        console.error(error.statusText),
+        this.loading.dismiss()
+      }
+    );
+
+    // var validateLogin = this.userProvider.validateUser(userLogin);
+
+    // if( validateLogin == 'canLogin' ){
+    //   this.navCtrl.push(TabsPage, this.username);
+    // }else{
+    //   this.presentToast();
+    // }
     
+  }
+
+  //di jsonplaceholder ga bisa
+  doLoginFormData() {
+
+    let userLogin = new FormData();
+    userLogin.append('username', 'dasdas');
+    userLogin.append('password', 'asdasdad');
+
+
+    this.userProvider.validateLogin(userLogin).subscribe(
+      (response:any) => {
+
+        console.log(response);
+      },
+      (error:any) => {
+        console.log(error),
+        console.error(error.status),
+        console.error(error.statusText),
+        this.loading.dismiss()
+      }
+    );
+
+    // var validateLogin = this.userProvider.validateUser(userLogin);
+
+    // if( validateLogin == 'canLogin' ){
+    //   this.navCtrl.push(TabsPage, this.username);
+    // }else{
+    //   this.presentToast();
+    // }
+    
+  }
+
+  loadingService(message : string){
+    this.loading = this.loadingCtrl.create(
+      {
+        spinner : 'bubbles',
+        content : message
+      }
+    );
+    this.loading.present();
+  }
+
+  showHidePassword(){
+    this.showHide = !this.showHide;
+
+    if(this.showHide){
+      this.type = 'text';
+      console.log
+    }else{
+      this.type = 'password';
+    }
+
+  }
+  
+  validateIsEmpty(username:string , password:string){
+
   }
 
   presentToast(){

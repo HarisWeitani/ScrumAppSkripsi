@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 // import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { User } from '../../models/User';
 
 /*
   Generated class for the UsersProvider provider.
@@ -16,10 +17,12 @@ import { map, catchError } from 'rxjs/operators';
 export class UsersProvider {
 
   private baseUrl: string= "https://jsonplaceholder.typicode.com/users";
-  private postUrl: string= "https://jsonplaceholder.typicode.com/posts";
+  private postUrl: string= "https://jsonplaceholder.typicode.com/posts/";
 
   userNameLogin: string;
   email: string;
+
+  user: User;
 
   constructor(private http:HttpClient) {
     console.log('Hello UsersProvider Provider');
@@ -34,6 +37,11 @@ export class UsersProvider {
       return 'canLogin';
     }
 
+  }
+
+  validateLogin(userLogin : any) : Observable<any>{
+    console.log(userLogin);
+    return this.http.post(this.postUrl, userLogin);
   }
 
   getUsers(): Observable<any> {
@@ -83,7 +91,6 @@ export class UsersProvider {
     console.log(error);
     return Observable.throw(error.json().error || "Server Error.");
   }
-
 
   //unused tapi sayang dihapus
   // getUsers(): Observable<any> {
