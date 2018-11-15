@@ -50,6 +50,12 @@ var LoginPage = /** @class */ (function () {
     LoginPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad LoginPage');
     };
+    LoginPage.prototype.ionViewWillEnter = function () {
+        console.log('will enter');
+    };
+    LoginPage.prototype.ionViewDidEnter = function () {
+        console.log('Did enter');
+    };
     LoginPage.prototype.doLogin = function () {
         var _this = this;
         this.helperMethod.loadingService("Collecting User Info..");
@@ -224,6 +230,12 @@ var ReportPage = /** @class */ (function () {
         //   coeg => console.log(coeg));
         console.log('ionViewDidLoad ReportPage');
     };
+    ReportPage.prototype.ionViewWillEnter = function () {
+        console.log('will enter');
+    };
+    ReportPage.prototype.ionViewDidEnter = function () {
+        console.log('Did enter');
+    };
     ReportPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-report',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\report\reportPage.html"*/'<!--\n  Generated template for the ReportPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Report</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  REPORT COEKERS\n\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\report\reportPage.html"*/,
@@ -275,13 +287,13 @@ var TimeSheetPage = /** @class */ (function () {
         this.helperMethod = helperMethod;
     }
     TimeSheetPage.prototype.ionViewDidLoad = function () {
-        // this.timeSheetProvider.getPost()
-        //     .subscribe(
-        //         (data: TimeSheet) => this.timeSheet = {
-        //             ...data
-        //         }
-        //       );
         console.log('ionViewDidLoad TimeSheetPage');
+    };
+    TimeSheetPage.prototype.ionViewWillEnter = function () {
+        console.log('will enter');
+    };
+    TimeSheetPage.prototype.ionViewDidEnter = function () {
+        console.log('Did enter');
     };
     TimeSheetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
@@ -336,6 +348,12 @@ var UserPage = /** @class */ (function () {
         console.log('userNameLogin length : ', this.userProvider.user.$username.length.toString());
         console.log('ionViewDidLoad UserPage');
     };
+    UserPage.prototype.ionViewWillEnter = function () {
+        console.log('will enter');
+    };
+    UserPage.prototype.ionViewDidEnter = function () {
+        console.log('Did enter');
+    };
     UserPage.prototype.press = function () {
         var _this = this;
         this.helperMethod.loadingService('Getting All User..');
@@ -358,16 +376,16 @@ var UserPage = /** @class */ (function () {
         }, 3000);
     };
     UserPage.prototype.onItemCOEG = function () {
-        var postData = new FormData();
-        postData.append('userId', '1');
-        postData.append('title', 'juga');
-        postData.append('body', this.username);
+        var postData = {
+            username: 'coeg',
+            password: 'coeg2'
+        };
         var data;
+        console.log('here', JSON.stringify(this.userProvider.user));
         this.userProvider.doSave(postData).subscribe(function (response) {
             data = response;
             console.log(data);
         });
-        console.log(postData.get('body'));
     };
     UserPage.prototype.doLogout = function () {
         console.log('do Logout');
@@ -376,11 +394,10 @@ var UserPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
             selector: 'page-user',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\user\userPage.html"*/'<!--\n\n  Generated template for the UserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>User</ion-title>\n\n    <ion-buttons end >\n\n      <button ion-button icon-only (click)="doLogout()">\n\n        <ion-icon name="exit"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div class="north">\n\n    <img class="profile-photo" src="assets/imgs/user/profile_picture_example.jpg"> \n\n  </div>\n\n   \n\n  <div>\n\n    <ion-item>\n\n      <ion-label>{{userProvider.user.$username}}</ion-label>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>{{userProvider.user.$email}}</ion-label>\n\n    </ion-item>\n\n    <div padding>\n\n      <button ion-button color="primary" block (click)="press()">Tekan Aku Mas</button>\n\n    </div>\n\n  </div>\n\n\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let user of allUsers">\n\n      <ion-item (click)="onItemPressed({id: user.name})">\n\n        <ion-avatar item-left>\n\n          <img src="assets/imgs/user/profile_picture_example.jpg">\n\n        </ion-avatar>\n\n        <h2>{{user.name}}</h2>\n\n      </ion-item>\n\n      <ion-item-options>\n\n        <button ion-button color="danger" (click)="onItemCOEG()">\n\n          <ion-icon name="trash"></ion-icon> Delete\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\user\userPage.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__["a" /* UsersProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__["a" /* HelperMethodProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__["a" /* UsersProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__["a" /* UsersProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__["a" /* HelperMethodProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__["a" /* HelperMethodProvider */]) === "function" && _d || Object])
     ], UserPage);
     return UserPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=userPage.js.map
@@ -802,9 +819,10 @@ var UsersProvider = /** @class */ (function () {
     };
     UsersProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
     ], UsersProvider);
     return UsersProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=usersProvider.js.map

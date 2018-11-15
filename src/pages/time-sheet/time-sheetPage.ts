@@ -27,15 +27,13 @@ export class TimeSheetPage {
   }
 
   ionViewDidLoad() {
-  
-    // this.timeSheetProvider.getPost()
-    //     .subscribe(
-    //         (data: TimeSheet) => this.timeSheet = {
-    //             ...data
-    //         }
-    //       );
-
     console.log('ionViewDidLoad TimeSheetPage');
+  }
+  ionViewWillEnter(){
+    console.log('will enter');
+  }
+  ionViewDidEnter(){
+    console.log('Did enter');
   }
 
 }

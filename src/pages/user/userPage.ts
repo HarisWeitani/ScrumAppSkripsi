@@ -3,7 +3,6 @@ import { User } from '../../models/User';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/usersProvider';
-import { stringify } from '@angular/core/src/render3/util';
 
 /**
  * Generated class for the UserPage page.
@@ -40,6 +39,12 @@ export class UserPage {
     console.log('ionViewDidLoad UserPage');
 
   }
+  ionViewWillEnter(){
+    console.log('will enter');
+  }
+  ionViewDidEnter(){
+    console.log('Did enter');
+  }
 
   press(){
     this.helperMethod.loadingService('Getting All User..');
@@ -67,20 +72,20 @@ export class UserPage {
   }
 
   onItemCOEG(){
-    let postData = new FormData();
-    postData.append('userId', '1');
-    postData.append('title','juga');
-    postData.append('body',this.username);
+
+    let postData = {
+      username : 'coeg',
+      password : 'coeg2'
+    };
 
     let data : any;
-
+    console.log('here',JSON.stringify(this.userProvider.user));
     this.userProvider.doSave(postData).subscribe(
       response => {
         data = response;
         console.log(data);
       }
     )
-    console.log(postData.get('body'));
   }
 
 

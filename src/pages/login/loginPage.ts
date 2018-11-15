@@ -32,7 +32,10 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public navParames: NavParams, 
               public userProvider : UsersProvider, public toastCtrl:ToastController,
               public formBuilder : FormBuilder,
-              public helperMethod : HelperMethodProvider) {
+              public helperMethod : HelperMethodProvider
+              ) {
+
+    
     this.showHide = false;            
     this.loginForm = formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
@@ -43,6 +46,12 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+  ionViewWillEnter(){
+    console.log('will enter');
+  }
+  ionViewDidEnter(){
+    console.log('Did enter');
   }
 
   doLogin() {
@@ -97,6 +106,7 @@ export class LoginPage {
     );
 
   }
+  
   showHidePassword(){
     this.showHide = !this.showHide;
 

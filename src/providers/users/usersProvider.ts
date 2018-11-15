@@ -47,7 +47,7 @@ export class UsersProvider {
   }
 
 
-  doSave(user: FormData): Observable<any> {
+  doSave(user: any): Observable<any> {
     console.log(user);
     return this.http.post(this.postUrl, user);
     // let result: Observable<Object>;

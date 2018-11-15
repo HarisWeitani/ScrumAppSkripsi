@@ -31,5 +31,11 @@ export class ReportPage {
     //   coeg => console.log(coeg));
     console.log('ionViewDidLoad ReportPage');
   }
+  ionViewWillEnter(){
+    console.log('will enter');
+  }
+  ionViewDidEnter(){
+    console.log('Did enter');
+  }
 
 }
