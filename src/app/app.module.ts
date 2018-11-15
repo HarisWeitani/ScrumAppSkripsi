@@ -7,11 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { MainPage } from '../pages/main/main';
-import { LoginPage } from '../pages/login/login';
+import { LoginPage } from '../pages/login/loginPage';
 import { TabsPage } from '../pages/tabs/tabs';
-import { ReportPage } from '../pages/report/report';
-import { TimeSheetPage } from '../pages/time-sheet/time-sheet';
-import { UserPage } from '../pages/user/user';
+import { ReportPage } from '../pages/report/reportPage';
+import { TimeSheetPage } from '../pages/time-sheet/time-sheetPage';
+import { UserPage } from '../pages/user/userPage';
 import { UsersProvider } from '../providers/users/usersProvider';
 import { TimesheetsProvider } from '../providers/timesheets/timesheetsProvider';
 

@@ -19,24 +19,10 @@ export class UsersProvider {
   private baseUrl: string= "https://jsonplaceholder.typicode.com/users";
   private postUrl: string= "https://jsonplaceholder.typicode.com/posts/";
 
-  userNameLogin: string;
-  email: string;
-
   user: User;
 
   constructor(private http:HttpClient) {
     console.log('Hello UsersProvider Provider');
-  }
-
-  validateUser(userLogin){
-
-    if( userLogin.username != "" && userLogin.password != "" ){
-       
-      this.userNameLogin = userLogin.username;
-      
-      return 'canLogin';
-    }
-
   }
 
   validateLogin(userLogin : any) : Observable<any>{
@@ -91,20 +77,5 @@ export class UsersProvider {
     console.log(error);
     return Observable.throw(error.json().error || "Server Error.");
   }
-
-  //unused tapi sayang dihapus
-  // getUsers(): Observable<any> {
-  //   let data = this.http.get(this.baseUrl)
-  //       .pipe(map(this.extractData),
-  //       catchError(this.handleError)
-  //    );
-  //    data.subscribe(coeg => {
-  //      this.userData = new User(coeg.name, coeg.email),
-  //      console.log('data : ', this.userData ),
-  //      this.username = this.userData.$username,
-  //       this.email = this.userData.$email
-  //     }
-  //    );
-  //   return data;
-  // }
+  
 }

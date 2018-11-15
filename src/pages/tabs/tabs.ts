@@ -1,9 +1,9 @@
 import { UsersProvider } from './../../providers/users/usersProvider';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ReportPage } from '../report/report';
-import { TimeSheetPage } from '../time-sheet/time-sheet';
-import { UserPage } from '../user/user';
+import { ReportPage } from '../report/reportPage';
+import { TimeSheetPage } from '../time-sheet/time-sheetPage';
+import { UserPage } from '../user/userPage';
 import { User } from '../../models/User';
 /**
  * Generated class for the TabsPage tabs.
