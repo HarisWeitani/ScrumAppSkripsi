@@ -1,3 +1,4 @@
+import { HelperMethodProvider } from './../providers/helper-method/helper-method';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -46,7 +47,8 @@ import { TimesheetsProvider } from '../providers/timesheets/timesheetsProvider';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UsersProvider,
-    TimesheetsProvider
+    TimesheetsProvider,
+    HelperMethodProvider
   ]
 })
 export class AppModule { }

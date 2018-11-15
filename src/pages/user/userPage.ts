@@ -1,3 +1,4 @@
+import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
 import { User } from '../../models/User';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
@@ -23,62 +24,29 @@ export class UserPage {
   allUsers : Array<any>;
   username : string;
   email : string;
-  loading : any;
+  // loading : any;
   
   error : any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-              public userProvider : UsersProvider, public loadingCtrl: LoadingController ) {
+              public userProvider : UsersProvider,
+              public helperMethod:HelperMethodProvider ) {
 
   }
 
   ionViewDidLoad() {
-
-    // this.loadingService('Loading...');
-
-    // this.userProvider.getOneUserById(this.userProvider.user.$username.length.toString())
-    //     .subscribe( 
-    //         (user:any) => {
-    //             this.userData = new User(user.name,user.email),
-    //             this.userProvider.user = new User(user.name,user.email);
-    //             // this.username = this.userData.$username,
-    //             // this.email = this.userData.$email,
-    //             this.username = this.userProvider.user.$username,
-    //             this.email = this.userProvider.user.$email,
-    //             this.loading.dismiss()
-    //         }, 
-    //         (error:any) => {
-    //           console.log(error),
-    //           console.error(error.status),
-    //           console.error(error.statusText),
-    //           this.loading.dismiss(),
-    //           this.username = 'Unknown',
-    //           this.email = 'Unknown'
-    //         }
-            
-    //   );
  
     console.log('userNameLogin length : ',this.userProvider.user.$username.length.toString());
     console.log('ionViewDidLoad UserPage');
 
   }
 
-  loadingService(message : string){
-    this.loading = this.loadingCtrl.create(
-      {
-        spinner : 'bubbles',
-        content : message
-      }
-    );
-    this.loading.present();
-  }
-
   press(){
-    this.loadingService('Getting All User..');
+    this.helperMethod.loadingService('Getting All User..');
     this.userProvider.getUsers().subscribe(
       allUser => {
         this.allUsers = allUser;
-        this.loading.dismiss();
+        this.helperMethod.loading.dismiss();
       }
     );
     console.log(this.userData);
@@ -87,26 +55,13 @@ export class UserPage {
   onItemPressed(userId){
     console.log('On Item Pressed',userId);
 
-    let loading = this.loadingCtrl.create(
-      {
-        spinner : 'bubbles',
-        content : 'mohon tunggu...'
-      } 
-    );
-
-    loading.present();
-    setTimeout(() =>{
-      loading.dismiss();
-      loading = this.loadingCtrl.create(
-        {
-          spinner : 'dots',
-          content : 'anda kurang beruntung'
-        }
-      );
-      loading.present();
-      setTimeout(() => {
-        loading.dismiss();
-      }, 1000);
+    this.helperMethod.loadingService('Harap tunggu');
+    setTimeout(()=>{
+      this.helperMethod.loading.dismiss();
+      this.helperMethod.loadingService('Coba Lagi..');
+      setTimeout(()=>{
+        this.helperMethod.loading.dismiss();
+      },1000);
     },3000);
 
   }

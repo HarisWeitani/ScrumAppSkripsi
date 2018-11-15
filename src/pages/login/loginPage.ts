@@ -3,6 +3,7 @@ import { UsersProvider } from '../../providers/users/usersProvider';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HelperMethodProvider } from '../../providers/helper-method/helper-method';
 
 /**
  * Generated class for the LoginPage page.
@@ -30,7 +31,8 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParames: NavParams, 
               public userProvider : UsersProvider, public toastCtrl:ToastController,
-              public formBuilder : FormBuilder, public loadingCtrl:LoadingController) {
+              public formBuilder : FormBuilder,
+              public helperMethod : HelperMethodProvider) {
     this.showHide = false;            
     this.loginForm = formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
@@ -45,7 +47,7 @@ export class LoginPage {
 
   doLogin() {
 
-    this.loadingService("Collecting User Info..");
+    this.helperMethod.loadingService("Collecting User Info..");
     let userLogin = {
       username : this.username.value,
       password : this.password.value
@@ -53,16 +55,21 @@ export class LoginPage {
 
     this.userProvider.validateLogin(userLogin).subscribe(
       (response:any) => {
-        this.loading.dismiss();
+        this.helperMethod.loading.dismiss();
         console.log(response);
-        this.navCtrl.push(TabsPage, response);
+        if(response.id == 101){
+          this.navCtrl.push(TabsPage, response);
+        }else{
+          this.helperMethod.presentToast('Login Gagal 9999:Hubungi Team IT',2000,3);
+        }
+        
       },
       (error:any) => {
         console.log(error);
         console.error(error.status);
         console.error(error.statusText);
         this.loading.dismiss();
-        this.presentToast();
+        this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',2000,3);
       }
     );
 
@@ -90,17 +97,6 @@ export class LoginPage {
     );
 
   }
-
-  loadingService(message : string){
-    this.loading = this.loadingCtrl.create(
-      {
-        spinner : 'bubbles',
-        content : message
-      }
-    );
-    this.loading.present();
-  }
-
   showHidePassword(){
     this.showHide = !this.showHide;
 
@@ -113,15 +109,5 @@ export class LoginPage {
 
   }
 
-  presentToast(){
-    let toast = this.toastCtrl.create({
-      message: 'Login Gagal 9999: Hubungi Administrator',
-      duration: 2000,
-      position: 'bottom'
-    });
-
-    toast.present();
-
-  }
 
 }

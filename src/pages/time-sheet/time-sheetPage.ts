@@ -1,3 +1,4 @@
+import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
 import { TimeSheet } from '../../models/TimeSheet';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -21,7 +22,7 @@ export class TimeSheetPage {
   timeSheet : TimeSheet;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-              public timeSheetProvider : TimesheetsProvider) {
+              public timeSheetProvider : TimesheetsProvider, public helperMethod:HelperMethodProvider) {
 
   }
 
