@@ -1,10 +1,10 @@
 import { UsersProvider } from './../../providers/users/usersProvider';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { ReportPage } from '../report/reportPage';
 import { TimeSheetPage } from '../time-sheet/time-sheetPage';
 import { UserPage } from '../user/userPage';
-import { User } from '../../models/User';
+
 /**
  * Generated class for the TabsPage tabs.
  *
@@ -25,15 +25,21 @@ export class TabsPage {
 
 
   constructor(public navCtrl: NavController, public navPrm:NavParams, 
-    public userProvider : UsersProvider) {
-      
-      userProvider.user = new User(navPrm.data.username, navPrm.data.password);
-      console.log('Tab ',  navPrm.data);
+    public userProvider : UsersProvider, public app:App) {
 
   }
 
   ionViewDidLoad(){
     console.log('TabsPage IonViewLoad');
+  }
+  ionViewWillEnter(){
+    console.log('will enter');
+  }
+  ionViewDidEnter(){
+    console.log('Did enter');
+  }
+  ionViewDidLeave(){
+    console.log('Did Leave');
   }
 
 }

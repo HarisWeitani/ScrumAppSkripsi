@@ -25674,6 +25674,10 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-login #loginButton {
+  padding: 16px;
+}
+
 page-user .profile-photo {
   width: 50%;
   height: 50%;

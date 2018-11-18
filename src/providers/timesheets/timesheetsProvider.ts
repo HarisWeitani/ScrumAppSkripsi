@@ -1,7 +1,8 @@
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TimeSheet } from '../../models/TimeSheet';
-
+import { map, catchError } from 'rxjs/operators';
 /*
   Generated class for the TimesheetsProvider provider.
 
@@ -11,14 +12,46 @@ import { TimeSheet } from '../../models/TimeSheet';
 @Injectable()
 export class TimesheetsProvider {
   
-  private postUrl: string= "https://jsonplaceholder.typicode.com/posts";
+  private baseUrl: string= "https://jsonplaceholder.typicode.com/posts";
 
   constructor(public http: HttpClient) {
     console.log('Hello TimesheetsProvider Provider');
+    
   }
 
-  getPost(){
-    // return this.http.get<TimeSheet>(this.postUrl);
+  getAllTimeSheetsByUserLoggedIn(user:any): Observable<any> {
+    // return this.http.post(this.baseUrl,user)
+    //         .pipe(map(this.extractData),
+    //         catchError(this.handleError)
+    // );
+    
+    //testing purpose
+    return this.http.get(this.baseUrl)
+            .pipe(map(this.extractData),
+            catchError(this.handleError)
+    );
   }
 
+  //helping method
+  private extractData(res: Response) {
+    let body = res;
+    return body || { };
+  }
+  private handleError (error: Response | any) {
+    let errMsg: string;
+    if (error instanceof Response) {
+      const err = error || '';
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    console.error(error.status);
+    console.error(error.statusText);
+    console.error(errMsg);
+    return Observable.throw(error);
+  }
+  private catchError(error : Response | any){
+    console.log(error);
+    return Observable.throw(error.json().error || "Server Error.");
+  }
 }

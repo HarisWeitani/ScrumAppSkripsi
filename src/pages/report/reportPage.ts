@@ -2,7 +2,7 @@ import { HelperMethodProvider } from './../../providers/helper-method/helper-met
 import { UsersProvider } from '../../providers/users/usersProvider';
 import { User } from '../../models/User';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, Events } from 'ionic-angular';
 
 /**
  * Generated class for the ReportPage page.
@@ -21,15 +21,12 @@ export class ReportPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public userProvider : UsersProvider,
-              public helperMethod: HelperMethodProvider ) {
+              public helperMethod: HelperMethodProvider, public app:App , public events:Events) {
+    
   }
 
   ionViewDidLoad() {
-
-    // this.userProvider.getCountries()
-    // .subscribe(
-    //   coeg => console.log(coeg));
-    console.log('ionViewDidLoad ReportPage');
+    console.log('ionViewDidLoad ReportPage ');
   }
   ionViewWillEnter(){
     console.log('will enter');

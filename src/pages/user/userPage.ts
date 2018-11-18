@@ -1,7 +1,7 @@
 import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
 import { User } from '../../models/User';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/usersProvider';
 
 /**
@@ -24,18 +24,16 @@ export class UserPage {
   username : string;
   email : string;
   // loading : any;
-  
   error : any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public userProvider : UsersProvider,
-              public helperMethod:HelperMethodProvider ) {
+              public helperMethod:HelperMethodProvider,
+              public events:Events) {
 
   }
 
   ionViewDidLoad() {
- 
-    console.log('userNameLogin length : ',this.userProvider.user.$username.length.toString());
     console.log('ionViewDidLoad UserPage');
 
   }
@@ -87,10 +85,9 @@ export class UserPage {
       }
     )
   }
-
-
+  
   doLogout(){
-    console.log('do Logout');
+    this.events.publish('Auth',0);
   }
 
 }

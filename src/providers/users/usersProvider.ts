@@ -27,18 +27,20 @@ export class UsersProvider {
 
   validateLogin(userLogin : any) : Observable<any>{
     console.log(userLogin);
-    return this.http.post(this.postUrl, userLogin);
+    return this.http.post(this.postUrl, userLogin)
+          .pipe(map(this.extractData),
+          catchError(this.handleError)
+      );
   }
-
+  
   getUsers(): Observable<any> {
-
     return this.http.get(this.baseUrl)
         .pipe(map(this.extractData),
               catchError(this.handleError)
     );
   }
 
-  getOneUserById(id:string){
+  getOneUserById(id:string):Observable<any>{
 
     return this.http.get(this.baseUrl + '/' + id)
         .pipe(map(this.extractData),
@@ -49,10 +51,11 @@ export class UsersProvider {
 
   doSave(user: any): Observable<any> {
     console.log(user);
-    return this.http.post(this.postUrl, user);
-    // let result: Observable<Object>;
-    // result = this.http.post(this.baseUrl, user)
-    // return result.catch(error => Observable.throw(error));
+    return this.http.post(this.postUrl, user)
+          .pipe(map(this.extractData),
+          catchError(this.handleError)
+      );
+
   }
 
   //helping method

@@ -1,9 +1,10 @@
-import { TabsPage } from '../tabs/tabs';
 import { UsersProvider } from '../../providers/users/usersProvider';
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController,Events } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HelperMethodProvider } from '../../providers/helper-method/helper-method';
+import { User } from '../../models/User';
+import { TimeoutError } from 'rxjs';
 
 /**
  * Generated class for the LoginPage page.
@@ -22,30 +23,33 @@ export class LoginPage {
   @ViewChild('username') username;
   @ViewChild('password') password;
   
-  loading : any;
+  // loading : any;
   loginForm : FormGroup;
 
   showHide : boolean;
   type = 'password';
 
+  usernameDefaultVal : string;
 
   constructor(public navCtrl: NavController, public navParames: NavParams, 
               public userProvider : UsersProvider, public toastCtrl:ToastController,
               public formBuilder : FormBuilder,
-              public helperMethod : HelperMethodProvider
+              public helperMethod : HelperMethodProvider,
+              public events : Events
               ) {
-
-    
     this.showHide = false;            
     this.loginForm = formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(3)])]
     });
-
+    
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    if(this.userProvider.user != null){
+      this.usernameDefaultVal = this.userProvider.user.$username;
+    }
+    console.log('ionViewDidLoad LoginPage ');
   }
   ionViewWillEnter(){
     console.log('will enter');
@@ -62,23 +66,31 @@ export class LoginPage {
       password : this.password.value
     };
 
-    this.userProvider.validateLogin(userLogin).subscribe(
+    this.userProvider.validateLogin(userLogin).timeout(5000).subscribe(
       (response:any) => {
         this.helperMethod.loading.dismiss();
         console.log(response);
         if(response.id == 101){
-          this.navCtrl.push(TabsPage, response);
+          this.userProvider.user = new User(userLogin.username,userLogin.password);
+          this.events.publish('Auth',1);
         }else{
-          this.helperMethod.presentToast('Login Gagal 9999:Hubungi Team IT',2000,3);
+          this.helperMethod.presentToast('User Not Found',2000,3);
         }
         
       },
       (error:any) => {
         console.log(error);
+        console.error(error.name);
         console.error(error.status);
         console.error(error.statusText);
-        this.loading.dismiss();
-        this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',2000,3);
+        this.helperMethod.loading.dismiss();
+
+        if(error.name == 'TimeoutError'){
+          this.helperMethod.presentToast('Slow Connection',2000,2);
+        }else{
+          this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',2000,3);
+        }
+        
       }
     );
 
@@ -94,14 +106,13 @@ export class LoginPage {
 
     this.userProvider.validateLogin(userLogin).subscribe(
       (response:any) => {
-
         console.log(response);
       },
       (error:any) => {
         console.log(error),
         console.error(error.status),
         console.error(error.statusText),
-        this.loading.dismiss()
+        this.helperMethod.loading.dismiss()
       }
     );
 
@@ -119,5 +130,5 @@ export class LoginPage {
 
   }
 
-
+  
 }

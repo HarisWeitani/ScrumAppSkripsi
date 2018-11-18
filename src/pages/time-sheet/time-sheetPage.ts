@@ -1,8 +1,8 @@
+import { UsersProvider } from './../../providers/users/usersProvider';
 import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
 import { TimeSheet } from '../../models/TimeSheet';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { User } from '../../models/User';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { TimesheetsProvider } from '../../providers/timesheets/timesheetsProvider';
 
 /**
@@ -21,12 +21,38 @@ export class TimeSheetPage {
 
   timeSheet : TimeSheet;
 
+  timeSheetDataList : Array<any>;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-              public timeSheetProvider : TimesheetsProvider, public helperMethod:HelperMethodProvider) {
+              public timeSheetProvider : TimesheetsProvider, public helperMethod:HelperMethodProvider,
+              public userProvider : UsersProvider,
+              public events: Events) {
 
   }
 
   ionViewDidLoad() {
+    this.helperMethod.loadingService('Getting Your Data Please Wait...');
+    let userLoggedIn = {
+      username : this.userProvider.user.$username,
+      password : this.userProvider.user.$email
+    }
+
+    this.timeSheetProvider.getAllTimeSheetsByUserLoggedIn(userLoggedIn)
+        .subscribe(
+          (response:any) => {
+            this.helperMethod.loading.dismiss();
+            this.timeSheetDataList = response;
+            console.log(response);
+          },
+          (error:any) => {
+            console.log(error);
+            console.error(error.status);
+            console.error(error.statusText);
+            this.helperMethod.loading.dismiss();
+            this.helperMethod.presentToast('Gagal 9999: Jangan Hubungi Team IT',2000,3);
+          }
+        )
+
     console.log('ionViewDidLoad TimeSheetPage');
   }
   ionViewWillEnter(){
@@ -34,6 +60,13 @@ export class TimeSheetPage {
   }
   ionViewDidEnter(){
     console.log('Did enter');
+  }
+
+  onItemPressed(itemId){
+    console.log(itemId);
+  }
+  onItemSlidePressed(){
+    console.log('On Item Slide Pressed');
   }
 
 }
