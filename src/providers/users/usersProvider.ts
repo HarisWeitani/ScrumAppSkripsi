@@ -25,6 +25,15 @@ export class UsersProvider {
     console.log('Hello UsersProvider Provider');
   }
 
+  testerMethod() : Observable<any>{
+    
+    return this.http.get('assets/jsonFile/personResponse.json')
+              .pipe(map(this.extractData),
+                    catchError(this.handleError)
+              );
+
+  }
+
   validateLogin(userLogin : any) : Observable<any>{
     console.log(userLogin);
     return this.http.post(this.postUrl, userLogin)
@@ -54,7 +63,7 @@ export class UsersProvider {
     return this.http.post(this.postUrl, user)
           .pipe(map(this.extractData),
           catchError(this.handleError)
-      );
+    );
 
   }
 

@@ -16,6 +16,12 @@
 <ion-content padding>
 
   REPORT COEKERS
+  <ion-list [virtualScroll]="items">
 
+    <ion-item *virtualItem="let item" (click)="onItemPressed({id: item})">
+      {{ item }}
+    </ion-item>
+  
+  </ion-list>
 
 </ion-content>

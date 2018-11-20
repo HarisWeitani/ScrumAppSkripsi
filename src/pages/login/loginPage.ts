@@ -3,8 +3,9 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController,Events } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HelperMethodProvider } from '../../providers/helper-method/helper-method';
-import { User } from '../../models/User';
 import { TimeoutError } from 'rxjs';
+import { stringify } from '@angular/compiler/src/util';
+import { User } from '../../models/User';
 
 /**
  * Generated class for the LoginPage page.
@@ -22,10 +23,8 @@ export class LoginPage {
 
   @ViewChild('username') username;
   @ViewChild('password') password;
-  
-  // loading : any;
-  loginForm : FormGroup;
 
+  loginForm : FormGroup;
   showHide : boolean;
   type = 'password';
 
@@ -59,7 +58,6 @@ export class LoginPage {
   }
 
   doLogin() {
-
     this.helperMethod.loadingService("Collecting User Info..");
     let userLogin = {
       username : this.username.value,
@@ -93,7 +91,31 @@ export class LoginPage {
         
       }
     );
+      
+  }
 
+
+  getOneUser(){
+    // let company = {
+    //   bs : String,
+    //   catchPhrase : String,
+    //   name : String
+    // }
+
+    this.userProvider.getUsers().subscribe(
+      (response:any) =>{
+        console.log(response);
+      }
+    );
+  }
+
+  getCustomJson(){  
+    this.userProvider.testerMethod().subscribe(
+      (response:any)=>{
+        console.log(response);
+        console.log(response.testing[1]);
+      }
+    );
   }
 
   //di jsonplaceholder ga bisa

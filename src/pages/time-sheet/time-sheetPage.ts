@@ -21,7 +21,7 @@ export class TimeSheetPage {
 
   timeSheet : TimeSheet;
 
-  timeSheetDataList : Array<any>;
+  timeSheetDataList : Array<TimeSheet>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public timeSheetProvider : TimesheetsProvider, public helperMethod:HelperMethodProvider,

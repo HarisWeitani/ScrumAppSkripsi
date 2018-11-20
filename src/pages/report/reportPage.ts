@@ -18,6 +18,7 @@ import { IonicPage, NavController, NavParams, App, Events } from 'ionic-angular'
 })
 export class ReportPage {
 
+  items : any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public userProvider : UsersProvider,
@@ -26,6 +27,7 @@ export class ReportPage {
   }
 
   ionViewDidLoad() {
+    this.getCustomJson();
     console.log('ionViewDidLoad ReportPage ');
   }
   ionViewWillEnter(){
@@ -33,6 +35,21 @@ export class ReportPage {
   }
   ionViewDidEnter(){
     console.log('Did enter');
+  }
+
+  getCustomJson(){  
+    this.userProvider.testerMethod().subscribe(
+      (response:any)=>{
+        console.log(response);
+        this.items = response.list_of_project;
+        console.log(this.items);
+      }
+    );
+  }
+
+  onItemPressed(userId){
+    console.log('On Item Pressed',userId);
+
   }
 
 }
