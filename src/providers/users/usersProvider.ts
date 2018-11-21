@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { User } from '../../models/User';
+import { HelperMethodProvider } from '../helper-method/helper-method';
 
 /*
   Generated class for the UsersProvider provider.
@@ -21,13 +22,13 @@ export class UsersProvider {
 
   user: User;
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private helperMethod : HelperMethodProvider) {
     console.log('Hello UsersProvider Provider');
   }
 
   testerMethod() : Observable<any>{
     
-    return this.http.get('assets/jsonFile/personResponse.json')
+    return this.http.get(this.helperMethod.personUrl)
               .pipe(map(this.extractData),
                     catchError(this.handleError)
               );
@@ -36,7 +37,11 @@ export class UsersProvider {
 
   validateLogin(userLogin : any) : Observable<any>{
     console.log(userLogin);
-    return this.http.post(this.postUrl, userLogin)
+    // return this.http.post(this.postUrl, userLogin)
+    //       .pipe(map(this.extractData),
+    //       catchError(this.handleError)
+    //   );
+    return this.http.get(this.helperMethod.personUrl)
           .pipe(map(this.extractData),
           catchError(this.handleError)
       );

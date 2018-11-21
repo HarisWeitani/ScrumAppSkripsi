@@ -45,9 +45,6 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    if(this.userProvider.user != null){
-      this.usernameDefaultVal = this.userProvider.user.$username;
-    }
     console.log('ionViewDidLoad LoginPage ');
   }
   ionViewWillEnter(){
@@ -58,6 +55,7 @@ export class LoginPage {
   }
 
   doLogin() {
+
     this.helperMethod.loadingService("Collecting User Info..");
     let userLogin = {
       username : this.username.value,
@@ -68,12 +66,14 @@ export class LoginPage {
       (response:any) => {
         this.helperMethod.loading.dismiss();
         console.log(response);
-        if(response.id == 101){
-          this.userProvider.user = new User(userLogin.username,userLogin.password);
-          this.events.publish('Auth',1);
-        }else{
-          this.helperMethod.presentToast('User Not Found',2000,3);
-        }
+        // if(response.id == 101){
+        //   this.userProvider.user = new User(userLogin.username,userLogin.password);
+        //   this.events.publish('Auth',1);
+        // }else{
+        //   this.helperMethod.presentToast('User Not Found',2000,3);
+        // }
+        this.userProvider.user = response;
+        this.events.publish('Auth',1);
         
       },
       (error:any) => {
@@ -113,7 +113,6 @@ export class LoginPage {
     this.userProvider.testerMethod().subscribe(
       (response:any)=>{
         console.log(response);
-        console.log(response.testing[1]);
       }
     );
   }

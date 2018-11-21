@@ -32,9 +32,10 @@ export class TimeSheetPage {
 
   ionViewDidLoad() {
     this.helperMethod.loadingService('Getting Your Data Please Wait...');
+
     let userLoggedIn = {
-      username : this.userProvider.user.$username,
-      password : this.userProvider.user.$email
+      username : this.userProvider.user.person_name,
+      password : this.userProvider.user.job_name
     }
 
     this.timeSheetProvider.getAllTimeSheetsByUserLoggedIn(userLoggedIn)
@@ -43,6 +44,7 @@ export class TimeSheetPage {
             this.helperMethod.loading.dismiss();
             this.timeSheetDataList = response;
             console.log(response);
+            this.timeSheetHeaderFn(this.timeSheetDataList);
           },
           (error:any) => {
             console.log(error);
@@ -55,6 +57,17 @@ export class TimeSheetPage {
 
     console.log('ionViewDidLoad TimeSheetPage');
   }
+  
+  timeSheetHeaderFn(dataList) {
+    let sortedData = dataList.sort();
+    console.log(sortedData);
+    return 1;
+    // if (recordIndex % 2 === 0) {
+    //   return recordIndex;
+    // }
+    // return null;
+  }
+
   ionViewWillEnter(){
     console.log('will enter');
   }
@@ -67,6 +80,9 @@ export class TimeSheetPage {
   }
   onItemSlidePressed(){
     console.log('On Item Slide Pressed');
+  }
+  doAdd(){
+    console.log("Add Button Pressed");
   }
 
 }

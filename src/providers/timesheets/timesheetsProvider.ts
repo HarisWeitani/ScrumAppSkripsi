@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TimeSheet } from '../../models/TimeSheet';
 import { map, catchError } from 'rxjs/operators';
+import { HelperMethodProvider } from '../helper-method/helper-method';
 /*
   Generated class for the TimesheetsProvider provider.
 
@@ -14,7 +15,7 @@ export class TimesheetsProvider {
   
   private baseUrl: string= "https://jsonplaceholder.typicode.com/posts";
 
-  constructor(public http: HttpClient) {
+  constructor(private http: HttpClient, private helperMethod :HelperMethodProvider) {
     console.log('Hello TimesheetsProvider Provider');
     
   }
@@ -26,7 +27,7 @@ export class TimesheetsProvider {
     // );
     
     //testing purpose
-    return this.http.get(this.baseUrl)
+    return this.http.get(this.helperMethod.timeSheetUrl)
             .pipe(map(this.extractData),
             catchError(this.handleError)
     );

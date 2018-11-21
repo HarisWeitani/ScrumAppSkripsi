@@ -5,12 +5,11 @@ webpackJsonp([6],{
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_helper_method_helper_method__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_User__ = __webpack_require__(659);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_helper_method_helper_method__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,7 +19,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -49,9 +47,6 @@ var LoginPage = /** @class */ (function () {
         });
     }
     LoginPage.prototype.ionViewDidLoad = function () {
-        if (this.userProvider.user != null) {
-            this.usernameDefaultVal = this.userProvider.user.$username;
-        }
         console.log('ionViewDidLoad LoginPage ');
     };
     LoginPage.prototype.ionViewWillEnter = function () {
@@ -70,13 +65,14 @@ var LoginPage = /** @class */ (function () {
         this.userProvider.validateLogin(userLogin).timeout(5000).subscribe(function (response) {
             _this.helperMethod.loading.dismiss();
             console.log(response);
-            if (response.id == 101) {
-                _this.userProvider.user = new __WEBPACK_IMPORTED_MODULE_5__models_User__["a" /* User */](userLogin.username, userLogin.password);
-                _this.events.publish('Auth', 1);
-            }
-            else {
-                _this.helperMethod.presentToast('User Not Found', 2000, 3);
-            }
+            // if(response.id == 101){
+            //   this.userProvider.user = new User(userLogin.username,userLogin.password);
+            //   this.events.publish('Auth',1);
+            // }else{
+            //   this.helperMethod.presentToast('User Not Found',2000,3);
+            // }
+            _this.userProvider.user = response;
+            _this.events.publish('Auth', 1);
         }, function (error) {
             console.log(error);
             console.error(error.name);
@@ -104,7 +100,6 @@ var LoginPage = /** @class */ (function () {
     LoginPage.prototype.getCustomJson = function () {
         this.userProvider.testerMethod().subscribe(function (response) {
             console.log(response);
-            console.log(response.testing[1]);
         });
     };
     //di jsonplaceholder ga bisa
@@ -162,8 +157,8 @@ var LoginPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(29);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -235,7 +230,7 @@ var ReportPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__report_reportPage__ = __webpack_require__(154);
@@ -303,8 +298,8 @@ var TabsPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimeSheetPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_timesheets_timesheetsProvider__ = __webpack_require__(308);
@@ -341,14 +336,15 @@ var TimeSheetPage = /** @class */ (function () {
         var _this = this;
         this.helperMethod.loadingService('Getting Your Data Please Wait...');
         var userLoggedIn = {
-            username: this.userProvider.user.$username,
-            password: this.userProvider.user.$email
+            username: this.userProvider.user.person_name,
+            password: this.userProvider.user.job_name
         };
         this.timeSheetProvider.getAllTimeSheetsByUserLoggedIn(userLoggedIn)
             .subscribe(function (response) {
             _this.helperMethod.loading.dismiss();
             _this.timeSheetDataList = response;
             console.log(response);
+            _this.timeSheetHeaderFn(_this.timeSheetDataList);
         }, function (error) {
             console.log(error);
             console.error(error.status);
@@ -357,6 +353,15 @@ var TimeSheetPage = /** @class */ (function () {
             _this.helperMethod.presentToast('Gagal 9999: Jangan Hubungi Team IT', 2000, 3);
         });
         console.log('ionViewDidLoad TimeSheetPage');
+    };
+    TimeSheetPage.prototype.timeSheetHeaderFn = function (dataList) {
+        var sortedData = dataList.sort();
+        console.log(sortedData);
+        return 1;
+        // if (recordIndex % 2 === 0) {
+        //   return recordIndex;
+        // }
+        // return null;
     };
     TimeSheetPage.prototype.ionViewWillEnter = function () {
         console.log('will enter');
@@ -370,9 +375,12 @@ var TimeSheetPage = /** @class */ (function () {
     TimeSheetPage.prototype.onItemSlidePressed = function () {
         console.log('On Item Slide Pressed');
     };
+    TimeSheetPage.prototype.doAdd = function () {
+        console.log("Add Button Pressed");
+    };
     TimeSheetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-time-sheet',template:/*ion-inline-start:"G:\Ionic Project\ScrumAppSkripsi\src\pages\time-sheet\time-sheetPage.html"*/'<!--\n\n  Generated template for the TimeSheetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>TimeSheet</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let data of timeSheetDataList">\n\n      <ion-item (click)="onItemPressed({id : data.title})" text-wrap> \n\n        <ion-avatar item-left>\n\n          <img src="assets/imgs/user/profile_picture_example.jpg">\n\n        </ion-avatar>\n\n          <h2>{{data.title}}</h2>\n\n          <h2>{{data.id}} {{data.userId}}</h2>\n\n      </ion-item>\n\n      <ion-item-options>\n\n        <button ion-button color="danger" (click)="onItemSlidePressed()">\n\n          <ion-icon name="trash"></ion-icon> Delete\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"G:\Ionic Project\ScrumAppSkripsi\src\pages\time-sheet\time-sheetPage.html"*/,
+            selector: 'page-time-sheet',template:/*ion-inline-start:"G:\Ionic Project\ScrumAppSkripsi\src\pages\time-sheet\time-sheetPage.html"*/'<!--\n\n  Generated template for the TimeSheetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>TimeSheet</ion-title>\n\n    <ion-buttons end >\n\n        <button ion-button icon-only (click)="doAdd()">\n\n          <ion-icon name="add"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <!-- <ion-list [virtualScroll]="timeSheetDataList" [headerFn]="timeSheetHeaderFn">\n\n\n\n    <ion-item-divider *virtualHeader="let header" light>\n\n      <h2>Header : {{ header }}</h2>\n\n    </ion-item-divider> -->\n\n\n\n    <ion-list [virtualScroll]="timeSheetDataList">\n\n    \n\n    <!-- <ion-item-sliding *ngFor="let data of timeSheetDataList"> -->\n\n    <ion-item-sliding *virtualItem="let data"> \n\n        \n\n        <ion-item  (click)="onItemPressed({id : data.time_sheet_id})" text-wrap> \n\n          <h2>{{data.time_sheet_id}} {{data.today_act}}</h2>\n\n        </ion-item>\n\n        <ion-item-options>\n\n          <button ion-button color="danger" (click)="onItemSlidePressed()">\n\n            <ion-icon name="trash"></ion-icon> Delete\n\n          </button>\n\n          <button ion-button color="light" (click)="onItemSlidePressed()">\n\n              <ion-icon name="paper"></ion-icon> Paper\n\n          </button>\n\n        </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"G:\Ionic Project\ScrumAppSkripsi\src\pages\time-sheet\time-sheetPage.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_4__providers_timesheets_timesheetsProvider__["a" /* TimesheetsProvider */], __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
@@ -391,10 +399,10 @@ var TimeSheetPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__ = __webpack_require__(45);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -469,7 +477,7 @@ var UserPage = /** @class */ (function () {
     };
     UserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-user',template:/*ion-inline-start:"G:\Ionic Project\ScrumAppSkripsi\src\pages\user\userPage.html"*/'<!--\n\n  Generated template for the UserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>User</ion-title>\n\n    <ion-buttons end >\n\n      <button ion-button icon-only (click)="doLogout()">\n\n        <ion-icon name="exit"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div class="north">\n\n    <img class="profile-photo" src="assets/imgs/user/profile_picture_example.jpg"> \n\n  </div>\n\n   \n\n  <div>\n\n    <ion-item>\n\n      <ion-label>{{userProvider.user.$username}}</ion-label>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>{{userProvider.user.$email}}</ion-label>\n\n    </ion-item>\n\n    <div padding>\n\n      <button ion-button color="primary" block (click)="press()">Tekan Aku Mas</button>\n\n    </div>\n\n  </div>\n\n\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let user of allUsers">\n\n      <ion-item (click)="onItemPressed({id: user.name})">\n\n        <ion-avatar item-left>\n\n          <img src="assets/imgs/user/profile_picture_example.jpg">\n\n        </ion-avatar>\n\n        <h2>{{user.name}}</h2>\n\n      </ion-item>\n\n      <ion-item-options>\n\n        <button ion-button color="danger" (click)="onItemCOEG()">\n\n          <ion-icon name="trash"></ion-icon> Delete\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"G:\Ionic Project\ScrumAppSkripsi\src\pages\user\userPage.html"*/,
+            selector: 'page-user',template:/*ion-inline-start:"G:\Ionic Project\ScrumAppSkripsi\src\pages\user\userPage.html"*/'<!--\n\n  Generated template for the UserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>User</ion-title>\n\n    <ion-buttons end >\n\n      <button ion-button icon-only (click)="doLogout()">\n\n        <ion-icon name="exit"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div class="north">\n\n    <img class="profile-photo" src="assets/imgs/user/profile_picture_example.jpg"> \n\n  </div>\n\n   \n\n  \n\n  <div>\n\n    <div class="content">\n\n      <ion-item>\n\n        <ion-label>{{userProvider.user.person_name}}</ion-label>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>{{userProvider.user.job_name}}</ion-label>\n\n      </ion-item>\n\n    </div>\n\n    <div padding>\n\n      <button ion-button color="primary" block (click)="press()">Tekan Aku Mas</button>\n\n    </div>\n\n  </div>\n\n \n\n\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let user of allUsers">\n\n      <ion-item (click)="onItemPressed({id: user.name})">\n\n        <ion-avatar item-left>\n\n          <img src="assets/imgs/user/profile_picture_example.jpg">\n\n        </ion-avatar>\n\n        <h2>{{user.name}}</h2>\n\n      </ion-item>\n\n      <ion-item-options>\n\n        <button ion-button color="danger" (click)="onItemCOEG()">\n\n          <ion-icon name="trash"></ion-icon> Delete\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"G:\Ionic Project\ScrumAppSkripsi\src\pages\user\userPage.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__["a" /* UsersProvider */],
@@ -505,27 +513,27 @@ webpackEmptyAsyncContext.id = 168;
 
 var map = {
 	"../pages/login/loginPage.module": [
-		681,
+		680,
 		5
 	],
 	"../pages/main/main.module": [
-		682,
+		681,
 		4
 	],
 	"../pages/report/reportPage.module": [
-		683,
+		682,
 		3
 	],
 	"../pages/tabs/tabs.module": [
-		684,
+		683,
 		2
 	],
 	"../pages/time-sheet/time-sheetPage.module": [
-		685,
+		684,
 		1
 	],
 	"../pages/user/userPage.module": [
-		686,
+		685,
 		0
 	]
 };
@@ -556,6 +564,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -569,6 +578,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /*
   Generated class for the TimesheetsProvider provider.
 
@@ -576,8 +586,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
   and Angular DI.
 */
 var TimesheetsProvider = /** @class */ (function () {
-    function TimesheetsProvider(http) {
+    function TimesheetsProvider(http, helperMethod) {
         this.http = http;
+        this.helperMethod = helperMethod;
         this.baseUrl = "https://jsonplaceholder.typicode.com/posts";
         console.log('Hello TimesheetsProvider Provider');
     }
@@ -587,7 +598,7 @@ var TimesheetsProvider = /** @class */ (function () {
         //         catchError(this.handleError)
         // );
         //testing purpose
-        return this.http.get(this.baseUrl)
+        return this.http.get(this.helperMethod.timeSheetUrl)
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError));
     };
     //helping method
@@ -615,7 +626,7 @@ var TimesheetsProvider = /** @class */ (function () {
     };
     TimesheetsProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__["a" /* HelperMethodProvider */]])
     ], TimesheetsProvider);
     return TimesheetsProvider;
 }());
@@ -689,21 +700,21 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(348);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(351);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(680);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(679);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_main_main__ = __webpack_require__(352);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_loginPage__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_report_reportPage__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_time_sheet_time_sheetPage__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_user_userPage__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_users_usersProvider__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_users_usersProvider__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_timesheets_timesheetsProvider__ = __webpack_require__(308);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -782,7 +793,78 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 44:
+/***/ 40:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelperMethodProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(29);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/*
+  Generated class for the HelperMethodProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var HelperMethodProvider = /** @class */ (function () {
+    function HelperMethodProvider(http, loadingController, toastController) {
+        this.http = http;
+        this.loadingController = loadingController;
+        this.toastController = toastController;
+        this.personUrl = 'assets/jsonFile/personResponse.json';
+        this.timeSheetUrl = 'assets/jsonFile/timesheetResponse.json';
+        this.bulkItemUrl = 'assets/jsonFile/bulkitemResponse.json';
+        this.backlogitemUrl = 'assets/jsonFile/backlogitemResponse.json';
+        console.log('Hello HelperMethodProvider Provider');
+    }
+    HelperMethodProvider.prototype.loadingService = function (message) {
+        this.loading = this.loadingController.create({
+            spinner: 'bubbles',
+            content: message
+        });
+        this.loading.present();
+    };
+    HelperMethodProvider.prototype.presentToast = function (message, duration, position) {
+        if (position == 1)
+            position = 'top';
+        if (position == 2)
+            position = 'middle';
+        if (position == 3)
+            position = 'bottom';
+        var toast = this.toastController.create({
+            message: message,
+            duration: duration,
+            position: position
+        });
+        toast.present();
+    };
+    HelperMethodProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* ToastController */]])
+    ], HelperMethodProvider);
+    return HelperMethodProvider;
+}());
+
+//# sourceMappingURL=helper-method.js.map
+
+/***/ }),
+
+/***/ 45:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -793,6 +875,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -809,6 +892,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // import 'rxjs/add/operator/catch';
 
 
+
 /*
   Generated class for the UsersProvider provider.
 
@@ -816,19 +900,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
   and Angular DI.0
 */
 var UsersProvider = /** @class */ (function () {
-    function UsersProvider(http) {
+    function UsersProvider(http, helperMethod) {
         this.http = http;
+        this.helperMethod = helperMethod;
         this.baseUrl = "https://jsonplaceholder.typicode.com/users";
         this.postUrl = "https://jsonplaceholder.typicode.com/posts/";
         console.log('Hello UsersProvider Provider');
     }
     UsersProvider.prototype.testerMethod = function () {
-        return this.http.get('assets/jsonFile/personResponse.json')
+        return this.http.get(this.helperMethod.personUrl)
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError));
     };
     UsersProvider.prototype.validateLogin = function (userLogin) {
         console.log(userLogin);
-        return this.http.post(this.postUrl, userLogin)
+        // return this.http.post(this.postUrl, userLogin)
+        //       .pipe(map(this.extractData),
+        //       catchError(this.handleError)
+        //   );
+        return this.http.get(this.helperMethod.personUrl)
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError));
     };
     UsersProvider.prototype.getUsers = function () {
@@ -869,7 +958,7 @@ var UsersProvider = /** @class */ (function () {
     };
     UsersProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__["a" /* HelperMethodProvider */]])
     ], UsersProvider);
     return UsersProvider;
 }());
@@ -878,127 +967,7 @@ var UsersProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 49:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelperMethodProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(29);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/*
-  Generated class for the HelperMethodProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var HelperMethodProvider = /** @class */ (function () {
-    function HelperMethodProvider(http, loadingController, toastController) {
-        this.http = http;
-        this.loadingController = loadingController;
-        this.toastController = toastController;
-        console.log('Hello HelperMethodProvider Provider');
-    }
-    HelperMethodProvider.prototype.loadingService = function (message) {
-        this.loading = this.loadingController.create({
-            spinner: 'bubbles',
-            content: message
-        });
-        this.loading.present();
-    };
-    HelperMethodProvider.prototype.presentToast = function (message, duration, position) {
-        if (position == 1)
-            position = 'top';
-        if (position == 2)
-            position = 'middle';
-        if (position == 3)
-            position = 'bottom';
-        var toast = this.toastController.create({
-            message: message,
-            duration: duration,
-            position: position
-        });
-        toast.present();
-    };
-    HelperMethodProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* ToastController */]])
-    ], HelperMethodProvider);
-    return HelperMethodProvider;
-}());
-
-//# sourceMappingURL=helper-method.js.map
-
-/***/ }),
-
-/***/ 659:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
-var User = /** @class */ (function () {
-    function User($username, $email) {
-        this.username = $username;
-        this.email = $email;
-    }
-    Object.defineProperty(User.prototype, "$email", {
-        /**
-         * Getter $email
-         * @return {string}
-         */
-        get: function () {
-            return this.email;
-        },
-        /**
-         * Setter $email
-         * @param {string} value
-         */
-        set: function (value) {
-            this.email = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "$username", {
-        /**
-         * Getter $username
-         * @return {string}
-         */
-        get: function () {
-            return this.username;
-        },
-        /**
-         * Setter $username
-         * @param {string} value
-         */
-        set: function (value) {
-            this.username = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return User;
-}());
-
-//# sourceMappingURL=User.js.map
-
-/***/ }),
-
-/***/ 680:
+/***/ 679:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

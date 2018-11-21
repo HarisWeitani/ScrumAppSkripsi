@@ -12,6 +12,10 @@ import { LoadingController, ToastController } from 'ionic-angular';
 export class HelperMethodProvider {
 
   public loading:any;
+  public personUrl : string = 'assets/jsonFile/personResponse.json';
+  public timeSheetUrl : string = 'assets/jsonFile/timesheetResponse.json';
+  public bulkItemUrl : string = 'assets/jsonFile/bulkitemResponse.json';
+  public backlogitemUrl : string = 'assets/jsonFile/backlogitemResponse.json';
 
   constructor(public http: HttpClient, 
             public loadingController:LoadingController,
