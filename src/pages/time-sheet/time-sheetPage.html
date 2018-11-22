@@ -20,19 +20,14 @@
 
 <ion-content padding>
 
-  <!-- <ion-list [virtualScroll]="timeSheetDataList" [headerFn]="timeSheetHeaderFn">
-
-    <ion-item-divider *virtualHeader="let header" light>
-      <h2>Header : {{ header }}</h2>
-    </ion-item-divider> -->
 
     <ion-list [virtualScroll]="timeSheetDataList">
     
     <!-- <ion-item-sliding *ngFor="let data of timeSheetDataList"> -->
     <ion-item-sliding *virtualItem="let data"> 
         
-        <ion-item  (click)="onItemPressed({id : data.time_sheet_id})" text-wrap> 
-          <h2>{{data.time_sheet_id}} {{data.today_act}}</h2>
+        <ion-item  (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == 'plan') ? 'aqua' : 'grey'"> 
+          {{data.time_sheet_id}} {{data.today_act}}
         </ion-item>
         <ion-item-options>
           <button ion-button color="danger" (click)="onItemSlidePressed()">
@@ -46,5 +41,24 @@
     </ion-item-sliding>
 
   </ion-list>
-  
+
+  <!--
+  <ion-item-group *ngFor="let group of groupedTimeSheetDataList">
+
+    <ion-item-divider class="ionItemHeader"> {{group.date_time}} </ion-item-divider>
+
+    <ion-item *ngFor="let timeSheet of group.timesheets" class="ionItem"> 
+        {{timeSheet.jira_id}}
+      <div *ngIf="timeSheet.is_real == 'plan'" class="ionItemPlan">
+          <ion-item  >{{timeSheet.jira_id}}</ion-item>
+      </div>
+      <div *ngIf="timeSheet.is_real == 'real'" class="ionItemReal"  >
+          <ion-item >{{timeSheet.jira_id}}</ion-item>
+      </div>
+
+    </ion-item>
+    
+  </ion-item-group>
+-->
+
 </ion-content>

@@ -19,9 +19,8 @@ import { TimesheetsProvider } from '../../providers/timesheets/timesheetsProvide
 })
 export class TimeSheetPage {
 
-  timeSheet : TimeSheet;
-
   timeSheetDataList : Array<TimeSheet>;
+  groupedTimeSheetDataList = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public timeSheetProvider : TimesheetsProvider, public helperMethod:HelperMethodProvider,
@@ -58,14 +57,33 @@ export class TimeSheetPage {
     console.log('ionViewDidLoad TimeSheetPage');
   }
   
-  timeSheetHeaderFn(dataList) {
-    let sortedData = dataList.sort();
-    console.log(sortedData);
-    return 1;
-    // if (recordIndex % 2 === 0) {
-    //   return recordIndex;
-    // }
-    // return null;
+  timeSheetHeaderFn(dataList : Array<TimeSheet>) {
+
+    let currentDate = "00/00";
+    let currentTimeSheets = [];
+
+    dataList.forEach((value,index) => {
+
+      if( value.dtm_crt != currentDate ){
+
+        currentDate = value.dtm_crt;
+
+        let newGroup = {
+          date_time : currentDate,
+          timesheets : []
+        };
+        console.log(newGroup);
+        console.log(currentTimeSheets);
+
+        currentTimeSheets = newGroup.timesheets;
+        
+        this.groupedTimeSheetDataList.push(newGroup);
+        
+      }
+      currentTimeSheets.push(value);
+    })
+    console.log(this.groupedTimeSheetDataList);
+
   }
 
   ionViewWillEnter(){

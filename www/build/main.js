@@ -331,6 +331,7 @@ var TimeSheetPage = /** @class */ (function () {
         this.helperMethod = helperMethod;
         this.userProvider = userProvider;
         this.events = events;
+        this.groupedTimeSheetDataList = [];
     }
     TimeSheetPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -355,13 +356,24 @@ var TimeSheetPage = /** @class */ (function () {
         console.log('ionViewDidLoad TimeSheetPage');
     };
     TimeSheetPage.prototype.timeSheetHeaderFn = function (dataList) {
-        var sortedData = dataList.sort();
-        console.log(sortedData);
-        return 1;
-        // if (recordIndex % 2 === 0) {
-        //   return recordIndex;
-        // }
-        // return null;
+        var _this = this;
+        var currentDate = "00/00";
+        var currentTimeSheets = [];
+        dataList.forEach(function (value, index) {
+            if (value.dtm_crt != currentDate) {
+                currentDate = value.dtm_crt;
+                var newGroup = {
+                    date_time: currentDate,
+                    timesheets: []
+                };
+                console.log(newGroup);
+                console.log(currentTimeSheets);
+                currentTimeSheets = newGroup.timesheets;
+                _this.groupedTimeSheetDataList.push(newGroup);
+            }
+            currentTimeSheets.push(value);
+        });
+        console.log(this.groupedTimeSheetDataList);
     };
     TimeSheetPage.prototype.ionViewWillEnter = function () {
         console.log('will enter');
@@ -380,7 +392,7 @@ var TimeSheetPage = /** @class */ (function () {
     };
     TimeSheetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-time-sheet',template:/*ion-inline-start:"G:\Ionic Project\ScrumAppSkripsi\src\pages\time-sheet\time-sheetPage.html"*/'<!--\n\n  Generated template for the TimeSheetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>TimeSheet</ion-title>\n\n    <ion-buttons end >\n\n        <button ion-button icon-only (click)="doAdd()">\n\n          <ion-icon name="add"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <!-- <ion-list [virtualScroll]="timeSheetDataList" [headerFn]="timeSheetHeaderFn">\n\n\n\n    <ion-item-divider *virtualHeader="let header" light>\n\n      <h2>Header : {{ header }}</h2>\n\n    </ion-item-divider> -->\n\n\n\n    <ion-list [virtualScroll]="timeSheetDataList">\n\n    \n\n    <!-- <ion-item-sliding *ngFor="let data of timeSheetDataList"> -->\n\n    <ion-item-sliding *virtualItem="let data"> \n\n        \n\n        <ion-item  (click)="onItemPressed({id : data.time_sheet_id})" text-wrap> \n\n          <h2>{{data.time_sheet_id}} {{data.today_act}}</h2>\n\n        </ion-item>\n\n        <ion-item-options>\n\n          <button ion-button color="danger" (click)="onItemSlidePressed()">\n\n            <ion-icon name="trash"></ion-icon> Delete\n\n          </button>\n\n          <button ion-button color="light" (click)="onItemSlidePressed()">\n\n              <ion-icon name="paper"></ion-icon> Paper\n\n          </button>\n\n        </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"G:\Ionic Project\ScrumAppSkripsi\src\pages\time-sheet\time-sheetPage.html"*/,
+            selector: 'page-time-sheet',template:/*ion-inline-start:"G:\Ionic Project\ScrumAppSkripsi\src\pages\time-sheet\time-sheetPage.html"*/'<!--\n\n  Generated template for the TimeSheetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>TimeSheet</ion-title>\n\n    <ion-buttons end >\n\n        <button ion-button icon-only (click)="doAdd()">\n\n          <ion-icon name="add"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n\n\n    <ion-list [virtualScroll]="timeSheetDataList">\n\n    \n\n    <!-- <ion-item-sliding *ngFor="let data of timeSheetDataList"> -->\n\n    <ion-item-sliding *virtualItem="let data"> \n\n        \n\n        <ion-item  (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == \'plan\') ? \'aqua\' : \'grey\'"> \n\n          {{data.time_sheet_id}} {{data.today_act}}\n\n        </ion-item>\n\n        <ion-item-options>\n\n          <button ion-button color="danger" (click)="onItemSlidePressed()">\n\n            <ion-icon name="trash"></ion-icon> Delete\n\n          </button>\n\n          <button ion-button color="light" (click)="onItemSlidePressed()">\n\n              <ion-icon name="paper"></ion-icon> Paper\n\n          </button>\n\n        </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n  <!--\n\n  <ion-item-group *ngFor="let group of groupedTimeSheetDataList">\n\n\n\n    <ion-item-divider class="ionItemHeader"> {{group.date_time}} </ion-item-divider>\n\n\n\n    <ion-item *ngFor="let timeSheet of group.timesheets" class="ionItem"> \n\n        {{timeSheet.jira_id}}\n\n      <div *ngIf="timeSheet.is_real == \'plan\'" class="ionItemPlan">\n\n          <ion-item  >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n      <div *ngIf="timeSheet.is_real == \'real\'" class="ionItemReal"  >\n\n          <ion-item >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n\n\n    </ion-item>\n\n    \n\n  </ion-item-group>\n\n-->\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"G:\Ionic Project\ScrumAppSkripsi\src\pages\time-sheet\time-sheetPage.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_4__providers_timesheets_timesheetsProvider__["a" /* TimesheetsProvider */], __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
