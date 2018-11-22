@@ -8,6 +8,11 @@
 
   <ion-navbar>
     <ion-title>TimeSheet</ion-title>
+    <ion-buttons end >
+        <button ion-button icon-only (click)="doAdd()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -15,20 +20,29 @@
 
 <ion-content padding>
 
-  <ion-list>
-    <ion-item-sliding *ngFor="let data of timeSheetDataList">
-      <ion-item (click)="onItemPressed({id : data.title})" text-wrap> 
-        <ion-avatar item-left>
-          <img src="assets/imgs/user/profile_picture_example.jpg">
-        </ion-avatar>
-          <h2>{{data.title}}</h2>
-          <h2>{{data.id}} {{data.userId}}</h2>
-      </ion-item>
-      <ion-item-options>
-        <button ion-button color="danger" (click)="onItemSlidePressed()">
-          <ion-icon name="trash"></ion-icon> Delete
-        </button>
-      </ion-item-options>
+  <!-- <ion-list [virtualScroll]="timeSheetDataList" [headerFn]="timeSheetHeaderFn">
+
+    <ion-item-divider *virtualHeader="let header" light>
+      <h2>Header : {{ header }}</h2>
+    </ion-item-divider> -->
+
+    <ion-list [virtualScroll]="timeSheetDataList">
+    
+    <!-- <ion-item-sliding *ngFor="let data of timeSheetDataList"> -->
+    <ion-item-sliding *virtualItem="let data"> 
+        
+        <ion-item  (click)="onItemPressed({id : data.time_sheet_id})" text-wrap> 
+          <h2>{{data.time_sheet_id}} {{data.today_act}}</h2>
+        </ion-item>
+        <ion-item-options>
+          <button ion-button color="danger" (click)="onItemSlidePressed()">
+            <ion-icon name="trash"></ion-icon> Delete
+          </button>
+          <button ion-button color="light" (click)="onItemSlidePressed()">
+              <ion-icon name="paper"></ion-icon> Paper
+          </button>
+        </ion-item-options>
+
     </ion-item-sliding>
 
   </ion-list>

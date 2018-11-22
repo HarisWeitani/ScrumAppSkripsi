@@ -3,8 +3,9 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController,Events } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HelperMethodProvider } from '../../providers/helper-method/helper-method';
-import { User } from '../../models/User';
 import { TimeoutError } from 'rxjs';
+import { stringify } from '@angular/compiler/src/util';
+import { User } from '../../models/User';
 
 /**
  * Generated class for the LoginPage page.
@@ -22,10 +23,8 @@ export class LoginPage {
 
   @ViewChild('username') username;
   @ViewChild('password') password;
-  
-  // loading : any;
-  loginForm : FormGroup;
 
+  loginForm : FormGroup;
   showHide : boolean;
   type = 'password';
 
@@ -46,9 +45,6 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    if(this.userProvider.user != null){
-      this.usernameDefaultVal = this.userProvider.user.$username;
-    }
     console.log('ionViewDidLoad LoginPage ');
   }
   ionViewWillEnter(){
@@ -70,12 +66,14 @@ export class LoginPage {
       (response:any) => {
         this.helperMethod.loading.dismiss();
         console.log(response);
-        if(response.id == 101){
-          this.userProvider.user = new User(userLogin.username,userLogin.password);
-          this.events.publish('Auth',1);
-        }else{
-          this.helperMethod.presentToast('User Not Found',2000,3);
-        }
+        // if(response.id == 101){
+        //   this.userProvider.user = new User(userLogin.username,userLogin.password);
+        //   this.events.publish('Auth',1);
+        // }else{
+        //   this.helperMethod.presentToast('User Not Found',2000,3);
+        // }
+        this.userProvider.user = response;
+        this.events.publish('Auth',1);
         
       },
       (error:any) => {
@@ -93,7 +91,30 @@ export class LoginPage {
         
       }
     );
+      
+  }
 
+
+  getOneUser(){
+    // let company = {
+    //   bs : String,
+    //   catchPhrase : String,
+    //   name : String
+    // }
+
+    this.userProvider.getUsers().subscribe(
+      (response:any) =>{
+        console.log(response);
+      }
+    );
+  }
+
+  getCustomJson(){  
+    this.userProvider.testerMethod().subscribe(
+      (response:any)=>{
+        console.log(response);
+      }
+    );
   }
 
   //di jsonplaceholder ga bisa
