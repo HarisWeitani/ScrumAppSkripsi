@@ -16,7 +16,7 @@ import { HelperMethodProvider } from '../helper-method/helper-method';
 */
 @Injectable()
 export class UsersProvider {
-
+testing:string;
   private baseUrl: string= "https://jsonplaceholder.typicode.com/users";
   private postUrl: string= "https://jsonplaceholder.typicode.com/posts/";
 
