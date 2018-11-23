@@ -52,7 +52,7 @@ export class TimeSheetPage {
             this.helperMethod.loading.dismiss();
             this.helperMethod.presentToast('Gagal 9999: Jangan Hubungi Team IT',2000,3);
           }
-        )
+        );
 
     console.log('ionViewDidLoad TimeSheetPage');
   }
@@ -96,8 +96,8 @@ export class TimeSheetPage {
   onItemPressed(itemId){
     console.log(itemId);
   }
-  onItemSlidePressed(){
-    console.log('On Item Slide Pressed');
+  onItemUpdate(itemId){
+    console.log('OnItemUpdate Pressed ', itemId);
   }
   doAdd(){
     console.log("Add Button Pressed");

@@ -1,3 +1,4 @@
+import { ReportPageModal } from './../pages/report-page-modal/report-page-modal';
 import { HelperMethodProvider } from './../providers/helper-method/helper-method';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -15,6 +16,7 @@ import { TimeSheetPage } from '../pages/time-sheet/time-sheetPage';
 import { UserPage } from '../pages/user/userPage';
 import { UsersProvider } from '../providers/users/usersProvider';
 import { TimesheetsProvider } from '../providers/timesheets/timesheetsProvider';
+import { ReportProvider } from '../providers/report/reportProvider';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,13 @@ import { TimesheetsProvider } from '../providers/timesheets/timesheetsProvider';
     TabsPage,
     ReportPage,
     TimeSheetPage,
-    UserPage
+    UserPage,
+    ReportPageModal
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp)
- 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,7 +42,8 @@ import { TimesheetsProvider } from '../providers/timesheets/timesheetsProvider';
     TabsPage,
     ReportPage,
     TimeSheetPage,
-    UserPage
+    UserPage,
+    ReportPageModal
   ],
   providers: [
     StatusBar,
@@ -48,7 +51,8 @@ import { TimesheetsProvider } from '../providers/timesheets/timesheetsProvider';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UsersProvider,
     TimesheetsProvider,
-    HelperMethodProvider
+    HelperMethodProvider,
+    ReportProvider
   ]
 })
 export class AppModule { }

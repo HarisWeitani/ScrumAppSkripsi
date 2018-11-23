@@ -1,7 +1,7 @@
 import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
 import { User } from '../../models/User';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, AlertController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/usersProvider';
 
 /**
@@ -26,10 +26,10 @@ export class UserPage {
   // loading : any;
   error : any;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-              public userProvider : UsersProvider,
-              public helperMethod:HelperMethodProvider,
-              public events:Events) {
+  constructor(private navCtrl: NavController, private navParams: NavParams, 
+              private userProvider : UsersProvider,
+              private helperMethod:HelperMethodProvider,
+              private events:Events, private alertCtrl: AlertController) {
 
   }
 
@@ -87,7 +87,31 @@ export class UserPage {
   }
   
   doLogout(){
-    this.events.publish('Auth',0);
+    this.alertConfirmLogout();
+    // this.events.publish('Auth',0);
+  }
+
+  alertConfirmLogout(){
+    let alert = this.alertCtrl.create({
+      title: 'Logout',
+      message: 'Are you sure you want to logout?',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            this.events.publish('Auth',0);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

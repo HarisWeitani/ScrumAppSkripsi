@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoadingController, ToastController } from 'ionic-angular';
+import { LoadingController, ToastController, AlertController } from 'ionic-angular';
 
 /*
   Generated class for the HelperMethodProvider provider.
@@ -17,9 +17,9 @@ export class HelperMethodProvider {
   public bulkItemUrl : string = 'assets/jsonFile/bulkitemResponse.json';
   public backlogitemUrl : string = 'assets/jsonFile/backlogitemResponse.json';
 
-  constructor(public http: HttpClient, 
-            public loadingController:LoadingController,
-            public toastController:ToastController) {
+  constructor(private http: HttpClient, 
+              private loadingController:LoadingController,
+              private toastController:ToastController) {
     console.log('Hello HelperMethodProvider Provider');
   }
 

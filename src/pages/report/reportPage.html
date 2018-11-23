@@ -15,11 +15,10 @@
 
 <ion-content padding>
 
-  REPORT COEKERS
-  <ion-list [virtualScroll]="items">
+  <ion-list class="ionList" [virtualScroll]="bulkItemList">
 
-    <ion-item *virtualItem="let item" (click)="onItemPressed({id: item})">
-      {{ item }}
+    <ion-item class="ionItem" *virtualItem="let bulkItem" (click)="onItemPressed({item:bulkItem})">
+      {{ bulkItem.bulk_name }}
     </ion-item>
   
   </ion-list>

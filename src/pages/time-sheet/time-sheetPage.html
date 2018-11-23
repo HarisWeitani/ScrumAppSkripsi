@@ -21,20 +21,17 @@
 <ion-content padding>
 
 
-    <ion-list [virtualScroll]="timeSheetDataList">
+  <ion-list [virtualScroll]="timeSheetDataList">
     
-    <!-- <ion-item-sliding *ngFor="let data of timeSheetDataList"> -->
     <ion-item-sliding *virtualItem="let data"> 
         
-        <ion-item  (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == 'plan') ? 'aqua' : 'grey'"> 
-          {{data.time_sheet_id}} {{data.today_act}}
+        <ion-item  (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == 'plan') ? 'real' : 'plan'"> 
+          {{data.dtm_crt}} <br>
+          {{data.today_act}} <br>
         </ion-item>
         <ion-item-options>
-          <button ion-button color="danger" (click)="onItemSlidePressed()">
-            <ion-icon name="trash"></ion-icon> Delete
-          </button>
-          <button ion-button color="light" (click)="onItemSlidePressed()">
-              <ion-icon name="paper"></ion-icon> Paper
+          <button ion-button color="light" (click)="onItemUpdate({id: data.time_sheet_id})">
+              <ion-icon name="paper"></ion-icon> Update
           </button>
         </ion-item-options>
 
@@ -42,8 +39,8 @@
 
   </ion-list>
 
-  <!--
-  <ion-item-group *ngFor="let group of groupedTimeSheetDataList">
+  
+  <!-- <ion-item-group *ngFor="let group of groupedTimeSheetDataList">
 
     <ion-item-divider class="ionItemHeader"> {{group.date_time}} </ion-item-divider>
 
@@ -58,7 +55,7 @@
 
     </ion-item>
     
-  </ion-item-group>
--->
+  </ion-item-group> -->
+
 
 </ion-content>
