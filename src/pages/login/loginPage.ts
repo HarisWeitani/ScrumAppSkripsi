@@ -62,7 +62,7 @@ export class LoginPage {
       password : this.password.value
     };
 
-    this.userProvider.validateLogin(userLogin).timeout(5000).subscribe(
+    this.userProvider.validateLogin(userLogin).timeout(10000).subscribe(
       (response:any) => {
         this.helperMethod.loading.dismiss();
         console.log(response);
@@ -72,8 +72,8 @@ export class LoginPage {
         // }else{
         //   this.helperMethod.presentToast('User Not Found',2000,3);
         // }
-        this.userProvider.user = response;
-        this.events.publish('Auth',1);
+        // this.userProvider.user = response;
+        // this.events.publish('Auth',1);
         
       },
       (error:any) => {

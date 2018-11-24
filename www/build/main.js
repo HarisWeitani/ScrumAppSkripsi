@@ -117,7 +117,7 @@ var LoginPage = /** @class */ (function () {
             username: this.username.value,
             password: this.password.value
         };
-        this.userProvider.validateLogin(userLogin).timeout(5000).subscribe(function (response) {
+        this.userProvider.validateLogin(userLogin).timeout(10000).subscribe(function (response) {
             _this.helperMethod.loading.dismiss();
             console.log(response);
             // if(response.id == 101){
@@ -126,8 +126,8 @@ var LoginPage = /** @class */ (function () {
             // }else{
             //   this.helperMethod.presentToast('User Not Found',2000,3);
             // }
-            _this.userProvider.user = response;
-            _this.events.publish('Auth', 1);
+            // this.userProvider.user = response;
+            // this.events.publish('Auth',1);
         }, function (error) {
             console.log(error);
             console.error(error.name);
@@ -1045,6 +1045,9 @@ var HelperMethodProvider = /** @class */ (function () {
         this.http = http;
         this.loadingController = loadingController;
         this.toastController = toastController;
+        this.ipUrl = 'http://10.107.200.165:8080/';
+        this.baseUrl = 'com.adins.mss.webservices/services/m/';
+        this.userLoginAPI = 'user/login';
         this.personUrl = 'assets/jsonFile/personResponse.json';
         this.timeSheetUrl = 'assets/jsonFile/timesheetResponse.json';
         this.bulkItemUrl = 'assets/jsonFile/bulkitemResponse.json';
@@ -1134,11 +1137,27 @@ var UsersProvider = /** @class */ (function () {
     };
     UsersProvider.prototype.validateLogin = function (userLogin) {
         console.log(userLogin);
+        // let headers = new Headers();
+        // headers.append('Content-Type','application/x-www-form-urlencoded');
+        // headers.append('Authorization', 'Bearer ' + 'asdasdss');
+        var content = 'application/x-www-form-urlencoded';
+        var auth = 'Bearer asdasdss';
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpHeaders */]({
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Bearer asdasdss',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT'
+        });
         // return this.http.post(this.postUrl, userLogin)
         //       .pipe(map(this.extractData),
         //       catchError(this.handleError)
         //   );
-        return this.http.get(this.helperMethod.personUrl)
+        // return this.http.get(this.helperMethod.personUrl)
+        //       .pipe(map(this.extractData),
+        //       catchError(this.handleError)
+        //   );
+        //integrasi
+        return this.http.post(this.helperMethod.ipUrl + this.helperMethod.baseUrl, userLogin, { headers: headers })
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError));
     };
     UsersProvider.prototype.getUsers = function () {

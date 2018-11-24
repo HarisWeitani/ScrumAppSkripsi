@@ -10,8 +10,13 @@ import { LoadingController, ToastController, AlertController } from 'ionic-angul
 */
 @Injectable()
 export class HelperMethodProvider {
-
+//http://localhost:8080/com.adins.mss.webservices/services/m/user/login
   public loading:any;
+  public ipUrl : string = 'http://10.107.200.165:8080/';
+  public baseUrl : string = 'com.adins.mss.webservices/services/m/';
+
+  public userLoginAPI : string  ='user/login';
+
   public personUrl : string = 'assets/jsonFile/personResponse.json';
   public timeSheetUrl : string = 'assets/jsonFile/timesheetResponse.json';
   public bulkItemUrl : string = 'assets/jsonFile/bulkitemResponse.json';

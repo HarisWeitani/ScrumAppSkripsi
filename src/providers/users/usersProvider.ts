@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/do';
@@ -37,14 +37,35 @@ testing:string;
 
   validateLogin(userLogin : any) : Observable<any>{
     console.log(userLogin);
+    // let headers = new Headers();
+    // headers.append('Content-Type','application/x-www-form-urlencoded');
+    // headers.append('Authorization', 'Bearer ' + 'asdasdss');
+
+    let content : string = 'application/x-www-form-urlencoded';
+    let auth : string = 'Bearer asdasdss';
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Bearer asdasdss',
+      'Access-Control-Allow-Origin' : '*',
+      'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT'
+    });
+
     // return this.http.post(this.postUrl, userLogin)
     //       .pipe(map(this.extractData),
     //       catchError(this.handleError)
     //   );
-    return this.http.get(this.helperMethod.personUrl)
-          .pipe(map(this.extractData),
-          catchError(this.handleError)
-      );
+
+    // return this.http.get(this.helperMethod.personUrl)
+    //       .pipe(map(this.extractData),
+    //       catchError(this.handleError)
+    //   );
+
+    //integrasi
+    return this.http.post(this.helperMethod.ipUrl + this.helperMethod.baseUrl,userLogin, {headers})
+              .pipe(map(this.extractData),
+              catchError(this.handleError)
+    );
+
   }
   
   getUsers(): Observable<any> {
