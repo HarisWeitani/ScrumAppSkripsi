@@ -8,6 +8,8 @@ node_modules/
 plugins/
 .svn
 
+platforms/
+
 #Android Ignore
 platforms/android/build.xml
 platforms/android/local.properties
