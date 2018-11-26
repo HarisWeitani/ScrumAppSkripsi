@@ -17,6 +17,7 @@ import { UserPage } from '../pages/user/userPage';
 import { UsersProvider } from '../providers/users/usersProvider';
 import { TimesheetsProvider } from '../providers/timesheets/timesheetsProvider';
 import { ReportProvider } from '../providers/report/reportProvider';
+import { TimeSheetPageModal } from '../pages/time-sheet-page-modal/time-sheet-page-modal';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReportProvider } from '../providers/report/reportProvider';
     ReportPage,
     TimeSheetPage,
     UserPage,
-    ReportPageModal
+    ReportPageModal,
+    TimeSheetPageModal
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { ReportProvider } from '../providers/report/reportProvider';
     ReportPage,
     TimeSheetPage,
     UserPage,
-    ReportPageModal
+    ReportPageModal,
+    TimeSheetPageModal
   ],
   providers: [
     StatusBar,

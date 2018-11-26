@@ -1,4 +1,4 @@
-webpackJsonp([7],{
+webpackJsonp([8],{
 
 /***/ 154:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -6,7 +6,7 @@ webpackJsonp([7],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportPageModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -62,8 +62,8 @@ var ReportPageModal = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_helper_method_helper_method__ = __webpack_require__(38);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -121,13 +121,14 @@ var LoginPage = /** @class */ (function () {
             _this.helperMethod.loading.dismiss();
             console.log(response);
             // if(response.id == 101){
-            //   this.userProvider.user = new User(userLogin.username,userLogin.password);
+            //   // this.userProvider.user = new User(userLogin.username,userLogin.password);
+            //   this.userProvider.user = response;
             //   this.events.publish('Auth',1);
             // }else{
             //   this.helperMethod.presentToast('User Not Found',2000,3);
             // }
-            // this.userProvider.user = response;
-            // this.events.publish('Auth',1);
+            _this.userProvider.user = response;
+            _this.events.publish('Auth', 1);
         }, function (error) {
             console.log(error);
             console.error(error.name);
@@ -215,8 +216,8 @@ var LoginPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_report_reportProvider__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_report_reportProvider__ = __webpack_require__(310);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__report_page_modal_report_page_modal__ = __webpack_require__(154);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -324,10 +325,10 @@ var ReportPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__report_reportPage__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__time_sheet_time_sheetPage__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__user_userPage__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__user_userPage__ = __webpack_require__(160);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -390,11 +391,12 @@ var TabsPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimeSheetPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_timesheets_timesheetsProvider__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__time_sheet_page_modal_time_sheet_page_modal__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_timesheets_timesheetsProvider__ = __webpack_require__(311);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -409,6 +411,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the TimeSheetPage page.
  *
@@ -416,13 +419,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var TimeSheetPage = /** @class */ (function () {
-    function TimeSheetPage(navCtrl, navParams, timeSheetProvider, helperMethod, userProvider, events) {
+    function TimeSheetPage(navCtrl, navParams, timeSheetProvider, helperMethod, userProvider, events, modalCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.timeSheetProvider = timeSheetProvider;
         this.helperMethod = helperMethod;
         this.userProvider = userProvider;
         this.events = events;
+        this.modalCtrl = modalCtrl;
         this.groupedTimeSheetDataList = [];
     }
     TimeSheetPage.prototype.ionViewDidLoad = function () {
@@ -476,20 +480,24 @@ var TimeSheetPage = /** @class */ (function () {
     TimeSheetPage.prototype.onItemPressed = function (itemId) {
         console.log(itemId);
     };
-    TimeSheetPage.prototype.onItemUpdate = function (itemId) {
-        console.log('OnItemUpdate Pressed ', itemId);
+    TimeSheetPage.prototype.onItemUpdatePressed = function (itemData) {
+        console.log('OnItemUpdate Pressed ', itemData);
+        var timeSheetModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_0__time_sheet_page_modal_time_sheet_page_modal__["a" /* TimeSheetPageModal */], { timeSheetData: itemData.data });
+        timeSheetModal.present();
     };
     TimeSheetPage.prototype.doAdd = function () {
         console.log("Add Button Pressed");
+        var timeSheetModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_0__time_sheet_page_modal_time_sheet_page_modal__["a" /* TimeSheetPageModal */], { timeSheetData: 'add' });
+        timeSheetModal.present();
     };
     TimeSheetPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-time-sheet',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheetPage.html"*/'<!--\n\n  Generated template for the TimeSheetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>TimeSheet</ion-title>\n\n    <ion-buttons end >\n\n        <button ion-button icon-only (click)="doAdd()">\n\n          <ion-icon name="add"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n\n\n  <ion-list [virtualScroll]="timeSheetDataList">\n\n    \n\n    <ion-item-sliding *virtualItem="let data"> \n\n        \n\n        <ion-item  (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == \'plan\') ? \'real\' : \'plan\'"> \n\n          {{data.dtm_crt}} <br>\n\n          {{data.today_act}} <br>\n\n        </ion-item>\n\n        <ion-item-options>\n\n          <button ion-button color="light" (click)="onItemUpdate({id: data.time_sheet_id})">\n\n              <ion-icon name="paper"></ion-icon> Update\n\n          </button>\n\n        </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n  \n\n  <!-- <ion-item-group *ngFor="let group of groupedTimeSheetDataList">\n\n\n\n    <ion-item-divider class="ionItemHeader"> {{group.date_time}} </ion-item-divider>\n\n\n\n    <ion-item *ngFor="let timeSheet of group.timesheets" class="ionItem"> \n\n        {{timeSheet.jira_id}}\n\n      <div *ngIf="timeSheet.is_real == \'plan\'" class="ionItemPlan">\n\n          <ion-item  >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n      <div *ngIf="timeSheet.is_real == \'real\'" class="ionItemReal"  >\n\n          <ion-item >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n\n\n    </ion-item>\n\n    \n\n  </ion-item-group> -->\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheetPage.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
+            selector: 'page-time-sheet',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheetPage.html"*/'<!--\n\n  Generated template for the TimeSheetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>TimeSheet</ion-title>\n\n    <ion-buttons end >\n\n        <button ion-button icon-only (click)="doAdd()">\n\n          <ion-icon name="add"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n\n\n  <ion-list [virtualScroll]="timeSheetDataList">\n\n    \n\n    <ion-item-sliding *virtualItem="let data"> \n\n        \n\n        <ion-item  (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == \'plan\') ? \'real\' : \'plan\'"> \n\n          {{data.dtm_crt}} <br>\n\n          {{data.today_act}} <br>\n\n        </ion-item>\n\n        <ion-item-options>\n\n          <button ion-button color="light" (click)="onItemUpdatePressed({data: data})">\n\n              <ion-icon name="paper"></ion-icon> Update\n\n          </button>\n\n        </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n  \n\n  <!-- <ion-item-group *ngFor="let group of groupedTimeSheetDataList">\n\n\n\n    <ion-item-divider class="ionItemHeader"> {{group.date_time}} </ion-item-divider>\n\n\n\n    <ion-item *ngFor="let timeSheet of group.timesheets" class="ionItem"> \n\n        {{timeSheet.jira_id}}\n\n      <div *ngIf="timeSheet.is_real == \'plan\'" class="ionItemPlan">\n\n          <ion-item  >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n      <div *ngIf="timeSheet.is_real == \'real\'" class="ionItemReal"  >\n\n          <ion-item >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n\n\n    </ion-item>\n\n    \n\n  </ion-item-group> -->\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheetPage.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_timesheets_timesheetsProvider__["a" /* TimesheetsProvider */], __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__["a" /* UsersProvider */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* Events */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_timesheets_timesheetsProvider__["a" /* TimesheetsProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__["a" /* UsersProvider */],
+            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* ModalController */]])
     ], TimeSheetPage);
     return TimeSheetPage;
 }());
@@ -502,10 +510,71 @@ var TimeSheetPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimeSheetPageModal; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the TimeSheetPageModalPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var TimeSheetPageModal = /** @class */ (function () {
+    function TimeSheetPageModal(navCtrl, navParams, viewCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        console.log(this.navParams.get('timeSheetData'));
+        if (this.navParams.get('timeSheetData') == 'add') {
+        }
+        this.timeSheet = this.navParams.get('timeSheetData');
+        this.mantab = this.timeSheet.activities_type;
+    }
+    TimeSheetPageModal.prototype.ionViewDidLoad = function () {
+        // console.log(this.navParams.get('timeSheetData'));
+        // if(this.navParams.get('timeSheetData') == 'add'){
+        // }
+        // this.timeSheet = this.navParams.get('timeSheetData');
+        console.log('ionViewDidLoad TimeSheetPageModalPage ' + this.timeSheet.jira_id);
+    };
+    TimeSheetPageModal.prototype.doCloseModal = function () {
+        console.log("Pressed");
+        this.viewCtrl.dismiss();
+    };
+    TimeSheetPageModal = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-time-sheet-page-modal',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet-page-modal\time-sheet-page-modal.html"*/'<!--\n  Generated template for the TimeSheetPageModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>time-sheetPage-modal</ion-title>\n    <ion-buttons end >\n      <button ion-button icon-only (click)="doCloseModal()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-item>\n        <ion-label color="primary" floating>{{timeSheet.activities_type}}</ion-label>\n        <ion-textarea ></ion-textarea>\n    </ion-item>\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet-page-modal\time-sheet-page-modal.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
+    ], TimeSheetPageModal);
+    return TimeSheetPageModal;
+}());
+
+//# sourceMappingURL=time-sheet-page-modal.js.map
+
+/***/ }),
+
+/***/ 160:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__ = __webpack_require__(45);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -620,7 +689,7 @@ var UserPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 170:
+/***/ 171:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -633,40 +702,44 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 170;
+webpackEmptyAsyncContext.id = 171;
 
 /***/ }),
 
-/***/ 214:
+/***/ 215:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/login/loginPage.module": [
-		682,
-		6
+		683,
+		7
 	],
 	"../pages/main/main.module": [
-		683,
-		5
+		684,
+		6
 	],
 	"../pages/report-page-modal/report-page-modal.module": [
-		684,
-		4
+		685,
+		5
 	],
 	"../pages/report/reportPage.module": [
-		685,
-		3
+		686,
+		4
 	],
 	"../pages/tabs/tabs.module": [
-		686,
+		687,
+		3
+	],
+	"../pages/time-sheet-page-modal/time-sheet-page-modal.module": [
+		688,
 		2
 	],
 	"../pages/time-sheet/time-sheetPage.module": [
-		687,
+		689,
 		1
 	],
 	"../pages/user/userPage.module": [
-		688,
+		690,
 		0
 	]
 };
@@ -681,12 +754,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 214;
+webpackAsyncContext.id = 215;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 309:
+/***/ 310:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -766,7 +839,7 @@ var ReportProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 310:
+/***/ 311:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -848,13 +921,13 @@ var TimesheetsProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 354:
+/***/ 355:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -894,13 +967,13 @@ var MainPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 355:
+/***/ 356:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(356);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(361);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -908,7 +981,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 360:
+/***/ 361:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -917,26 +990,28 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(354);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_common_http__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(681);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_main_main__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(682);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_main_main__ = __webpack_require__(355);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_loginPage__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_tabs_tabs__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_report_reportPage__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_time_sheet_time_sheetPage__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_user_userPage__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_user_userPage__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_users_usersProvider__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_timesheets_timesheetsProvider__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_report_reportProvider__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_timesheets_timesheetsProvider__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_report_reportProvider__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_time_sheet_page_modal_time_sheet_page_modal__ = __webpack_require__(159);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -968,7 +1043,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__pages_report_reportPage__["a" /* ReportPage */],
                 __WEBPACK_IMPORTED_MODULE_13__pages_time_sheet_time_sheetPage__["a" /* TimeSheetPage */],
                 __WEBPACK_IMPORTED_MODULE_14__pages_user_userPage__["a" /* UserPage */],
-                __WEBPACK_IMPORTED_MODULE_0__pages_report_page_modal_report_page_modal__["a" /* ReportPageModal */]
+                __WEBPACK_IMPORTED_MODULE_0__pages_report_page_modal_report_page_modal__["a" /* ReportPageModal */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_time_sheet_page_modal_time_sheet_page_modal__["a" /* TimeSheetPageModal */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
@@ -980,6 +1056,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/report-page-modal/report-page-modal.module#ReportPageModalPageModule', name: 'ReportPageModal', segment: 'report-page-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/report/reportPage.module#ReportPageModule', name: 'ReportPage', segment: 'reportPage', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/time-sheet-page-modal/time-sheet-page-modal.module#TimeSheetPageModalPageModule', name: 'TimeSheetPageModal', segment: 'time-sheet-page-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/time-sheet/time-sheetPage.module#TimeSheetPageModule', name: 'TimeSheetPage', segment: 'time-sheetPage', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user/userPage.module#UserPageModule', name: 'UserPage', segment: 'userPage', priority: 'low', defaultHistory: [] }
                     ]
@@ -994,7 +1071,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__pages_report_reportPage__["a" /* ReportPage */],
                 __WEBPACK_IMPORTED_MODULE_13__pages_time_sheet_time_sheetPage__["a" /* TimeSheetPage */],
                 __WEBPACK_IMPORTED_MODULE_14__pages_user_userPage__["a" /* UserPage */],
-                __WEBPACK_IMPORTED_MODULE_0__pages_report_page_modal_report_page_modal__["a" /* ReportPageModal */]
+                __WEBPACK_IMPORTED_MODULE_0__pages_report_page_modal_report_page_modal__["a" /* ReportPageModal */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_time_sheet_page_modal_time_sheet_page_modal__["a" /* TimeSheetPageModal */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__["a" /* StatusBar */],
@@ -1021,7 +1099,7 @@ var AppModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelperMethodProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1045,8 +1123,10 @@ var HelperMethodProvider = /** @class */ (function () {
         this.http = http;
         this.loadingController = loadingController;
         this.toastController = toastController;
-        this.ipUrl = 'http://10.107.200.165:8080/';
-        this.baseUrl = 'com.adins.mss.webservices/services/m/';
+        // public ipUrl : string = 'http://10.107.200.165:8080/';
+        this.ipUrl = 'http://17-05-0049-0115:8580/';
+        // public baseUrl : string = 'com.adins.mss.webservices/services/m/';
+        this.baseUrl = 'msa.services/services/m/';
         this.userLoginAPI = 'user/login';
         this.personUrl = 'assets/jsonFile/personResponse.json';
         this.timeSheetUrl = 'assets/jsonFile/timesheetResponse.json';
@@ -1142,23 +1222,28 @@ var UsersProvider = /** @class */ (function () {
         // headers.append('Authorization', 'Bearer ' + 'asdasdss');
         var content = 'application/x-www-form-urlencoded';
         var auth = 'Bearer asdasdss';
-        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpHeaders */]({
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': 'Bearer asdasdss',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT'
-        });
-        // return this.http.post(this.postUrl, userLogin)
+        // let headers = new HttpHeaders({
+        //   Content-Type: 'application/x-www-form-urlencoded',
+        //   'Authorization': 'Bearer asdasdss',
+        //   'Access-Control-Allow-Origin' : '*',
+        //   'Access-Control-Allow-Methods': 'POST, GET'
+        // });
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpHeaders */]();
+        headers.set('Content-Type', 'application/x-www-form-urlencoded');
+        headers.set('Authorization', 'Bearer asdasd');
+        headers.set('Access-Control-Allow-Origin', '*');
+        console.log(headers);
+        // return this.http.post(this.postUrl, userLogin,{headers})
         //       .pipe(map(this.extractData),
         //       catchError(this.handleError)
         //   );
-        // return this.http.get(this.helperMethod.personUrl)
-        //       .pipe(map(this.extractData),
-        //       catchError(this.handleError)
-        //   );
-        //integrasi
-        return this.http.post(this.helperMethod.ipUrl + this.helperMethod.baseUrl, userLogin, { headers: headers })
+        return this.http.get(this.baseUrl)
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError));
+        //integrasi
+        // return this.http.post(this.helperMethod.ipUrl + this.helperMethod.baseUrl,userLogin, {headers})
+        //           .pipe(map(this.extractData),
+        //           catchError(this.handleError)
+        // );
     };
     UsersProvider.prototype.getUsers = function () {
         return this.http.get(this.baseUrl)
@@ -1207,16 +1292,16 @@ var UsersProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 681:
+/***/ 682:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_tabs_tabs__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(351);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_loginPage__ = __webpack_require__(155);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1266,5 +1351,5 @@ var MyApp = /** @class */ (function () {
 
 /***/ })
 
-},[355]);
+},[356]);
 //# sourceMappingURL=main.js.map

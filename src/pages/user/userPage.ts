@@ -27,7 +27,7 @@ export class UserPage {
   error : any;
   
   constructor(private navCtrl: NavController, private navParams: NavParams, 
-              private userProvider : UsersProvider,
+              public userProvider : UsersProvider,
               private helperMethod:HelperMethodProvider,
               private events:Events, private alertCtrl: AlertController) {
 

@@ -1,8 +1,9 @@
+import { TimeSheetPageModal } from './../time-sheet-page-modal/time-sheet-page-modal';
 import { UsersProvider } from './../../providers/users/usersProvider';
 import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
 import { TimeSheet } from '../../models/TimeSheet';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, ModalController } from 'ionic-angular';
 import { TimesheetsProvider } from '../../providers/timesheets/timesheetsProvider';
 
 /**
@@ -25,7 +26,7 @@ export class TimeSheetPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public timeSheetProvider : TimesheetsProvider, public helperMethod:HelperMethodProvider,
               public userProvider : UsersProvider,
-              public events: Events) {
+              public events: Events, public modalCtrl : ModalController) {
 
   }
 
@@ -96,11 +97,19 @@ export class TimeSheetPage {
   onItemPressed(itemId){
     console.log(itemId);
   }
-  onItemUpdate(itemId){
-    console.log('OnItemUpdate Pressed ', itemId);
+  onItemUpdatePressed(itemData){
+    console.log('OnItemUpdate Pressed ', itemData);
+
+    let timeSheetModal = this.modalCtrl.create(TimeSheetPageModal,{timeSheetData : itemData.data});
+    timeSheetModal.present();
+
   }
+
+
   doAdd(){
     console.log("Add Button Pressed");
+    let timeSheetModal = this.modalCtrl.create(TimeSheetPageModal,{timeSheetData : 'add'});
+    timeSheetModal.present();
   }
 
 }

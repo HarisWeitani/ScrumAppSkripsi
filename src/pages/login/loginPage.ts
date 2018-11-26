@@ -67,14 +67,15 @@ export class LoginPage {
         this.helperMethod.loading.dismiss();
         console.log(response);
         // if(response.id == 101){
-        //   this.userProvider.user = new User(userLogin.username,userLogin.password);
+        //   // this.userProvider.user = new User(userLogin.username,userLogin.password);
+        //   this.userProvider.user = response;
         //   this.events.publish('Auth',1);
         // }else{
         //   this.helperMethod.presentToast('User Not Found',2000,3);
         // }
-        // this.userProvider.user = response;
-        // this.events.publish('Auth',1);
-        
+        this.userProvider.user = response;
+        this.events.publish('Auth',1);
+        console.log(response);
       },
       (error:any) => {
         console.log(error);

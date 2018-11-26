@@ -21,7 +21,7 @@ testing:string;
   private postUrl: string= "https://jsonplaceholder.typicode.com/posts/";
 
   user: User;
-
+ 
   constructor(private http:HttpClient, private helperMethod : HelperMethodProvider) {
     console.log('Hello UsersProvider Provider');
   }
@@ -43,28 +43,35 @@ testing:string;
 
     let content : string = 'application/x-www-form-urlencoded';
     let auth : string = 'Bearer asdasdss';
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': 'Bearer asdasdss',
-      'Access-Control-Allow-Origin' : '*',
-      'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT'
-    });
+    // let headers = new HttpHeaders({
+    //   Content-Type: 'application/x-www-form-urlencoded',
+    //   'Authorization': 'Bearer asdasdss',
+    //   'Access-Control-Allow-Origin' : '*',
+    //   'Access-Control-Allow-Methods': 'POST, GET'
+    // });
 
-    // return this.http.post(this.postUrl, userLogin)
+    const headers = new HttpHeaders();
+    headers.set('Content-Type','application/x-www-form-urlencoded');
+    headers.set('Authorization', 'Bearer asdasd');
+    headers.set('Access-Control-Allow-Origin','*');
+
+    console.log(headers);
+
+    // return this.http.post(this.postUrl, userLogin,{headers})
     //       .pipe(map(this.extractData),
     //       catchError(this.handleError)
     //   );
 
-    // return this.http.get(this.helperMethod.personUrl)
-    //       .pipe(map(this.extractData),
-    //       catchError(this.handleError)
-    //   );
+    return this.http.get(this.baseUrl)
+          .pipe(map(this.extractData),
+          catchError(this.handleError)
+      );
 
     //integrasi
-    return this.http.post(this.helperMethod.ipUrl + this.helperMethod.baseUrl,userLogin, {headers})
-              .pipe(map(this.extractData),
-              catchError(this.handleError)
-    );
+    // return this.http.post(this.helperMethod.ipUrl + this.helperMethod.baseUrl,userLogin, {headers})
+    //           .pipe(map(this.extractData),
+    //           catchError(this.handleError)
+    // );
 
   }
   
