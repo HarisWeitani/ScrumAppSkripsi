@@ -26,8 +26,38 @@
     <ion-item-sliding *virtualItem="let data"> 
         
         <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == 'plan') ? 'real' : 'plan'"> 
-          {{data.dtm_crt}} <br>
+          <table>
+            <tr>
+              <td>{{data.dtm_crt}}</td>
+              <td></td>
+              <td>{{data.project_code}}</td>
+            </tr>
+            <tr>
+              <td>Activites</td>
+              <td> : </td>
+              <td>{{data.activities_type}}</td>
+            </tr>
+            <tr>
+              <td>Detail</td>
+              <td> : </td>
+              <td colspan="1">{{data.today_act}}</td>
+            </tr>
+            <tr>
+              <td>jira_id</td>
+              <td> : </td>
+              <td>{{data.jira_id}}</td>
+            </tr>
+            <tr>
+              <td>Duration</td>
+              <td> : </td>
+              <td>{{data.duration_act}} Hours</td>
+            </tr>
+          </table>
+          <!-- {{data.dtm_crt}} <br>
           Today Act : {{data.today_act}} <br>
+          Today Act : {{data.today_act}} <br>
+          Today Act : {{data.today_act}} <br>
+          Today Act : {{data.today_act}} <br> -->
         </ion-item>
         <ion-item-options>
           <button ion-button color="light" (click)="onItemUpdatePressed({data: data})">

@@ -15,27 +15,30 @@ export class OAuthProvider {
   public baseUrl : string = 'com.adins.mss.webservices/services/m/';
   public oAuthTokenAPI : string = 'http://172.18.0.236:8080/com.adins.mss.webservices/oauth/token';
 
+  
+
   constructor(public http: HttpClient, public httpNative : HTTP) {
     console.log('Hello OAuthProvider Provider');
   }
 
-  getOAuthToken(username : string, password : string){
+  getOAuthToken(userLogin : any){
     let headers = {
       'Content-Type':'application/x-www-form-urlencoded',
       'Accept' : 'application/json'
     }
-    let body = 'grant_type=password&username='+username+'&password='+password+'&client_id=mobile';
+    let body = 'grant_type=password&username='+userLogin.username
+                +'&password='+userLogin.password+'&client_id=mobile';
 
     this.httpNative.setDataSerializer('utf8');
     return this.httpNative.post(this.oAuthTokenAPI,body,headers);
   }
 
-  getHeader(token : string){
+  getHeader(OAuthToken : string){
 
     let headers = {
       'Content-Type':'application/x-www-form-urlencoded',
       'Accept' : 'application/json',
-      'Authorization': 'Bearer ' + token
+      'Authorization': 'Bearer ' + OAuthToken
     }
 
     return headers;

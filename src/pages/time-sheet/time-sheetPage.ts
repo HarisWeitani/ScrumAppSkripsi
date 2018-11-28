@@ -3,8 +3,9 @@ import { UsersProvider } from './../../providers/users/usersProvider';
 import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
 import { TimeSheet } from '../../models/TimeSheet';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, ModalController, AlertController } from 'ionic-angular';
 import { TimesheetsProvider } from '../../providers/timesheets/timesheetsProvider';
+import { text } from '@angular/core/src/render3/instructions';
 /**
  * Generated class for the TimeSheetPage page.
  *
@@ -21,13 +22,21 @@ export class TimeSheetPage {
 
   timeSheetDataList : Array<TimeSheet>;
   groupedTimeSheetDataList = [];
+
+  listItem: Array<String> = [];
   
   
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public timeSheetProvider : TimesheetsProvider, public helperMethod:HelperMethodProvider,
               public userProvider : UsersProvider,
-              public events: Events, public modalCtrl : ModalController) {
-
+              public events: Events, public modalCtrl : ModalController,
+              public alertCtrl : AlertController) {
+    
+                this.listItem.push('asdasd1');
+                this.listItem.push('asdasd2');
+                this.listItem.push('asdasd3');
+                this.listItem.push('asdasd4');
+                this.listItem.push('asdasd5');
   }
 
   ionViewDidLoad() {
@@ -87,9 +96,6 @@ export class TimeSheetPage {
 
   }
 
-  onItemPressed(itemId){
-    console.log(itemId);
-  }
   onItemUpdatePressed(itemData){
     console.log('OnItemUpdate Pressed ', itemData);
 
@@ -102,6 +108,51 @@ export class TimeSheetPage {
     console.log("Add Button Pressed");
     let timeSheetModal = this.modalCtrl.create(TimeSheetPageModal,{timeSheetData : 'add'});
     timeSheetModal.present();
+  }
+
+  onItemPressed(itemId){
+    console.log(itemId);
+    // this.alertPopUpDetailTimeSheet();
+  }
+
+  alertPopUpDetailTimeSheet(){
+
+    let messages = 'First Row \nSecond Row';
+
+    let alert = this.alertCtrl.create({
+      title: 'Detail',
+      // message: 'asdasd',
+      inputs : [
+        {
+          value : 'asdasd1'
+        },
+        {
+          label : 'asdasd2'
+        },
+        {
+          label : 'asdasd3'
+        },
+        {
+          label : 'asdasd4'
+        }
+      ],
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            this.events.publish('Auth',0);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

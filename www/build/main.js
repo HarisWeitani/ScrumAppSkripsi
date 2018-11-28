@@ -35,20 +35,21 @@ var OAuthProvider = /** @class */ (function () {
         this.oAuthTokenAPI = 'http://172.18.0.236:8080/com.adins.mss.webservices/oauth/token';
         console.log('Hello OAuthProvider Provider');
     }
-    OAuthProvider.prototype.getOAuthToken = function (username, password) {
+    OAuthProvider.prototype.getOAuthToken = function (userLogin) {
         var headers = {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Accept': 'application/json'
         };
-        var body = 'grant_type=password&username=' + username + '&password=' + password + '&client_id=mobile';
+        var body = 'grant_type=password&username=' + userLogin.username
+            + '&password=' + userLogin.password + '&client_id=mobile';
         this.httpNative.setDataSerializer('utf8');
         return this.httpNative.post(this.oAuthTokenAPI, body, headers);
     };
-    OAuthProvider.prototype.getHeader = function (token) {
+    OAuthProvider.prototype.getHeader = function (OAuthToken) {
         var headers = {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Accept': 'application/json',
-            'Authorization': 'Bearer ' + token
+            'Authorization': 'Bearer ' + OAuthToken
         };
         return headers;
     };
@@ -171,42 +172,42 @@ var LoginPage = /** @class */ (function () {
         console.log('ionViewDidLoad LoginPage ');
     };
     LoginPage.prototype.doLogin = function () {
-        // this.doLoginBrowser();
-        this.doAuthenticate();
+        var userLogin = {
+            username: this.username.value,
+            password: this.password.value
+        };
+        this.doLoginBrowser(userLogin);
+        // this.doAuthenticate(userLogin);
     };
-    LoginPage.prototype.doAuthenticate = function () {
+    LoginPage.prototype.doAuthenticate = function (userLogin) {
         var _this = this;
-        this.helperMethod.loadingService("Collecting User Info..");
-        this.oAuthProvider.getOAuthToken(this.username.value, this.password.value)
+        this.helperMethod.loadingService("Verifying Your Info..");
+        this.oAuthProvider.getOAuthToken(userLogin)
             .then(function (response) {
             _this.helperMethod.loading.dismiss();
-            _this.userProvider.user = response;
-            _this.events.publish('Auth', 1);
+            _this.userProvider.userOAuth = response;
+            _this.doLogindevice(userLogin);
             console.log(response);
         }).catch(function (error) {
             console.log(error);
-            console.error(error.name);
-            console.error(error.status);
-            console.error(error.statusText);
+            console.error(error.error);
+            console.error(error.error_description);
             _this.helperMethod.loading.dismiss();
-            if (error.name == 'TimeoutError') {
+            if (error.error == 'TimeoutError') {
                 _this.helperMethod.presentToast('Slow Connection', 2000, 2);
+            }
+            else if (error.error == 'invalid_grant') {
+                _this.helperMethod.presentToast(error.error_description, 2000, 3);
             }
             else {
                 _this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT', 2000, 3);
             }
         });
     };
-    LoginPage.prototype.doLoginBrowser = function () {
+    LoginPage.prototype.doLoginBrowser = function (userLogin) {
         var _this = this;
         this.helperMethod.loadingService("Collecting User Info..");
-        var userLogin = {
-            username: this.username.value,
-            password: this.password.value
-        };
-        this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(
-        // this.userProvider.validateLogin(userLogin).then(
-        function (response) {
+        this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(function (response) {
             _this.helperMethod.loading.dismiss();
             // if(response.id == 101){
             //   // this.userProvider.user = new User(userLogin.username,userLogin.password);
@@ -232,13 +233,9 @@ var LoginPage = /** @class */ (function () {
             }
         });
     };
-    LoginPage.prototype.doLogindevice = function () {
+    LoginPage.prototype.doLogindevice = function (userLogin) {
         var _this = this;
         this.helperMethod.loadingService("Collecting User Info..");
-        var userLogin = {
-            username: this.username.value,
-            password: this.password.value
-        };
         this.userProvider.validateLoginDevice(userLogin).then(function (response) {
             _this.helperMethod.loading.dismiss();
             _this.userProvider.user = response;
@@ -497,7 +494,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var TimeSheetPage = /** @class */ (function () {
-    function TimeSheetPage(navCtrl, navParams, timeSheetProvider, helperMethod, userProvider, events, modalCtrl) {
+    function TimeSheetPage(navCtrl, navParams, timeSheetProvider, helperMethod, userProvider, events, modalCtrl, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.timeSheetProvider = timeSheetProvider;
@@ -505,7 +502,14 @@ var TimeSheetPage = /** @class */ (function () {
         this.userProvider = userProvider;
         this.events = events;
         this.modalCtrl = modalCtrl;
+        this.alertCtrl = alertCtrl;
         this.groupedTimeSheetDataList = [];
+        this.listItem = [];
+        this.listItem.push('asdasd1');
+        this.listItem.push('asdasd2');
+        this.listItem.push('asdasd3');
+        this.listItem.push('asdasd4');
+        this.listItem.push('asdasd5');
     }
     TimeSheetPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -549,9 +553,6 @@ var TimeSheetPage = /** @class */ (function () {
         });
         console.log(this.groupedTimeSheetDataList);
     };
-    TimeSheetPage.prototype.onItemPressed = function (itemId) {
-        console.log(itemId);
-    };
     TimeSheetPage.prototype.onItemUpdatePressed = function (itemData) {
         console.log('OnItemUpdate Pressed ', itemData);
         var timeSheetModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_0__time_sheet_page_modal_time_sheet_page_modal__["a" /* TimeSheetPageModal */], { timeSheetData: itemData.data });
@@ -562,14 +563,57 @@ var TimeSheetPage = /** @class */ (function () {
         var timeSheetModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_0__time_sheet_page_modal_time_sheet_page_modal__["a" /* TimeSheetPageModal */], { timeSheetData: 'add' });
         timeSheetModal.present();
     };
+    TimeSheetPage.prototype.onItemPressed = function (itemId) {
+        console.log(itemId);
+        // this.alertPopUpDetailTimeSheet();
+    };
+    TimeSheetPage.prototype.alertPopUpDetailTimeSheet = function () {
+        var _this = this;
+        var messages = 'First Row \nSecond Row';
+        var alert = this.alertCtrl.create({
+            title: 'Detail',
+            // message: 'asdasd',
+            inputs: [
+                {
+                    value: 'asdasd1'
+                },
+                {
+                    label: 'asdasd2'
+                },
+                {
+                    label: 'asdasd3'
+                },
+                {
+                    label: 'asdasd4'
+                }
+            ],
+            buttons: [
+                {
+                    text: 'No',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'Yes',
+                    handler: function () {
+                        _this.events.publish('Auth', 0);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
     TimeSheetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'page-time-sheet',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheetPage.html"*/'<!--\n\n  Generated template for the TimeSheetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>TimeSheet</ion-title>\n\n    <ion-buttons end >\n\n        <button ion-button icon-only (click)="doAdd()">\n\n          <ion-icon name="add"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n\n\n  <ion-list [virtualScroll]="timeSheetDataList">\n\n    \n\n    <ion-item-sliding *virtualItem="let data"> \n\n        \n\n        <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == \'plan\') ? \'real\' : \'plan\'"> \n\n          {{data.dtm_crt}} <br>\n\n          Today Act : {{data.today_act}} <br>\n\n        </ion-item>\n\n        <ion-item-options>\n\n          <button ion-button color="light" (click)="onItemUpdatePressed({data: data})">\n\n              <ion-icon name="paper"></ion-icon> Update\n\n          </button>\n\n        </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n  \n\n  <!-- <ion-item-group *ngFor="let group of groupedTimeSheetDataList">\n\n\n\n    <ion-item-divider class="ionItemHeader"> {{group.date_time}} </ion-item-divider>\n\n\n\n    <ion-item *ngFor="let timeSheet of group.timesheets" class="ionItem"> \n\n        {{timeSheet.jira_id}}\n\n      <div *ngIf="timeSheet.is_real == \'plan\'" class="ionItemPlan">\n\n          <ion-item  >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n      <div *ngIf="timeSheet.is_real == \'real\'" class="ionItemReal"  >\n\n          <ion-item >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n\n\n    </ion-item>\n\n    \n\n  </ion-item-group> -->\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheetPage.html"*/,
+            selector: 'page-time-sheet',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheetPage.html"*/'<!--\n\n  Generated template for the TimeSheetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>TimeSheet</ion-title>\n\n    <ion-buttons end >\n\n        <button ion-button icon-only (click)="doAdd()">\n\n          <ion-icon name="add"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n\n\n  <ion-list [virtualScroll]="timeSheetDataList">\n\n    \n\n    <ion-item-sliding *virtualItem="let data"> \n\n        \n\n        <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == \'plan\') ? \'real\' : \'plan\'"> \n\n          <table>\n\n            <tr>\n\n              <td>{{data.dtm_crt}}</td>\n\n              <td></td>\n\n              <td>{{data.project_code}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Activites</td>\n\n              <td> : </td>\n\n              <td>{{data.activities_type}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Detail</td>\n\n              <td> : </td>\n\n              <td colspan="1">{{data.today_act}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>jira_id</td>\n\n              <td> : </td>\n\n              <td>{{data.jira_id}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Duration</td>\n\n              <td> : </td>\n\n              <td>{{data.duration_act}} Hours</td>\n\n            </tr>\n\n          </table>\n\n          <!-- {{data.dtm_crt}} <br>\n\n          Today Act : {{data.today_act}} <br>\n\n          Today Act : {{data.today_act}} <br>\n\n          Today Act : {{data.today_act}} <br>\n\n          Today Act : {{data.today_act}} <br> -->\n\n        </ion-item>\n\n        <ion-item-options>\n\n          <button ion-button color="light" (click)="onItemUpdatePressed({data: data})">\n\n              <ion-icon name="paper"></ion-icon> Update\n\n          </button>\n\n        </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n  \n\n  <!-- <ion-item-group *ngFor="let group of groupedTimeSheetDataList">\n\n\n\n    <ion-item-divider class="ionItemHeader"> {{group.date_time}} </ion-item-divider>\n\n\n\n    <ion-item *ngFor="let timeSheet of group.timesheets" class="ionItem"> \n\n        {{timeSheet.jira_id}}\n\n      <div *ngIf="timeSheet.is_real == \'plan\'" class="ionItemPlan">\n\n          <ion-item  >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n      <div *ngIf="timeSheet.is_real == \'real\'" class="ionItemReal"  >\n\n          <ion-item >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n\n\n    </ion-item>\n\n    \n\n  </ion-item-group> -->\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheetPage.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_5__providers_timesheets_timesheetsProvider__["a" /* TimesheetsProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
             __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__["a" /* UsersProvider */],
-            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* ModalController */]])
+            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]])
     ], TimeSheetPage);
     return TimeSheetPage;
 }());
@@ -807,11 +851,11 @@ var map = {
 		2
 	],
 	"../pages/time-sheet/time-sheetPage.module": [
-		692,
+		693,
 		1
 	],
 	"../pages/user/userPage.module": [
-		693,
+		692,
 		0
 	]
 };
@@ -1136,8 +1180,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/report/reportPage.module#ReportPageModule', name: 'ReportPage', segment: 'reportPage', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/time-sheet-page-modal/time-sheet-page-modal.module#TimeSheetPageModalPageModule', name: 'TimeSheetPageModal', segment: 'time-sheet-page-modal', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/time-sheet/time-sheetPage.module#TimeSheetPageModule', name: 'TimeSheetPage', segment: 'time-sheetPage', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/user/userPage.module#UserPageModule', name: 'UserPage', segment: 'userPage', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/user/userPage.module#UserPageModule', name: 'UserPage', segment: 'userPage', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/time-sheet/time-sheetPage.module#TimeSheetPageModule', name: 'TimeSheetPage', segment: 'time-sheetPage', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -1290,11 +1334,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
   and Angular DI.0
 */
 var UsersProvider = /** @class */ (function () {
-    function UsersProvider(http, helperMethod, httpNative, outhProvider) {
+    function UsersProvider(http, helperMethod, httpNative, oauthProvider) {
         this.http = http;
         this.helperMethod = helperMethod;
         this.httpNative = httpNative;
-        this.outhProvider = outhProvider;
+        this.oauthProvider = oauthProvider;
         this.baseUrl = "https://jsonplaceholder.typicode.com/users";
         this.postUrl = "https://jsonplaceholder.typicode.com/posts/";
         console.log('Hello UsersProvider Provider');
@@ -1308,11 +1352,7 @@ var UsersProvider = /** @class */ (function () {
             .pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["catchError"])(this.handleError));
     };
     UsersProvider.prototype.validateLoginDevice = function (userLogin) {
-        var headers = {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'application/json',
-            'Authorization': 'Bearer KAMPUNGAN'
-        };
+        var headers = this.oauthProvider.getHeader(this.userOAuth.access_token);
         console.log(headers);
         console.log("URL TIRTA " + this.helperMethod.ipUrl + this.helperMethod.baseUrl + this.helperMethod.userLoginAPI);
         this.httpNative.setRequestTimeout(10);

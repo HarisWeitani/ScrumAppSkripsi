@@ -3,9 +3,6 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController,Events } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HelperMethodProvider } from '../../providers/helper-method/helper-method';
-import { TimeoutError } from 'rxjs';
-import { stringify } from '@angular/compiler/src/util';
-import { User } from '../../models/User';
 import { OAuthProvider } from '../../providers/o-auth/oauthProvider';
 
 /**
@@ -51,29 +48,34 @@ export class LoginPage {
   }
 
   doLogin() {
-    // this.doLoginBrowser();
-    this.doAuthenticate();
+    let userLogin = {
+      username : this.username.value,
+      password : this.password.value
+    };
+    this.doLoginBrowser(userLogin);
+    // this.doAuthenticate(userLogin);
   }
 
-  doAuthenticate(){
-    this.helperMethod.loadingService("Collecting User Info..");
-    this.oAuthProvider.getOAuthToken(this.username.value,this.password.value)
+  doAuthenticate(userLogin){
+    this.helperMethod.loadingService("Verifying Your Info..");
+    this.oAuthProvider.getOAuthToken(userLogin)
         .then(
           (response:any) => {
           this.helperMethod.loading.dismiss();
-          this.userProvider.user = response;
-          this.events.publish('Auth',1);
+          this.userProvider.userOAuth = response;
+          this.doLogindevice(userLogin);
           console.log(response);
         }).catch(
           (error:any) => {
             console.log(error);
-            console.error(error.name);
-            console.error(error.status);
-            console.error(error.statusText);
+            console.error(error.error);
+            console.error(error.error_description);
             this.helperMethod.loading.dismiss();
     
-            if(error.name == 'TimeoutError'){
+            if(error.error == 'TimeoutError'){
               this.helperMethod.presentToast('Slow Connection',2000,2);
+            }else if(error.error == 'invalid_grant'){
+              this.helperMethod.presentToast(error.error_description,2000,3);
             }else{
               this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',2000,3);
             }
@@ -81,14 +83,9 @@ export class LoginPage {
         );
   }
 
-  doLoginBrowser(){
+  doLoginBrowser(userLogin){
     this.helperMethod.loadingService("Collecting User Info..");
-    let userLogin = {
-      username : this.username.value,
-      password : this.password.value
-    };
     this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(
-      // this.userProvider.validateLogin(userLogin).then(
         (response:any) => {
           this.helperMethod.loading.dismiss();
           // if(response.id == 101){
@@ -119,12 +116,8 @@ export class LoginPage {
       );
   }
 
-  doLogindevice(){
+  doLogindevice(userLogin){
     this.helperMethod.loadingService("Collecting User Info..");
-    let userLogin = {
-      username : this.username.value,
-      password : this.password.value
-    };
     this.userProvider.validateLoginDevice(userLogin).then(
       (response:any) => {
         this.helperMethod.loading.dismiss();

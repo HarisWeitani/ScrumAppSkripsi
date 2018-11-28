@@ -1,0 +1,22 @@
+{
+    "access_token": "8e38d3b0-cdbd-4cc4-b1c9-316c474dd100",
+    "token_type": "bearer",
+    "refresh_token": "980e4910-d395-4911-ba6e-7f2e9ff39d43",
+    "expires_in": 86399,
+    "scope": "trust"
+}
+
+error Auth
+{
+    "error": "invalid_grant",
+    "error_description": "Login Failed. Please Check Your UserID and Password"
+}
+
+error Login
+
+{
+    "status": {
+        "code": 9999,
+        "message": "Unknown System Error"
+    }
+}

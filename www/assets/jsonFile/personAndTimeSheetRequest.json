@@ -1,4 +1,30 @@
 {
-    "username" : "Nar231",
-    "password" : "Okta Oke"
-}
+    "flagFreshInstall": "1",
+    "username": "msamp02",
+    "password": "password",
+    "audit": {
+      "androidId": "2d043db893a6bef9",
+      "application": "MMA",
+      "applicationVersion": "2.3.5.6-D",
+      "callerId": "114",
+      "deviceId": "359667064042313",
+      "deviceModel": "SM-G925F",
+      "locale": "en",
+      "os": "ANDROID",
+      "osVersion": "23"
+    },
+    "unstructured": [
+      {
+        "key": "imei",
+        "value": "359667064042313"
+      },
+      {
+        "key": "imei2",
+        "value": "359667064042313"
+      },
+      {
+        "key": "androidId",
+        "value": "2d043db893a6bef9"
+      }
+    ]
+  }

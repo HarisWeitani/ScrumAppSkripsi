@@ -1,3 +1,4 @@
+import { OAuthToken } from './../../models/OAuthToken';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 // import 'rxjs/add/operator/map';
@@ -23,9 +24,10 @@ testing:string;
   private postUrl: string= "https://jsonplaceholder.typicode.com/posts/";
 
   user: User;
+  userOAuth : OAuthToken;
  
   constructor(private http:HttpClient, private helperMethod : HelperMethodProvider,
-              public httpNative : HTTP, public outhProvider : OAuthProvider) {
+              public httpNative : HTTP, public oauthProvider : OAuthProvider) {
     console.log('Hello UsersProvider Provider');
   }
 
@@ -45,12 +47,8 @@ testing:string;
   }
 
   validateLoginDevice(userLogin : any){
-
-    let headers = {
-      'Content-Type':'application/x-www-form-urlencoded',
-      'Accept' : 'application/json',
-      'Authorization': 'Bearer KAMPUNGAN'
-    }
+    
+    let headers = this.oauthProvider.getHeader(this.userOAuth.access_token);
 
     console.log(headers);
     console.log("URL TIRTA " + this.helperMethod.ipUrl + this.helperMethod.baseUrl + this.helperMethod.userLoginAPI);

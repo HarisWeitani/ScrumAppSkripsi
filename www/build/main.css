@@ -33382,6 +33382,10 @@ page-time-sheet .ionItem {
   margin-bottom: 5px;
 }
 
+page-time-sheet td {
+  text-align: left;
+}
+
 page-user .profile-photo {
   width: 50%;
   height: 50%;
