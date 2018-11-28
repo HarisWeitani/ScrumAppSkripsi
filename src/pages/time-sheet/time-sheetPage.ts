@@ -5,7 +5,6 @@ import { TimeSheet } from '../../models/TimeSheet';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events, ModalController } from 'ionic-angular';
 import { TimesheetsProvider } from '../../providers/timesheets/timesheetsProvider';
-
 /**
  * Generated class for the TimeSheetPage page.
  *
@@ -22,7 +21,8 @@ export class TimeSheetPage {
 
   timeSheetDataList : Array<TimeSheet>;
   groupedTimeSheetDataList = [];
-
+  
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public timeSheetProvider : TimesheetsProvider, public helperMethod:HelperMethodProvider,
               public userProvider : UsersProvider,
@@ -87,13 +87,6 @@ export class TimeSheetPage {
 
   }
 
-  ionViewWillEnter(){
-    console.log('will enter');
-  }
-  ionViewDidEnter(){
-    console.log('Did enter');
-  }
-
   onItemPressed(itemId){
     console.log(itemId);
   }
@@ -104,7 +97,6 @@ export class TimeSheetPage {
     timeSheetModal.present();
 
   }
-
 
   doAdd(){
     console.log("Add Button Pressed");

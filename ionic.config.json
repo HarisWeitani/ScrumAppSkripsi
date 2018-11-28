@@ -3,13 +3,6 @@
   "integrations": {
     "cordova": {}
   },
-  "type": "ionic-angular",
-  
-  "proxies": [
-    {
-      "path": "services/m/",
-      "proxyUrl": "http://10.107.200.165:8080/com.adins.mss.webservices/services/m/"
-    }
-  ]
+  "type": "ionic-angular"
 
 }

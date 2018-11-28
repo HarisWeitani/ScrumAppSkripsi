@@ -25,9 +25,9 @@
     
     <ion-item-sliding *virtualItem="let data"> 
         
-        <ion-item  (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == 'plan') ? 'real' : 'plan'"> 
+        <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == 'plan') ? 'real' : 'plan'"> 
           {{data.dtm_crt}} <br>
-          {{data.today_act}} <br>
+          Today Act : {{data.today_act}} <br>
         </ion-item>
         <ion-item-options>
           <button ion-button color="light" (click)="onItemUpdatePressed({data: data})">

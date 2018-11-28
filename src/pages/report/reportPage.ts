@@ -68,16 +68,6 @@ export class ReportPage {
         );
   }
 
-  getCustomJson(){  
-    this.userProvider.testerMethod().subscribe(
-      (response:any)=>{
-        console.log(response);
-        this.items = response.list_of_project;
-        console.log(this.items);
-      }
-    );
-  }
-
   onItemPressed(item){
     this.helperMethod.loadingService('Getting Your Bulk Item...');
 

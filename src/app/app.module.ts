@@ -6,6 +6,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { HTTP } from '@ionic-native/http'
 
 import { MyApp } from './app.component';
 import { MainPage } from '../pages/main/main';
@@ -18,6 +19,8 @@ import { UsersProvider } from '../providers/users/usersProvider';
 import { TimesheetsProvider } from '../providers/timesheets/timesheetsProvider';
 import { ReportProvider } from '../providers/report/reportProvider';
 import { TimeSheetPageModal } from '../pages/time-sheet-page-modal/time-sheet-page-modal';
+import { ExpandableComponent } from '../components/expandable/expandable';
+import { OAuthProvider } from '../providers/o-auth/oauthProvider';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { TimeSheetPageModal } from '../pages/time-sheet-page-modal/time-sheet-pa
     TimeSheetPage,
     UserPage,
     ReportPageModal,
-    TimeSheetPageModal
+    TimeSheetPageModal,
+    ExpandableComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,8 @@ import { TimeSheetPageModal } from '../pages/time-sheet-page-modal/time-sheet-pa
     TimeSheetPage,
     UserPage,
     ReportPageModal,
-    TimeSheetPageModal
+    TimeSheetPageModal,
+    ExpandableComponent
   ],
   providers: [
     StatusBar,
@@ -55,7 +60,9 @@ import { TimeSheetPageModal } from '../pages/time-sheet-page-modal/time-sheet-pa
     UsersProvider,
     TimesheetsProvider,
     HelperMethodProvider,
-    ReportProvider
+    ReportProvider,
+    HTTP,
+    OAuthProvider
   ]
 })
 export class AppModule { }

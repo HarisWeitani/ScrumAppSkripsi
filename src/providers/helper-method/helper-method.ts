@@ -13,10 +13,10 @@ export class HelperMethodProvider {
   
 //http://localhost:8080/com.adins.mss.webservices/services/m/user/login
   public loading:any;
-  // public ipUrl : string = 'http://10.107.200.165:8080/';
-  public ipUrl : string = 'http://17-05-0049-0115:8580/'
-  // public baseUrl : string = 'com.adins.mss.webservices/services/m/';
-  public baseUrl : string = 'msa.services/services/m/'
+  public ipUrl : string = 'http://172.18.0.236:8080/';
+  // public ipUrl : string = 'http://17-05-0049-0115:8580/'
+  public baseUrl : string = 'com.adins.mss.webservices/services/m/';
+  // public baseUrl : string = 'msa.services/services/m/'
 
   public userLoginAPI : string  ='user/login';
 

@@ -4872,10 +4872,6 @@ textarea::-webkit-input-placeholder {
   padding-left: 2px;
 }
 
-textarea:-ms-input-placeholder {
-  padding-left: 2px;
-}
-
 textarea::-ms-input-placeholder {
   padding-left: 2px;
 }
@@ -33352,6 +33348,15 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+expandable .expand-wrapper {
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+expandable .collapsed {
+  height: 0 !important;
+}
+
 page-login #loginButton {
   padding: 16px;
 }
@@ -33371,6 +33376,10 @@ page-time-sheet .ionItemPlan {
 
 page-time-sheet .ionItemReal {
   background-color: aqua;
+}
+
+page-time-sheet .ionItem {
+  margin-bottom: 5px;
 }
 
 page-user .profile-photo {

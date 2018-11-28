@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { User } from '../../models/User';
 import { HelperMethodProvider } from '../helper-method/helper-method';
+import { HTTP } from '@ionic-native/http';
+import { OAuthProvider } from '../o-auth/oauthProvider';
 
 /*
   Generated class for the UsersProvider provider.
@@ -22,56 +24,40 @@ testing:string;
 
   user: User;
  
-  constructor(private http:HttpClient, private helperMethod : HelperMethodProvider) {
+  constructor(private http:HttpClient, private helperMethod : HelperMethodProvider,
+              public httpNative : HTTP, public outhProvider : OAuthProvider) {
     console.log('Hello UsersProvider Provider');
   }
 
-  testerMethod() : Observable<any>{
+  testerMethod(){
     
-    return this.http.get(this.helperMethod.personUrl)
-              .pipe(map(this.extractData),
-                    catchError(this.handleError)
-              );
+    return this.httpNative.get(this.baseUrl,{},{});
 
   }
 
-  validateLogin(userLogin : any) : Observable<any>{
+  validateLoginBrowser(userLogin : any) : Observable<any>{
     console.log(userLogin);
-    // let headers = new Headers();
-    // headers.append('Content-Type','application/x-www-form-urlencoded');
-    // headers.append('Authorization', 'Bearer ' + 'asdasdss');
-
-    let content : string = 'application/x-www-form-urlencoded';
-    let auth : string = 'Bearer asdasdss';
-    // let headers = new HttpHeaders({
-    //   Content-Type: 'application/x-www-form-urlencoded',
-    //   'Authorization': 'Bearer asdasdss',
-    //   'Access-Control-Allow-Origin' : '*',
-    //   'Access-Control-Allow-Methods': 'POST, GET'
-    // });
-
-    const headers = new HttpHeaders();
-    headers.set('Content-Type','application/x-www-form-urlencoded');
-    headers.set('Authorization', 'Bearer asdasd');
-    headers.set('Access-Control-Allow-Origin','*');
-
-    console.log(headers);
-
-    // return this.http.post(this.postUrl, userLogin,{headers})
-    //       .pipe(map(this.extractData),
-    //       catchError(this.handleError)
-    //   );
-
-    return this.http.get(this.baseUrl)
+    
+    return this.http.get(this.helperMethod.personUrl)
           .pipe(map(this.extractData),
           catchError(this.handleError)
       );
+  }
 
-    //integrasi
-    // return this.http.post(this.helperMethod.ipUrl + this.helperMethod.baseUrl,userLogin, {headers})
-    //           .pipe(map(this.extractData),
-    //           catchError(this.handleError)
-    // );
+  validateLoginDevice(userLogin : any){
+
+    let headers = {
+      'Content-Type':'application/x-www-form-urlencoded',
+      'Accept' : 'application/json',
+      'Authorization': 'Bearer KAMPUNGAN'
+    }
+
+    console.log(headers);
+    console.log("URL TIRTA " + this.helperMethod.ipUrl + this.helperMethod.baseUrl + this.helperMethod.userLoginAPI);
+    this.httpNative.setRequestTimeout(10);
+    return this.httpNative
+            .post(this.helperMethod.ipUrl + this.helperMethod.baseUrl + this.helperMethod.userLoginAPI
+                              ,userLogin,headers);
 
   }
   

@@ -6,6 +6,7 @@ import { HelperMethodProvider } from '../../providers/helper-method/helper-metho
 import { TimeoutError } from 'rxjs';
 import { stringify } from '@angular/compiler/src/util';
 import { User } from '../../models/User';
+import { OAuthProvider } from '../../providers/o-auth/oauthProvider';
 
 /**
  * Generated class for the LoginPage page.
@@ -34,7 +35,8 @@ export class LoginPage {
               public userProvider : UsersProvider, public toastCtrl:ToastController,
               public formBuilder : FormBuilder,
               public helperMethod : HelperMethodProvider,
-              public events : Events
+              public events : Events,
+              public oAuthProvider : OAuthProvider
               ) {
     this.showHide = false;            
     this.loginForm = formBuilder.group({
@@ -47,36 +49,89 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage ');
   }
-  ionViewWillEnter(){
-    console.log('will enter');
-  }
-  ionViewDidEnter(){
-    console.log('Did enter');
-  }
 
   doLogin() {
+    // this.doLoginBrowser();
+    this.doAuthenticate();
+  }
 
+  doAuthenticate(){
+    this.helperMethod.loadingService("Collecting User Info..");
+    this.oAuthProvider.getOAuthToken(this.username.value,this.password.value)
+        .then(
+          (response:any) => {
+          this.helperMethod.loading.dismiss();
+          this.userProvider.user = response;
+          this.events.publish('Auth',1);
+          console.log(response);
+        }).catch(
+          (error:any) => {
+            console.log(error);
+            console.error(error.name);
+            console.error(error.status);
+            console.error(error.statusText);
+            this.helperMethod.loading.dismiss();
+    
+            if(error.name == 'TimeoutError'){
+              this.helperMethod.presentToast('Slow Connection',2000,2);
+            }else{
+              this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',2000,3);
+            }
+          }
+        );
+  }
+
+  doLoginBrowser(){
     this.helperMethod.loadingService("Collecting User Info..");
     let userLogin = {
       username : this.username.value,
       password : this.password.value
     };
+    this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(
+      // this.userProvider.validateLogin(userLogin).then(
+        (response:any) => {
+          this.helperMethod.loading.dismiss();
+          // if(response.id == 101){
+          //   // this.userProvider.user = new User(userLogin.username,userLogin.password);
+          //   this.userProvider.user = response;
+          //   this.events.publish('Auth',1);
+          // }else{
+          //   this.helperMethod.presentToast('User Not Found',2000,3);
+          // // }
+          this.userProvider.user = response;
+          this.events.publish('Auth',1);
+          console.log(response);
+        },
+        (error:any) => {
+          console.log(error);
+          console.error(error.name);
+          console.error(error.status);
+          console.error(error.statusText);
+          this.helperMethod.loading.dismiss();
+  
+          if(error.name == 'TimeoutError'){
+            this.helperMethod.presentToast('Slow Connection',2000,2);
+          }else{
+            this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',2000,3);
+          }
+          
+        }
+      );
+  }
 
-    this.userProvider.validateLogin(userLogin).timeout(10000).subscribe(
+  doLogindevice(){
+    this.helperMethod.loadingService("Collecting User Info..");
+    let userLogin = {
+      username : this.username.value,
+      password : this.password.value
+    };
+    this.userProvider.validateLoginDevice(userLogin).then(
       (response:any) => {
         this.helperMethod.loading.dismiss();
-        console.log(response);
-        // if(response.id == 101){
-        //   // this.userProvider.user = new User(userLogin.username,userLogin.password);
-        //   this.userProvider.user = response;
-        //   this.events.publish('Auth',1);
-        // }else{
-        //   this.helperMethod.presentToast('User Not Found',2000,3);
-        // }
         this.userProvider.user = response;
         this.events.publish('Auth',1);
         console.log(response);
-      },
+      }).catch(
       (error:any) => {
         console.log(error);
         console.error(error.name);
@@ -95,51 +150,6 @@ export class LoginPage {
       
   }
 
-
-  getOneUser(){
-    // let company = {
-    //   bs : String,
-    //   catchPhrase : String,
-    //   name : String
-    // }
-
-    this.userProvider.getUsers().subscribe(
-      (response:any) =>{
-        console.log(response);
-      }
-    );
-  }
-
-  getCustomJson(){  
-    this.userProvider.testerMethod().subscribe(
-      (response:any)=>{
-        console.log(response);
-      }
-    );
-  }
-
-  //di jsonplaceholder ga bisa
-  doLoginFormData() {
-
-    let userLogin = new FormData();
-    userLogin.append('username', 'dasdas');
-    userLogin.append('password', 'asdasdad');
-
-
-    this.userProvider.validateLogin(userLogin).subscribe(
-      (response:any) => {
-        console.log(response);
-      },
-      (error:any) => {
-        console.log(error),
-        console.error(error.status),
-        console.error(error.statusText),
-        this.helperMethod.loading.dismiss()
-      }
-    );
-
-  }
-  
   showHidePassword(){
     this.showHide = !this.showHide;
 
