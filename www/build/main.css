@@ -33386,6 +33386,10 @@ page-time-sheet td {
   text-align: left;
 }
 
+page-time-sheet table, page-time-sheet tr {
+  border-collapse: collapse;
+}
+
 page-user .profile-photo {
   width: 50%;
   height: 50%;

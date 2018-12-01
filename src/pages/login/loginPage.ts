@@ -52,19 +52,26 @@ export class LoginPage {
       username : this.username.value,
       password : this.password.value
     };
-    this.doLoginBrowser(userLogin);
-    // this.doAuthenticate(userLogin);
+    // this.doLoginBrowser(userLogin);
+    this.doAuthenticate(userLogin);
+    // this.doLogindevice(userLogin);
   }
 
   doAuthenticate(userLogin){
+    console.log("Do Auth " + userLogin);
     this.helperMethod.loadingService("Verifying Your Info..");
     this.oAuthProvider.getOAuthToken(userLogin)
         .then(
           (response:any) => {
           this.helperMethod.loading.dismiss();
+          console.log(response);
+          response = JSON.parse(response.data);
           this.userProvider.userOAuth = response;
           this.doLogindevice(userLogin);
-          console.log(response);
+
+          console.log(this.userProvider.userOAuth);
+          console.log(this.userProvider.userOAuth.access_token);
+          console.log(this.userProvider.userOAuth.refresh_token);
         }).catch(
           (error:any) => {
             console.log(error);
@@ -122,8 +129,8 @@ export class LoginPage {
       (response:any) => {
         this.helperMethod.loading.dismiss();
         this.userProvider.user = response;
-        this.events.publish('Auth',1);
-        console.log(response);
+        // this.events.publish('Auth',1);
+        console.log(response.data);
       }).catch(
       (error:any) => {
         console.log(error);

@@ -1,3 +1,4 @@
+import { StorageProvider } from './../../providers/storage/storageProvider';
 import { TimeSheetPageModal } from './../time-sheet-page-modal/time-sheet-page-modal';
 import { UsersProvider } from './../../providers/users/usersProvider';
 import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
@@ -30,7 +31,8 @@ export class TimeSheetPage {
               public timeSheetProvider : TimesheetsProvider, public helperMethod:HelperMethodProvider,
               public userProvider : UsersProvider,
               public events: Events, public modalCtrl : ModalController,
-              public alertCtrl : AlertController) {
+              public alertCtrl : AlertController,
+              public storageProvider : StorageProvider) {
     
                 this.listItem.push('asdasd1');
                 this.listItem.push('asdasd2');
@@ -53,6 +55,7 @@ export class TimeSheetPage {
             this.helperMethod.loading.dismiss();
             this.timeSheetDataList = response;
             console.log(response);
+            this.storageProvider.save('TimeSheet',this.timeSheetDataList);
             this.timeSheetHeaderFn(this.timeSheetDataList);
           },
           (error:any) => {
@@ -113,6 +116,12 @@ export class TimeSheetPage {
   onItemPressed(itemId){
     console.log(itemId);
     // this.alertPopUpDetailTimeSheet();
+    this.storageProvider.getStorageByKey('TimeSheet')
+        .then(
+          (response:any) =>{
+            console.log(response);
+          }
+        );
   }
 
   alertPopUpDetailTimeSheet(){

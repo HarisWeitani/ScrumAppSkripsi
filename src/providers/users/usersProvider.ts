@@ -49,8 +49,10 @@ testing:string;
   validateLoginDevice(userLogin : any){
     
     let headers = this.oauthProvider.getHeader(this.userOAuth.access_token);
-
+    // let headers = this.oauthProvider.getHeader('b7d91139-c6b0-4801-bdee-2673cc52e99c');
+    
     console.log(headers);
+    this.httpNative.setDataSerializer('json');
     console.log("URL TIRTA " + this.helperMethod.ipUrl + this.helperMethod.baseUrl + this.helperMethod.userLoginAPI);
     this.httpNative.setRequestTimeout(10);
     return this.httpNative

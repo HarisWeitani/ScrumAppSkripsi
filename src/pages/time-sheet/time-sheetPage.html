@@ -25,8 +25,17 @@
     
     <ion-item-sliding *virtualItem="let data"> 
         
-        <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == 'plan') ? 'real' : 'plan'"> 
-          <table>
+        <!-- <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == 'plan') ? 'real' : 'plan'">  -->
+        <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap 
+                  [ngStyle]="(data.is_real == 'plan') ? 
+                            { 
+                              'background-color':'#72a8ff' 
+                            } : 
+                            { 
+                              'background-color':'#c8cace' 
+                            }">
+
+          <table style="width: 100%">
             <tr>
               <td>{{data.dtm_crt}}</td>
               <td></td>
@@ -40,7 +49,7 @@
             <tr>
               <td>Detail</td>
               <td> : </td>
-              <td colspan="1">{{data.today_act}}</td>
+              <td>{{data.today_act}}</td>
             </tr>
             <tr>
               <td>jira_id</td>
