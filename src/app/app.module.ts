@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http'
 import { IonicStorageModule } from '@ionic/storage';
+import { AutoCompleteModule } from 'ionic2-auto-complete';
 
 import { MyApp } from './app.component';
 import { MainPage } from '../pages/main/main';
@@ -25,6 +26,7 @@ import { OAuthProvider } from '../providers/o-auth/oauthProvider';
 import { StorageProvider } from '../providers/storage/storageProvider';
 import { GlobalVariableProvider } from '../providers/global-variable/global-variable';
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -41,6 +43,7 @@ import { GlobalVariableProvider } from '../providers/global-variable/global-vari
   imports: [
     BrowserModule,
     HttpClientModule,
+    AutoCompleteModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
