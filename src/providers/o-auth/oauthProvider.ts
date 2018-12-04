@@ -12,8 +12,8 @@ import { HelperMethodProvider } from '../helper-method/helper-method';
 @Injectable()
 export class OAuthProvider {
 
-  public ipUrl : string = 'http://172.18.0.236:8080/';
-  public baseUrl : string = 'com.adins.mss.webservices/services/m/';
+  // public ipUrl : string = 'http://172.18.0.236:8080/';
+  // public baseUrl : string = 'com.adins.mss.webservices/services/m/';
   public oAuthTokenAPI : string = 'com.adins.mss.webservices/oauth/token';
 
 

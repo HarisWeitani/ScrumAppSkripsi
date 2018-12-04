@@ -42,6 +42,12 @@ export class TimeSheetPage {
   }
 
   ionViewDidLoad() {
+    this.getAllTimeSheet();
+    console.log('ionViewDidLoad TimeSheetPage');
+  }
+
+  getAllTimeSheet(){
+
     this.helperMethod.loadingService('Getting Your Data Please Wait...');
 
     let userLoggedIn = {
@@ -67,7 +73,6 @@ export class TimeSheetPage {
           }
         );
 
-    console.log('ionViewDidLoad TimeSheetPage');
   }
   
   timeSheetHeaderFn(dataList : Array<TimeSheet>) {

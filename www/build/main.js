@@ -33,8 +33,8 @@ var OAuthProvider = /** @class */ (function () {
         this.http = http;
         this.httpNative = httpNative;
         this.helperMethod = helperMethod;
-        this.ipUrl = 'http://172.18.0.236:8080/';
-        this.baseUrl = 'com.adins.mss.webservices/services/m/';
+        // public ipUrl : string = 'http://172.18.0.236:8080/';
+        // public baseUrl : string = 'com.adins.mss.webservices/services/m/';
         this.oAuthTokenAPI = 'com.adins.mss.webservices/oauth/token';
         console.log('Hello OAuthProvider Provider');
     }
@@ -113,7 +113,7 @@ var ReportPageModal = /** @class */ (function () {
     };
     ReportPageModal = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-report-page-modal',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\report-page-modal\report-page-modal.html"*/'<!--\n  Generated template for the ReportPageModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>reportPageModal</ion-title>\n    <ion-buttons end >\n        <button ion-button icon-only (click)="doCloseModal()">\n          <ion-icon name="arrow-back"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-list class="ionList" [virtualScroll]="backLogItemList">\n\n      <ion-item class="ionItem" *virtualItem="let backLogItem" (click)="onItemPressed({item:backLogItem})">\n        {{ backLogItem.backlog_item }}\n      </ion-item>\n    \n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\report-page-modal\report-page-modal.html"*/,
+            selector: 'page-report-page-modal',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\report-page-modal\report-page-modal.html"*/'<!--\n  Generated template for the ReportPageModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>BackLog Item</ion-title>\n    <ion-buttons end >\n        <button ion-button icon-only (click)="doCloseModal()">\n          <ion-icon name="arrow-back"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-list class="ionList" [virtualScroll]="backLogItemList">\n\n      <ion-item class="ionItem" *virtualItem="let backLogItem" (click)="onItemPressed({item:backLogItem})">\n        {{ backLogItem.backlog_item }}\n      </ion-item>\n    \n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\report-page-modal\report-page-modal.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -183,8 +183,8 @@ var LoginPage = /** @class */ (function () {
             username: this.username.value,
             password: this.password.value
         };
-        // this.doLoginBrowser(userLogin);
-        this.doAuthenticate(userLogin);
+        this.doLoginBrowser(userLogin);
+        // this.doAuthenticate(userLogin);
         // this.doLogindevice(userLogin);
     };
     LoginPage.prototype.doAuthenticate = function (userLogin) {
@@ -197,10 +197,8 @@ var LoginPage = /** @class */ (function () {
             console.log(response);
             response = JSON.parse(response.data);
             _this.userProvider.userOAuth = response;
-            _this.doLogindevice(userLogin);
             console.log(_this.userProvider.userOAuth);
-            console.log(_this.userProvider.userOAuth.access_token);
-            console.log(_this.userProvider.userOAuth.refresh_token);
+            _this.doLogindevice(userLogin);
         }).catch(function (error) {
             console.log(error);
             console.error(error.error);
@@ -251,9 +249,9 @@ var LoginPage = /** @class */ (function () {
         this.helperMethod.loadingService("Collecting User Info..");
         this.userProvider.validateLoginDevice(userLogin).then(function (response) {
             _this.helperMethod.loading.dismiss();
-            _this.userProvider.user = response;
+            // this.userProvider.user = response;
             // this.events.publish('Auth',1);
-            console.log(response.data);
+            console.log(response);
         }).catch(function (error) {
             console.log(error);
             console.error(error.name);
@@ -528,6 +526,10 @@ var TimeSheetPage = /** @class */ (function () {
         this.listItem.push('asdasd5');
     }
     TimeSheetPage.prototype.ionViewDidLoad = function () {
+        this.getAllTimeSheet();
+        console.log('ionViewDidLoad TimeSheetPage');
+    };
+    TimeSheetPage.prototype.getAllTimeSheet = function () {
         var _this = this;
         this.helperMethod.loadingService('Getting Your Data Please Wait...');
         var userLoggedIn = {
@@ -548,7 +550,6 @@ var TimeSheetPage = /** @class */ (function () {
             _this.helperMethod.loading.dismiss();
             _this.helperMethod.presentToast('Gagal 9999: Jangan Hubungi Team IT', 2000, 3);
         });
-        console.log('ionViewDidLoad TimeSheetPage');
     };
     TimeSheetPage.prototype.timeSheetHeaderFn = function (dataList) {
         var _this = this;
@@ -628,7 +629,7 @@ var TimeSheetPage = /** @class */ (function () {
     };
     TimeSheetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
-            selector: 'page-time-sheet',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheetPage.html"*/'<!--\n\n  Generated template for the TimeSheetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>TimeSheet</ion-title>\n\n    <ion-buttons end >\n\n        <button ion-button icon-only (click)="doAdd()">\n\n          <ion-icon name="add"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n\n\n  <ion-list [virtualScroll]="timeSheetDataList">\n\n    \n\n    <ion-item-sliding *virtualItem="let data"> \n\n        \n\n        <!-- <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == \'plan\') ? \'real\' : \'plan\'">  -->\n\n        <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap \n\n                  [ngStyle]="(data.is_real == \'plan\') ? \n\n                            { \n\n                              \'background-color\':\'#72a8ff\' \n\n                            } : \n\n                            { \n\n                              \'background-color\':\'#c8cace\' \n\n                            }">\n\n\n\n          <table style="width: 100%">\n\n            <tr>\n\n              <td>{{data.dtm_crt}}</td>\n\n              <td></td>\n\n              <td>{{data.project_code}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Activites</td>\n\n              <td> : </td>\n\n              <td>{{data.activities_type}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Detail</td>\n\n              <td> : </td>\n\n              <td>{{data.today_act}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>jira_id</td>\n\n              <td> : </td>\n\n              <td>{{data.jira_id}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Duration</td>\n\n              <td> : </td>\n\n              <td>{{data.duration_act}} Hours</td>\n\n            </tr>\n\n          </table>\n\n          <!-- {{data.dtm_crt}} <br>\n\n          Today Act : {{data.today_act}} <br>\n\n          Today Act : {{data.today_act}} <br>\n\n          Today Act : {{data.today_act}} <br>\n\n          Today Act : {{data.today_act}} <br> -->\n\n        </ion-item>\n\n        <ion-item-options>\n\n          <button ion-button color="light" (click)="onItemUpdatePressed({data: data})">\n\n              <ion-icon name="paper"></ion-icon> Update\n\n          </button>\n\n        </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n  \n\n  <!-- <ion-item-group *ngFor="let group of groupedTimeSheetDataList">\n\n\n\n    <ion-item-divider class="ionItemHeader"> {{group.date_time}} </ion-item-divider>\n\n\n\n    <ion-item *ngFor="let timeSheet of group.timesheets" class="ionItem"> \n\n        {{timeSheet.jira_id}}\n\n      <div *ngIf="timeSheet.is_real == \'plan\'" class="ionItemPlan">\n\n          <ion-item  >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n      <div *ngIf="timeSheet.is_real == \'real\'" class="ionItemReal"  >\n\n          <ion-item >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n\n\n    </ion-item>\n\n    \n\n  </ion-item-group> -->\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheetPage.html"*/,
+            selector: 'page-time-sheet',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheetPage.html"*/'<!--\n\n  Generated template for the TimeSheetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>TimeSheet</ion-title>\n\n    <ion-buttons end >\n\n        <button ion-button icon-only (click)="doAdd()">\n\n          <ion-icon name="add"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n\n\n  <ion-list [virtualScroll]="timeSheetDataList" [approxItemHeight]=" \'500px\' ">\n\n    \n\n    <ion-item-sliding *virtualItem="let data" > \n\n        \n\n        <!-- <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == \'plan\') ? \'real\' : \'plan\'">  -->\n\n        <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap \n\n                  [ngStyle]="(data.is_real == \'plan\') ? \n\n                            { \n\n                              \'background-color\':\'#72a8ff\' \n\n                            } : \n\n                            { \n\n                              \'background-color\':\'#c8cace\' \n\n                            }">\n\n\n\n          <table style="width: 100%">\n\n            <tr>\n\n              <td>{{data.dtm_crt}}</td>\n\n              <td></td>\n\n              <td>{{data.project_code}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Activites</td>\n\n              <td> : </td>\n\n              <td>{{data.activities_type}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Detail</td>\n\n              <td> : </td>\n\n              <td>{{data.today_act}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Jira Id</td>\n\n              <td> : </td>\n\n              <td>{{data.jira_id}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Sprint Id</td>\n\n              <td> : </td>\n\n              <td>{{data.sprint_id}}</td>\n\n            </tr>\n\n            <tr>\n\n              <td>Duration</td>\n\n              <td> : </td>\n\n              <td>{{data.duration_act}} Hours</td>\n\n            </tr>\n\n          </table>\n\n        </ion-item>\n\n        <ion-item-options>\n\n          <button ion-button color="light" (click)="onItemUpdatePressed({data: data})">\n\n              <ion-icon name="paper"></ion-icon> Update\n\n          </button>\n\n        </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n  \n\n  <!-- <ion-item-group *ngFor="let group of groupedTimeSheetDataList">\n\n\n\n    <ion-item-divider class="ionItemHeader"> {{group.date_time}} </ion-item-divider>\n\n\n\n    <ion-item *ngFor="let timeSheet of group.timesheets" class="ionItem"> \n\n        {{timeSheet.jira_id}}\n\n      <div *ngIf="timeSheet.is_real == \'plan\'" class="ionItemPlan">\n\n          <ion-item  >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n      <div *ngIf="timeSheet.is_real == \'real\'" class="ionItemReal"  >\n\n          <ion-item >{{timeSheet.jira_id}}</ion-item>\n\n      </div>\n\n\n\n    </ion-item>\n\n    \n\n  </ion-item-group> -->\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet\time-sheetPage.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_6__providers_timesheets_timesheetsProvider__["a" /* TimesheetsProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
@@ -673,11 +674,21 @@ var TimeSheetPageModal = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.viewCtrl = viewCtrl;
+        this.dataTesting = [];
         console.log(this.navParams.get('timeSheetData'));
         if (this.navParams.get('timeSheetData') == 'add') {
         }
         this.timeSheet = this.navParams.get('timeSheetData');
-        this.mantab = this.timeSheet.activities_type;
+        this.dataTesting.push('test 1');
+        this.dataTesting.push('test 2');
+        this.dataTesting.push('test 3');
+        this.dataTesting.push('test 4');
+        this.dataTesting.push('test 5');
+        this.dataTesting.push('test 6');
+        this.dataTesting.push('test 7');
+        this.dataTesting.push('test 8');
+        this.dataTesting.push('test 9');
+        this.dataTesting.push('test 10');
     }
     TimeSheetPageModal.prototype.ionViewDidLoad = function () {
         // console.log(this.navParams.get('timeSheetData'));
@@ -690,15 +701,19 @@ var TimeSheetPageModal = /** @class */ (function () {
         console.log("Pressed");
         this.viewCtrl.dismiss();
     };
+    TimeSheetPageModal.prototype.updateTimeSheetItem = function () {
+    };
+    TimeSheetPageModal.prototype.onItemClick = function (data) {
+        console.log(data);
+    };
     TimeSheetPageModal = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-time-sheet-page-modal',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet-page-modal\time-sheet-page-modal.html"*/'<!--\n  Generated template for the TimeSheetPageModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>time-sheetPage-modal</ion-title>\n    <ion-buttons end >\n      <button ion-button icon-only (click)="doCloseModal()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-item>\n      <ion-label color="primary" floating>{{timeSheet.project_code}}</ion-label>\n      <ion-textarea ></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label color="primary" floating>{{timeSheet.activities_type}}</ion-label>\n      <ion-textarea ></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label color="primary" floating>{{timeSheet.today_act}}</ion-label>\n      <ion-textarea ></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label color="primary" floating>{{timeSheet.jira_id}}</ion-label>\n      <ion-textarea ></ion-textarea>\n    </ion-item>\n    <ion-item>\n      <ion-label color="primary" floating>{{timeSheet.duration_act}}</ion-label>\n      <ion-textarea ></ion-textarea>\n    </ion-item>\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet-page-modal\time-sheet-page-modal.html"*/,
+            selector: 'page-time-sheet-page-modal',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet-page-modal\time-sheet-page-modal.html"*/'<!--\n  Generated template for the TimeSheetPageModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Time Sheet Detail</ion-title>\n    <ion-buttons end >\n      <button ion-button icon-only (click)="doCloseModal()">\n        <ion-icon name="arrow-back"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-item>\n      <ion-label color="primary" floating>Project</ion-label>\n      <ion-select [(ngModel)]="dataDropDown">\n          <ion-option *ngFor=\'let data of dataTesting\'>{{data}}</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label color="primary" floating>Activities</ion-label>\n      <ion-input></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label color="primary" floating>Today Activites</ion-label>\n      <ion-textarea ></ion-textarea>\n    </ion-item>\n\n    <ion-item>\n      <ion-label color="primary" floating>Jira Id</ion-label>\n      <ion-input ></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label color="primary" floating>Sprint Id</ion-label>\n      <ion-input ></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label color="primary" floating>Duration</ion-label>\n      <ion-input ></ion-input>\n    </ion-item>\n\n    <button ion-button color="light" (click)="onItemClick({data : dataDropDown})">\n      <ion-icon name="paper"></ion-icon> Update\n    </button>\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet-page-modal\time-sheet-page-modal.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]) === "function" && _c || Object])
     ], TimeSheetPageModal);
     return TimeSheetPageModal;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=time-sheet-page-modal.js.map
@@ -869,11 +884,11 @@ var map = {
 		3
 	],
 	"../pages/time-sheet-page-modal/time-sheet-page-modal.module": [
-		696,
+		697,
 		2
 	],
 	"../pages/time-sheet/time-sheetPage.module": [
-		697,
+		696,
 		1
 	],
 	"../pages/user/userPage.module": [
@@ -1139,7 +1154,7 @@ var HelperMethodProvider = /** @class */ (function () {
         this.http = http;
         this.loadingController = loadingController;
         this.toastController = toastController;
-        this.ipUrl = 'http://192.168.43.45:8080/';
+        this.ipUrl = 'http://172.18.1.17:8080/';
         // public ipUrl : string = 'http://17-05-0049-0115:8580/'
         this.baseUrl = 'com.adins.mss.webservices/services/m/';
         // public baseUrl : string = 'msa.services/services/m/'
@@ -1332,8 +1347,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/report-page-modal/report-page-modal.module#ReportPageModalPageModule', name: 'ReportPageModal', segment: 'report-page-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/report/reportPage.module#ReportPageModule', name: 'ReportPage', segment: 'reportPage', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/time-sheet-page-modal/time-sheet-page-modal.module#TimeSheetPageModalPageModule', name: 'TimeSheetPageModal', segment: 'time-sheet-page-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/time-sheet/time-sheetPage.module#TimeSheetPageModule', name: 'TimeSheetPage', segment: 'time-sheetPage', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/time-sheet-page-modal/time-sheet-page-modal.module#TimeSheetPageModalPageModule', name: 'TimeSheetPageModal', segment: 'time-sheet-page-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/user/userPage.module#UserPageModule', name: 'UserPage', segment: 'userPage', priority: 'low', defaultHistory: [] }
                     ]
                 }),

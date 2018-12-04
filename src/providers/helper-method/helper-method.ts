@@ -13,7 +13,7 @@ export class HelperMethodProvider {
   
 //http://localhost:8080/com.adins.mss.webservices/services/m/user/login
   public loading:any;
-  public ipUrl : string = 'http://192.168.43.45:8080/';
+  public ipUrl : string = 'http://172.18.1.17:8080/';
   // public ipUrl : string = 'http://17-05-0049-0115:8580/'
   public baseUrl : string = 'com.adins.mss.webservices/services/m/';
   // public baseUrl : string = 'msa.services/services/m/'

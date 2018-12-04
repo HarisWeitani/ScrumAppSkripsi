@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>time-sheetPage-modal</ion-title>
+    <ion-title>Time Sheet Detail</ion-title>
     <ion-buttons end >
       <button ion-button icon-only (click)="doCloseModal()">
         <ion-icon name="arrow-back"></ion-icon>
@@ -21,24 +21,39 @@
 <ion-content padding>
 
     <ion-item>
-      <ion-label color="primary" floating>{{timeSheet.project_code}}</ion-label>
-      <ion-textarea ></ion-textarea>
+      <ion-label color="primary" floating>Project</ion-label>
+      <ion-select [(ngModel)]="dataDropDown">
+          <ion-option *ngFor='let data of dataTesting'>{{data}}</ion-option>
+      </ion-select>
     </ion-item>
+
     <ion-item>
-      <ion-label color="primary" floating>{{timeSheet.activities_type}}</ion-label>
-      <ion-textarea ></ion-textarea>
+      <ion-label color="primary" floating>Activities</ion-label>
+      <ion-input></ion-input>
     </ion-item>
+
     <ion-item>
-      <ion-label color="primary" floating>{{timeSheet.today_act}}</ion-label>
+      <ion-label color="primary" floating>Today Activites</ion-label>
       <ion-textarea ></ion-textarea>
     </ion-item>
+
     <ion-item>
-      <ion-label color="primary" floating>{{timeSheet.jira_id}}</ion-label>
-      <ion-textarea ></ion-textarea>
+      <ion-label color="primary" floating>Jira Id</ion-label>
+      <ion-input ></ion-input>
     </ion-item>
+
     <ion-item>
-      <ion-label color="primary" floating>{{timeSheet.duration_act}}</ion-label>
-      <ion-textarea ></ion-textarea>
+      <ion-label color="primary" floating>Sprint Id</ion-label>
+      <ion-input ></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>Duration</ion-label>
+      <ion-input ></ion-input>
+    </ion-item>
+
+    <button ion-button color="light" (click)="onItemClick({data : dataDropDown})">
+      <ion-icon name="paper"></ion-icon> Update
+    </button>
 
 </ion-content>

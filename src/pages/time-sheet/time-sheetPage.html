@@ -21,9 +21,9 @@
 <ion-content padding>
 
 
-  <ion-list [virtualScroll]="timeSheetDataList">
+  <ion-list [virtualScroll]="timeSheetDataList" [approxItemHeight]=" '500px' ">
     
-    <ion-item-sliding *virtualItem="let data"> 
+    <ion-item-sliding *virtualItem="let data" > 
         
         <!-- <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == 'plan') ? 'real' : 'plan'">  -->
         <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap 
@@ -52,9 +52,14 @@
               <td>{{data.today_act}}</td>
             </tr>
             <tr>
-              <td>jira_id</td>
+              <td>Jira Id</td>
               <td> : </td>
               <td>{{data.jira_id}}</td>
+            </tr>
+            <tr>
+              <td>Sprint Id</td>
+              <td> : </td>
+              <td>{{data.sprint_id}}</td>
             </tr>
             <tr>
               <td>Duration</td>
@@ -62,11 +67,6 @@
               <td>{{data.duration_act}} Hours</td>
             </tr>
           </table>
-          <!-- {{data.dtm_crt}} <br>
-          Today Act : {{data.today_act}} <br>
-          Today Act : {{data.today_act}} <br>
-          Today Act : {{data.today_act}} <br>
-          Today Act : {{data.today_act}} <br> -->
         </ion-item>
         <ion-item-options>
           <button ion-button color="light" (click)="onItemUpdatePressed({data: data})">
