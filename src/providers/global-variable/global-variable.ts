@@ -9,6 +9,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GlobalVariableProvider {
 
-  
+  public ipUrl : string = 'http://172.18.1.17:8080/';
+  public baseUrl : string = 'com.adins.mss.webservices/services/m/';
+
+  public userLoginAPI : string ='user/login';
+  public msProjectAPI : string ='timesheet/project'; 
+  public msActivityAPI : string ='timesheet/activity'; 
 
 }

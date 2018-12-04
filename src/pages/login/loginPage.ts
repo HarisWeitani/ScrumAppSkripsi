@@ -1,3 +1,4 @@
+import { MsProjectProvider } from './../../providers/ms-project/msProjectProvider';
 import { UsersProvider } from '../../providers/users/usersProvider';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController,Events } from 'ionic-angular';
@@ -33,7 +34,8 @@ export class LoginPage {
               public formBuilder : FormBuilder,
               public helperMethod : HelperMethodProvider,
               public events : Events,
-              public oAuthProvider : OAuthProvider
+              public oAuthProvider : OAuthProvider,
+              public msProjectProvider: MsProjectProvider
               ) {
     this.showHide = false;            
     this.loginForm = formBuilder.group({
@@ -52,9 +54,8 @@ export class LoginPage {
       username : this.username.value,
       password : this.password.value
     };
-    this.doLoginBrowser(userLogin);
-    // this.doAuthenticate(userLogin);
-    // this.doLogindevice(userLogin);
+    // this.doLoginBrowser(userLogin);
+    this.doAuthenticate(userLogin);
   }
 
   doAuthenticate(userLogin){
@@ -66,30 +67,98 @@ export class LoginPage {
           this.helperMethod.loading.dismiss();
           console.log(response);
           response = JSON.parse(response.data);
+          console.log(response);
 
-          this.userProvider.userOAuth = response;
-          console.log(this.userProvider.userOAuth);
+          this.oAuthProvider.userOAuth = response
+          console.log(this.oAuthProvider.userOAuth);
 
           this.doLogindevice(userLogin);
 
         }).catch(
           (error:any) => {
-            console.log(error);
-            console.error(error.error);
-            console.error(error.error_description);
-            this.helperMethod.loading.dismiss();
-    
-            if(error.error == 'TimeoutError'){
-              this.helperMethod.presentToast('Slow Connection',2000,2);
-            }else if(error.error == 'invalid_grant'){
-              this.helperMethod.presentToast(error.error_description,2000,3);
+            
+            let errorData;
+
+            if(error.status = "-1"){
+              this.helperMethod.presentToast('Failed To Connect',4000,2);
+              this.helperMethod.loading.dismiss();
             }else{
-              this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',2000,3);
+              errorData = JSON.parse(error.error);
+              console.log(error);
+              console.error(error.error);
+              console.error(error.status);
+              this.helperMethod.loading.dismiss();
+
+              if(error.error == 'TimeoutError'){
+                this.helperMethod.presentToast('Slow Connection',4000,2);
+              }else if(errorData.error == 'invalid_grant'){
+                this.helperMethod.presentToast(errorData.error_description,4000,3);
+              }else{
+                this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',4000,3);
+              }
             }
+            
           }
         );
   }
 
+  doLogindevice(userLogin){
+    this.helperMethod.loadingService("Collecting User Info..");
+    this.userProvider.validateLoginDevice(userLogin).then(
+      (response:any) => {
+        this.helperMethod.loading.dismiss();
+        // this.userProvider.user = response;
+        // this.events.publish('Auth',1);
+        console.log(response);
+        let responseData = JSON.parse(response.data);
+        let responseStatus = response.status;
+
+        console.log(responseData);
+        console.log(responseData.status);
+        if(responseData.status.code == "0"){
+          this.userProvider.user = responseData;
+          
+          this.getAllMsProjectList(this.userProvider.user);
+
+        }else if( responseData.status.code == "1159" ){
+          this.helperMethod.presentToast(responseData.status.message,3000,2);
+        }else if( responseData.status.code == "8101" ){
+          this.helperMethod.presentToast(responseData.status.message,3000,3);
+        }
+
+        console.log(responseData.person_name);
+        console.log(responseStatus);
+
+      }).catch(
+      (error:any) => {
+
+        let errorData;
+
+        if(error.status = "-1"){
+          this.helperMethod.presentToast('Failed To Connect',4000,2);
+          this.helperMethod.loading.dismiss();
+        }else{
+          errorData = JSON.parse(error.error);
+          console.log(error);
+          console.error(error.error);
+          console.error(error.status);
+          this.helperMethod.loading.dismiss();
+
+          if(error.error == 'TimeoutError'){
+            this.helperMethod.presentToast('Slow Connection',4000,2);
+          }else if(errorData.error == 'invalid_grant'){
+            this.helperMethod.presentToast(errorData.error_description,4000,3);
+          }else{
+            this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',4000,3);
+          }
+        }
+        
+      }
+    );
+      
+  }
+
+  
   doLoginBrowser(userLogin){
     this.helperMethod.loadingService("Collecting User Info..");
     this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(
@@ -123,33 +192,6 @@ export class LoginPage {
       );
   }
 
-  doLogindevice(userLogin){
-    this.helperMethod.loadingService("Collecting User Info..");
-    this.userProvider.validateLoginDevice(userLogin).then(
-      (response:any) => {
-        this.helperMethod.loading.dismiss();
-        // this.userProvider.user = response;
-        // this.events.publish('Auth',1);
-        console.log(response);
-      }).catch(
-      (error:any) => {
-        console.log(error);
-        console.error(error.name);
-        console.error(error.status);
-        console.error(error.statusText);
-        this.helperMethod.loading.dismiss();
-
-        if(error.name == 'TimeoutError'){
-          this.helperMethod.presentToast('Slow Connection',2000,2);
-        }else{
-          this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',2000,3);
-        }
-        
-      }
-    );
-      
-  }
-
   showHidePassword(){
     this.showHide = !this.showHide;
 
@@ -162,5 +204,116 @@ export class LoginPage {
 
   }
 
+  getAllMsProjectList(user : any){
+
+   this.helperMethod.loadingService("Getting All Project List..");
+    this.msProjectProvider.getAllData(user).then(
+      (response:any) => {
+        this.helperMethod.loading.dismiss();
+        console.log(response);
+        let responseData = JSON.parse(response.data);
+        let responseStatus = response.status;
+
+        console.log(responseData);
+        console.log(responseData.status);
+        if(responseData.status.code == "0"){
+          
+          this.msProjectProvider.msProjectList = responseData;
+          
+          this.events.publish('Auth',1);  
+          
+        }else if( responseData.status.code == "1159" ){
+          this.helperMethod.presentToast(responseData.status.message,3000,2);
+        }else if( responseData.status.code == "8101" ){
+          this.helperMethod.presentToast(responseData.status.message,3000,3);
+        }
+
+        console.log(responseData.person_name);
+        console.log(responseStatus);
+
+      }).catch(
+      (error:any) => {
+        
+        let errorData;
+
+        if(error.status = "-1"){
+          this.helperMethod.presentToast('Failed To Connect',4000,2);
+          this.helperMethod.loading.dismiss();
+        }else{
+          errorData = JSON.parse(error.error);
+          console.log(error);
+          console.error(error.error);
+          console.error(error.status);
+          this.helperMethod.loading.dismiss();
+
+          if(error.error == 'TimeoutError'){
+            this.helperMethod.presentToast('Slow Connection',4000,2);
+          }else if(errorData.error == 'invalid_grant'){
+            this.helperMethod.presentToast(errorData.error_description,4000,3);
+          }else{
+            this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',4000,3);
+          }
+        }
+        
+      }
+    );
+      
+  }
+
+  getAllMsActivityList(user : any){
+
+    this.helperMethod.loadingService("Getting All Project List..");
+    this.msProjectProvider.getAllData(user).then(
+      (response:any) => {
+        this.helperMethod.loading.dismiss();
+        console.log(response);
+        let responseData = JSON.parse(response.data);
+        let responseStatus = response.status;
+
+        console.log(responseData);
+        console.log(responseData.status);
+        if(responseData.status.code == "0"){
+          
+          this.msProjectProvider.msProjectList = responseData;
+          
+
+        }else if( responseData.status.code == "1159" ){
+          this.helperMethod.presentToast(responseData.status.message,3000,2);
+        }else if( responseData.status.code == "8101" ){
+          this.helperMethod.presentToast(responseData.status.message,3000,3);
+        }
+
+        console.log(responseData.person_name);
+        console.log(responseStatus);
+
+      }).catch(
+      (error:any) => {
+        
+        let errorData;
+
+        if(error.status = "-1"){
+          this.helperMethod.presentToast('Failed To Connect',4000,2);
+          this.helperMethod.loading.dismiss();
+        }else{
+          errorData = JSON.parse(error.error);
+          console.log(error);
+          console.error(error.error);
+          console.error(error.status);
+          this.helperMethod.loading.dismiss();
+
+          if(error.error == 'TimeoutError'){
+            this.helperMethod.presentToast('Slow Connection',4000,2);
+          }else if(errorData.error == 'invalid_grant'){
+            this.helperMethod.presentToast(errorData.error_description,4000,3);
+          }else{
+            this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',4000,3);
+          }
+        }
+        
+      }
+    );
+      
+
+  }
   
 }

@@ -129,44 +129,4 @@ export class TimeSheetPage {
         );
   }
 
-  alertPopUpDetailTimeSheet(){
-
-    let messages = 'First Row \nSecond Row';
-
-    let alert = this.alertCtrl.create({
-      title: 'Detail',
-      // message: 'asdasd',
-      inputs : [
-        {
-          value : 'asdasd1'
-        },
-        {
-          label : 'asdasd2'
-        },
-        {
-          label : 'asdasd3'
-        },
-        {
-          label : 'asdasd4'
-        }
-      ],
-      buttons: [
-        {
-          text: 'No',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Yes',
-          handler: () => {
-            this.events.publish('Auth',0);
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
-
 }

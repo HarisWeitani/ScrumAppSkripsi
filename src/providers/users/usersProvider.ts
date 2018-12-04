@@ -10,6 +10,7 @@ import { User } from '../../models/User';
 import { HelperMethodProvider } from '../helper-method/helper-method';
 import { HTTP } from '@ionic-native/http';
 import { OAuthProvider } from '../o-auth/oauthProvider';
+import { GlobalVariableProvider } from '../global-variable/global-variable';
 
 /*
   Generated class for the UsersProvider provider.
@@ -24,10 +25,11 @@ testing:string;
   private postUrl: string= "https://jsonplaceholder.typicode.com/posts/";
 
   user: User;
-  userOAuth : OAuthToken;
+  // userOAuth : OAuthToken;
  
   constructor(private http:HttpClient, private helperMethod : HelperMethodProvider,
-              public httpNative : HTTP, public oauthProvider : OAuthProvider) {
+              public httpNative : HTTP, public oauthProvider : OAuthProvider,
+              public globalVal : GlobalVariableProvider) {
     console.log('Hello UsersProvider Provider');
   }
 
@@ -48,15 +50,15 @@ testing:string;
 
   validateLoginDevice(userLogin : any){
     
-    let headers = this.oauthProvider.getHeader(this.userOAuth.access_token);
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
     // let headers = this.oauthProvider.getHeader('b7d91139-c6b0-4801-bdee-2673cc52e99c');
     
     console.log(headers);
     this.httpNative.setDataSerializer('json');
-    console.log("URL TIRTA " + this.helperMethod.ipUrl + this.helperMethod.baseUrl + this.helperMethod.userLoginAPI);
-    this.httpNative.setRequestTimeout(10);
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.userLoginAPI);
+    this.httpNative.setRequestTimeout(60);
     return this.httpNative
-            .post(this.helperMethod.ipUrl + this.helperMethod.baseUrl + this.helperMethod.userLoginAPI
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.userLoginAPI
                               ,userLogin,headers);
 
   }

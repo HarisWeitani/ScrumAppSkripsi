@@ -1,7 +1,9 @@
+import { GlobalVariableProvider } from './../global-variable/global-variable';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HTTP } from '@ionic-native/http';
 import { HelperMethodProvider } from '../helper-method/helper-method';
+import { OAuthToken } from '../../models/OAuthToken';
 
 /*
   Generated class for the OAuthProvider provider.
@@ -12,13 +14,13 @@ import { HelperMethodProvider } from '../helper-method/helper-method';
 @Injectable()
 export class OAuthProvider {
 
-  // public ipUrl : string = 'http://172.18.0.236:8080/';
-  // public baseUrl : string = 'com.adins.mss.webservices/services/m/';
   public oAuthTokenAPI : string = 'com.adins.mss.webservices/oauth/token';
 
+  userOAuth : OAuthToken;
 
   constructor(public http: HttpClient, public httpNative : HTTP, 
-    public helperMethod : HelperMethodProvider) {
+              public helperMethod : HelperMethodProvider,
+              public globalVal : GlobalVariableProvider) {
     console.log('Hello OAuthProvider Provider');
   }
 
@@ -32,9 +34,9 @@ export class OAuthProvider {
                 +'&password='+userLogin.password+'&client_id=mobile';
 
     this.httpNative.setDataSerializer('utf8');
-    console.log('URL ' + this.helperMethod.ipUrl+this.oAuthTokenAPI);
+    console.log('URL ' + this.globalVal.ipUrl+this.oAuthTokenAPI);
     console.log('Body ' + body);
-    return this.httpNative.post(this.helperMethod.ipUrl+this.oAuthTokenAPI,body,headers);
+    return this.httpNative.post(this.globalVal.ipUrl+this.oAuthTokenAPI,body,headers);
   }
 
   getHeader(OAuthToken : string){

@@ -24,6 +24,9 @@ import { ExpandableComponent } from '../components/expandable/expandable';
 import { OAuthProvider } from '../providers/o-auth/oauthProvider';
 import { StorageProvider } from '../providers/storage/storageProvider';
 import { GlobalVariableProvider } from '../providers/global-variable/global-variable';
+import { MsProjectProvider } from '../providers/ms-project/msProjectProvider';
+import { MsActivityProvider } from '../providers/ms-activity/msActivityProvider';
+import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
 
 @NgModule({
   declarations: [
@@ -68,7 +71,10 @@ import { GlobalVariableProvider } from '../providers/global-variable/global-vari
     HTTP,
     OAuthProvider,
     StorageProvider,
-    GlobalVariableProvider
+    GlobalVariableProvider,
+    MsProjectProvider,
+    MsActivityProvider,
+    ErrorHandlerProvider
   ]
 })
 export class AppModule { }
