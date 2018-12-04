@@ -214,13 +214,13 @@ export class LoginPage {
         let responseData = JSON.parse(response.data);
         let responseStatus = response.status;
 
-        console.log(responseData);
+        console.log(responseData.listProject);
         console.log(responseData.status);
         if(responseData.status.code == "0"){
           
-          this.msProjectProvider.msProjectList = responseData;
+          this.msProjectProvider.msProjectList = responseData.listProject;
           
-          this.events.publish('Auth',1);  
+          // this.events.publish('Auth',1);  
           
         }else if( responseData.status.code == "1159" ){
           this.helperMethod.presentToast(responseData.status.message,3000,2);
