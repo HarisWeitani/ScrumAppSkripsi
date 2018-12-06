@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { HTTP } from '@ionic-native/http';
 import { OAuthProvider } from '../o-auth/oauthProvider';
 import { Ms_Project } from '../../models/Ms_Project';
+import { StorageProvider } from '../storage/storageProvider';
 
 /*
   Generated class for the MsProjectProvider provider.
@@ -19,6 +20,7 @@ export class MsProjectProvider {
 
   constructor(public http: HttpClient, public httpNative:HTTP, 
               public oauthProvider:OAuthProvider , 
+              public storageProvider : StorageProvider,
               public helperMethod:HelperMethodProvider,
               public globalVal:GlobalVariableProvider) {
     console.log('Hello MsProjectProvider Provider');
@@ -37,6 +39,23 @@ export class MsProjectProvider {
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.msProjectAPI
                               ,user,headers);
 
+  }
+
+  save(){
+    this.storageProvider.save('Ms_Project', this.msProjectList);
+  }
+
+  loadDataFromStorage(){
+    this.storageProvider.getStorageByKey('Ms_Project')
+        .then(
+          (response:any) =>{
+            this.msProjectList = response;
+          }
+        ).catch(
+          (error:any) =>{
+            this.helperMethod.presentToast('Load Error', 3000,3);
+          }
+        );
   }
 
 }

@@ -1,3 +1,4 @@
+import { StorageProvider } from './../storage/storageProvider';
 import { OAuthToken } from './../../models/OAuthToken';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -25,18 +26,14 @@ testing:string;
   private postUrl: string= "https://jsonplaceholder.typicode.com/posts/";
 
   user: User;
+  userLogin : any;
   // userOAuth : OAuthToken;
  
   constructor(private http:HttpClient, private helperMethod : HelperMethodProvider,
               public httpNative : HTTP, public oauthProvider : OAuthProvider,
-              public globalVal : GlobalVariableProvider) {
+              public globalVal : GlobalVariableProvider,
+              public storageProvider : StorageProvider) {
     console.log('Hello UsersProvider Provider');
-  }
-
-  testerMethod(){
-    
-    return this.httpNative.get(this.baseUrl,{},{});
-
   }
 
   validateLoginBrowser(userLogin : any) : Observable<any>{
@@ -51,8 +48,7 @@ testing:string;
   validateLoginDevice(userLogin : any){
     
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
-    // let headers = this.oauthProvider.getHeader('b7d91139-c6b0-4801-bdee-2673cc52e99c');
-    
+
     console.log(headers);
     this.httpNative.setDataSerializer('json');
     console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.userLoginAPI);
@@ -62,30 +58,24 @@ testing:string;
                               ,userLogin,headers);
 
   }
-  
-  getUsers(): Observable<any> {
-    return this.http.get(this.baseUrl)
-        .pipe(map(this.extractData),
-              catchError(this.handleError)
-    );
+
+  saveUserDataToStorage(){
+
+    this.storageProvider.save('User',this.user);
+
   }
 
-  getOneUserById(id:string):Observable<any>{
-
-    return this.http.get(this.baseUrl + '/' + id)
-        .pipe(map(this.extractData),
-              catchError(this.handleError)
-    );
-  }
-
-
-  doSave(user: any): Observable<any> {
-    console.log(user);
-    return this.http.post(this.postUrl, user)
-          .pipe(map(this.extractData),
-          catchError(this.handleError)
-    );
-
+  loadUserDataFromStorage(){
+    this.storageProvider.getStorageByKey('User')
+        .then(
+          (response:any) =>{
+            this.user = response;
+          }
+        ).catch(
+          (error:any) =>{
+            this.helperMethod.presentToast('Load Error', 3000,3);
+          }
+        );
   }
 
   //helping method

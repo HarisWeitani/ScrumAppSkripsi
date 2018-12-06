@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events, ModalController, AlertController } from 'ionic-angular';
 import { TimesheetsProvider } from '../../providers/timesheets/timesheetsProvider';
 import { text } from '@angular/core/src/render3/instructions';
+import { ErrorHandlerProvider } from '../../providers/error-handler/error-handler';
 /**
  * Generated class for the TimeSheetPage page.
  *
@@ -23,22 +24,15 @@ export class TimeSheetPage {
 
   timeSheetDataList : Array<TimeSheet>;
   groupedTimeSheetDataList = [];
-
-  listItem: Array<String> = [];
-  
   
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public timeSheetProvider : TimesheetsProvider, public helperMethod:HelperMethodProvider,
               public userProvider : UsersProvider,
+              public errorHandler : ErrorHandlerProvider,
               public events: Events, public modalCtrl : ModalController,
               public alertCtrl : AlertController,
               public storageProvider : StorageProvider) {
     
-                this.listItem.push('asdasd1');
-                this.listItem.push('asdasd2');
-                this.listItem.push('asdasd3');
-                this.listItem.push('asdasd4');
-                this.listItem.push('asdasd5');
   }
 
   ionViewDidLoad() {
@@ -46,63 +40,99 @@ export class TimeSheetPage {
     console.log('ionViewDidLoad TimeSheetPage');
   }
 
+
   getAllTimeSheet(){
 
-    this.helperMethod.loadingService('Getting Your Data Please Wait...');
-
-    let userLoggedIn = {
-      username : this.userProvider.user.person_name,
-      password : this.userProvider.user.job_name
-    }
-
-    this.timeSheetProvider.getAllTimeSheetsByUserLoggedIn(userLoggedIn)
-        .subscribe(
+    this.helperMethod.loadingService("Getting TimeSheet Data..");
+    this.timeSheetProvider.getAllTimeSheetsByUserLoggedIn(this.userProvider.userLogin)
+        .then(
           (response:any) => {
             this.helperMethod.loading.dismiss();
-            this.timeSheetDataList = response;
             console.log(response);
-            this.storageProvider.save('TimeSheet',this.timeSheetDataList);
-            this.timeSheetHeaderFn(this.timeSheetDataList);
-          },
+            let responseData = JSON.parse(response.data);
+            let responseStatus = response.status;
+
+            console.log(responseData);
+            console.log(responseData.status);
+
+            if(responseData.status.code == "0"){
+            
+              this.timeSheetProvider.timeSheetList = responseData.timeSheetByUser;
+              console.log(responseData.timeSheetByUser);
+              
+            }else {
+              this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+
+          }).catch(
           (error:any) => {
-            console.log(error);
-            console.error(error.status);
-            console.error(error.statusText);
-            this.helperMethod.loading.dismiss();
-            this.helperMethod.presentToast('Gagal 9999: Jangan Hubungi Team IT',2000,3);
+
+              this.helperMethod.loading.dismiss();
+              this.errorHandler.catchErrorHandler(error);
+
           }
         );
 
   }
+
+  //deprecated
+  // getAllTimeSheet(){
+
+  //   this.helperMethod.loadingService('Getting Your Data Please Wait...');
+
+  //   let userLoggedIn = {
+  //     username : this.userProvider.user.person_name,
+  //     password : this.userProvider.user.job_name
+  //   }
+
+  //   this.timeSheetProvider.getAllTimeSheetsByUserLoggedIn(userLoggedIn)
+  //       .subscribe(
+  //         (response:any) => {
+  //           this.helperMethod.loading.dismiss();
+  //           this.timeSheetDataList = response;
+  //           console.log(response);
+  //           this.storageProvider.save('TimeSheet',this.timeSheetDataList);
+  //           this.timeSheetHeaderFn(this.timeSheetDataList);
+  //         },
+  //         (error:any) => {
+  //           console.log(error);
+  //           console.error(error.status);
+  //           console.error(error.statusText);
+  //           this.helperMethod.loading.dismiss();
+  //           this.helperMethod.presentToast('Gagal 9999: Jangan Hubungi Team IT',2000,3);
+  //         }
+  //       );
+
+  // }
   
-  timeSheetHeaderFn(dataList : Array<TimeSheet>) {
+  // timeSheetHeaderFn(dataList : Array<TimeSheet>) {
 
-    let currentDate = "00/00";
-    let currentTimeSheets = [];
+  //   let currentDate = "00/00";
+  //   let currentTimeSheets = [];
 
-    dataList.forEach((value,index) => {
+  //   dataList.forEach((value,index) => {
 
-      if( value.dtm_crt != currentDate ){
+  //     if( value.dtm_crt != currentDate ){
 
-        currentDate = value.dtm_crt;
+  //       currentDate = value.dtm_crt;
 
-        let newGroup = {
-          date_time : currentDate,
-          timesheets : []
-        };
-        console.log(newGroup);
-        console.log(currentTimeSheets);
+  //       let newGroup = {
+  //         date_time : currentDate,
+  //         timesheets : []
+  //       };
+  //       console.log(newGroup);
+  //       console.log(currentTimeSheets);
 
-        currentTimeSheets = newGroup.timesheets;
+  //       currentTimeSheets = newGroup.timesheets;
         
-        this.groupedTimeSheetDataList.push(newGroup);
+  //       this.groupedTimeSheetDataList.push(newGroup);
         
-      }
-      currentTimeSheets.push(value);
-    })
-    console.log(this.groupedTimeSheetDataList);
+  //     }
+  //     currentTimeSheets.push(value);
+  //   })
+  //   console.log(this.groupedTimeSheetDataList);
 
-  }
+  // }
 
   onItemUpdatePressed(itemData){
     console.log('OnItemUpdate Pressed ', itemData);

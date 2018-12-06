@@ -4,6 +4,8 @@ import { HTTP } from '@ionic-native/http';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { OAuthProvider } from '../o-auth/oauthProvider';
+import { Ms_Activity } from '../../models/Ms_Activity';
+import { StorageProvider } from '../storage/storageProvider';
 
 /*
   Generated class for the MsActivityProvider provider.
@@ -14,8 +16,11 @@ import { OAuthProvider } from '../o-auth/oauthProvider';
 @Injectable()
 export class MsActivityProvider {
 
+  msActivityList : Array<Ms_Activity>;
+
   constructor(public http: HttpClient, public httpNative:HTTP, 
               public oauthProvider:OAuthProvider , 
+              public storageProvider : StorageProvider,
               public helperMethod:HelperMethodProvider,
               public globalVal:GlobalVariableProvider) {
     console.log('Hello MsActivityProvider Provider');
@@ -32,6 +37,23 @@ export class MsActivityProvider {
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.msActivityAPI
                               ,user,headers);
 
+  }
+
+  save(){
+    this.storageProvider.save('Ms_Activity', this.msActivityList);
+  }
+
+  loadDataFromStorage(){
+    this.storageProvider.getStorageByKey('Ms_Activity')
+        .then(
+          (response:any) =>{
+            this.msActivityList = response;
+          }
+        ).catch(
+          (error:any) =>{
+            this.helperMethod.presentToast('Load Error', 3000,3);
+          }
+        );
   }
 
 }

@@ -1,8 +1,11 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MsActivityProvider } from './../../providers/ms-activity/msActivityProvider';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { TimeSheet } from '../../models/TimeSheet';
 import { Ms_Project } from '../../models/Ms_Project';
 import { Ms_Activity } from '../../models/Ms_Activity';
+import { MsProjectProvider } from '../../providers/ms-project/msProjectProvider';
 
 /**
  * Generated class for the TimeSheetPageModalPage page.
@@ -20,15 +23,19 @@ export class TimeSheetPageModal {
 
   timeSheet : TimeSheet;
 
+  timeSheetForm : FormGroup;
+
   msProject : Array<Ms_Project>;
   msActivity : Array<Ms_Activity>;
 
-  dataTesting : Array<String> = [];
-
-  dataDropDown : String;
+  projectDropDown : String;
+  activityDropDown : String;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
+              public formBuilder : FormBuilder,
+              public msActivityProvider : MsActivityProvider,
+              public msProjectProvider : MsProjectProvider,
               public viewCtrl : ViewController) {
       console.log(this.navParams.get('timeSheetData'));
       if(this.navParams.get('timeSheetData') == 'add'){
@@ -36,16 +43,6 @@ export class TimeSheetPageModal {
       }
       this.timeSheet = this.navParams.get('timeSheetData');
 
-      this.dataTesting.push('test 1');
-      this.dataTesting.push('test 2');
-      this.dataTesting.push('test 3');
-      this.dataTesting.push('test 4');
-      this.dataTesting.push('test 5');
-      this.dataTesting.push('test 6');
-      this.dataTesting.push('test 7');
-      this.dataTesting.push('test 8');
-      this.dataTesting.push('test 9');
-      this.dataTesting.push('test 10');
   }
 
   ionViewDidLoad() {
@@ -66,9 +63,9 @@ export class TimeSheetPageModal {
     
   }
 
-  onItemClick(data){
-    console.log(data);
-    
+  onItemClick(){
+    console.log(this.activityDropDown);
+    console.log(this.projectDropDown);
   }
 
 }

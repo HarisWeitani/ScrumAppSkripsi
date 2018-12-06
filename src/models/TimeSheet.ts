@@ -10,4 +10,5 @@ export interface TimeSheet {
     today_act : string;
     jira_id : string;
     duration_act : string;
+    go_real: string;
 }

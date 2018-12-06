@@ -20,39 +20,45 @@
 
 <ion-content padding>
 
-    <ion-item>
-      <ion-label color="primary" floating>Project</ion-label>
-      <ion-select [(ngModel)]="dataDropDown">
-          <ion-option *ngFor='let data of dataTesting'>{{data}}</ion-option>
+    <!-- <form [formGroup]="timeSheetForm"> -->
+
+      <ion-item>
+        <ion-label color="primary" floating>Project</ion-label>
+        <ion-select [(ngModel)]="projectDropDown">
+            <ion-option *ngFor='let data of msProjectProvider.msProjectList'>{{data.project_code}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" floating>Activities</ion-label>
+        <ion-select [(ngModel)]="activityDropDown">
+          <ion-option *ngFor='let data of msActivityProvider.msActivityList'>{{data.activity_type}}</ion-option>
       </ion-select>
-    </ion-item>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Activities</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Today Activites</ion-label>
+        <ion-textarea ></ion-textarea>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Today Activites</ion-label>
-      <ion-textarea ></ion-textarea>
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Jira Id</ion-label>
+        <ion-input ></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Jira Id</ion-label>
-      <ion-input ></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Sprint Id</ion-label>
+        <ion-input ></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Sprint Id</ion-label>
-      <ion-input ></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Duration</ion-label>
+        <ion-input ></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label color="primary" floating>Duration</ion-label>
-      <ion-input ></ion-input>
-    </ion-item>
+    <!-- </form> -->
 
-    <button ion-button color="light" (click)="onItemClick({data : dataDropDown})">
+    <button ion-button color="light" (click)="onItemClick()">
       <ion-icon name="paper"></ion-icon> Update
     </button>
 

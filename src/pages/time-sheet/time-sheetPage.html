@@ -21,20 +21,18 @@
 <ion-content padding>
 
 
-  <ion-list [virtualScroll]="timeSheetDataList" [approxItemHeight]=" '500px' ">
+  <ion-list [virtualScroll]="timeSheetProvider.timeSheetList" [approxItemHeight]=" '500px' ">
     
     <ion-item-sliding *virtualItem="let data" > 
-        
-        <!-- <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap [color]="(data.is_real == 'plan') ? 'real' : 'plan'">  -->
+      
         <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap 
-                  [ngStyle]="(data.is_real == 'plan') ? 
+                  [ngStyle]="(data.is_real == '1') ? 
                             { 
                               'background-color':'#72a8ff' 
                             } : 
                             { 
                               'background-color':'#c8cace' 
                             }">
-
           <table style="width: 100%">
             <tr>
               <td>{{data.dtm_crt}}</td>

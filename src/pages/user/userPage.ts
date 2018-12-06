@@ -44,16 +44,16 @@ export class UserPage {
     console.log('Did enter');
   }
 
-  press(){
-    this.helperMethod.loadingService('Getting All User..');
-    this.userProvider.getUsers().subscribe(
-      allUser => {
-        this.allUsers = allUser;
-        this.helperMethod.loading.dismiss();
-      }
-    );
-    console.log(this.userData);
-  }
+  // press(){
+  //   this.helperMethod.loadingService('Getting All User..');
+  //   this.userProvider.getUsers().subscribe(
+  //     allUser => {
+  //       this.allUsers = allUser;
+  //       this.helperMethod.loading.dismiss();
+  //     }
+  //   );
+  //   console.log(this.userData);
+  // }
 
   onItemPressed(userId){
     console.log('On Item Pressed',userId);
@@ -69,22 +69,22 @@ export class UserPage {
 
   }
 
-  onItemCOEG(){
+  // onItemCOEG(){
 
-    let postData = {
-      username : 'coeg',
-      password : 'coeg2'
-    };
+  //   let postData = {
+  //     username : 'coeg',
+  //     password : 'coeg2'
+  //   };
 
-    let data : any;
-    console.log('here',JSON.stringify(this.userProvider.user));
-    this.userProvider.doSave(postData).subscribe(
-      response => {
-        data = response;
-        console.log(data);
-      }
-    )
-  }
+  //   let data : any;
+  //   console.log('here',JSON.stringify(this.userProvider.user));
+  //   this.userProvider.doSave(postData).subscribe(
+  //     response => {
+  //       data = response;
+  //       console.log(data);
+  //     }
+  //   )
+  // }
   
   doLogout(){
     this.alertConfirmLogout();

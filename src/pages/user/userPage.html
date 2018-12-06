@@ -28,18 +28,15 @@
   <div>
     <div class="content">
       <ion-item>
-        <ion-label>{{userProvider.user.person_name}}</ion-label>
+        <ion-label>Name : {{userProvider.user.person_name}}</ion-label>
       </ion-item>
       <ion-item>
-        <ion-label>{{userProvider.user.job_name}}</ion-label>
+        <ion-label>Job : {{userProvider.user.job_name}}</ion-label>
       </ion-item>
-    </div>
-    <div padding>
-      <button ion-button color="primary" block (click)="press()">Tekan Aku Mas</button>
     </div>
   </div>
  
-
+<!-- 
   <ion-list>
     <ion-item-sliding *ngFor="let user of allUsers">
       <ion-item (click)="onItemPressed({id: user.name})">
@@ -54,6 +51,6 @@
         </button>
       </ion-item-options>
     </ion-item-sliding>
-  </ion-list>
+  </ion-list> -->
 
 </ion-content>

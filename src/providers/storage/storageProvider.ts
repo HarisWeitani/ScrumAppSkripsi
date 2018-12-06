@@ -26,4 +26,24 @@ export class StorageProvider {
     return this.storage.get(key);
   }
 
+  clear(){
+    return this.storage.clear();
+  }
+
 }
+
+
+// this.ready().then(
+//   (response:any) =>{
+//     this.storage.set(key,value).then(
+//       (response:any) =>{
+//         return response;
+//       }
+//     );
+//   }
+// ).catch(
+//   (error:any) =>{
+//     this.helperMethod.presentToast('Database Not Ready',3000,1);
+//     return 'ERROR';
+//   }
+// );
