@@ -6,7 +6,6 @@ import { TimeSheet } from '../../models/TimeSheet';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events, ModalController, AlertController } from 'ionic-angular';
 import { TimesheetsProvider } from '../../providers/timesheets/timesheetsProvider';
-import { text } from '@angular/core/src/render3/instructions';
 import { ErrorHandlerProvider } from '../../providers/error-handler/error-handler';
 /**
  * Generated class for the TimeSheetPage page.
@@ -59,7 +58,7 @@ export class TimeSheetPage {
             
               this.timeSheetProvider.timeSheetList = responseData.timeSheetByUser;
               console.log(responseData.timeSheetByUser);
-              
+              this.timeSheetProvider.filterTimeSheet();
             }else {
               this.errorHandler.catchResponseErrorHandler(responseData);
             }
@@ -74,65 +73,6 @@ export class TimeSheetPage {
         );
 
   }
-
-  //deprecated
-  // getAllTimeSheet(){
-
-  //   this.helperMethod.loadingService('Getting Your Data Please Wait...');
-
-  //   let userLoggedIn = {
-  //     username : this.userProvider.user.person_name,
-  //     password : this.userProvider.user.job_name
-  //   }
-
-  //   this.timeSheetProvider.getAllTimeSheetsByUserLoggedIn(userLoggedIn)
-  //       .subscribe(
-  //         (response:any) => {
-  //           this.helperMethod.loading.dismiss();
-  //           this.timeSheetDataList = response;
-  //           console.log(response);
-  //           this.storageProvider.save('TimeSheet',this.timeSheetDataList);
-  //           this.timeSheetHeaderFn(this.timeSheetDataList);
-  //         },
-  //         (error:any) => {
-  //           console.log(error);
-  //           console.error(error.status);
-  //           console.error(error.statusText);
-  //           this.helperMethod.loading.dismiss();
-  //           this.helperMethod.presentToast('Gagal 9999: Jangan Hubungi Team IT',2000,3);
-  //         }
-  //       );
-
-  // }
-  
-  // timeSheetHeaderFn(dataList : Array<TimeSheet>) {
-
-  //   let currentDate = "00/00";
-  //   let currentTimeSheets = [];
-
-  //   dataList.forEach((value,index) => {
-
-  //     if( value.dtm_crt != currentDate ){
-
-  //       currentDate = value.dtm_crt;
-
-  //       let newGroup = {
-  //         date_time : currentDate,
-  //         timesheets : []
-  //       };
-  //       console.log(newGroup);
-  //       console.log(currentTimeSheets);
-
-  //       currentTimeSheets = newGroup.timesheets;
-        
-  //       this.groupedTimeSheetDataList.push(newGroup);
-        
-  //     }
-  //     currentTimeSheets.push(value);
-  //   })
-  //   console.log(this.groupedTimeSheetDataList);
-
-  // }
 
   onItemUpdatePressed(itemData){
     console.log('OnItemUpdate Pressed ', itemData);

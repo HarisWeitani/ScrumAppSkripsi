@@ -10,14 +10,17 @@ import { Injectable } from '@angular/core';
 export class GlobalVariableProvider {
 
   //tirta
-  // public ipUrl : string = 'http://172.18.1.17:8080/';
+  public ipUrl : string = 'http://172.18.1.17:8080/';
   //local
-  public ipUrl : string = 'http://172.18.0.218:8080/';
+  // public ipUrl : string = 'http://172.18.0.218:8080/';
   public baseUrl : string = 'com.adins.mss.webservices/services/m/';
 
   public userLoginAPI : string ='user/login';
   public msProjectAPI : string ='timesheet/project'; 
   public msActivityAPI : string ='timesheet/activity'; 
   public timeSheetAPI : string = 'timesheet/getTSByUser';
+  public timeSheetGoRealAPI : string = 'timesheet/updateTSReal';
+  public timeSheetAddAPI : string = 'timesheet/addTSUser';
+
 
 }

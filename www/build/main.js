@@ -1,16 +1,16 @@
 webpackJsonp([8],{
 
-/***/ 120:
+/***/ 121:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MsActivityProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helper_method_helper_method__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_http__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helper_method_helper_method__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__storage_storageProvider__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -80,17 +80,17 @@ var MsActivityProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 126:
+/***/ 127:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MsProjectProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helper_method_helper_method__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helper_method_helper_method__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_http__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__storage_storageProvider__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -164,10 +164,12 @@ var MsProjectProvider = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrorHandlerProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimesheetsProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__users_usersProvider__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__global_variable_global_variable__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__o_auth_oauthProvider__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -180,68 +182,64 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /*
-  Generated class for the ErrorHandlerProvider provider.
+  Generated class for the TimesheetsProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-var ErrorHandlerProvider = /** @class */ (function () {
-    function ErrorHandlerProvider(http, helperMethod) {
-        this.http = http;
-        this.helperMethod = helperMethod;
-        console.log('Hello ErrorHandlerProvider Provider');
+var TimesheetsProvider = /** @class */ (function () {
+    function TimesheetsProvider(httpNative, globalVal, userProvider, oauthProvider) {
+        this.httpNative = httpNative;
+        this.globalVal = globalVal;
+        this.userProvider = userProvider;
+        this.oauthProvider = oauthProvider;
+        this.baseUrl = "https://jsonplaceholder.typicode.com/posts";
+        console.log('Hello TimesheetsProvider Provider');
     }
-    ErrorHandlerProvider.prototype.catchErrorHandler = function (error) {
-        var errorData;
-        try {
-            errorData = JSON.parse(error.error);
-        }
-        catch (error) {
-            this.helperMethod.presentToast('Server is Unavailable', 4000, 2);
-            return;
-        }
-        console.log(error);
-        console.error(error.error);
-        console.error(error.status);
-        if (errorData.error == 'invalid_grant') {
-            this.helperMethod.presentToast(errorData.error_description, 4000, 3);
-        }
-        if (error.status == "-1") {
-            this.helperMethod.presentToast('Failed To Connect Please Check Your Connection', 4000, 2);
-        }
-        if (error.status == "1") {
-            this.helperMethod.presentToast('Request Time Out Please Check Your Connection', 4000, 1);
-        }
-        if (error.status == "9999") {
-            this.helperMethod.presentToast(errorData.error_description, 3000, 3);
-        }
-        if (error.error == 'TimeoutError') {
-            this.helperMethod.presentToast('Slow Connection', 4000, 2);
-        }
-        else {
-            this.helperMethod.presentToast('Error 9999: Jangan Hubungi Team IT', 4000, 3);
-        }
+    TimesheetsProvider.prototype.getAllTimeSheetsByUserLoggedIn = function (user) {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        console.log(headers);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetAPI);
+        this.httpNative.setRequestTimeout(60);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetAPI, user, headers);
     };
-    ErrorHandlerProvider.prototype.catchResponseErrorHandler = function (responseData) {
-        if (responseData.status.code == "1159") {
-            this.helperMethod.presentToast(responseData.status.message, 3000, 2);
-        }
-        else if (responseData.status.code == "8101") {
-            this.helperMethod.presentToast(responseData.status.message, 3000, 3);
-        }
-        else if (responseData.status.code == "9999") {
-            this.helperMethod.presentToast(responseData.status.message, 3000, 3);
-        }
+    TimesheetsProvider.prototype.updateGoRealTimeSheet = function (timeSheetData) {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetGoRealAPI);
+        this.httpNative.setRequestTimeout(60);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetGoRealAPI, timeSheetData, headers);
     };
-    ErrorHandlerProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__["a" /* HelperMethodProvider */]])
-    ], ErrorHandlerProvider);
-    return ErrorHandlerProvider;
+    TimesheetsProvider.prototype.addNewTimeSheet = function (timeSheet) {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetAddAPI);
+        this.httpNative.setRequestTimeout(60);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetAddAPI, timeSheet + this.userProvider.userLogin, headers);
+    };
+    TimesheetsProvider.prototype.filterTimeSheet = function () {
+        this.timeSheetList.forEach(function (element) {
+            console.log(element);
+        });
+    };
+    TimesheetsProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */],
+            __WEBPACK_IMPORTED_MODULE_2__global_variable_global_variable__["a" /* GlobalVariableProvider */],
+            __WEBPACK_IMPORTED_MODULE_0__users_usersProvider__["a" /* UsersProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__o_auth_oauthProvider__["a" /* OAuthProvider */]])
+    ], TimesheetsProvider);
+    return TimesheetsProvider;
 }());
 
-//# sourceMappingURL=error-handler.js.map
+//# sourceMappingURL=timesheetsProvider.js.map
 
 /***/ }),
 
@@ -251,7 +249,7 @@ var ErrorHandlerProvider = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportPageModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -305,15 +303,15 @@ var ReportPageModal = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_ms_activity_msActivityProvider__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_ms_project_msProjectProvider__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_ms_activity_msActivityProvider__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_ms_project_msProjectProvider__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_helper_method_helper_method__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_o_auth_oauthProvider__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_error_handler_error_handler__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_helper_method_helper_method__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_o_auth_oauthProvider__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_error_handler_error_handler__ = __webpack_require__(88);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -528,11 +526,11 @@ var LoginPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_report_reportProvider__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_report_reportProvider__ = __webpack_require__(322);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__report_page_modal_report_page_modal__ = __webpack_require__(162);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -630,9 +628,9 @@ var ReportPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__report_reportPage__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__time_sheet_time_sheetPage__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__user_userPage__ = __webpack_require__(168);
@@ -700,12 +698,12 @@ var TabsPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimeSheetPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_storage_storageProvider__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__time_sheet_page_modal_time_sheet_page_modal__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_timesheets_timesheetsProvider__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_timesheets_timesheetsProvider__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__ = __webpack_require__(88);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -761,6 +759,7 @@ var TimeSheetPage = /** @class */ (function () {
             if (responseData.status.code == "0") {
                 _this.timeSheetProvider.timeSheetList = responseData.timeSheetByUser;
                 console.log(responseData.timeSheetByUser);
+                _this.timeSheetProvider.filterTimeSheet();
             }
             else {
                 _this.errorHandler.catchResponseErrorHandler(responseData);
@@ -770,50 +769,6 @@ var TimeSheetPage = /** @class */ (function () {
             _this.errorHandler.catchErrorHandler(error);
         });
     };
-    //deprecated
-    // getAllTimeSheet(){
-    //   this.helperMethod.loadingService('Getting Your Data Please Wait...');
-    //   let userLoggedIn = {
-    //     username : this.userProvider.user.person_name,
-    //     password : this.userProvider.user.job_name
-    //   }
-    //   this.timeSheetProvider.getAllTimeSheetsByUserLoggedIn(userLoggedIn)
-    //       .subscribe(
-    //         (response:any) => {
-    //           this.helperMethod.loading.dismiss();
-    //           this.timeSheetDataList = response;
-    //           console.log(response);
-    //           this.storageProvider.save('TimeSheet',this.timeSheetDataList);
-    //           this.timeSheetHeaderFn(this.timeSheetDataList);
-    //         },
-    //         (error:any) => {
-    //           console.log(error);
-    //           console.error(error.status);
-    //           console.error(error.statusText);
-    //           this.helperMethod.loading.dismiss();
-    //           this.helperMethod.presentToast('Gagal 9999: Jangan Hubungi Team IT',2000,3);
-    //         }
-    //       );
-    // }
-    // timeSheetHeaderFn(dataList : Array<TimeSheet>) {
-    //   let currentDate = "00/00";
-    //   let currentTimeSheets = [];
-    //   dataList.forEach((value,index) => {
-    //     if( value.dtm_crt != currentDate ){
-    //       currentDate = value.dtm_crt;
-    //       let newGroup = {
-    //         date_time : currentDate,
-    //         timesheets : []
-    //       };
-    //       console.log(newGroup);
-    //       console.log(currentTimeSheets);
-    //       currentTimeSheets = newGroup.timesheets;
-    //       this.groupedTimeSheetDataList.push(newGroup);
-    //     }
-    //     currentTimeSheets.push(value);
-    //   })
-    //   console.log(this.groupedTimeSheetDataList);
-    // }
     TimeSheetPage.prototype.onItemUpdatePressed = function (itemData) {
         console.log('OnItemUpdate Pressed ', itemData);
         var timeSheetModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_1__time_sheet_page_modal_time_sheet_page_modal__["a" /* TimeSheetPageModal */], { timeSheetData: itemData.data });
@@ -856,11 +811,14 @@ var TimeSheetPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimeSheetPageModal; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_forms__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_ms_activity_msActivityProvider__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_ms_project_msProjectProvider__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_timesheets_timesheetsProvider__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_ms_activity_msActivityProvider__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_ms_project_msProjectProvider__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__ = __webpack_require__(88);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -875,6 +833,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 /**
  * Generated class for the TimeSheetPageModalPage page.
  *
@@ -882,51 +843,108 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var TimeSheetPageModal = /** @class */ (function () {
-    function TimeSheetPageModal(navCtrl, navParams, formBuilder, msActivityProvider, msProjectProvider, viewCtrl) {
+    function TimeSheetPageModal(navCtrl, navParams, msActivityProvider, msProjectProvider, timeSheetProvider, userProvider, helperMethod, errorHandler, viewCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.formBuilder = formBuilder;
         this.msActivityProvider = msActivityProvider;
         this.msProjectProvider = msProjectProvider;
+        this.timeSheetProvider = timeSheetProvider;
+        this.userProvider = userProvider;
+        this.helperMethod = helperMethod;
+        this.errorHandler = errorHandler;
         this.viewCtrl = viewCtrl;
         console.log(this.navParams.get('timeSheetData'));
         if (this.navParams.get('timeSheetData') == 'add') {
+            this.addOrUpdate = 'add';
         }
-        this.timeSheet = this.navParams.get('timeSheetData');
-        this.timeSheetForm = formBuilder.group({
-            project: ['', __WEBPACK_IMPORTED_MODULE_0__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_0__angular_forms__["f" /* Validators */].required])],
-            activities: ['', __WEBPACK_IMPORTED_MODULE_0__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_0__angular_forms__["f" /* Validators */].required])],
-            TodayActivities: ['', __WEBPACK_IMPORTED_MODULE_0__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_0__angular_forms__["f" /* Validators */].required])],
-            duration: ['', __WEBPACK_IMPORTED_MODULE_0__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_0__angular_forms__["f" /* Validators */].required])]
-        });
+        else {
+            this.addOrUpdate = 'update';
+            this.timeSheet = this.navParams.get('timeSheetData');
+            this.projectDropDown = this.timeSheet.project_code;
+            this.activityDropDown = this.timeSheet.activities_type;
+            this.todayAct = this.timeSheet.today_act;
+            this.jiraId = this.timeSheet.jira_id;
+            this.sprintId = this.timeSheet.sprint_id;
+            this.duration = this.timeSheet.duration_act;
+        }
     }
     TimeSheetPageModal.prototype.ionViewDidLoad = function () {
-        // console.log(this.navParams.get('timeSheetData'));
-        // if(this.navParams.get('timeSheetData') == 'add'){
-        // }
-        // this.timeSheet = this.navParams.get('timeSheetData');
-        console.log('ionViewDidLoad TimeSheetPageModalPage ' + this.timeSheet.jira_id);
+        console.log('ionViewDidLoad TimeSheetPageModalPage');
     };
     TimeSheetPageModal.prototype.doCloseModal = function () {
         console.log("Pressed");
         this.viewCtrl.dismiss();
     };
-    TimeSheetPageModal.prototype.updateTimeSheetItem = function () {
+    TimeSheetPageModal.prototype.addTimeSheetItem = function () {
+        var _this = this;
+        var timeSheetData = {
+            project_code: this.projectDropDown,
+            activities_type: this.activityDropDown,
+            today_act: this.todayAct,
+            jira_id: this.jiraId,
+            duration_act: this.duration,
+            username: this.userProvider.userLogin.username,
+            password: this.userProvider.userLogin.password
+        };
+        this.helperMethod.loadingService("Add New One..");
+        this.timeSheetProvider.updateGoRealTimeSheet(timeSheetData)
+            .then(function (response) {
+            _this.helperMethod.loading.dismiss();
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData);
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+                // this.timeSheetProvider.timeSheetList = responseData.timeSheetByUser;
+                // console.log(responseData.timeSheetByUser);
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.helperMethod.loading.dismiss();
+            _this.errorHandler.catchErrorHandler(error);
+        });
     };
-    TimeSheetPageModal.prototype.onItemClick = function () {
-        console.log(this.activityDropDown);
-        console.log(this.projectDropDown);
+    TimeSheetPageModal.prototype.goReal = function () {
+        var _this = this;
+        this.timeSheet.duration_act = this.duration;
+        this.timeSheet.is_real = '1';
+        this.helperMethod.loadingService("Update Go Real..");
+        this.timeSheetProvider.updateGoRealTimeSheet(this.timeSheet)
+            .then(function (response) {
+            _this.helperMethod.loading.dismiss();
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData);
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+                // this.timeSheetProvider.timeSheetList = responseData.timeSheetByUser;
+                // console.log(responseData.timeSheetByUser);
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.helperMethod.loading.dismiss();
+            _this.errorHandler.catchErrorHandler(error);
+        });
     };
     TimeSheetPageModal = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-time-sheet-page-modal',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet-page-modal\time-sheet-page-modal.html"*/'<!--\n\n  Generated template for the TimeSheetPageModalPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Time Sheet Detail</ion-title>\n\n    <ion-buttons end >\n\n      <button ion-button icon-only (click)="doCloseModal()">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n    <form [formGroup]="timeSheetForm">\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Project</ion-label>\n\n        <ion-select formControlName="project" [(ngModel)]="projectDropDown">\n\n            <ion-option *ngFor=\'let data of msProjectProvider.msProjectList\'>{{data.project_code}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Activities</ion-label>\n\n        <ion-select formControlName="activities" [(ngModel)]="activityDropDown">\n\n          <ion-option *ngFor=\'let data of msActivityProvider.msActivityList\'>{{data.activity_type}}</ion-option>\n\n      </ion-select>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Today Activites</ion-label>\n\n        <ion-textarea formControlName="TodayActivities" ></ion-textarea>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Jira Id</ion-label>\n\n        <ion-input ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Sprint Id</ion-label>\n\n        <ion-input ></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Duration</ion-label>\n\n        <ion-input formControlName="duration" ></ion-input>\n\n      </ion-item>\n\n\n\n    </form>\n\n\n\n    <button ion-button color="light" (click)="onItemClick()">\n\n      <ion-icon name="paper"></ion-icon> Update\n\n    </button>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet-page-modal\time-sheet-page-modal.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
+            selector: 'page-time-sheet-page-modal',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet-page-modal\time-sheet-page-modal.html"*/'<!--\n\n  Generated template for the TimeSheetPageModalPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Time Sheet Detail</ion-title>\n\n    <ion-buttons end >\n\n      <button ion-button icon-only (click)="doCloseModal()">\n\n        <ion-icon name="arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n<!-- Add -->\n\n\n\n  <div *ngIf=" addOrUpdate == \'add\' ">\n\n    \n\n    <ion-item>\n\n      <ion-label color="primary" floating>Project</ion-label>\n\n      <ion-select [(ngModel)]="projectDropDown">\n\n          <ion-option *ngFor=\'let data of msProjectProvider.msProjectList\'>{{data.project_code}}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label color="primary" floating>Activities</ion-label>\n\n      <ion-select [(ngModel)]="activityDropDown">\n\n        <ion-option *ngFor=\'let data of msActivityProvider.msActivityList\'>{{data.activity_type}}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label color="primary" floating>Today Activites</ion-label>\n\n      <ion-textarea [(ngModel)]="todayAct"></ion-textarea>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label color="primary" floating>Jira Id</ion-label>\n\n      <ion-input [(ngModel)]="jiraId"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label color="primary" floating>Sprint Id</ion-label>\n\n      <ion-input [(ngModel)]="sprintId"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label color="primary" floating>Duration</ion-label>\n\n      <ion-input [(ngModel)]="duration"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button color="light" (click)="addTimeSheetItem()">\n\n        <ion-icon name="add-circle"></ion-icon> Add\n\n      </button>\n\n    </ion-buttons>\n\n  </div>\n\n\n\n<!-- Update -->\n\n\n\n  <div *ngIf=" addOrUpdate == \'update\' ">\n\n    <ion-item>\n\n      <ion-label color="primary" floating>Project</ion-label>\n\n      <ion-input [(ngModel)]="projectDropDown" [disabled]="true"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label color="primary" floating>Activities</ion-label>\n\n      <ion-input [(ngModel)]="activityDropDown" [disabled]="true"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label color="primary" floating>Today Activites</ion-label>\n\n      <ion-textarea [(ngModel)]="todayAct" [disabled]="true"></ion-textarea>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label color="primary" floating>Jira Id</ion-label>\n\n      <ion-input [(ngModel)]="jiraId" [disabled]="true"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label color="primary" floating>Sprint Id</ion-label>\n\n      <ion-input [(ngModel)]="sprintId" [disabled]="true"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label color="primary" floating>Duration</ion-label>\n\n      <ion-input [(ngModel)]="duration" type="number"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button color="primary" (click)="goReal()" >\n\n        Make it Real!\n\n      </button>\n\n    </ion-buttons>\n\n\n\n  </div>\n\n\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\time-sheet-page-modal\time-sheet-page-modal.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_ms_activity_msActivityProvider__["a" /* MsActivityProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_ms_project_msProjectProvider__["a" /* MsProjectProvider */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["n" /* ViewController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_ms_activity_msActivityProvider__["a" /* MsActivityProvider */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_ms_project_msProjectProvider__["a" /* MsProjectProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_timesheets_timesheetsProvider__["a" /* TimesheetsProvider */],
+            __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__["a" /* UsersProvider */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */],
+            __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["n" /* ViewController */]])
     ], TimeSheetPageModal);
     return TimeSheetPageModal;
 }());
@@ -940,10 +958,10 @@ var TimeSheetPageModal = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_users_usersProvider__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1077,14 +1095,14 @@ webpackEmptyAsyncContext.id = 179;
 
 /***/ }),
 
-/***/ 22:
+/***/ 21:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelperMethodProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(23);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1206,15 +1224,15 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 321:
+/***/ 322:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helper_method_helper_method__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helper_method_helper_method__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__(231);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators__);
@@ -1286,113 +1304,13 @@ var ReportProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 322:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimesheetsProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_http__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global_variable_global_variable__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__helper_method_helper_method__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__o_auth_oauthProvider__ = __webpack_require__(48);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-/*
-  Generated class for the TimesheetsProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var TimesheetsProvider = /** @class */ (function () {
-    function TimesheetsProvider(http, httpNative, helperMethod, globalVal, oauthProvider) {
-        this.http = http;
-        this.httpNative = httpNative;
-        this.helperMethod = helperMethod;
-        this.globalVal = globalVal;
-        this.oauthProvider = oauthProvider;
-        this.baseUrl = "https://jsonplaceholder.typicode.com/posts";
-        console.log('Hello TimesheetsProvider Provider');
-    }
-    TimesheetsProvider.prototype.getAllTimeSheetsByUserLoggedIn = function (user) {
-        // return this.http.post(this.baseUrl,user)
-        //         .pipe(map(this.extractData),
-        //         catchError(this.handleError)
-        // );
-        //testing purpose
-        // return this.http.get(this.helperMethod.timeSheetUrl)
-        //         .pipe(map(this.extractData),
-        //         catchError(this.handleError)
-        // );
-        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
-        console.log(headers);
-        this.httpNative.setDataSerializer('json');
-        console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetAPI);
-        this.httpNative.setRequestTimeout(60);
-        return this.httpNative
-            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetAPI, user, headers);
-    };
-    //helping method
-    TimesheetsProvider.prototype.extractData = function (res) {
-        var body = res;
-        return body || {};
-    };
-    TimesheetsProvider.prototype.handleError = function (error) {
-        var errMsg;
-        if (error instanceof Response) {
-            var err = error || '';
-            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
-        }
-        else {
-            errMsg = error.message ? error.message : error.toString();
-        }
-        console.error(error.status);
-        console.error(error.statusText);
-        console.error(errMsg);
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error);
-    };
-    TimesheetsProvider.prototype.catchError = function (error) {
-        console.log(error);
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error.json().error || "Server Error.");
-    };
-    TimesheetsProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_0__ionic_native_http__["a" /* HTTP */],
-            __WEBPACK_IMPORTED_MODULE_5__helper_method_helper_method__["a" /* HelperMethodProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__global_variable_global_variable__["a" /* GlobalVariableProvider */],
-            __WEBPACK_IMPORTED_MODULE_6__o_auth_oauthProvider__["a" /* OAuthProvider */]])
-    ], TimesheetsProvider);
-    return TimesheetsProvider;
-}());
-
-//# sourceMappingURL=timesheetsProvider.js.map
-
-/***/ }),
-
 /***/ 364:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1452,14 +1370,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_report_page_modal_report_page_modal__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(362);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_common_http__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_common_http__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_http__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__(692);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_main_main__ = __webpack_require__(364);
@@ -1468,17 +1386,17 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_report_reportPage__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_time_sheet_time_sheetPage__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_user_userPage__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_users_usersProvider__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_timesheets_timesheetsProvider__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_report_reportProvider__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_users_usersProvider__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_timesheets_timesheetsProvider__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_report_reportProvider__ = __webpack_require__(322);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_time_sheet_page_modal_time_sheet_page_modal__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_expandable_expandable__ = __webpack_require__(693);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_o_auth_oauthProvider__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_o_auth_oauthProvider__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_storage_storageProvider__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_global_variable_global_variable__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_ms_project_msProjectProvider__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_ms_activity_msActivityProvider__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_error_handler_error_handler__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_global_variable_global_variable__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_ms_project_msProjectProvider__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_ms_activity_msActivityProvider__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_error_handler_error_handler__ = __webpack_require__(88);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1585,136 +1503,22 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 46:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalVariableProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-/*
-  Generated class for the GlobalVariableProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var GlobalVariableProvider = /** @class */ (function () {
-    function GlobalVariableProvider() {
-        //tirta
-        // public ipUrl : string = 'http://172.18.1.17:8080/';
-        //local
-        this.ipUrl = 'http://172.18.0.218:8080/';
-        this.baseUrl = 'com.adins.mss.webservices/services/m/';
-        this.userLoginAPI = 'user/login';
-        this.msProjectAPI = 'timesheet/project';
-        this.msActivityAPI = 'timesheet/activity';
-        this.timeSheetAPI = 'timesheet/getTSByUser';
-    }
-    GlobalVariableProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])()
-    ], GlobalVariableProvider);
-    return GlobalVariableProvider;
-}());
-
-//# sourceMappingURL=global-variable.js.map
-
-/***/ }),
-
-/***/ 48:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OAuthProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_http__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__ = __webpack_require__(22);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-/*
-  Generated class for the OAuthProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var OAuthProvider = /** @class */ (function () {
-    function OAuthProvider(http, httpNative, helperMethod, globalVal) {
-        this.http = http;
-        this.httpNative = httpNative;
-        this.helperMethod = helperMethod;
-        this.globalVal = globalVal;
-        this.oAuthTokenAPI = 'com.adins.mss.webservices/oauth/token';
-        console.log('Hello OAuthProvider Provider');
-    }
-    OAuthProvider.prototype.getOAuthToken = function (userLogin) {
-        console.log("get Auth Token" + userLogin);
-        var headers = {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'application/json'
-        };
-        var body = 'grant_type=password&username=' + userLogin.username
-            + '&password=' + userLogin.password + '&client_id=mobile';
-        this.httpNative.setDataSerializer('utf8');
-        console.log('URL ' + this.globalVal.ipUrl + this.oAuthTokenAPI);
-        console.log('Body ' + body);
-        return this.httpNative.post(this.globalVal.ipUrl + this.oAuthTokenAPI, body, headers);
-    };
-    OAuthProvider.prototype.getHeader = function (OAuthToken) {
-        var headers = {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ' + OAuthToken
-        };
-        return headers;
-    };
-    OAuthProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_http__["a" /* HTTP */],
-            __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__["a" /* HelperMethodProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__["a" /* GlobalVariableProvider */]])
-    ], OAuthProvider);
-    return OAuthProvider;
-}());
-
-//# sourceMappingURL=oauthProvider.js.map
-
-/***/ }),
-
-/***/ 49:
+/***/ 40:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__storage_storageProvider__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__(231);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__helper_method_helper_method__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__o_auth_oauthProvider__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__global_variable_global_variable__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__helper_method_helper_method__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__o_auth_oauthProvider__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__global_variable_global_variable__ = __webpack_require__(47);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1818,6 +1622,122 @@ var UsersProvider = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 47:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalVariableProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+/*
+  Generated class for the GlobalVariableProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var GlobalVariableProvider = /** @class */ (function () {
+    function GlobalVariableProvider() {
+        //tirta
+        this.ipUrl = 'http://172.18.1.17:8080/';
+        //local
+        // public ipUrl : string = 'http://172.18.0.218:8080/';
+        this.baseUrl = 'com.adins.mss.webservices/services/m/';
+        this.userLoginAPI = 'user/login';
+        this.msProjectAPI = 'timesheet/project';
+        this.msActivityAPI = 'timesheet/activity';
+        this.timeSheetAPI = 'timesheet/getTSByUser';
+        this.timeSheetGoRealAPI = 'timesheet/updateTSReal';
+        this.timeSheetAddAPI = 'timesheet/addTSUser';
+    }
+    GlobalVariableProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])()
+    ], GlobalVariableProvider);
+    return GlobalVariableProvider;
+}());
+
+//# sourceMappingURL=global-variable.js.map
+
+/***/ }),
+
+/***/ 49:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OAuthProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__ = __webpack_require__(21);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/*
+  Generated class for the OAuthProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var OAuthProvider = /** @class */ (function () {
+    function OAuthProvider(http, httpNative, helperMethod, globalVal) {
+        this.http = http;
+        this.httpNative = httpNative;
+        this.helperMethod = helperMethod;
+        this.globalVal = globalVal;
+        this.oAuthTokenAPI = 'com.adins.mss.webservices/oauth/token';
+        console.log('Hello OAuthProvider Provider');
+    }
+    OAuthProvider.prototype.getOAuthToken = function (userLogin) {
+        console.log("get Auth Token" + userLogin);
+        var headers = {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json'
+        };
+        var body = 'grant_type=password&username=' + userLogin.username
+            + '&password=' + userLogin.password + '&client_id=mobile';
+        this.httpNative.setDataSerializer('utf8');
+        console.log('URL ' + this.globalVal.ipUrl + this.oAuthTokenAPI);
+        console.log('Body ' + body);
+        return this.httpNative.post(this.globalVal.ipUrl + this.oAuthTokenAPI, body, headers);
+    };
+    OAuthProvider.prototype.getHeader = function (OAuthToken) {
+        var headers = {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + OAuthToken
+        };
+        return headers;
+    };
+    OAuthProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_http__["a" /* HTTP */],
+            __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__["a" /* HelperMethodProvider */],
+            __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__["a" /* GlobalVariableProvider */]])
+    ], OAuthProvider);
+    return OAuthProvider;
+}());
+
+//# sourceMappingURL=oauthProvider.js.map
+
+/***/ }),
+
 /***/ 62:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1891,7 +1811,7 @@ var StorageProvider = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_tabs_tabs__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(363);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(362);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_loginPage__ = __webpack_require__(163);
@@ -1996,6 +1916,91 @@ var ExpandableComponent = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=expandable.js.map
+
+/***/ }),
+
+/***/ 88:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrorHandlerProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/*
+  Generated class for the ErrorHandlerProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var ErrorHandlerProvider = /** @class */ (function () {
+    function ErrorHandlerProvider(http, helperMethod) {
+        this.http = http;
+        this.helperMethod = helperMethod;
+        console.log('Hello ErrorHandlerProvider Provider');
+    }
+    ErrorHandlerProvider.prototype.catchErrorHandler = function (error) {
+        var errorData;
+        try {
+            errorData = JSON.parse(error.error);
+        }
+        catch (error) {
+            this.helperMethod.presentToast('Server is Unavailable', 4000, 2);
+            // return;
+        }
+        console.log(error);
+        console.error(error.error);
+        console.error(error.status);
+        if (errorData.error == 'invalid_grant') {
+            this.helperMethod.presentToast(errorData.error_description, 4000, 3);
+        }
+        if (error.status == "-1") {
+            this.helperMethod.presentToast('Failed To Connect Please Check Your Connection', 4000, 2);
+        }
+        if (error.status == "1") {
+            this.helperMethod.presentToast('Request Time Out Please Check Your Connection', 4000, 1);
+        }
+        if (error.status == "9999") {
+            this.helperMethod.presentToast(errorData.error_description, 3000, 3);
+        }
+        if (error.error == 'TimeoutError') {
+            this.helperMethod.presentToast('Slow Connection', 4000, 2);
+        }
+        else {
+            this.helperMethod.presentToast('Error 9999: Jangan Hubungi Team IT', 4000, 3);
+        }
+    };
+    ErrorHandlerProvider.prototype.catchResponseErrorHandler = function (responseData) {
+        if (responseData.status.code == "1159") {
+            this.helperMethod.presentToast(responseData.status.message, 3000, 2);
+        }
+        else if (responseData.status.code == "8101") {
+            this.helperMethod.presentToast(responseData.status.message, 3000, 3);
+        }
+        else if (responseData.status.code == "9999") {
+            this.helperMethod.presentToast(responseData.status.message, 3000, 3);
+        }
+    };
+    ErrorHandlerProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__["a" /* HelperMethodProvider */]])
+    ], ErrorHandlerProvider);
+    return ErrorHandlerProvider;
+}());
+
+//# sourceMappingURL=error-handler.js.map
 
 /***/ })
 

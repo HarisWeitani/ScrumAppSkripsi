@@ -1,11 +1,9 @@
+import { UsersProvider } from './../users/usersProvider';
 import { HTTP } from '@ionic-native/http';
 import { GlobalVariableProvider } from './../global-variable/global-variable';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TimeSheet } from '../../models/TimeSheet';
-import { map, catchError } from 'rxjs/operators';
-import { HelperMethodProvider } from '../helper-method/helper-method';
 import { OAuthProvider } from '../o-auth/oauthProvider';
 /*
   Generated class for the TimesheetsProvider provider.
@@ -20,26 +18,15 @@ export class TimesheetsProvider {
 
   timeSheetList : Array<TimeSheet>;
 
-  constructor(private http: HttpClient, public httpNative : HTTP, 
-              private helperMethod :HelperMethodProvider,
+  constructor(public httpNative : HTTP, 
               public globalVal : GlobalVariableProvider,
+              public userProvider : UsersProvider,
               public oauthProvider : OAuthProvider) {
     console.log('Hello TimesheetsProvider Provider');
     
   }
 
   getAllTimeSheetsByUserLoggedIn(user:any){
-    // return this.http.post(this.baseUrl,user)
-    //         .pipe(map(this.extractData),
-    //         catchError(this.handleError)
-    // );
-    
-    //testing purpose
-    // return this.http.get(this.helperMethod.timeSheetUrl)
-    //         .pipe(map(this.extractData),
-    //         catchError(this.handleError)
-    // );
-
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
 
     console.log(headers);
@@ -52,26 +39,33 @@ export class TimesheetsProvider {
 
   }
 
-  //helping method
-  private extractData(res: Response) {
-    let body = res;
-    return body || { };
+  updateGoRealTimeSheet(timeSheetData:any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetGoRealAPI);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetGoRealAPI
+                              ,timeSheetData,headers);
+
   }
-  private handleError (error: Response | any) {
-    let errMsg: string;
-    if (error instanceof Response) {
-      const err = error || '';
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error(error.status);
-    console.error(error.statusText);
-    console.error(errMsg);
-    return Observable.throw(error);
+
+  addNewTimeSheet(timeSheet : any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetAddAPI);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetAddAPI
+                              ,timeSheet+this.userProvider.userLogin,headers);
   }
-  private catchError(error : Response | any){
-    console.log(error);
-    return Observable.throw(error.json().error || "Server Error.");
+
+  filterTimeSheet(){
+    this.timeSheetList.forEach(element => {
+      console.log(element);
+    });
   }
+
 }

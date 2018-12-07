@@ -23,7 +23,7 @@ export class ErrorHandlerProvider {
       errorData = JSON.parse(error.error);
     } catch (error) {
       this.helperMethod.presentToast('Server is Unavailable',4000,2);
-      return;
+      // return;
     }
 
     console.log(error);

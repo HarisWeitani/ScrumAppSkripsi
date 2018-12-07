@@ -1,14 +1,14 @@
 export interface TimeSheet {
-    time_sheet_id :string;
-    project_id : string;
-    activity_id : string;
-    sprint_id : string;
-    dtm_crt : string;
-    is_real : string;
-    project_code : string;
-    activities_type : string;
-    today_act : string;
-    jira_id : string;
-    duration_act : string;
-    go_real: string;
+    time_sheet_id :String;
+    project_id : String;
+    activity_id : String;
+    sprint_id : String;
+    dtm_crt : String;
+    is_real : String;
+    project_code : String;
+    activities_type : String;
+    today_act : String;
+    jira_id : String;
+    duration_act : String;
+    go_real: String;
 }

@@ -20,46 +20,92 @@
 
 <ion-content padding>
 
-    <!-- <form [formGroup]="timeSheetForm"> -->
+<!-- Add -->
 
-      <ion-item>
-        <ion-label color="primary" floating>Project</ion-label>
-        <ion-select [(ngModel)]="projectDropDown">
-            <ion-option *ngFor='let data of msProjectProvider.msProjectList'>{{data.project_code}}</ion-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <ion-label color="primary" floating>Activities</ion-label>
-        <ion-select [(ngModel)]="activityDropDown">
-          <ion-option *ngFor='let data of msActivityProvider.msActivityList'>{{data.activity_type}}</ion-option>
+  <div *ngIf=" addOrUpdate == 'add' ">
+    
+    <ion-item>
+      <ion-label color="primary" floating>Project</ion-label>
+      <ion-select [(ngModel)]="projectDropDown">
+          <ion-option *ngFor='let data of msProjectProvider.msProjectList'>{{data.project_code}}</ion-option>
       </ion-select>
-      </ion-item>
+    </ion-item>
 
-      <ion-item>
-        <ion-label color="primary" floating>Today Activites</ion-label>
-        <ion-textarea ></ion-textarea>
-      </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>Activities</ion-label>
+      <ion-select [(ngModel)]="activityDropDown">
+        <ion-option *ngFor='let data of msActivityProvider.msActivityList'>{{data.activity_type}}</ion-option>
+      </ion-select>
+    </ion-item>
 
-      <ion-item>
-        <ion-label color="primary" floating>Jira Id</ion-label>
-        <ion-input ></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>Today Activites</ion-label>
+      <ion-textarea [(ngModel)]="todayAct"></ion-textarea>
+    </ion-item>
 
-      <ion-item>
-        <ion-label color="primary" floating>Sprint Id</ion-label>
-        <ion-input ></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>Jira Id</ion-label>
+      <ion-input [(ngModel)]="jiraId"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label color="primary" floating>Duration</ion-label>
-        <ion-input ></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>Sprint Id</ion-label>
+      <ion-input [(ngModel)]="sprintId"></ion-input>
+    </ion-item>
 
-    <!-- </form> -->
+    <ion-item>
+      <ion-label color="primary" floating>Duration</ion-label>
+      <ion-input [(ngModel)]="duration"></ion-input>
+    </ion-item>
 
-    <button ion-button color="light" (click)="onItemClick()">
-      <ion-icon name="paper"></ion-icon> Update
-    </button>
+    <ion-buttons end>
+      <button ion-button color="light" (click)="addTimeSheetItem()">
+        <ion-icon name="add-circle"></ion-icon> Add
+      </button>
+    </ion-buttons>
+  </div>
+
+<!-- Update -->
+
+  <div *ngIf=" addOrUpdate == 'update' ">
+    <ion-item>
+      <ion-label color="primary" floating>Project</ion-label>
+      <ion-input [(ngModel)]="projectDropDown" [disabled]="true"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>Activities</ion-label>
+      <ion-input [(ngModel)]="activityDropDown" [disabled]="true"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>Today Activites</ion-label>
+      <ion-textarea [(ngModel)]="todayAct" [disabled]="true"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>Jira Id</ion-label>
+      <ion-input [(ngModel)]="jiraId" [disabled]="true"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>Sprint Id</ion-label>
+      <ion-input [(ngModel)]="sprintId" [disabled]="true"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>Duration</ion-label>
+      <ion-input [(ngModel)]="duration" type="number"></ion-input>
+    </ion-item>
+
+    <ion-buttons end>
+      <button ion-button color="primary" (click)="goReal()" >
+        Make it Real!
+      </button>
+    </ion-buttons>
+
+  </div>
+
+
 
 </ion-content>
