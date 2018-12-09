@@ -1,3 +1,4 @@
+import { ErrorHandlerProvider } from './../../providers/error-handler/error-handler';
 import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
 import { User } from '../../models/User';
 import { Component } from '@angular/core';
@@ -29,6 +30,7 @@ export class UserPage {
   constructor(private navCtrl: NavController, private navParams: NavParams, 
               public userProvider : UsersProvider,
               private helperMethod:HelperMethodProvider,
+              public errorHandler : ErrorHandlerProvider,
               private events:Events, private alertCtrl: AlertController) {
 
   }
@@ -44,17 +46,6 @@ export class UserPage {
     console.log('Did enter');
   }
 
-  // press(){
-  //   this.helperMethod.loadingService('Getting All User..');
-  //   this.userProvider.getUsers().subscribe(
-  //     allUser => {
-  //       this.allUsers = allUser;
-  //       this.helperMethod.loading.dismiss();
-  //     }
-  //   );
-  //   console.log(this.userData);
-  // }
-
   onItemPressed(userId){
     console.log('On Item Pressed',userId);
 
@@ -69,26 +60,8 @@ export class UserPage {
 
   }
 
-  // onItemCOEG(){
-
-  //   let postData = {
-  //     username : 'coeg',
-  //     password : 'coeg2'
-  //   };
-
-  //   let data : any;
-  //   console.log('here',JSON.stringify(this.userProvider.user));
-  //   this.userProvider.doSave(postData).subscribe(
-  //     response => {
-  //       data = response;
-  //       console.log(data);
-  //     }
-  //   )
-  // }
-  
   doLogout(){
     this.alertConfirmLogout();
-    // this.events.publish('Auth',0);
   }
 
   alertConfirmLogout(){
@@ -106,7 +79,30 @@ export class UserPage {
         {
           text: 'Yes',
           handler: () => {
-            this.events.publish('Auth',0);
+            this.helperMethod.loadingService("Collecting User Info..");
+            this.userProvider.validateLoginDevice(this.userProvider.userLogin).then(
+              (response:any) => {
+                this.helperMethod.loading.dismiss();
+
+                console.log(response);
+                let responseData = JSON.parse(response.data);
+                let responseStatus = response.status;
+
+                console.log(responseData);
+                console.log(responseData.status);
+                if(responseData.status.code == "0"){
+                  this.events.publish('Auth',0);
+                }else {
+                  this.errorHandler.catchResponseErrorHandler(responseData);
+                }
+
+              }).catch(
+              (error:any) => {
+
+                this.helperMethod.loading.dismiss();
+                this.errorHandler.catchErrorHandler(error);
+              }
+            );
           }
         }
       ]

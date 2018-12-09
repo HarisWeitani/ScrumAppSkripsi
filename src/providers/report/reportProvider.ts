@@ -1,3 +1,5 @@
+import { UsersProvider } from './../users/usersProvider';
+import { HTTP } from '@ionic-native/http';
 import { BulkItem } from './../../models/BulkItem';
 import { BackLogItem } from './../../models/BackLogItem';
 import { User } from './../../models/User';
@@ -6,6 +8,9 @@ import { Injectable } from '@angular/core';
 import { HelperMethodProvider } from '../helper-method/helper-method';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { IterationItem } from '../../models/IterationItem';
+import { GlobalVariableProvider } from '../global-variable/global-variable';
+import { OAuthProvider } from '../o-auth/oauthProvider';
 /*
   Generated class for the ReportProvider provider.
 
@@ -15,8 +20,17 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable()
 export class ReportProvider {
 
-  constructor(private http: HttpClient, private helperMethod: HelperMethodProvider) {
-    console.log('Hello ReportProvider Provider');
+  bulkItemList : Array<BulkItem>;
+  backlogItemList : Array<BackLogItem>;
+  iterationItemList : Array<IterationItem>;
+
+  constructor(private http: HttpClient, 
+              public httpNative : HTTP,
+              public globalVal : GlobalVariableProvider,
+              public oauthProvider : OAuthProvider,
+              public userProvider : UsersProvider,
+              private helperMethod: HelperMethodProvider) {
+    
   }
 
   getAllBulkByUserLogin(user:User) : Observable<any>{
@@ -31,6 +45,53 @@ export class ReportProvider {
           .pipe(map(this.extractData),
           catchError(this.handleError)
         );
+  }
+
+  getBulkItemList(){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.bulkItemAPI);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.bulkItemAPI
+                              ,this.userProvider.userLogin,headers);
+  }
+
+  getBackLogItemByBulkItemList(bulkItem : any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.backlogItemAPI);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.backlogItemAPI
+                              ,bulkItem,headers);
+  
+  }
+
+  getIterationItemList(backlogItem : any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.iterationItemAPI);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.iterationItemAPI
+                              ,backlogItem,headers);
+
+  }
+
+  assignIterationToUser(iterationItem : any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.assignIterationAPI);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.assignIterationAPI
+                              ,iterationItem,headers);
+
   }
 
 

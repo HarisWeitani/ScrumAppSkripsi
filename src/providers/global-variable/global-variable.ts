@@ -16,11 +16,18 @@ export class GlobalVariableProvider {
   public baseUrl : string = 'com.adins.mss.webservices/services/m/';
 
   public userLoginAPI : string ='user/login';
+  public userLogoutAPI : string = 'user/logout';
+  
   public msProjectAPI : string ='timesheet/project'; 
   public msActivityAPI : string ='timesheet/activity'; 
+
   public timeSheetAPI : string = 'timesheet/getTSByUser';
   public timeSheetGoRealAPI : string = 'timesheet/updateTSReal';
   public timeSheetAddAPI : string = 'timesheet/addTSUser';
-
+  
+  public bulkItemAPI : string = '';
+  public backlogItemAPI : string = '';
+  public iterationItemAPI : string = '';
+  public assignIterationAPI : string = '';
 
 }

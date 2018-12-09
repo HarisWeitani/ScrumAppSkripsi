@@ -78,6 +78,19 @@ testing:string;
         );
   }
 
+  doLogoutUser(userLogin : any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    console.log(headers);
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.userLogoutAPI);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.userLogoutAPI
+                              ,userLogin,headers);
+
+  }
+
   //helping method
   private extractData(res: Response) {
     let body = res;
