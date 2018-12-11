@@ -18,6 +18,8 @@ export class MsProjectProvider {
 
   msProjectList : Array<Ms_Project>;
 
+  projectID : String;
+
   constructor(public http: HttpClient, public httpNative:HTTP, 
               public oauthProvider:OAuthProvider , 
               public storageProvider : StorageProvider,
@@ -41,6 +43,15 @@ export class MsProjectProvider {
 
   }
 
+  getIdByProjectCode(projectCode : any){
+    this.msProjectList.forEach(element => {
+      if(element.project_code == projectCode){
+        this.projectID = element.project_id;
+        return;
+      }
+    });
+  }
+
   save(){
     this.storageProvider.save('Ms_Project', this.msProjectList);
   }
@@ -57,5 +68,6 @@ export class MsProjectProvider {
           }
         );
   }
+
 
 }

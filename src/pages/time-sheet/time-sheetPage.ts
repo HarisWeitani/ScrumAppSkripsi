@@ -39,7 +39,6 @@ export class TimeSheetPage {
     console.log('ionViewDidLoad TimeSheetPage');
   }
 
-
   getAllTimeSheet(){
 
     this.helperMethod.loadingService("Getting TimeSheet Data..");
@@ -55,10 +54,9 @@ export class TimeSheetPage {
             console.log(responseData.status);
 
             if(responseData.status.code == "0"){
-            
+              
               this.timeSheetProvider.timeSheetList = responseData.timeSheetByUser;
-              console.log(responseData.timeSheetByUser);
-              this.timeSheetProvider.filterTimeSheet();
+
             }else {
               this.errorHandler.catchResponseErrorHandler(responseData);
             }
@@ -91,12 +89,28 @@ export class TimeSheetPage {
   onItemPressed(itemId){
     console.log(itemId);
     // this.alertPopUpDetailTimeSheet();
-    this.storageProvider.getStorageByKey('TimeSheet')
-        .then(
-          (response:any) =>{
-            console.log(response);
-          }
-        );
+    // this.storageProvider.getStorageByKey('Ms_Project')
+    //     .then(
+    //       (response:any) =>{
+    //         console.log(response);
+    //       }
+    //     );
+
+    // this.storageProvider.getKeys()
+    //     .then(
+    //       (response:any) => {
+    //         console.log(response);
+    //       }
+    //     );
+    // console.log('mantab');
+    // this.storageProvider.clear();
+    // console.log('wawa');
+    // this.storageProvider.getKeys()
+    // .then(
+    //   (response:any) => {
+    //     console.log(response);
+    //   }
+    // );
   }
 
 }

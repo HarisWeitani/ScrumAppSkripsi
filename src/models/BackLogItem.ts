@@ -2,7 +2,6 @@ export interface BackLogItem{
     backlog_id : string;
     project_id : string;
     bulk_id : string;
-    iteration : string;
     sprint_id : string;
     backlog_item : string;
     definition_of_done : string;

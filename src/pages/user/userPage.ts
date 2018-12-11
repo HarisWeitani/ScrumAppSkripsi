@@ -1,3 +1,4 @@
+import { StorageProvider } from './../../providers/storage/storageProvider';
 import { ErrorHandlerProvider } from './../../providers/error-handler/error-handler';
 import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
 import { User } from '../../models/User';
@@ -31,6 +32,7 @@ export class UserPage {
               public userProvider : UsersProvider,
               private helperMethod:HelperMethodProvider,
               public errorHandler : ErrorHandlerProvider,
+              public storageProvider : StorageProvider,
               private events:Events, private alertCtrl: AlertController) {
 
   }
@@ -79,30 +81,7 @@ export class UserPage {
         {
           text: 'Yes',
           handler: () => {
-            this.helperMethod.loadingService("Collecting User Info..");
-            this.userProvider.validateLoginDevice(this.userProvider.userLogin).then(
-              (response:any) => {
-                this.helperMethod.loading.dismiss();
-
-                console.log(response);
-                let responseData = JSON.parse(response.data);
-                let responseStatus = response.status;
-
-                console.log(responseData);
-                console.log(responseData.status);
-                if(responseData.status.code == "0"){
-                  this.events.publish('Auth',0);
-                }else {
-                  this.errorHandler.catchResponseErrorHandler(responseData);
-                }
-
-              }).catch(
-              (error:any) => {
-
-                this.helperMethod.loading.dismiss();
-                this.errorHandler.catchErrorHandler(error);
-              }
-            );
+            this.logout();
           }
         }
       ]
@@ -110,4 +89,40 @@ export class UserPage {
     alert.present();
   }
 
+  logout(){
+    
+    let userLogin = {
+      person_id : this.userProvider.user.person_id
+    }
+
+    this.helperMethod.loadingService("Logout..");
+    this.userProvider.doLogoutUser(userLogin).then(
+      (response:any) => {
+        this.helperMethod.loading.dismiss();
+
+        console.log(response);
+        let responseData = JSON.parse(response.data);
+        let responseStatus = response.status;
+
+        console.log(responseData);
+        console.log(responseData.status);
+        if(responseData.status.code == "0"){
+
+          this.storageProvider.clear();
+          this.events.publish('Auth',0);
+        }else {
+          this.errorHandler.catchResponseErrorHandler(responseData);
+        }
+
+      }).catch(
+      (error:any) => {
+
+        this.helperMethod.loading.dismiss();
+        this.errorHandler.catchErrorHandler(error);
+        
+      }
+    );
+      
+  }
+  
 }

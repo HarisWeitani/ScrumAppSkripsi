@@ -55,10 +55,23 @@
 
     <ion-item>
       <ion-label color="primary" floating>Duration</ion-label>
-      <ion-input [(ngModel)]="duration"></ion-input>
+      <ion-input [(ngModel)]="duration" type="number"></ion-input>
     </ion-item>
 
-    <ion-buttons end>
+
+    <ion-list radio-group [(ngModel)]="planReal" class="planReal">
+      <ion-item>
+        <ion-label>Plan</ion-label>
+        <ion-radio value="0" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Real</ion-label>
+        <ion-radio value="1"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-buttons end class="addButton">
       <button ion-button color="light" (click)="addTimeSheetItem()">
         <ion-icon name="add-circle"></ion-icon> Add
       </button>

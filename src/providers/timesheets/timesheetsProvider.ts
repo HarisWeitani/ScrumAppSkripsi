@@ -23,6 +23,7 @@ export class TimesheetsProvider {
               public userProvider : UsersProvider,
               public oauthProvider : OAuthProvider) {
     console.log('Hello TimesheetsProvider Provider');
+
     
   }
 
@@ -51,7 +52,6 @@ export class TimesheetsProvider {
 
   }
 
-  //test dlu
   addNewTimeSheet(timeSheet : any){
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
 
@@ -60,13 +60,8 @@ export class TimesheetsProvider {
     this.httpNative.setRequestTimeout(60);
     return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.timeSheetAddAPI
-                              ,timeSheet+this.userProvider.userLogin,headers);
+                              ,timeSheet,headers);
   }
 
-  filterTimeSheet(){
-    this.timeSheetList.forEach(element => {
-      console.log(element);
-    });
-  }
 
 }

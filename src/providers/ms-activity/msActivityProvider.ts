@@ -18,6 +18,8 @@ export class MsActivityProvider {
 
   msActivityList : Array<Ms_Activity>;
 
+  activityID : String;
+
   constructor(public http: HttpClient, public httpNative:HTTP, 
               public oauthProvider:OAuthProvider , 
               public storageProvider : StorageProvider,
@@ -37,6 +39,16 @@ export class MsActivityProvider {
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.msActivityAPI
                               ,user,headers);
 
+  }
+
+  
+  getIdByActivityCode(activityType : any){
+    this.msActivityList.forEach(element => {
+      if(element.activity_type == activityType){
+        this.activityID = element.activity_id;
+        return;
+      }
+    });
   }
 
   save(){

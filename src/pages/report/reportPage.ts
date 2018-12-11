@@ -7,6 +7,7 @@ import { IonicPage, NavController, NavParams, App, Events, ModalController } fro
 import { ReportProvider } from '../../providers/report/reportProvider';
 import { BackLogItem } from '../../models/BackLogItem';
 import { ReportPageModal } from '../report-page-modal/report-page-modal';
+import { BackLogReportPage } from '../back-log-report/back-log-report';
 
 /**
  * Generated class for the ReportPage page.
@@ -78,8 +79,10 @@ export class ReportPage {
         .subscribe(
           (response:any) => {
           
-            let reportModal = this.modalCtrl.create(ReportPageModal,{backLogItemList : response});
-            reportModal.present();
+            // let reportModal = this.modalCtrl.create(ReportPageModal,{backLogItemList : response});
+            // reportModal.present();
+
+            this.navCtrl.push(BackLogReportPage,{mantab : 'amsdasd'});
 
             this.helperMethod.loading.dismiss();
           },

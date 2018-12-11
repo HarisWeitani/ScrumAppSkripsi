@@ -1,3 +1,4 @@
+import { BackLogReportPage } from './../pages/back-log-report/back-log-report';
 import { ReportPageModal } from './../pages/report-page-modal/report-page-modal';
 import { HelperMethodProvider } from './../providers/helper-method/helper-method';
 import { BrowserModule } from '@angular/platform-browser';
@@ -38,6 +39,7 @@ import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
     TimeSheetPage,
     UserPage,
     ReportPageModal,
+    BackLogReportPage,
     TimeSheetPageModal,
     ExpandableComponent
   ],
@@ -57,6 +59,7 @@ import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
     TimeSheetPage,
     UserPage,
     ReportPageModal,
+    BackLogReportPage,
     TimeSheetPageModal,
     ExpandableComponent
   ],

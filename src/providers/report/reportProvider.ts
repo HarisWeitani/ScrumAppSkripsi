@@ -8,7 +8,6 @@ import { Injectable } from '@angular/core';
 import { HelperMethodProvider } from '../helper-method/helper-method';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { IterationItem } from '../../models/IterationItem';
 import { GlobalVariableProvider } from '../global-variable/global-variable';
 import { OAuthProvider } from '../o-auth/oauthProvider';
 /*
@@ -22,7 +21,6 @@ export class ReportProvider {
 
   bulkItemList : Array<BulkItem>;
   backlogItemList : Array<BackLogItem>;
-  iterationItemList : Array<IterationItem>;
 
   constructor(private http: HttpClient, 
               public httpNative : HTTP,

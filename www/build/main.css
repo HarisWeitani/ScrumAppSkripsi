@@ -33390,6 +33390,14 @@ page-time-sheet table, page-time-sheet tr {
   border-collapse: collapse;
 }
 
+page-time-sheet-page-modal .addButton {
+  margin-top: 16px;
+}
+
+page-time-sheet-page-modal .planReal {
+  margin-top: 16px;
+}
+
 page-user .profile-photo {
   width: 50%;
   height: 50%;

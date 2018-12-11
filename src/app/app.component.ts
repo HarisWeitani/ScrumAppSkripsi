@@ -5,6 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LoginPage } from '../pages/login/loginPage';
+import { StorageProvider } from '../providers/storage/storageProvider';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,10 +13,20 @@ import { LoginPage } from '../pages/login/loginPage';
 export class MyApp {
   rootPage:any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public events: Events) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public events: Events,
+              public storageProvider : StorageProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
+      storageProvider.getKeys()
+        .then(
+          (response:any) => {
+            console.log(response);
+          }
+        );
+        
+          //validasi jabatan
       statusBar.styleDefault();
       this.rootPage = LoginPage;
       events.subscribe('Auth', data =>{
@@ -28,7 +39,6 @@ export class MyApp {
       
       splashScreen.hide();
     });
-    console.log('mantab');
   }
 }
 

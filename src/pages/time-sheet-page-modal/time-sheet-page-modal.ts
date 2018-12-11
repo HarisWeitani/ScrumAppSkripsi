@@ -32,6 +32,9 @@ export class TimeSheetPageModal {
   jiraId : String;
   sprintId : String;
   duration : String;
+  planReal : String;
+
+  dataIsValid : Boolean;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -42,7 +45,11 @@ export class TimeSheetPageModal {
               public helperMethod : HelperMethodProvider,
               public errorHandler : ErrorHandlerProvider,
               public viewCtrl : ViewController) {
+
       console.log(this.navParams.get('timeSheetData'));
+
+      this.dataIsValid = false;
+
       if(this.navParams.get('timeSheetData') == 'add'){
         this.addOrUpdate = 'add';
       }else{
@@ -63,24 +70,70 @@ export class TimeSheetPageModal {
   }
 
   doCloseModal(){
-    console.log("Pressed");
+    console.log("Close Modal");
+    
     this.viewCtrl.dismiss();
   }
 
   addTimeSheetItem(){
 
-    let timeSheetData = {
-      project_code : this.projectDropDown,
-      activities_type : this.activityDropDown,
-      today_act : this.todayAct,
-      jira_id : this.jiraId,
-      duration_act : this.duration,
-      username : this.userProvider.userLogin.username,
-      password : this.userProvider.userLogin.password
+    this.validateData();
+
+    if(this.dataIsValid == true){
+      this.addData();
     }
 
+  }
+
+  validateData(){
+
+    if(this.projectDropDown == null || this.projectDropDown == ""){
+      this.helperMethod.presentToast('Project Fields must be filled', 2000,1);
+      this.dataIsValid = false;
+    }
+    else if(this.activityDropDown == null || this.activityDropDown == ""){
+      this.helperMethod.presentToast('Activity Fields must be filled', 2000,1);
+      this.dataIsValid = false;
+    }
+    else if(this.todayAct == null || this.todayAct == ""){
+      this.helperMethod.presentToast('Today Activities Fields must be filled', 2000,1);
+      this.dataIsValid = false;
+    }
+    else if(this.duration == null || this.duration == ""){
+      this.helperMethod.presentToast('Duration Fields must be filled', 2000,1);
+      this.dataIsValid = false;
+    }
+    else if(this.planReal == null || this.planReal == ""){
+      this.helperMethod.presentToast('Is it Plan Or Real?', 2000,1);
+      this.dataIsValid = false;
+    }else{
+      this.dataIsValid = true;
+    }
+
+  }
+
+  addData(){
+    this.msProjectProvider.getIdByProjectCode(this.projectDropDown);
+    this.msActivityProvider.getIdByActivityCode(this.activityDropDown);
+
+    let timeSheetData = {
+      project_id : this.msProjectProvider.projectID,
+      project_code : this.projectDropDown,
+      activity_id : this.msActivityProvider.activityID,
+      activity_type : this.activityDropDown,
+      today_act : this.todayAct,
+      jira_id : this.jiraId,
+      sprint_id : this.sprintId,
+      duration_act : this.duration,
+      person_id : this.userProvider.user.person_id,
+      is_real : this.planReal,
+      username : this.userProvider.userLogin.username
+    }
+
+    console.log(timeSheetData);
+
     this.helperMethod.loadingService("Add New One..");
-    this.timeSheetProvider.updateGoRealTimeSheet(timeSheetData)
+    this.timeSheetProvider.addNewTimeSheet(timeSheetData)
         .then(
           (response:any) => {
             this.helperMethod.loading.dismiss();
@@ -93,9 +146,8 @@ export class TimeSheetPageModal {
 
             if(responseData.status.code == "0"){
             
-              // this.timeSheetProvider.timeSheetList = responseData.timeSheetByUser;
-              // console.log(responseData.timeSheetByUser);
-              
+              this.getAllTimeSheet();
+
             }else {
               this.errorHandler.catchResponseErrorHandler(responseData);
             }
@@ -108,10 +160,12 @@ export class TimeSheetPageModal {
 
           }
         );
-
   }
 
   goReal(){
+
+    let durationTemp = this.timeSheet.duration_act;
+    let isRealTemp = this.timeSheet.is_real;
 
     this.timeSheet.duration_act = this.duration;
     this.timeSheet.is_real = '1';
@@ -129,10 +183,47 @@ export class TimeSheetPageModal {
             console.log(responseData.status);
 
             if(responseData.status.code == "0"){
-            
-              // this.timeSheetProvider.timeSheetList = responseData.timeSheetByUser;
-              // console.log(responseData.timeSheetByUser);
               
+              this.doCloseModal();
+
+            }else {
+              this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+
+          }).catch(
+          (error:any) => {
+
+            this.timeSheet.is_real = isRealTemp;
+            this.timeSheet.duration_act = durationTemp;
+            
+            this.helperMethod.loading.dismiss();
+            this.errorHandler.catchErrorHandler(error);
+
+          }
+        );
+
+  }
+
+  
+  getAllTimeSheet(){
+
+    this.helperMethod.loadingService("Refresh Data TimeSheet..");
+    this.timeSheetProvider.getAllTimeSheetsByUserLoggedIn(this.userProvider.userLogin)
+        .then(
+          (response:any) => {
+            this.helperMethod.loading.dismiss();
+            console.log(response);
+            let responseData = JSON.parse(response.data);
+            let responseStatus = response.status;
+
+            console.log(responseData);
+            console.log(responseData.status);
+
+            if(responseData.status.code == "0"){
+              
+              this.timeSheetProvider.timeSheetList = responseData.timeSheetByUser;
+              this.doCloseModal();
+
             }else {
               this.errorHandler.catchResponseErrorHandler(responseData);
             }

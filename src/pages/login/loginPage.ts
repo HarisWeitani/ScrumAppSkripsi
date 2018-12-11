@@ -125,13 +125,7 @@ export class LoginPage {
     this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(
         (response:any) => {
           this.helperMethod.loading.dismiss();
-          // if(response.id == 101){
-          //   // this.userProvider.user = new User(userLogin.username,userLogin.password);
-          //   this.userProvider.user = response;
-          //   this.events.publish('Auth',1);
-          // }else{
-          //   this.helperMethod.presentToast('User Not Found',2000,3);
-          // // }
+          
           this.userProvider.user = response;
           this.events.publish('Auth',1);
           console.log(response);
