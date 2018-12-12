@@ -2,13 +2,14 @@ import { BackLogReportPage } from './../pages/back-log-report/back-log-report';
 import { ReportPageModal } from './../pages/report-page-modal/report-page-modal';
 import { HelperMethodProvider } from './../providers/helper-method/helper-method';
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http'
 import { IonicStorageModule } from '@ionic/storage';
+import { NgProgressModule } from 'ngx-progressbar';
 
 import { MyApp } from './app.component';
 import { MainPage } from '../pages/main/main';
@@ -48,6 +49,9 @@ import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   bootstrap: [IonicApp],
   entryComponents: [

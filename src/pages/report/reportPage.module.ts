@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ReportPage } from './reportPage';
+import { NgProgressModule } from 'ngx-progressbar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -8,6 +10,8 @@ import { ReportPage } from './reportPage';
   ],
   imports: [
     IonicPageModule.forChild(ReportPage),
+    NgProgressModule,
+    MatProgressBarModule
   ],
 })
 export class ReportPageModule {}

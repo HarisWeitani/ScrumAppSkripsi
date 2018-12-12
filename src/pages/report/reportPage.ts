@@ -20,6 +20,7 @@ import { BackLogReportPage } from '../back-log-report/back-log-report';
 @Component({
   selector: 'page-report',
   templateUrl: 'reportPage.html',
+  styleUrls:['reportPage.scss'],
 })
 export class ReportPage {
 
@@ -28,6 +29,11 @@ export class ReportPage {
   bulkItemList : Array<BulkItem>;
   backLogItemList : Array<BackLogItem>;
   selectedBulkItem : BulkItem;
+
+  color = 'primary';
+  mode = 'determinate';
+  value = 50;
+  bufferValue = 75;
 
   constructor(private navCtrl: NavController, private navParams: NavParams, 
               private userProvider : UsersProvider,
@@ -39,6 +45,7 @@ export class ReportPage {
 
   ionViewDidLoad() {
     this.getAllBulk();
+    
     console.log('ionViewDidLoad ReportPage ');
   }
   ionViewWillEnter(){
