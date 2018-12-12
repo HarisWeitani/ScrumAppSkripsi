@@ -58,8 +58,8 @@ export class LoginPage {
       username : this.username.value,
       password : this.password.value
     };
-    // this.doLoginBrowser(userLogin);
-    this.doAuthenticate(userLogin);
+    this.doLoginBrowser(userLogin);
+    // this.doAuthenticate(userLogin);
   }
 
   doAuthenticate(userLogin){

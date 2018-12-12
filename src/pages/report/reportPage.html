@@ -29,5 +29,12 @@
 
   </ion-list> -->
 
+  <progress-bar 
+        [progress]="progressVal" 
+        [color-degraded]="{'0': '#00cbcb',  '50': '#f9c3d3', '75': '#fd8c8e'}"
+        class="progress-bar" ></progress-bar>
+
+  <!-- <ng-progress class="ng-progress"></ng-progress> -->
+  <button (click)="run()">Click</button>
  
 </ion-content>

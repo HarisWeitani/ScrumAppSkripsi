@@ -35,7 +35,7 @@ export class TimeSheetPage {
   }
 
   ionViewDidLoad() {
-    this.getAllTimeSheet();
+    // this.getAllTimeSheet();
     console.log('ionViewDidLoad TimeSheetPage');
   }
 

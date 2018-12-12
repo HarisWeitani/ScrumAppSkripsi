@@ -1,3 +1,4 @@
+import { NgProgress } from 'ngx-progressbar';
 import { BulkItem } from './../../models/BulkItem';
 import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
 import { UsersProvider } from '../../providers/users/usersProvider';
@@ -8,6 +9,8 @@ import { ReportProvider } from '../../providers/report/reportProvider';
 import { BackLogItem } from '../../models/BackLogItem';
 import { ReportPageModal } from '../report-page-modal/report-page-modal';
 import { BackLogReportPage } from '../back-log-report/back-log-report';
+import { timeout } from 'rxjs/operator/timeout';
+import { interval } from 'rxjs/observable/interval';
 
 /**
  * Generated class for the ReportPage page.
@@ -20,11 +23,12 @@ import { BackLogReportPage } from '../back-log-report/back-log-report';
 @Component({
   selector: 'page-report',
   templateUrl: 'reportPage.html',
-  styleUrls:['reportPage.scss'],
 })
 export class ReportPage {
 
   items : any[];
+
+  public progressVal = 0;
 
   bulkItemList : Array<BulkItem>;
   backLogItemList : Array<BackLogItem>;
@@ -39,8 +43,21 @@ export class ReportPage {
               private userProvider : UsersProvider,
               private helperMethod : HelperMethodProvider,
               private reportProvider : ReportProvider,
+              public ngProgress : NgProgress,
               private modalCtrl : ModalController) {
     
+  }
+
+  run(){
+
+    var intervaler = 
+        setInterval(function(){
+          this.progressVal++;
+          if(this.progressVal == 100){
+            clearInterval(intervaler);
+          }
+        }.bind(this),20);
+
   }
 
   ionViewDidLoad() {
@@ -48,6 +65,7 @@ export class ReportPage {
     
     console.log('ionViewDidLoad ReportPage ');
   }
+
   ionViewWillEnter(){
     console.log('will enter');
   }

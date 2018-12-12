@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http'
 import { IonicStorageModule } from '@ionic/storage';
 import { NgProgressModule } from 'ngx-progressbar';
+import { ProgressBarModule } from 'angular-progress-bar';
 
 import { MyApp } from './app.component';
 import { MainPage } from '../pages/main/main';
@@ -47,6 +48,8 @@ import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ProgressBarModule,
+    NgProgressModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],

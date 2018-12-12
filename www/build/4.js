@@ -1,14 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 709:
+/***/ 705:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeSheetPageModule", function() { return TimeSheetPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeSheetPageModalPageModule", function() { return TimeSheetPageModalPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__time_sheetPage__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__time_sheet_page_modal__ = __webpack_require__(169);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var TimeSheetPageModule = /** @class */ (function () {
-    function TimeSheetPageModule() {
+var TimeSheetPageModalPageModule = /** @class */ (function () {
+    function TimeSheetPageModalPageModule() {
     }
-    TimeSheetPageModule = __decorate([
+    TimeSheetPageModalPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__time_sheetPage__["a" /* TimeSheetPage */],
+                __WEBPACK_IMPORTED_MODULE_2__time_sheet_page_modal__["a" /* TimeSheetPageModal */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__time_sheetPage__["a" /* TimeSheetPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__time_sheet_page_modal__["a" /* TimeSheetPageModal */]),
             ],
         })
-    ], TimeSheetPageModule);
-    return TimeSheetPageModule;
+    ], TimeSheetPageModalPageModule);
+    return TimeSheetPageModalPageModule;
 }());
 
-//# sourceMappingURL=time-sheetPage.module.js.map
+//# sourceMappingURL=time-sheet-page-modal.module.js.map
 
 /***/ })
 
