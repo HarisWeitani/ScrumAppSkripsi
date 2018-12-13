@@ -58,8 +58,8 @@ export class LoginPage {
       username : this.username.value,
       password : this.password.value
     };
-    this.doLoginBrowser(userLogin);
-    // this.doAuthenticate(userLogin);
+    // this.doLoginBrowser(userLogin);
+    this.doAuthenticate(userLogin);
   }
 
   doAuthenticate(userLogin){
@@ -74,6 +74,7 @@ export class LoginPage {
 
           this.oAuthProvider.userOAuth = response
           console.log(this.oAuthProvider.userOAuth);
+          
 
           this.doLogindevice(userLogin);
 

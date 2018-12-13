@@ -25,7 +25,7 @@ export class GlobalVariableProvider {
   public timeSheetGoRealAPI : string = 'timesheet/updateTSReal';
   public timeSheetAddAPI : string = 'timesheet/addTSUser';
   
-  public bulkItemAPI : string = '';
+  public bulkItemAPI : string = 'bulkitem/getBulkByUser';
   public backlogItemAPI : string = '';
   public iterationItemAPI : string = '';
   public assignIterationAPI : string = '';

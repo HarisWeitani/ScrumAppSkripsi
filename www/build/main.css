@@ -33369,6 +33369,22 @@ page-report .progress-bar {
   margin-top: 70px;
 }
 
+page-report .positionRelative {
+  position: relative;
+  font-size: 15px;
+  width: 50%;
+  height: 50%;
+}
+
+page-report .percentageValue {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  left: 12%;
+  font-size: 13px;
+  font-weight: 600;
+}
+
 page-time-sheet .ionItemHeader {
   background-color: grey;
   color: white;

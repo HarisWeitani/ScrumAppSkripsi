@@ -50,10 +50,10 @@ export class ReportProvider {
 
     this.httpNative.setDataSerializer('json');
     console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.bulkItemAPI);
-    this.httpNative.setRequestTimeout(60);
+    this.httpNative.setRequestTimeout(600);
     return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.bulkItemAPI
-                              ,this.userProvider.userLogin,headers);
+                              ,this.userProvider.user,headers);
   }
 
   getBackLogItemByBulkItemList(bulkItem : any){

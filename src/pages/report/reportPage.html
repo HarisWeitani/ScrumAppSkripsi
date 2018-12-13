@@ -15,24 +15,35 @@
 
 <ion-content padding>
 
-  <!-- <ion-list class="ionList" [virtualScroll]="bulkItemList">
+  <ion-list class="ionList" [virtualScroll]="bulkItemList">
 
     <ion-item class="ionItem" *virtualItem="let bulkItem" (click)="onItemPressed({item:bulkItem})">
-      {{ bulkItem.bulk_name }}
-    </ion-item>
-    <mat-progress-bar
-        class="example-margin"
-        [color]="color"
-        [mode]="mode"
-        [value]="value">
-    </mat-progress-bar>
+      {{ bulkItem.bulk_name }} {{ bulkItem.percentage}}
 
-  </ion-list> -->
-
-  <progress-bar 
-        [progress]="progressVal" 
+      <progress-bar 
+        [progress]="bulkItem.percentage" 
         [color-degraded]="{'0': '#00cbcb',  '50': '#f9c3d3', '75': '#fd8c8e'}"
-        class="progress-bar" ></progress-bar>
+        class="progress-bar" >
+      </progress-bar>
+
+      <div class="positionRelative">
+        <round-progress
+          [current]="bulkItem.percentage" 
+          [max]="100"
+          [radius]="70"
+          [semicircle]="true">
+        </round-progress>
+
+        <div class="percentageValue">
+            {{bulkItem.percentage}}%
+        </div>
+      </div>
+
+    </ion-item>
+
+  </ion-list>
+
+
 
   <!-- <ng-progress class="ng-progress"></ng-progress> -->
   <button (click)="run()">Click</button>

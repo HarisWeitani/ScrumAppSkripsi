@@ -12,6 +12,7 @@ export class StorageProvider {
 
   public timeSheetKey : string = 'TimeSheet';
   public userKey : string = 'User';
+  public userLoginKey : string = 'UserLogin';
   public activity : string = 'Ms_Activity';
 
   constructor(public storage : Storage) {

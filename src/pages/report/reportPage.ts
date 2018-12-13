@@ -2,15 +2,12 @@ import { NgProgress } from 'ngx-progressbar';
 import { BulkItem } from './../../models/BulkItem';
 import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
 import { UsersProvider } from '../../providers/users/usersProvider';
-import { User } from '../../models/User';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App, Events, ModalController } from 'ionic-angular';
 import { ReportProvider } from '../../providers/report/reportProvider';
 import { BackLogItem } from '../../models/BackLogItem';
-import { ReportPageModal } from '../report-page-modal/report-page-modal';
 import { BackLogReportPage } from '../back-log-report/back-log-report';
-import { timeout } from 'rxjs/operator/timeout';
-import { interval } from 'rxjs/observable/interval';
+import { ErrorHandlerProvider } from '../../providers/error-handler/error-handler';
 
 /**
  * Generated class for the ReportPage page.
@@ -30,20 +27,17 @@ export class ReportPage {
 
   public progressVal = 0;
 
+  progressValList : Array<String>;
   bulkItemList : Array<BulkItem>;
   backLogItemList : Array<BackLogItem>;
   selectedBulkItem : BulkItem;
-
-  color = 'primary';
-  mode = 'determinate';
-  value = 50;
-  bufferValue = 75;
 
   constructor(private navCtrl: NavController, private navParams: NavParams, 
               private userProvider : UsersProvider,
               private helperMethod : HelperMethodProvider,
               private reportProvider : ReportProvider,
               public ngProgress : NgProgress,
+              public errorHandler : ErrorHandlerProvider,
               private modalCtrl : ModalController) {
     
   }
@@ -62,7 +56,7 @@ export class ReportPage {
 
   ionViewDidLoad() {
     this.getAllBulk();
-    
+    this.run();
     console.log('ionViewDidLoad ReportPage ');
   }
 
@@ -74,6 +68,41 @@ export class ReportPage {
   }
 
   getAllBulk(){
+    // this.bulkByBrowser();
+
+    this.helperMethod.loadingService('Getting Your Bulk Item...');
+
+    this.reportProvider.getBulkItemList()
+        .then(
+          (response:any) => {
+            this.helperMethod.loading.dismiss();
+            console.log(response);
+            let responseData = JSON.parse(response.data);
+            let responseStatus = response.status;
+    
+            console.log(responseData.bulkItemList);
+            console.log(responseData.status);
+            if(responseData.status.code == "0"){
+
+              this.reportProvider.bulkItemList = responseData.bulkItemList;
+              this.bulkItemList = responseData.bulkItemList;
+
+            }else {
+              this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+    
+          }).catch(
+          (error:any) => {
+            
+            this.helperMethod.loading.dismiss();
+            this.errorHandler.catchErrorHandler(error);
+    
+          }
+        );
+
+  }
+
+  bulkByBrowser(){
     this.helperMethod.loadingService('Getting Your Bulk Item...');
 
     this.reportProvider.getAllBulkByUserLogin(this.userProvider.user)

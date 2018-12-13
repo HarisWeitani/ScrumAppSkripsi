@@ -11,6 +11,7 @@ import { HTTP } from '@ionic-native/http'
 import { IonicStorageModule } from '@ionic/storage';
 import { NgProgressModule } from 'ngx-progressbar';
 import { ProgressBarModule } from 'angular-progress-bar';
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
 
 import { MyApp } from './app.component';
 import { MainPage } from '../pages/main/main';
@@ -50,6 +51,7 @@ import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
     HttpClientModule,
     ProgressBarModule,
     NgProgressModule,
+    RoundProgressModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],

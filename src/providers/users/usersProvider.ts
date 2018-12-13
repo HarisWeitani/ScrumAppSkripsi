@@ -21,7 +21,7 @@ import { GlobalVariableProvider } from '../global-variable/global-variable';
 */
 @Injectable()
 export class UsersProvider {
-testing:string;
+
   private baseUrl: string= "https://jsonplaceholder.typicode.com/users";
   private postUrl: string= "https://jsonplaceholder.typicode.com/posts/";
 
@@ -74,15 +74,20 @@ testing:string;
   
   saveUserDataToStorage(){
 
-    this.storageProvider.save('User',this.user);
+    this.storageProvider.save(this.storageProvider.userKey,this.user);
+    this.storageProvider.save(this.storageProvider.userLoginKey,this.userLogin);
 
   }
-
+  
   loadUserDataFromStorage(){
-    this.storageProvider.getStorageByKey('User')
+    this.storageProvider.getStorageByKey(this.storageProvider.userKey)
         .then(
           (response:any) =>{
-            this.user = response;
+            if(response != null){
+              this.user = response;
+            }else{
+
+            }            
           }
         ).catch(
           (error:any) =>{
