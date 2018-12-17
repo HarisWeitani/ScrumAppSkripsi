@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { TimeSheetPage } from './time-sheetPage';
+import { NgProgressModule } from 'ngx-progressbar';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { TimeSheetPage } from './time-sheetPage';
   ],
   imports: [
     IonicPageModule.forChild(TimeSheetPage),
+    NgProgressModule,
   ],
 })
 export class TimeSheetPageModule {}

@@ -1,3 +1,4 @@
+import { BulkItemDetailedPage } from './../bulk-item-detailed/bulk-item-detailed';
 import { NgProgress } from 'ngx-progressbar';
 import { BulkItem } from './../../models/BulkItem';
 import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
@@ -35,7 +36,7 @@ export class ReportPage {
   constructor(private navCtrl: NavController, private navParams: NavParams, 
               private userProvider : UsersProvider,
               private helperMethod : HelperMethodProvider,
-              private reportProvider : ReportProvider,
+              public reportProvider : ReportProvider,
               public ngProgress : NgProgress,
               public errorHandler : ErrorHandlerProvider,
               private modalCtrl : ModalController) {
@@ -44,13 +45,18 @@ export class ReportPage {
 
   run(){
 
-    var intervaler = 
-        setInterval(function(){
-          this.progressVal++;
-          if(this.progressVal == 100){
-            clearInterval(intervaler);
-          }
-        }.bind(this),20);
+    // var intervaler = 
+    //     setInterval(function(){
+    //       this.progressVal++;
+    //       if(this.progressVal == 100){
+    //         clearInterval(intervaler);
+    //       }
+    //     }.bind(this),20);
+
+    // this.ngProgress.start();
+    // setTimeout(() => {
+    //   this.ngProgress.done();
+    // }, 2000);
 
   }
 
@@ -69,13 +75,17 @@ export class ReportPage {
 
   getAllBulk(){
     // this.bulkByBrowser();
+    this.bulkByDevice();
+  }
 
-    this.helperMethod.loadingService('Getting Your Bulk Item...');
+  bulkByDevice(){
+    this.ngProgress.start();
 
     this.reportProvider.getBulkItemList()
         .then(
           (response:any) => {
-            this.helperMethod.loading.dismiss();
+
+            this.ngProgress.done();
             console.log(response);
             let responseData = JSON.parse(response.data);
             let responseStatus = response.status;
@@ -85,18 +95,16 @@ export class ReportPage {
             if(responseData.status.code == "0"){
 
               this.reportProvider.bulkItemList = responseData.bulkItemList;
-              this.bulkItemList = responseData.bulkItemList;
-
+            
             }else {
               this.errorHandler.catchResponseErrorHandler(responseData);
             }
-    
           }).catch(
           (error:any) => {
             
-            this.helperMethod.loading.dismiss();
+            this.ngProgress.done();
             this.errorHandler.catchErrorHandler(error);
-    
+          
           }
         );
 
@@ -108,9 +116,8 @@ export class ReportPage {
     this.reportProvider.getAllBulkByUserLogin(this.userProvider.user)
         .subscribe(
           (response:any) => {
-            this.bulkItemList = response;
-            console.log(this.bulkItemList);
-
+            
+            this.reportProvider.bulkItemList = response;
             this.helperMethod.loading.dismiss();
           },
           (error : any) => {
@@ -136,7 +143,7 @@ export class ReportPage {
             // let reportModal = this.modalCtrl.create(ReportPageModal,{backLogItemList : response});
             // reportModal.present();
 
-            this.navCtrl.push(BackLogReportPage,{mantab : 'amsdasd'});
+            this.navCtrl.push(BulkItemDetailedPage,{mantab : 'amsdasd'});
 
             this.helperMethod.loading.dismiss();
           },

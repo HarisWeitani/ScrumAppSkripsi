@@ -1,52 +1,57 @@
 [
     {
         "bulk_id" : "1",
-        "project_id" : "1",
-        "bulk_name" : "skripsi 01",
+        "project_code" : "WIMF 001",
+        "bulk_name" : "Wuling Finance MOSMCS",
         "mandays" : "20",
         "dtm_crt" : "01/09/2018",
         "dtm_upd" : "05/09/2018",
         "percentage" : "30",
-        "is_active" : "1"
+        "is_active" : "1",
+        "total_backlog_item" : "120"
     },
     {
         "bulk_id" : "2",
-        "project_id" : "2",
+        "project_code" : "2ssss",
         "bulk_name" : "skripsi 02",
         "mandays" : "22",
         "dtm_crt" : "01/09/2018",
         "dtm_upd" : "05/09/2018",
         "percentage" : "50",
-        "is_active" : "1"
+        "is_active" : "1",
+        "total_backlog_item" : "320"
     },
     {
         "bulk_id" : "3",
-        "project_id" : "3",
+        "project_code" : "3aaaa",
         "bulk_name" : "skripsi 03",
         "mandays" : "23",
         "dtm_crt" : "01/09/2018",
         "dtm_upd" : "05/09/2018",
         "percentage" : "60",
-        "is_active" : "1"
+        "is_active" : "1",
+        "total_backlog_item" : "220"
     },
     {
         "bulk_id" : "4",
-        "project_id" : "4",
+        "project_code" : "4ccccc",
         "bulk_name" : "skripsi 04",
         "mandays" : "24",
         "dtm_crt" : "01/09/2018",
         "dtm_upd" : "05/09/2018",
         "percentage" : "80",
-        "is_active" : "1"
+        "is_active" : "1",
+        "total_backlog_item" : "120"
     },
     {
         "bulk_id" : "5",
-        "project_id" : "5",
+        "project_code" : "5zzzzz",
         "bulk_name" : "skripsi 05",
         "mandays" : "25",
         "dtm_crt" : "01/09/2018",
         "dtm_upd" : "05/09/2018",
         "percentage" : "100",
-        "is_active" : "1"
+        "is_active" : "1",
+        "total_backlog_item" : "999"
     }
 ]

@@ -1,4 +1,10 @@
 page-report {
+
+    .ionContent{
+        background-color: #caccce;
+
+    }
+
     .ionItem{
         margin: 10px auto;
     }
@@ -7,19 +13,40 @@ page-report {
         margin-top: 70px;
     }
 
+    .project_code{
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .bulk_name{
+        margin-top: 12px;
+        white-space: normal;
+    }
+    
+    .total_backlog{
+        margin-top: 12px;
+    }
+
+    .mandays{
+        margin-top: 12px;
+    }
+
+    .progressBar{
+        margin-right: 5%;
+        margin-top: 20px;
+    }
+
     .positionRelative{
-        position: relative;
-        font-size: 15px;
-        width: 50%;
-        height: 50%;
+        position: absolute;
+        text-align: center;   
     }
 
     .percentageValue {
         position: absolute;
+        text-align: center;
         top : 50%;
         width: 100%;
-        left: 12%;
-        font-size: 13px;
+        font-size: 20px;
         font-weight: 600;
     }
     

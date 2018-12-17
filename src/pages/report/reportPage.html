@@ -13,39 +13,46 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="ionContent">
 
-  <ion-list class="ionList" [virtualScroll]="bulkItemList">
+  <ng-progress class="ng-progress" [color]="'#31edda'"></ng-progress>
 
+  <ion-list class="ionList" [virtualScroll]="reportProvider.bulkItemList">
+      
     <ion-item class="ionItem" *virtualItem="let bulkItem" (click)="onItemPressed({item:bulkItem})">
-      {{ bulkItem.bulk_name }} {{ bulkItem.percentage}}
+      
+      <ion-row>
+        <ion-col>
+          <strong class="project_code"> {{ bulkItem.project_code }} </strong>
+          <p class="bulk_name"> {{ bulkItem.bulk_name }} </p>
+          <p class="total_backlog"> {{ bulkItem.total_backlog_item}} Item </p>
+          <p class="mandays"> {{bulkItem.mandays}} Mandays </p>
+        </ion-col>
 
-      <progress-bar 
-        [progress]="bulkItem.percentage" 
-        [color-degraded]="{'0': '#00cbcb',  '50': '#f9c3d3', '75': '#fd8c8e'}"
-        class="progress-bar" >
-      </progress-bar>
+        <!-- <progress-bar 
+          [progress]="bulkItem.percentage" 
+          [color-degraded]="{'0': '#00cbcb',  '50': '#f9c3d3', '75': '#fd8c8e'}"
+          class="progress-bar" >
+        </progress-bar> -->
+        <ion-col class="progressBar" col-6>
+          <div class="positionRelative">
+            <round-progress
+              [current]="bulkItem.percentage" 
+              [max]="100"
+              [radius]="80"
+              [rounded]="true"
+              [animationDelay]="400"
+              [semicircle]="true">
+            </round-progress>
+            <div class="percentageValue">
+                {{bulkItem.percentage}}%
+            </div>
+          </div>
+        </ion-col>
 
-      <div class="positionRelative">
-        <round-progress
-          [current]="bulkItem.percentage" 
-          [max]="100"
-          [radius]="70"
-          [semicircle]="true">
-        </round-progress>
-
-        <div class="percentageValue">
-            {{bulkItem.percentage}}%
-        </div>
-      </div>
-
+      </ion-row>
     </ion-item>
 
   </ion-list>
-
-
-
-  <!-- <ng-progress class="ng-progress"></ng-progress> -->
-  <button (click)="run()">Click</button>
  
 </ion-content>

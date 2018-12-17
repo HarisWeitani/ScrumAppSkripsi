@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 export class GlobalVariableProvider {
 
   //tirta
-  // public ipUrl : string = 'http://172.18.0.201:8080/';
+  // public ipUrl : string = 'http://172.18.0.73:8080/';
   //local
   public ipUrl : string = 'http://172.18.0.218:8080/';
   public baseUrl : string = 'com.adins.mss.webservices/services/m/';
@@ -26,6 +26,7 @@ export class GlobalVariableProvider {
   public timeSheetAddAPI : string = 'timesheet/addTSUser';
   
   public bulkItemAPI : string = 'bulkitem/getBulkByUser';
+  public detailedBulkItemAPI : string = 'bulkitem/getDetailedBulkItem';
   public backlogItemAPI : string = '';
   public iterationItemAPI : string = '';
   public assignIterationAPI : string = '';

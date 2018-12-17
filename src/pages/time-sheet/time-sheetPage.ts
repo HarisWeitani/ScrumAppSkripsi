@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events, ModalController, AlertController } from 'ionic-angular';
 import { TimesheetsProvider } from '../../providers/timesheets/timesheetsProvider';
 import { ErrorHandlerProvider } from '../../providers/error-handler/error-handler';
+import { NgProgress } from 'ngx-progressbar';
 /**
  * Generated class for the TimeSheetPage page.
  *
@@ -30,6 +31,7 @@ export class TimeSheetPage {
               public errorHandler : ErrorHandlerProvider,
               public events: Events, public modalCtrl : ModalController,
               public alertCtrl : AlertController,
+              public ngProgress : NgProgress,
               public storageProvider : StorageProvider) {
     
   }
@@ -41,11 +43,11 @@ export class TimeSheetPage {
 
   getAllTimeSheet(){
 
-    this.helperMethod.loadingService("Getting TimeSheet Data..");
+    this.ngProgress.start();
     this.timeSheetProvider.getAllTimeSheetsByUserLoggedIn(this.userProvider.userLogin)
         .then(
           (response:any) => {
-            this.helperMethod.loading.dismiss();
+            this.ngProgress.done();
             console.log(response);
             let responseData = JSON.parse(response.data);
             let responseStatus = response.status;
@@ -64,7 +66,7 @@ export class TimeSheetPage {
           }).catch(
           (error:any) => {
 
-              this.helperMethod.loading.dismiss();
+            this.ngProgress.done();
               this.errorHandler.catchErrorHandler(error);
 
           }
