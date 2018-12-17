@@ -27,6 +27,9 @@ export class GlobalVariableProvider {
   
   public bulkItemAPI : string = 'bulkitem/getBulkByUser';
   public detailedBulkItemAPI : string = 'bulkitem/getDetailedBulkItem';
+  
+  public getSprintByBulkItem : string = 'bulkitem/getSprintByBulkItem';
+
   public backlogItemAPI : string = '';
   public iterationItemAPI : string = '';
   public assignIterationAPI : string = '';

@@ -1,3 +1,4 @@
+import { BulkItemDetailed } from './../../models/BulkItemDetailed';
 import { UsersProvider } from './../users/usersProvider';
 import { HTTP } from '@ionic-native/http';
 import { BulkItem } from './../../models/BulkItem';
@@ -21,6 +22,7 @@ export class ReportProvider {
 
   bulkItemList : Array<BulkItem>;
   backlogItemList : Array<BackLogItem>;
+  
 
   constructor(private http: HttpClient, 
               public httpNative : HTTP,
@@ -29,20 +31,6 @@ export class ReportProvider {
               public userProvider : UsersProvider,
               private helperMethod: HelperMethodProvider) {
     
-  }
-
-  getAllBulkByUserLogin(user:User) : Observable<any>{
-    return this.http.get(this.helperMethod.bulkItemUrl)          
-          .pipe(map(this.extractData),
-          catchError(this.handleError)
-        );
-  }
-
-  getBackLogItemByBulkItem(selectedBulkItem:BulkItem) : Observable<any>{
-    return this.http.get(this.helperMethod.backlogitemUrl)          
-          .pipe(map(this.extractData),
-          catchError(this.handleError)
-        );
   }
 
   getBulkItemList(){
@@ -54,6 +42,17 @@ export class ReportProvider {
     return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.bulkItemAPI
                               ,this.userProvider.user,headers);
+  }
+
+  getDetailedBulkItem(bulkItem : any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemAPI);
+    this.httpNative.setRequestTimeout(600);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemAPI
+                              ,bulkItem,headers);
   }
 
   getBackLogItemByBulkItemList(bulkItem : any){
@@ -93,6 +92,20 @@ export class ReportProvider {
   }
 
 
+
+  getAllBulkByUserLogin(user:User) : Observable<any>{
+    return this.http.get(this.helperMethod.bulkItemUrl)          
+          .pipe(map(this.extractData),
+          catchError(this.handleError)
+        );
+  }
+
+  getBackLogItemByBulkItem(selectedBulkItem:BulkItem) : Observable<any>{
+    return this.http.get(this.helperMethod.backlogitemUrl)          
+          .pipe(map(this.extractData),
+          catchError(this.handleError)
+        );
+  }
   //helping method
   private extractData(res: Response) {
     let body = res;

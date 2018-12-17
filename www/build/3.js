@@ -1,15 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 713:
+/***/ 712:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeSheetPageModule", function() { return TimeSheetPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeSheetPageModalPageModule", function() { return TimeSheetPageModalPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__time_sheetPage__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_progressbar__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__time_sheet_page_modal__ = __webpack_require__(173);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,25 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var TimeSheetPageModule = /** @class */ (function () {
-    function TimeSheetPageModule() {
+var TimeSheetPageModalPageModule = /** @class */ (function () {
+    function TimeSheetPageModalPageModule() {
     }
-    TimeSheetPageModule = __decorate([
+    TimeSheetPageModalPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__time_sheetPage__["a" /* TimeSheetPage */],
+                __WEBPACK_IMPORTED_MODULE_2__time_sheet_page_modal__["a" /* TimeSheetPageModal */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__time_sheetPage__["a" /* TimeSheetPage */]),
-                __WEBPACK_IMPORTED_MODULE_3_ngx_progressbar__["b" /* NgProgressModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__time_sheet_page_modal__["a" /* TimeSheetPageModal */]),
             ],
         })
-    ], TimeSheetPageModule);
-    return TimeSheetPageModule;
+    ], TimeSheetPageModalPageModule);
+    return TimeSheetPageModalPageModule;
 }());
 
-//# sourceMappingURL=time-sheetPage.module.js.map
+//# sourceMappingURL=time-sheet-page-modal.module.js.map
 
 /***/ })
 

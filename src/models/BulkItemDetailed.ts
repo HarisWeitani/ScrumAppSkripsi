@@ -10,4 +10,5 @@ export interface BulkItemDetailed{
     done_backlog_item: string;
     review_backlog_item: string;
     onprogress_backlog_item: string;
+    todo_backlog_item: string;
 }

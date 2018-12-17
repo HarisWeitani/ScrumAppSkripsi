@@ -1,3 +1,4 @@
+import { BulkItemDetailedPage } from './../pages/bulk-item-detailed/bulk-item-detailed';
 import { BackLogReportPage } from './../pages/back-log-report/back-log-report';
 import { ReportPageModal } from './../pages/report-page-modal/report-page-modal';
 import { HelperMethodProvider } from './../providers/helper-method/helper-method';
@@ -43,6 +44,7 @@ import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
     UserPage,
     ReportPageModal,
     BackLogReportPage,
+    BulkItemDetailedPage,
     TimeSheetPageModal,
     ExpandableComponent
   ],
@@ -69,6 +71,7 @@ import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
     UserPage,
     ReportPageModal,
     BackLogReportPage,
+    BulkItemDetailedPage,
     TimeSheetPageModal,
     ExpandableComponent
   ],
