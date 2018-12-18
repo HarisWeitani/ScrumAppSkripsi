@@ -91,8 +91,6 @@ export class ReportProvider {
 
   }
 
-
-
   getAllBulkByUserLogin(user:User) : Observable<any>{
     return this.http.get(this.helperMethod.bulkItemUrl)          
           .pipe(map(this.extractData),
@@ -106,6 +104,14 @@ export class ReportProvider {
           catchError(this.handleError)
         );
   }
+
+  getDetailedBulkItemByBrowser(bulkItem : any) : Observable<any>{
+    return this.http.get(this.helperMethod.backlogitemUrl)          
+      .pipe(map(this.extractData),
+      catchError(this.handleError)
+    );
+  }
+
   //helping method
   private extractData(res: Response) {
     let body = res;

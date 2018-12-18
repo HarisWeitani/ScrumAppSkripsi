@@ -12,16 +12,168 @@
 
 </ion-header>
 
+<ion-content padding class="ionContent">
 
-<ion-content padding>
-    Nama Project
-    dtm crt
-    jumlah backlogitem
+  <ng-progress class="ng-progress" [color]="'#216fed'"></ng-progress>
+
+  <ng-container *ngIf="bulkItemDetail == null; else elseTemplate">
+    <ion-item class="loadingItem">
+      Loading Item Please Wait...
+    </ion-item>
+  </ng-container>
+  <ng-template #elseTemplate>
+
+    <ion-item class="ionItemBulkDetail">
+      <h1 style="font-weight: bold">{{bulkItemDetail.bulk_name}}</h1>
+      <h2 style="font-weight: bold">{{bulkItemDetail.project_code}}</h2>
+      <br/>
+      <tr>
+        <td>
+          <h2>Start Date</h2>
+        </td>
+        <td>
+          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>
+        </td>
+        <td>
+          <h2>&nbsp;&nbsp;&nbsp;{{bulkItemDetail.dtm_crt}}</h2>
+        </td>
+      </tr>
+      <ng-container *ngIf="bulkItemDetail.dtm_upd != null; else elseTemplate">
+        <tr>
+          <td>
+            <h2>Last Update</h2>
+          </td>
+          <td>
+            <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>
+          </td>
+          <td>
+            <h2>&nbsp;&nbsp;&nbsp;{{bulkItemDetail.dtm_upd}}</h2>
+          </td>
+        </tr>
+      </ng-container>
+      <ng-template #elseTemplate>
+      </ng-template>
+      <tr>
+        <td>
+          <h2>Mandays</h2>
+        </td>
+        <td>
+          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>
+        </td>
+        <td>
+          <h2>&nbsp;&nbsp;&nbsp;{{bulkItemDetail.mandays}} Mandays</h2>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h2>Total Item</h2>
+        </td>
+        <td>
+          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>
+        </td>
+        <td>
+          <h2>&nbsp;&nbsp;&nbsp;{{bulkItemDetail.all_backlog_item}} Items</h2>
+        </td>
+      </tr>
+      <br/>
+
+    </ion-item>
+    <!-- <progress-bar 
+      [progress]="bulkItemDetail.percentage" 
+      [color-degraded]="{'0': '#00cbcb',  '50': '#f9c3d3', '75': '#fd8c8e'}"
+      class="progress-bar" >
+    </progress-bar> -->
+    <ion-item class="ionItemBulkProgress">
+      <ion-row class="row1">
+        <ion-col>
+          <strong>Done</strong>
+          <div class="positionRelative">
+            <round-progress
+              [current]="bulkItemDetail.done_backlog_item" 
+              [max]="bulkItemDetail.all_backlog_item"
+              [radius]="45"
+              [stroke]="10"
+              [animationDelay]="400">
+            </round-progress>
+            <div class="percentageValue">
+              {{bulkItemDetail.done_backlog_item}}/{{bulkItemDetail.all_backlog_item}}
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <strong>Review</strong>
+          <div class="positionRelative">
+            <round-progress
+              [current]="bulkItemDetail.review_backlog_item" 
+              [max]="bulkItemDetail.all_backlog_item"
+              [radius]="45"
+              [stroke]="10"
+              [animationDelay]="400">
+            </round-progress>
+            <div class="percentageValue">
+              {{bulkItemDetail.review_backlog_item}}/{{bulkItemDetail.all_backlog_item}}
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row class="row2">
+        <ion-col>
+          <strong>On Progress</strong>
+          <div class="positionRelative">
+            <round-progress
+              [current]="bulkItemDetail.onprogress_backlog_item" 
+              [max]="bulkItemDetail.all_backlog_item"
+              [radius]="45"
+              [stroke]="10"
+              [animationDelay]="400">
+            </round-progress>
+            <div class="percentageValue">
+              {{bulkItemDetail.onprogress_backlog_item}}/{{bulkItemDetail.all_backlog_item}}
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <strong>Todo</strong>
+          <div class="positionRelative">
+            <round-progress
+              [current]="bulkItemDetail.todo_backlog_item" 
+              [max]="bulkItemDetail.all_backlog_item"
+              [radius]="45"
+              [stroke]="10"
+              [animationDelay]="400">
+            </round-progress>
+            <div class="percentageValue">
+              {{bulkItemDetail.todo_backlog_item}}/{{bulkItemDetail.all_backlog_item}}
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      
+    </ion-item>
+
+  </ng-template>
+
+  <ion-row class="headerSprint">
+      <ion-col>Sprint</ion-col>
+      <ion-col>Start Date</ion-col>
+      <ion-col>Total Item</ion-col>
+  </ion-row>
   
-    status
-      done
-      review
-      on Progress
-  
-      List Sprint dtmcrt
+  <ion-list [virtualScroll]="bulkItemSprint">
+    <ion-item *virtualItem="let sprintItem" (click)="onItemPressed({item:sprintItem})">
+      <ion-row>
+        <ion-col>
+          {{sprintItem.sprint}}
+        </ion-col>
+        <ion-col>
+          {{sprintItem.dtm_crt}}
+        </ion-col>
+        <ion-col>
+          {{sprintItem.total_sprint_item}}
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
 </ion-content>

@@ -73,8 +73,8 @@ export class ReportPage {
   }
 
   getAllBulk(){
-    // this.bulkByBrowser();
-    this.bulkByDevice();
+    this.bulkByBrowser();
+    // this.bulkByDevice();
   }
 
   bulkByDevice(){
