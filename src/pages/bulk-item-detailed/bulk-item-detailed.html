@@ -152,16 +152,16 @@
       
     </ion-item>
 
-  </ng-template>
+    <ion-row class="headerSprint">
+        <ion-col>Sprint</ion-col>
+        <ion-col>Start Date</ion-col>
+        <ion-col>Total Item</ion-col>
+    </ion-row>
 
-  <ion-row class="headerSprint">
-      <ion-col>Sprint</ion-col>
-      <ion-col>Start Date</ion-col>
-      <ion-col>Total Item</ion-col>
-  </ion-row>
-  
+  </ng-template>
+    
   <ion-list [virtualScroll]="bulkItemSprint">
-    <ion-item *virtualItem="let sprintItem" (click)="onItemPressed({item:sprintItem})">
+    <button ion-item *virtualItem="let sprintItem" (click)="onItemPressed({item:sprintItem})">
       <ion-row>
         <ion-col>
           {{sprintItem.sprint}}
@@ -173,7 +173,8 @@
           {{sprintItem.total_sprint_item}}
         </ion-col>
       </ion-row>
-    </ion-item>
+    </button>
   </ion-list>
+
 
 </ion-content>

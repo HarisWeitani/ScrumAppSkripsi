@@ -37,7 +37,7 @@ export class ReportProvider {
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
 
     this.httpNative.setDataSerializer('json');
-    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.bulkItemAPI);
+    console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.bulkItemAPI);
     this.httpNative.setRequestTimeout(600);
     return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.bulkItemAPI
@@ -48,18 +48,19 @@ export class ReportProvider {
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
 
     this.httpNative.setDataSerializer('json');
-    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemAPI);
+    console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemAPI);
     this.httpNative.setRequestTimeout(600);
     return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemAPI
                               ,bulkItem,headers);
   }
 
+
   getBackLogItemByBulkItemList(bulkItem : any){
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
 
     this.httpNative.setDataSerializer('json');
-    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.backlogItemAPI);
+    console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.backlogItemAPI);
     this.httpNative.setRequestTimeout(60);
     return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.backlogItemAPI
@@ -67,15 +68,15 @@ export class ReportProvider {
   
   }
 
-  getIterationItemList(backlogItem : any){
+  getSprintDetailBySprint(sprint : any){
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
 
     this.httpNative.setDataSerializer('json');
-    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.iterationItemAPI);
+    console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getDetailSprintBySprint);
     this.httpNative.setRequestTimeout(60);
     return this.httpNative
-            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.iterationItemAPI
-                              ,backlogItem,headers);
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getDetailSprintBySprint
+                              ,sprint,headers);
 
   }
 
@@ -83,7 +84,7 @@ export class ReportProvider {
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
 
     this.httpNative.setDataSerializer('json');
-    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.assignIterationAPI);
+    console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.assignIterationAPI);
     this.httpNative.setRequestTimeout(60);
     return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.assignIterationAPI

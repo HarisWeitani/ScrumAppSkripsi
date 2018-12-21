@@ -26,7 +26,11 @@ export class GlobalVariableProvider {
   public timeSheetAddAPI : string = 'timesheet/addTSUser';
   
   public bulkItemAPI : string = 'bulkitem/getBulkByUser';
+  public getPerfomanceByUser : string = 'bulkitem/getPerfomanceByUser';
+  
   public detailedBulkItemAPI : string = 'bulkitem/getDetailedBulkItem';
+  public detailedBulkItemDeveloperAPI : string = 'bulkitem/getDetailedBulkItemDeveloper';
+
   public getSprintByBulkItem : string = 'bulkitem/getSprintByBulkItem';
   public getDetailSprintBySprint : string = 'bulkitem/getDetailSprintBySprint';
 

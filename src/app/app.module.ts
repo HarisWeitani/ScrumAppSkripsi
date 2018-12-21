@@ -1,3 +1,5 @@
+import { BulkItemDetailedDeveloperPage } from './../pages/bulk-item-detailed-developer/bulk-item-detailed-developer';
+import { SprintDetailedPage } from './../pages/sprint-detailed/sprint-detailed';
 import { BulkItemDetailedPage } from './../pages/bulk-item-detailed/bulk-item-detailed';
 import { BackLogReportPage } from './../pages/back-log-report/back-log-report';
 import { ReportPageModal } from './../pages/report-page-modal/report-page-modal';
@@ -32,6 +34,9 @@ import { GlobalVariableProvider } from '../providers/global-variable/global-vari
 import { MsProjectProvider } from '../providers/ms-project/msProjectProvider';
 import { MsActivityProvider } from '../providers/ms-activity/msActivityProvider';
 import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
+import { SprintDetailedDeveloperPage } from '../pages/sprint-detailed-developer/sprint-detailed-developer';
+import { PerfomanceProvider } from '../providers/perfomance/perfomanceProvider';
+import { PerfomancePage } from '../pages/perfomance/perfomancePage';
 
 @NgModule({
   declarations: [
@@ -40,12 +45,16 @@ import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
     LoginPage,
     TabsPage,
     ReportPage,
+    PerfomancePage,
     TimeSheetPage,
     UserPage,
     ReportPageModal,
     BackLogReportPage,
     BulkItemDetailedPage,
+    BulkItemDetailedDeveloperPage,
+    SprintDetailedDeveloperPage,
     TimeSheetPageModal,
+    SprintDetailedPage,
     ExpandableComponent
   ],
   imports: [
@@ -67,12 +76,16 @@ import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
     LoginPage,
     TabsPage,
     ReportPage,
+    PerfomancePage,
     TimeSheetPage,
     UserPage,
     ReportPageModal,
     BackLogReportPage,
     BulkItemDetailedPage,
+    BulkItemDetailedDeveloperPage,
+    SprintDetailedDeveloperPage,
     TimeSheetPageModal,
+    SprintDetailedPage,
     ExpandableComponent
   ],
   providers: [
@@ -89,7 +102,8 @@ import { ErrorHandlerProvider } from '../providers/error-handler/error-handler';
     GlobalVariableProvider,
     MsProjectProvider,
     MsActivityProvider,
-    ErrorHandlerProvider
+    ErrorHandlerProvider,
+    PerfomanceProvider
   ]
 })
 export class AppModule { }

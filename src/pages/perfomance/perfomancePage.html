@@ -1,0 +1,139 @@
+<!--
+  Generated template for the PerfomancePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>PerfomancePage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="ionContent">
+
+  <ng-progress class="ng-progress" [color]="'#216fed'"></ng-progress>
+
+  <ng-container *ngIf="perfomance == null; else elseTemplate">
+    <ion-item class="loadingItem">
+      Loading Item Please Wait...
+    </ion-item>
+  </ng-container>
+  <ng-template #elseTemplate>
+
+    <ion-item class="ionItemBulkDetail">
+      <br/>
+      <tr>
+        <td>
+          <h2>Total Item</h2>
+        </td>
+        <td>
+          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>
+        </td>
+        <td>
+          <h2>&nbsp;&nbsp;&nbsp;{{perfomance.total_item}} Items</h2>
+        </td>
+      </tr>
+      <br/>
+
+    </ion-item>
+    <!-- <progress-bar 
+      [progress]="perfomance.percentage" 
+      [color-degraded]="{'0': '#00cbcb',  '50': '#f9c3d3', '75': '#fd8c8e'}"
+      class="progress-bar" >
+    </progress-bar> -->
+    <ion-item class="ionItemBulkProgress">
+      <ion-row class="row1">
+        <ion-col>
+          <strong>Done</strong>
+          <div class="positionRelative">
+            <round-progress
+              [current]="perfomance.done_item" 
+              [max]="perfomance.total_item"
+              [radius]="45"
+              [stroke]="10"
+              [animationDelay]="400">
+            </round-progress>
+            <div class="percentageValue">
+              {{perfomance.done_item}}/{{perfomance.total_item}}
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <strong>Review</strong>
+          <div class="positionRelative">
+            <round-progress
+              [current]="perfomance.review_item" 
+              [max]="perfomance.total_item"
+              [radius]="45"
+              [stroke]="10"
+              [animationDelay]="400">
+            </round-progress>
+            <div class="percentageValue">
+              {{perfomance.review_item}}/{{perfomance.total_item}}
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row class="row2">
+        <ion-col>
+          <strong>On Progress</strong>
+          <div class="positionRelative">
+            <round-progress
+              [current]="perfomance.on_progress_item" 
+              [max]="perfomance.total_item"
+              [radius]="45"
+              [stroke]="10"
+              [animationDelay]="400">
+            </round-progress>
+            <div class="percentageValue">
+              {{perfomance.on_progress_item}}/{{perfomance.total_item}}
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <strong>Todo</strong>
+          <div class="positionRelative">
+            <round-progress
+              [current]="perfomance.to_do_item" 
+              [max]="perfomance.total_item"
+              [radius]="45"
+              [stroke]="10"
+              [animationDelay]="400">
+            </round-progress>
+            <div class="percentageValue">
+              {{perfomance.to_do_item}}/{{perfomance.total_item}}
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      
+    </ion-item>
+
+    <ion-row class="headerSprint">
+        <ion-col>Bulk Name</ion-col>
+        <ion-col>Perfomance</ion-col>
+    </ion-row>
+
+  </ng-template>
+    
+  <ion-list [virtualScroll]="perfomanceList">
+    <button ion-item *virtualItem="let perfomanceItem" (click)="onItemPressed({item:perfomanceItem})">
+      <ion-row>
+        <ion-col>
+          {{perfomanceItem.bulk_name}}
+        </ion-col>
+        <ion-col>
+          {{perfomanceItem.done_sprint}}/{{perfomanceItem.total_sprint}}
+        </ion-col>
+      </ion-row>
+    </button>
+  </ion-list>
+
+
+</ion-content>
+  

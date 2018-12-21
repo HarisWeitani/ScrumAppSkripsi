@@ -1,8 +1,9 @@
+import { BulkItemDetailedDeveloperPage } from './../bulk-item-detailed-developer/bulk-item-detailed-developer';
+import { UsersProvider } from './../../providers/users/usersProvider';
 import { BulkItemDetailedPage } from './../bulk-item-detailed/bulk-item-detailed';
 import { NgProgress } from 'ngx-progressbar';
 import { BulkItem } from './../../models/BulkItem';
 import { HelperMethodProvider } from './../../providers/helper-method/helper-method';
-import { UsersProvider } from '../../providers/users/usersProvider';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App, Events, ModalController } from 'ionic-angular';
 import { ReportProvider } from '../../providers/report/reportProvider';
@@ -42,26 +43,8 @@ export class ReportPage {
     
   }
 
-  run(){
-
-    // var intervaler = 
-    //     setInterval(function(){
-    //       this.progressVal++;
-    //       if(this.progressVal == 100){
-    //         clearInterval(intervaler);
-    //       }
-    //     }.bind(this),20);
-
-    // this.ngProgress.start();
-    // setTimeout(() => {
-    //   this.ngProgress.done();
-    // }, 2000);
-
-  }
-
   ionViewDidLoad() {
     this.getAllBulk();
-    this.run();
     console.log('ionViewDidLoad ReportPage ');
   }
 
@@ -73,8 +56,8 @@ export class ReportPage {
   }
 
   getAllBulk(){
-    this.bulkByBrowser();
-    // this.bulkByDevice();
+    // this.bulkByBrowser();
+    this.bulkByDevice();
   }
 
   bulkByDevice(){

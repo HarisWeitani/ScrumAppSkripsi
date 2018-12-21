@@ -1,5 +1,6 @@
 <ion-tabs selectedIndex = "0">
     <ion-tab [root]="timeSheetRoot" tabTitle="Time sheet" tabIcon="list-box"></ion-tab>
-    <ion-tab [root]="reportRoot" tabTitle="Report" tabIcon="stats"></ion-tab>
+    <ion-tab [root]="reportRoot" tabTitle="Report" tabIcon="stats" [show]="isSpv"></ion-tab>
+    <ion-tab [root]="perfomanceRoot" tabTitle="Perfomance" tabIcon="flash" [show]="isDeveloper"></ion-tab>
     <ion-tab [root]="userRoot" tabTitle="User" tabIcon="person"></ion-tab>
 </ion-tabs>

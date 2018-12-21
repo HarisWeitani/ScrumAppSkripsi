@@ -1,0 +1,150 @@
+<!--
+  Generated template for the BulkItemDetailedDeveloperPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>BulkItemDetailedDeveloperPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="ionContent">
+
+  <ng-progress class="ng-progress" [color]="'#216fed'"></ng-progress>
+
+  <ng-container *ngIf="bulkItemDetail == null; else elseTemplate">
+    <ion-item class="loadingItem">
+      Loading Item Please Wait...
+    </ion-item>
+  </ng-container>
+  <ng-template #elseTemplate>
+
+    <ion-item class="ionItemBulkDetail">
+      <h1 style="font-weight: bold">{{bulkItemDetail.bulk_name}}</h1>
+      <br/>
+      <tr>
+        <td>
+          <h2>Start Date</h2>
+        </td>
+        <td>
+          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>
+        </td>
+        <td>
+          <h2>&nbsp;&nbsp;&nbsp;{{bulkItemDetail.dtm_crt}}</h2>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h2>Total Item</h2>
+        </td>
+        <td>
+          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>
+        </td>
+        <td>
+          <h2>&nbsp;&nbsp;&nbsp;{{bulkItemDetail.total_sprint}} Items</h2>
+        </td>
+      </tr>
+      <br/>
+
+    </ion-item>
+    <!-- <progress-bar 
+      [progress]="bulkItemDetail.percentage" 
+      [color-degraded]="{'0': '#00cbcb',  '50': '#f9c3d3', '75': '#fd8c8e'}"
+      class="progress-bar" >
+    </progress-bar> -->
+    <ion-item class="ionItemBulkProgress">
+      <ion-row class="row1">
+        <ion-col>
+          <strong>Done</strong>
+          <div class="positionRelative">
+            <round-progress
+              [current]="bulkItemDetail.done_sprint" 
+              [max]="bulkItemDetail.total_sprint"
+              [radius]="45"
+              [stroke]="10"
+              [animationDelay]="400">
+            </round-progress>
+            <div class="percentageValue">
+              {{bulkItemDetail.done_sprint}}/{{bulkItemDetail.total_sprint}}
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <strong>Review</strong>
+          <div class="positionRelative">
+            <round-progress
+              [current]="bulkItemDetail.review" 
+              [max]="bulkItemDetail.total_sprint"
+              [radius]="45"
+              [stroke]="10"
+              [animationDelay]="400">
+            </round-progress>
+            <div class="percentageValue">
+              {{bulkItemDetail.review}}/{{bulkItemDetail.total_sprint}}
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row class="row2">
+        <ion-col>
+          <strong>On Progress</strong>
+          <div class="positionRelative">
+            <round-progress
+              [current]="bulkItemDetail.on_progress" 
+              [max]="bulkItemDetail.total_sprint"
+              [radius]="45"
+              [stroke]="10"
+              [animationDelay]="400">
+            </round-progress>
+            <div class="percentageValue">
+              {{bulkItemDetail.on_progress}}/{{bulkItemDetail.total_sprint}}
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <strong>Todo</strong>
+          <div class="positionRelative">
+            <round-progress
+              [current]="bulkItemDetail.to_do" 
+              [max]="bulkItemDetail.total_sprint"
+              [radius]="45"
+              [stroke]="10"
+              [animationDelay]="400">
+            </round-progress>
+            <div class="percentageValue">
+              {{bulkItemDetail.to_do}}/{{bulkItemDetail.total_sprint}}
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      
+    </ion-item>
+
+    <ion-row class="headerSprint">
+        <ion-col>Sprint</ion-col>
+        <ion-col>Todo</ion-col>
+    </ion-row>
+
+  </ng-template>
+    
+  <ion-list [virtualScroll]="bulkItemSprint">
+    <button ion-item *virtualItem="let sprintItem" (click)="onItemPressed({item:sprintItem})">
+      <ion-row>
+        <ion-col>
+          {{sprintItem.sprint}}
+        </ion-col>
+        <ion-col>
+          {{sprintItem.todo}}/{{sprintItem.total_sprint_item}}
+        </ion-col>
+      </ion-row>
+    </button>
+  </ion-list>
+
+
+</ion-content>

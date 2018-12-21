@@ -1,0 +1,45 @@
+page-sprint-detailed {
+    .ionContent{
+        background-color: #caccce;
+    }
+
+    .loadingItem{
+        background-color: #f7f7f7;
+    }
+
+    .positionRelative{
+        position: absolute;
+        text-align: center;
+        margin-left: 20%;
+        margin-top: 10px;
+    }
+
+    .percentageValue {
+        position: absolute;
+        text-align: center;
+        top : 38%;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .row1{
+        margin-top: 12px;
+        text-align: center;
+    }
+    .row2{
+        margin-top: 110px;
+        margin-bottom: 110px;
+        text-align: center;
+    }
+    .ionItemBulkDetail{
+        
+    }
+    .ionItemBulkProgress{
+        
+    }
+    .headerSprint{
+        background-color: #f7f7f7;
+        margin-top: 7px;
+    }
+}

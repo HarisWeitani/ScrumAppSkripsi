@@ -5,4 +5,5 @@ export interface User{
   person_name : string;
   job_name : string;
   team_name : string;
+  is_spv : string;
 }

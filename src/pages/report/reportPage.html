@@ -19,7 +19,7 @@
 
   <ion-list class="ionList" [virtualScroll]="reportProvider.bulkItemList">
       
-    <ion-item class="ionItem" *virtualItem="let bulkItem" (click)="onItemPressed({item:bulkItem})">
+    <button ion-item class="ionItem" *virtualItem="let bulkItem" (click)="onItemPressed({item:bulkItem})">
       
       <ion-row>
         <ion-col>
@@ -51,7 +51,7 @@
         </ion-col>
 
       </ion-row>
-    </ion-item>
+    </button>
 
   </ion-list>
  
