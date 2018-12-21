@@ -33,7 +33,8 @@ export class GlobalVariableProvider {
 
   public getSprintByBulkItem : string = 'bulkitem/getSprintByBulkItem';
   public getDetailSprintBySprint : string = 'bulkitem/getDetailSprintBySprint';
-
+  public getDetailSprintBySprintDeveloper : string = 'bulkitem/getDetailSprintBySprintDeveloper';
+  
   public backlogItemAPI : string = '';
   public iterationItemAPI : string = '';
   public assignIterationAPI : string = '';

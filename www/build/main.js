@@ -1,13 +1,13 @@
 webpackJsonp([15],{
 
-/***/ 144:
+/***/ 143:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MsActivityProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helper_method_helper_method__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_http__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(37);
@@ -89,16 +89,16 @@ var MsActivityProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 145:
+/***/ 146:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MsProjectProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helper_method_helper_method__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_http__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__storage_storageProvider__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -178,89 +178,13 @@ var MsProjectProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 146:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PerfomanceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global_variable_global_variable__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_http__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__users_usersProvider__ = __webpack_require__(23);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-/*
-  Generated class for the PerfomanceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var PerfomanceProvider = /** @class */ (function () {
-    function PerfomanceProvider(http, httpNative, globalVal, oauthProvider, userProvider, helperMethod) {
-        this.http = http;
-        this.httpNative = httpNative;
-        this.globalVal = globalVal;
-        this.oauthProvider = oauthProvider;
-        this.userProvider = userProvider;
-        this.helperMethod = helperMethod;
-        console.log('Hello PerfomanceProvider Provider');
-    }
-    PerfomanceProvider.prototype.getBulkItemList = function () {
-        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
-        this.httpNative.setDataSerializer('json');
-        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getPerfomanceByUser);
-        this.httpNative.setRequestTimeout(600);
-        return this.httpNative
-            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getPerfomanceByUser, this.userProvider.user, headers);
-    };
-    PerfomanceProvider.prototype.getDetailedBulkItemDeveloper = function (bulkItem) {
-        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
-        this.httpNative.setDataSerializer('json');
-        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemDeveloperAPI);
-        this.httpNative.setRequestTimeout(600);
-        return this.httpNative
-            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemDeveloperAPI, bulkItem, headers);
-    };
-    PerfomanceProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_http__["a" /* HTTP */],
-            __WEBPACK_IMPORTED_MODULE_1__global_variable_global_variable__["a" /* GlobalVariableProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__["a" /* OAuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_6__users_usersProvider__["a" /* UsersProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__["a" /* HelperMethodProvider */]])
-    ], PerfomanceProvider);
-    return PerfomanceProvider;
-}());
-
-//# sourceMappingURL=perfomanceProvider.js.map
-
-/***/ }),
-
 /***/ 147:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimesheetsProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__global_variable_global_variable__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__o_auth_oauthProvider__ = __webpack_require__(37);
@@ -332,7 +256,7 @@ var TimesheetsProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 16:
+/***/ 15:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -414,13 +338,13 @@ var HelperMethodProvider = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BulkItemDetailedDeveloperPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_perfomance_perfomanceProvider__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_perfomance_perfomanceProvider__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sprint_detailed_developer_sprint_detailed_developer__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_error_handler_error_handler__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_error_handler_error_handler__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_helper_method_helper_method__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ngx_progressbar__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ngx_progressbar__ = __webpack_require__(38);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -496,7 +420,8 @@ var BulkItemDetailedDeveloperPage = /** @class */ (function () {
         // this.getSprintDetailed(item);
         var sprintRequest = {
             sprint: item.item.sprint,
-            bulk_id: this.bulkItemSelected.bulk_id
+            bulk_id: this.bulkItemSelected.bulk_id,
+            person_id: this.userProv.user.person_id
         };
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__sprint_detailed_developer_sprint_detailed_developer__["a" /* SprintDetailedDeveloperPage */], { sprintRequest: sprintRequest });
         // this.getSprintDetailedByBrowser();
@@ -609,14 +534,230 @@ var BulkItemDetailedDeveloperPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_ms_activity_msActivityProvider__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_ms_project_msProjectProvider__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_o_auth_oauthProvider__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_error_handler_error_handler__ = __webpack_require__(24);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+/**
+ * Generated class for the LoginPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var LoginPage = /** @class */ (function () {
+    function LoginPage(navCtrl, navParames, userProvider, toastCtrl, formBuilder, helperMethod, errorHandler, events, oAuthProvider, msProjectProvider, msActivityProvider) {
+        this.navCtrl = navCtrl;
+        this.navParames = navParames;
+        this.userProvider = userProvider;
+        this.toastCtrl = toastCtrl;
+        this.formBuilder = formBuilder;
+        this.helperMethod = helperMethod;
+        this.errorHandler = errorHandler;
+        this.events = events;
+        this.oAuthProvider = oAuthProvider;
+        this.msProjectProvider = msProjectProvider;
+        this.msActivityProvider = msActivityProvider;
+        this.type = 'password';
+        this.showHide = false;
+        this.loginForm = formBuilder.group({
+            username: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].minLength(3)])],
+            password: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].minLength(3)])]
+        });
+    }
+    LoginPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad LoginPage ');
+    };
+    LoginPage.prototype.doLogin = function () {
+        var userLogin = {
+            username: this.username.value,
+            password: this.password.value
+        };
+        // this.doLoginBrowser(userLogin);
+        this.doAuthenticate(userLogin);
+    };
+    LoginPage.prototype.doAuthenticate = function (userLogin) {
+        var _this = this;
+        console.log("Do Auth " + userLogin);
+        this.helperMethod.loadingService("Verifying Your Info..");
+        this.oAuthProvider.getOAuthToken(userLogin)
+            .then(function (response) {
+            _this.helperMethod.loading.dismiss();
+            response = JSON.parse(response.data);
+            console.log(response);
+            _this.oAuthProvider.userOAuth = response;
+            console.log(_this.oAuthProvider.userOAuth);
+            _this.doLogindevice(userLogin);
+        }).catch(function (error) {
+            _this.helperMethod.loading.dismiss();
+            _this.errorHandler.catchErrorHandler(error);
+        });
+    };
+    LoginPage.prototype.doLogindevice = function (userLogin) {
+        var _this = this;
+        this.helperMethod.loadingService("Collecting User Info..");
+        this.userProvider.validateLoginDevice(userLogin).then(function (response) {
+            _this.helperMethod.loading.dismiss();
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData);
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+                _this.userProvider.user = responseData;
+                _this.userProvider.userLogin = userLogin;
+                _this.userProvider.saveUserDataToStorage();
+                _this.getAllMsProjectList(userLogin);
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.helperMethod.loading.dismiss();
+            _this.errorHandler.catchErrorHandler(error);
+        });
+    };
+    LoginPage.prototype.doLoginBrowser = function (userLogin) {
+        var _this = this;
+        this.helperMethod.loadingService("Collecting User Info..");
+        this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(function (response) {
+            _this.helperMethod.loading.dismiss();
+            _this.userProvider.user = response;
+            _this.events.publish('Auth', 1);
+            console.log(response);
+        }, function (error) {
+            console.log(error);
+            console.error(error.name);
+            console.error(error.status);
+            console.error(error.statusText);
+            _this.helperMethod.loading.dismiss();
+            if (error.name == 'TimeoutError') {
+                _this.helperMethod.presentToast('Slow Connection', 2000, 2);
+            }
+            else {
+                _this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT', 2000, 3);
+            }
+        });
+    };
+    LoginPage.prototype.showHidePassword = function () {
+        this.showHide = !this.showHide;
+        if (this.showHide) {
+            this.type = 'text';
+        }
+        else {
+            this.type = 'password';
+        }
+    };
+    LoginPage.prototype.getAllMsProjectList = function (userLogin) {
+        var _this = this;
+        this.helperMethod.loadingService("Getting All Project List..");
+        this.msProjectProvider.getAllData(userLogin).then(function (response) {
+            _this.helperMethod.loading.dismiss();
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData.listProject);
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+                _this.msProjectProvider.msProjectList = responseData.listProject;
+                _this.msProjectProvider.save();
+                _this.getAllMsActivityList(userLogin);
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.helperMethod.loading.dismiss();
+            _this.errorHandler.catchErrorHandler(error);
+        });
+    };
+    LoginPage.prototype.getAllMsActivityList = function (userLogin) {
+        var _this = this;
+        this.helperMethod.loadingService("Getting All Activity List..");
+        this.msActivityProvider.getAllData(userLogin).then(function (response) {
+            _this.helperMethod.loading.dismiss();
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData);
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+                _this.msActivityProvider.msActivityList = responseData.listActivity;
+                _this.msActivityProvider.save();
+                _this.events.publish('Auth', 1);
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.helperMethod.loading.dismiss();
+            _this.errorHandler.catchErrorHandler(error);
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["ViewChild"])('username'),
+        __metadata("design:type", Object)
+    ], LoginPage.prototype, "username", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["ViewChild"])('password'),
+        __metadata("design:type", Object)
+    ], LoginPage.prototype, "password", void 0);
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
+            selector: 'page-login',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\login\loginPage.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <!-- <ion-navbar>\n\n    <ion-title>Login</ion-title>\n\n  </ion-navbar> -->\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div id="logo">\n\n    <img src="assets/imgs/IonicLogo.png">\n\n  </div>\n\n  <div id="body">\n\n    <div id="userInput">\n\n      <ion-list inset>\n\n\n\n        <form [formGroup]="loginForm">\n\n\n\n          <ion-item>\n\n            <ion-label floating >Username</ion-label>\n\n            <ion-input formControlName="username" type="text" #username value=\'{{usernameDefaultVal}}\'></ion-input>\n\n\n\n          </ion-item>\n\n\n\n          <ion-item>\n\n            <ion-label floating>Password</ion-label>\n\n            <ion-input formControlName="password" type="{{type}}" #password ></ion-input>\n\n            <button *ngIf="!showHide" ion-button clear color="dark" type="button" item-right (click)="showHidePassword()"> <ion-icon name="ios-eye-off-outline"></ion-icon></button>\n\n            <button *ngIf="showHide" ion-button clear color="dark" type="button" item-right (click)="showHidePassword()"> <ion-icon name="ios-eye-outline"></ion-icon></button>\n\n            \n\n          </ion-item>\n\n\n\n        </form>\n\n\n\n      </ion-list>\n\n    </div>\n\n\n\n    <div id="loginButton">\n\n      <button ion-button block\n\n            [disabled]="!loginForm.valid"\n\n            (click)="doLogin()">\n\n          Sign in\n\n      </button>\n\n    </div>\n\n\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\login\loginPage.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__["a" /* UsersProvider */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
+            __WEBPACK_IMPORTED_MODULE_8__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */],
+            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["c" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_o_auth_oauthProvider__["a" /* OAuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_ms_project_msProjectProvider__["a" /* MsProjectProvider */],
+            __WEBPACK_IMPORTED_MODULE_0__providers_ms_activity_msActivityProvider__["a" /* MsActivityProvider */]])
+    ], LoginPage);
+    return LoginPage;
+}());
+
+//# sourceMappingURL=loginPage.js.map
+
+/***/ }),
+
+/***/ 171:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BulkItemDetailedPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sprint_detailed_sprint_detailed__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sprint_detailed_sprint_detailed__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_report_reportProvider__ = __webpack_require__(90);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_helper_method_helper_method__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_progressbar__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_progressbar__ = __webpack_require__(38);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -836,17 +977,17 @@ var BulkItemDetailedPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 171:
+/***/ 172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SprintDetailedPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_error_handler_error_handler__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_error_handler_error_handler__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_report_reportProvider__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ngx_progressbar__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ngx_progressbar__ = __webpack_require__(38);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -931,234 +1072,18 @@ var SprintDetailedPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 172:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_ms_activity_msActivityProvider__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_ms_project_msProjectProvider__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_helper_method_helper_method__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_o_auth_oauthProvider__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_error_handler_error_handler__ = __webpack_require__(29);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParames, userProvider, toastCtrl, formBuilder, helperMethod, errorHandler, events, oAuthProvider, msProjectProvider, msActivityProvider) {
-        this.navCtrl = navCtrl;
-        this.navParames = navParames;
-        this.userProvider = userProvider;
-        this.toastCtrl = toastCtrl;
-        this.formBuilder = formBuilder;
-        this.helperMethod = helperMethod;
-        this.errorHandler = errorHandler;
-        this.events = events;
-        this.oAuthProvider = oAuthProvider;
-        this.msProjectProvider = msProjectProvider;
-        this.msActivityProvider = msActivityProvider;
-        this.type = 'password';
-        this.showHide = false;
-        this.loginForm = formBuilder.group({
-            username: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].minLength(3)])],
-            password: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].minLength(3)])]
-        });
-    }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LoginPage ');
-    };
-    LoginPage.prototype.doLogin = function () {
-        var userLogin = {
-            username: this.username.value,
-            password: this.password.value
-        };
-        // this.doLoginBrowser(userLogin);
-        this.doAuthenticate(userLogin);
-    };
-    LoginPage.prototype.doAuthenticate = function (userLogin) {
-        var _this = this;
-        console.log("Do Auth " + userLogin);
-        this.helperMethod.loadingService("Verifying Your Info..");
-        this.oAuthProvider.getOAuthToken(userLogin)
-            .then(function (response) {
-            _this.helperMethod.loading.dismiss();
-            response = JSON.parse(response.data);
-            console.log(response);
-            _this.oAuthProvider.userOAuth = response;
-            console.log(_this.oAuthProvider.userOAuth);
-            _this.doLogindevice(userLogin);
-        }).catch(function (error) {
-            _this.helperMethod.loading.dismiss();
-            _this.errorHandler.catchErrorHandler(error);
-        });
-    };
-    LoginPage.prototype.doLogindevice = function (userLogin) {
-        var _this = this;
-        this.helperMethod.loadingService("Collecting User Info..");
-        this.userProvider.validateLoginDevice(userLogin).then(function (response) {
-            _this.helperMethod.loading.dismiss();
-            console.log(response);
-            var responseData = JSON.parse(response.data);
-            var responseStatus = response.status;
-            console.log(responseData);
-            console.log(responseData.status);
-            if (responseData.status.code == "0") {
-                _this.userProvider.user = responseData;
-                _this.userProvider.userLogin = userLogin;
-                _this.userProvider.saveUserDataToStorage();
-                _this.getAllMsProjectList(userLogin);
-            }
-            else {
-                _this.errorHandler.catchResponseErrorHandler(responseData);
-            }
-        }).catch(function (error) {
-            _this.helperMethod.loading.dismiss();
-            _this.errorHandler.catchErrorHandler(error);
-        });
-    };
-    LoginPage.prototype.doLoginBrowser = function (userLogin) {
-        var _this = this;
-        this.helperMethod.loadingService("Collecting User Info..");
-        this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(function (response) {
-            _this.helperMethod.loading.dismiss();
-            _this.userProvider.user = response;
-            _this.events.publish('Auth', 1);
-            console.log(response);
-        }, function (error) {
-            console.log(error);
-            console.error(error.name);
-            console.error(error.status);
-            console.error(error.statusText);
-            _this.helperMethod.loading.dismiss();
-            if (error.name == 'TimeoutError') {
-                _this.helperMethod.presentToast('Slow Connection', 2000, 2);
-            }
-            else {
-                _this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT', 2000, 3);
-            }
-        });
-    };
-    LoginPage.prototype.showHidePassword = function () {
-        this.showHide = !this.showHide;
-        if (this.showHide) {
-            this.type = 'text';
-        }
-        else {
-            this.type = 'password';
-        }
-    };
-    LoginPage.prototype.getAllMsProjectList = function (userLogin) {
-        var _this = this;
-        this.helperMethod.loadingService("Getting All Project List..");
-        this.msProjectProvider.getAllData(userLogin).then(function (response) {
-            _this.helperMethod.loading.dismiss();
-            console.log(response);
-            var responseData = JSON.parse(response.data);
-            var responseStatus = response.status;
-            console.log(responseData.listProject);
-            console.log(responseData.status);
-            if (responseData.status.code == "0") {
-                _this.msProjectProvider.msProjectList = responseData.listProject;
-                _this.msProjectProvider.save();
-                _this.getAllMsActivityList(userLogin);
-            }
-            else {
-                _this.errorHandler.catchResponseErrorHandler(responseData);
-            }
-        }).catch(function (error) {
-            _this.helperMethod.loading.dismiss();
-            _this.errorHandler.catchErrorHandler(error);
-        });
-    };
-    LoginPage.prototype.getAllMsActivityList = function (userLogin) {
-        var _this = this;
-        this.helperMethod.loadingService("Getting All Activity List..");
-        this.msActivityProvider.getAllData(userLogin).then(function (response) {
-            _this.helperMethod.loading.dismiss();
-            console.log(response);
-            var responseData = JSON.parse(response.data);
-            var responseStatus = response.status;
-            console.log(responseData);
-            console.log(responseData.status);
-            if (responseData.status.code == "0") {
-                _this.msActivityProvider.msActivityList = responseData.listActivity;
-                _this.msActivityProvider.save();
-                _this.events.publish('Auth', 1);
-            }
-            else {
-                _this.errorHandler.catchResponseErrorHandler(responseData);
-            }
-        }).catch(function (error) {
-            _this.helperMethod.loading.dismiss();
-            _this.errorHandler.catchErrorHandler(error);
-        });
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["ViewChild"])('username'),
-        __metadata("design:type", Object)
-    ], LoginPage.prototype, "username", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["ViewChild"])('password'),
-        __metadata("design:type", Object)
-    ], LoginPage.prototype, "password", void 0);
-    LoginPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\login\loginPage.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <!-- <ion-navbar>\n\n    <ion-title>Login</ion-title>\n\n  </ion-navbar> -->\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div id="logo">\n\n    <img src="assets/imgs/IonicLogo.png">\n\n  </div>\n\n  <div id="body">\n\n    <div id="userInput">\n\n      <ion-list inset>\n\n\n\n        <form [formGroup]="loginForm">\n\n\n\n          <ion-item>\n\n            <ion-label floating >Username</ion-label>\n\n            <ion-input formControlName="username" type="text" #username value=\'{{usernameDefaultVal}}\'></ion-input>\n\n\n\n          </ion-item>\n\n\n\n          <ion-item>\n\n            <ion-label floating>Password</ion-label>\n\n            <ion-input formControlName="password" type="{{type}}" #password ></ion-input>\n\n            <button *ngIf="!showHide" ion-button clear color="dark" type="button" item-right (click)="showHidePassword()"> <ion-icon name="ios-eye-off-outline"></ion-icon></button>\n\n            <button *ngIf="showHide" ion-button clear color="dark" type="button" item-right (click)="showHidePassword()"> <ion-icon name="ios-eye-outline"></ion-icon></button>\n\n            \n\n          </ion-item>\n\n\n\n        </form>\n\n\n\n      </ion-list>\n\n    </div>\n\n\n\n    <div id="loginButton">\n\n      <button ion-button block\n\n            [disabled]="!loginForm.valid"\n\n            (click)="doLogin()">\n\n          Sign in\n\n      </button>\n\n    </div>\n\n\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\login\loginPage.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__["a" /* UsersProvider */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
-            __WEBPACK_IMPORTED_MODULE_8__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */],
-            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["c" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_o_auth_oauthProvider__["a" /* OAuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_ms_project_msProjectProvider__["a" /* MsProjectProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_ms_activity_msActivityProvider__["a" /* MsActivityProvider */]])
-    ], LoginPage);
-    return LoginPage;
-}());
-
-//# sourceMappingURL=loginPage.js.map
-
-/***/ }),
-
 /***/ 173:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PerfomancePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bulk_item_detailed_developer_bulk_item_detailed_developer__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_perfomance_perfomanceProvider__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_perfomance_perfomanceProvider__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_progressbar__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_progressbar__ = __webpack_require__(38);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1248,13 +1173,13 @@ var PerfomancePage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bulk_item_detailed_bulk_item_detailed__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ngx_progressbar__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bulk_item_detailed_bulk_item_detailed__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ngx_progressbar__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_report_reportProvider__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__ = __webpack_require__(24);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1371,8 +1296,12 @@ var ReportPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SprintDetailedDeveloperPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_error_handler_error_handler__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_perfomance_perfomanceProvider__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ngx_progressbar__ = __webpack_require__(38);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1384,6 +1313,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
+
 /**
  * Generated class for the SprintDetailedDeveloperPage page.
  *
@@ -1391,18 +1324,60 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var SprintDetailedDeveloperPage = /** @class */ (function () {
-    function SprintDetailedDeveloperPage(navCtrl, navParams) {
+    function SprintDetailedDeveloperPage(navCtrl, navParams, helperMethod, perfomanceProvider, ngProgress, errorHandler) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.helperMethod = helperMethod;
+        this.perfomanceProvider = perfomanceProvider;
+        this.ngProgress = ngProgress;
+        this.errorHandler = errorHandler;
+        this.sprintRequest = navParams.get("sprintRequest");
     }
     SprintDetailedDeveloperPage.prototype.ionViewDidLoad = function () {
+        if (this.sprintRequest == null) {
+            this.navCtrl.pop();
+            this.helperMethod.presentToast('Please Try Again', 3000, 2);
+        }
+        else {
+            this.getSprintDetailed();
+        }
         console.log('ionViewDidLoad SprintDetailedDeveloperPage');
     };
+    SprintDetailedDeveloperPage.prototype.onItemPressed = function (item) {
+        console.log("Sprint Detailed");
+        console.log(item.item);
+    };
+    SprintDetailedDeveloperPage.prototype.getSprintDetailed = function () {
+        var _this = this;
+        this.ngProgress.start();
+        this.perfomanceProvider.getSprintDetailBySprint(this.sprintRequest)
+            .then(function (response) {
+            _this.ngProgress.done();
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+                _this.sprintDetailedList = responseData.sprintDetailedList;
+                _this.sprintSummary = responseData.sprintSummary;
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.ngProgress.done();
+            _this.errorHandler.catchErrorHandler(error);
+        });
+    };
     SprintDetailedDeveloperPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-sprint-detailed-developer',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-detailed-developer\sprint-detailed-developer.html"*/'<!--\n  Generated template for the SprintDetailedDeveloperPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>SprintDetailedDeveloperPage</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-detailed-developer\sprint-detailed-developer.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
+            selector: 'page-sprint-detailed-developer',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-detailed-developer\sprint-detailed-developer.html"*/'<!--\n  Generated template for the SprintDetailedDeveloperPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>SprintDetailedDeveloperPage</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="ionContent">\n\n  <ng-progress class="ng-progress" [color]="\'#216fed\'"></ng-progress>\n  \n  <ng-container *ngIf="sprintSummary == null; else elseTemplate">\n    <ion-item class="loadingItem">\n      Loading Item Please Wait...\n    </ion-item>\n  </ng-container>\n  <ng-template #elseTemplate>\n\n    <ion-item class="ionItemBulkDetail">\n      <h1 style="font-weight: bold">{{sprintSummary.bulk_name}}</h1>\n      <h2 style="font-weight: bold">Sprint : {{sprintSummary.sprint}}</h2>\n      <br/>\n      <tr>\n        <td>\n          <h2>Start Date</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;{{sprintSummary.dtm_crt}}</h2>\n        </td>\n      </tr>\n      <tr>\n        <td>\n          <h2>Total Item</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;{{sprintSummary.total_item}} Items</h2>\n        </td>\n      </tr>\n      <br/>\n\n    </ion-item>\n    <!-- <progress-bar \n      [progress]="sprintSummary.percentage" \n      [color-degraded]="{\'0\': \'#00cbcb\',  \'50\': \'#f9c3d3\', \'75\': \'#fd8c8e\'}"\n      class="progress-bar" >\n    </progress-bar> -->\n    <ion-item class="ionItemBulkProgress">\n      <ion-row class="row1">\n        <ion-col>\n          <strong>Done</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.done" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.done}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n        <ion-col>\n          <strong>Review</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.review" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.review}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      \n      <ion-row class="row2">\n        <ion-col>\n          <strong>On Progress</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.on_progress" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.on_progress}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n        <ion-col>\n          <strong>Todo</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.to_do" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.to_do}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      \n    </ion-item>\n\n    <ion-row class="headerSprint">\n        <ion-col>Sprint</ion-col>\n        <ion-col>Status</ion-col>\n        <ion-col>Duration</ion-col>\n    </ion-row>\n\n  </ng-template>\n    \n  <ion-list [virtualScroll]="sprintDetailedList">\n    <button ion-item *virtualItem="let sprintItem" (click)="onItemPressed({item:sprintItem})">\n      <ion-row>\n        <ion-col style="white-space:normal">\n          {{sprintItem.sprint_id}}\n        </ion-col>\n        <ion-col style="white-space:normal">\n          {{sprintItem.statusSprint}}\n        </ion-col>\n        <ion-col style="white-space:normal">\n          {{sprintItem.duration}}\n        </ion-col>\n      </ion-row>\n    </button>\n  </ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-detailed-developer\sprint-detailed-developer.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_perfomance_perfomanceProvider__["a" /* PerfomanceProvider */],
+            __WEBPACK_IMPORTED_MODULE_5_ngx_progressbar__["a" /* NgProgress */],
+            __WEBPACK_IMPORTED_MODULE_0__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */]])
     ], SprintDetailedDeveloperPage);
     return SprintDetailedDeveloperPage;
 }());
@@ -1491,12 +1466,12 @@ var TabsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_storage_storageProvider__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__time_sheet_page_modal_time_sheet_page_modal__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_timesheets_timesheetsProvider__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ngx_progressbar__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ngx_progressbar__ = __webpack_require__(38);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1623,13 +1598,13 @@ var TimeSheetPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimeSheetPageModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_timesheets_timesheetsProvider__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_ms_activity_msActivityProvider__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_ms_activity_msActivityProvider__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_ms_project_msProjectProvider__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_ms_project_msProjectProvider__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__ = __webpack_require__(24);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1834,8 +1809,8 @@ var TimeSheetPageModal = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_storage_storageProvider__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_users_usersProvider__ = __webpack_require__(23);
@@ -1988,10 +1963,10 @@ webpackEmptyAsyncContext.id = 190;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__helper_method_helper_method__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__o_auth_oauthProvider__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__global_variable_global_variable__ = __webpack_require__(47);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2111,12 +2086,12 @@ var UsersProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 29:
+/***/ 24:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrorHandlerProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2209,11 +2184,11 @@ var map = {
 		13
 	],
 	"../pages/bulk-item-detailed/bulk-item-detailed.module": [
-		711,
+		712,
 		12
 	],
 	"../pages/login/loginPage.module": [
-		712,
+		711,
 		11
 	],
 	"../pages/main/main.module": [
@@ -2253,11 +2228,11 @@ var map = {
 		3
 	],
 	"../pages/time-sheet/time-sheetPage.module": [
-		722,
+		723,
 		2
 	],
 	"../pages/user/userPage.module": [
-		723,
+		722,
 		1
 	]
 };
@@ -2285,8 +2260,8 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_http__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2516,26 +2491,26 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_bulk_item_detailed_developer_bulk_item_detailed_developer__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_sprint_detailed_sprint_detailed__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_bulk_item_detailed_bulk_item_detailed__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_sprint_detailed_sprint_detailed__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_bulk_item_detailed_bulk_item_detailed__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_back_log_report_back_log_report__ = __webpack_require__(381);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_report_page_modal_report_page_modal__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_helper_method_helper_method__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_angular__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(377);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(378);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_common_http__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_http__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_storage__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ngx_progressbar__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ngx_progressbar__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angular_progress_bar__ = __webpack_require__(380);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angular_svg_round_progressbar__ = __webpack_require__(379);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angular_svg_round_progressbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_angular_svg_round_progressbar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__app_component__ = __webpack_require__(707);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_main_main__ = __webpack_require__(382);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_login_loginPage__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_login_loginPage__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_tabs_tabs__ = __webpack_require__(176);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_report_reportPage__ = __webpack_require__(174);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_time_sheet_time_sheetPage__ = __webpack_require__(177);
@@ -2548,11 +2523,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_o_auth_oauthProvider__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_storage_storageProvider__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_global_variable_global_variable__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_ms_project_msProjectProvider__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_ms_activity_msActivityProvider__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_error_handler_error_handler__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_ms_project_msProjectProvider__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_ms_activity_msActivityProvider__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_error_handler_error_handler__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_sprint_detailed_developer_sprint_detailed_developer__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_perfomance_perfomanceProvider__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_perfomance_perfomanceProvider__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_perfomance_perfomancePage__ = __webpack_require__(173);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2631,8 +2606,8 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/back-log-report/back-log-report.module#BackLogReportPageModule', name: 'BackLogReportPage', segment: 'back-log-report', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/bulk-item-detailed-developer/bulk-item-detailed-developer.module#BulkItemDetailedDeveloperPageModule', name: 'BulkItemDetailedDeveloperPage', segment: 'bulk-item-detailed-developer', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/bulk-item-detailed/bulk-item-detailed.module#BulkItemDetailedPageModule', name: 'BulkItemDetailedPage', segment: 'bulk-item-detailed', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/loginPage.module#LoginPageModule', name: 'LoginPage', segment: 'loginPage', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/bulk-item-detailed/bulk-item-detailed.module#BulkItemDetailedPageModule', name: 'BulkItemDetailedPage', segment: 'bulk-item-detailed', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/main/main.module#MainPageModule', name: 'MainPage', segment: 'main', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/perfomance/perfomancePage.module#PerfomancePageModule', name: 'PerfomancePage', segment: 'perfomancePage', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/report-page-modal/report-page-modal.module#ReportPageModalPageModule', name: 'ReportPageModal', segment: 'report-page-modal', priority: 'low', defaultHistory: [] },
@@ -2642,8 +2617,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/sprint-report/sprint-report.module#SprintReportPageModule', name: 'SprintReportPage', segment: 'sprint-report', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/time-sheet-page-modal/time-sheet-page-modal.module#TimeSheetPageModalPageModule', name: 'TimeSheetPageModal', segment: 'time-sheet-page-modal', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/time-sheet/time-sheetPage.module#TimeSheetPageModule', name: 'TimeSheetPage', segment: 'time-sheetPage', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/user/userPage.module#UserPageModule', name: 'UserPage', segment: 'userPage', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/user/userPage.module#UserPageModule', name: 'UserPage', segment: 'userPage', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/time-sheet/time-sheetPage.module#TimeSheetPageModule', name: 'TimeSheetPage', segment: 'time-sheetPage', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_13__ionic_storage__["a" /* IonicStorageModule */].forRoot()
@@ -2735,6 +2710,7 @@ var GlobalVariableProvider = /** @class */ (function () {
         this.detailedBulkItemDeveloperAPI = 'bulkitem/getDetailedBulkItemDeveloper';
         this.getSprintByBulkItem = 'bulkitem/getSprintByBulkItem';
         this.getDetailSprintBySprint = 'bulkitem/getDetailSprintBySprint';
+        this.getDetailSprintBySprintDeveloper = 'bulkitem/getDetailSprintBySprintDeveloper';
         this.backlogItemAPI = '';
         this.iterationItemAPI = '';
         this.assignIterationAPI = '';
@@ -2810,17 +2786,17 @@ var StorageProvider = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_tabs_tabs__ = __webpack_require__(176);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(378);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(377);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_loginPage__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_loginPage__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_storage_storageProvider__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_o_auth_oauthProvider__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_error_handler_error_handler__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_error_handler_error_handler__ = __webpack_require__(24);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2985,13 +2961,13 @@ var ExpandableComponent = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operators__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operators__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__global_variable_global_variable__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__o_auth_oauthProvider__ = __webpack_require__(37);
@@ -3116,6 +3092,90 @@ var ReportProvider = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=reportProvider.js.map
+
+/***/ }),
+
+/***/ 91:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PerfomanceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global_variable_global_variable__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__users_usersProvider__ = __webpack_require__(23);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+/*
+  Generated class for the PerfomanceProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var PerfomanceProvider = /** @class */ (function () {
+    function PerfomanceProvider(http, httpNative, globalVal, oauthProvider, userProvider, helperMethod) {
+        this.http = http;
+        this.httpNative = httpNative;
+        this.globalVal = globalVal;
+        this.oauthProvider = oauthProvider;
+        this.userProvider = userProvider;
+        this.helperMethod = helperMethod;
+        console.log('Hello PerfomanceProvider Provider');
+    }
+    PerfomanceProvider.prototype.getBulkItemList = function () {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getPerfomanceByUser);
+        this.httpNative.setRequestTimeout(600);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getPerfomanceByUser, this.userProvider.user, headers);
+    };
+    PerfomanceProvider.prototype.getDetailedBulkItemDeveloper = function (bulkItem) {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemDeveloperAPI);
+        this.httpNative.setRequestTimeout(600);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemDeveloperAPI, bulkItem, headers);
+    };
+    PerfomanceProvider.prototype.getSprintDetailBySprint = function (sprint) {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getDetailSprintBySprintDeveloper);
+        this.httpNative.setRequestTimeout(60);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getDetailSprintBySprintDeveloper, sprint, headers);
+    };
+    PerfomanceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_http__["a" /* HTTP */],
+            __WEBPACK_IMPORTED_MODULE_1__global_variable_global_variable__["a" /* GlobalVariableProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__["a" /* OAuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_6__users_usersProvider__["a" /* UsersProvider */],
+            __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__["a" /* HelperMethodProvider */]])
+    ], PerfomanceProvider);
+    return PerfomanceProvider;
+}());
+
+//# sourceMappingURL=perfomanceProvider.js.map
 
 /***/ })
 

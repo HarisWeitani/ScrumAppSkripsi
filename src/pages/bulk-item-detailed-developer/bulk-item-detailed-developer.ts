@@ -91,7 +91,8 @@ export class BulkItemDetailedDeveloperPage {
     // this.getSprintDetailed(item);
     let sprintRequest = {
       sprint : item.item.sprint,
-      bulk_id : this.bulkItemSelected.bulk_id
+      bulk_id : this.bulkItemSelected.bulk_id,
+      person_id : this.userProv.user.person_id
     }
     this.navCtrl.push(SprintDetailedDeveloperPage,{sprintRequest : sprintRequest});
     // this.getSprintDetailedByBrowser();

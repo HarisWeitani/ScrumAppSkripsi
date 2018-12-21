@@ -33570,6 +33570,46 @@ page-sprint-detailed .headerSprint {
   margin-top: 7px;
 }
 
+page-sprint-detailed-developer .ionContent {
+  background-color: #caccce;
+}
+
+page-sprint-detailed-developer .loadingItem {
+  background-color: #f7f7f7;
+}
+
+page-sprint-detailed-developer .positionRelative {
+  position: absolute;
+  text-align: center;
+  margin-left: 20%;
+  margin-top: 10px;
+}
+
+page-sprint-detailed-developer .percentageValue {
+  position: absolute;
+  text-align: center;
+  top: 38%;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+page-sprint-detailed-developer .row1 {
+  margin-top: 12px;
+  text-align: center;
+}
+
+page-sprint-detailed-developer .row2 {
+  margin-top: 110px;
+  margin-bottom: 110px;
+  text-align: center;
+}
+
+page-sprint-detailed-developer .headerSprint {
+  background-color: #f7f7f7;
+  margin-top: 7px;
+}
+
 page-time-sheet .ionItemHeader {
   background-color: grey;
   color: white;

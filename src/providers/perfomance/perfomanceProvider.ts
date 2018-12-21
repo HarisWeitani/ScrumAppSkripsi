@@ -46,4 +46,16 @@ export class PerfomanceProvider {
                               ,bulkItem,headers);
   }
 
+  getSprintDetailBySprint(sprint : any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    this.httpNative.setDataSerializer('json');
+    console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getDetailSprintBySprintDeveloper);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getDetailSprintBySprintDeveloper
+                              ,sprint,headers);
+
+  }
+
 }
