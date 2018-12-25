@@ -20,10 +20,10 @@
 
 <ion-content padding>
 
-  <div class="north">
+  <!-- <div class="north">
     <img class="profile-photo" src="assets/imgs/user/profile_picture_example.jpg"> 
   </div>
-   
+    -->
   
   <div>
     <div class="content">
@@ -36,21 +36,57 @@
     </div>
   </div>
  
-<!-- 
-  <ion-list>
-    <ion-item-sliding *ngFor="let user of allUsers">
-      <ion-item (click)="onItemPressed({id: user.name})">
-        <ion-avatar item-left>
-          <img src="assets/imgs/user/profile_picture_example.jpg">
-        </ion-avatar>
-        <h2>{{user.name}}</h2>
-      </ion-item>
-      <ion-item-options>
-        <button ion-button color="danger" (click)="onItemCOEG()">
-          <ion-icon name="trash"></ion-icon> Delete
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list> -->
+  
+  <ion-row class="headerSprint">
+    <ion-col>Your Claimed Sprint</ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+  <ion-list [virtualScroll]="sprintDetailedList">
+    <button ion-item *virtualItem="let sprintItem" (click)="onItemPressed({item:sprintItem})">
+      <ion-row>
+        <ion-col style="white-space:normal">
+          {{sprintItem.sprint_id}}
+        </ion-col>
+        <ion-col style="white-space:normal">
+          duration
+        </ion-col>
+        <ion-col style="white-space:normal">
+          update
+          todo
+          on progress
+          review
+          done
+          ini bakal di if in disininya
+        </ion-col>
+      </ion-row>
+    </button>
+  </ion-list>
+
+  
+  <ion-row class="headerSprint">
+    <ion-col>Claim Sprint</ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+  <ion-list [virtualScroll]="sprintDetailedList">
+    <button ion-item *virtualItem="let sprintItem" (click)="onItemPressed({item:sprintItem})">
+      <ion-row>
+        <ion-col style="white-space:normal">
+          {{sprintItem.sprint_id}}
+        </ion-col>
+        <ion-col style="white-space:normal">
+          duration
+        </ion-col>
+        <ion-col style="white-space:normal">
+          button claim
+        </ion-col>
+      </ion-row>
+    </button>
+  </ion-list>
+
+
 
 </ion-content>

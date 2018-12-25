@@ -20,14 +20,6 @@ import { UsersProvider } from '../../providers/users/usersProvider';
 })
 export class UserPage {
 
-  //mau migrasi ke userprovider aja
-  userData : User;
-  allUsers : Array<any>;
-  username : string;
-  email : string;
-  // loading : any;
-  error : any;
-  
   constructor(private navCtrl: NavController, private navParams: NavParams, 
               public userProvider : UsersProvider,
               private helperMethod:HelperMethodProvider,
@@ -41,24 +33,9 @@ export class UserPage {
     console.log('ionViewDidLoad UserPage');
 
   }
-  ionViewWillEnter(){
-    console.log('will enter');
-  }
-  ionViewDidEnter(){
-    console.log('Did enter');
-  }
 
   onItemPressed(userId){
     console.log('On Item Pressed',userId);
-
-    this.helperMethod.loadingService('Harap tunggu');
-    setTimeout(()=>{
-      this.helperMethod.loading.dismiss();
-      this.helperMethod.loadingService('Coba Lagi..');
-      setTimeout(()=>{
-        this.helperMethod.loading.dismiss();
-      },1000);
-    },3000);
 
   }
 

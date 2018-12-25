@@ -69,9 +69,56 @@ export class UsersProvider {
     return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.userLogoutAPI
                               ,userLogin,headers);
+  }
 
+  getClaimedSprintByUser(userLogin : any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    console.log(headers);
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getClaimedSprintByUser);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getClaimedSprintByUser
+                              ,userLogin,headers);  
   }
   
+  getUnclaimedSprint(userLogin : any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    console.log(headers);
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getUnclaimedSprint);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getUnclaimedSprint
+                              ,userLogin,headers);  
+  }
+
+  updateSprintProgress(userLogin : any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    console.log(headers);
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.updateSprintProgress);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.updateSprintProgress
+                              ,userLogin,headers);  
+  }
+
+  claimSprint(userLogin : any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    console.log(headers);
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.claimSprint);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.claimSprint
+                              ,userLogin,headers);  
+  }
+
   saveUserDataToStorage(){
 
     this.storageProvider.save(this.storageProvider.userKey,this.user);

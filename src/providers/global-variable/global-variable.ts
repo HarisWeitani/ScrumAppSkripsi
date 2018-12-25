@@ -35,8 +35,10 @@ export class GlobalVariableProvider {
   public getDetailSprintBySprint : string = 'bulkitem/getDetailSprintBySprint';
   public getDetailSprintBySprintDeveloper : string = 'bulkitem/getDetailSprintBySprintDeveloper';
   
-  public backlogItemAPI : string = '';
-  public iterationItemAPI : string = '';
-  public assignIterationAPI : string = '';
+  public getClaimedSprintByUser : string = '?/getClaimedSprintByUser';
+  public getUnclaimedSprint : string = '?/getUnclaimedSprint';
+  public updateSprintProgress : string = '?/updateSprintProgress';
+  public claimSprint : string = '?/claimSprint';
+  
 
 }

@@ -1,3 +1,4 @@
+import { SprintItemPage } from './../sprint-item/sprint-item';
 import { SprintSummary } from './../../models/SprintSummary';
 import { ErrorHandlerProvider } from './../../providers/error-handler/error-handler';
 import { PerfomanceProvider } from './../../providers/perfomance/perfomanceProvider';
@@ -58,6 +59,7 @@ export class SprintDetailedDeveloperPage {
   onItemPressed(item){
     console.log("Sprint Detailed");
     console.log(item.item);
+    this.navCtrl.push(SprintItemPage,{item:item.item});
   }
 
   getSprintDetailed(){
