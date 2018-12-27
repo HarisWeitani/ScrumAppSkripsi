@@ -55,19 +55,6 @@ export class ReportProvider {
                               ,bulkItem,headers);
   }
 
-
-  getBackLogItemByBulkItemList(bulkItem : any){
-    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
-
-    this.httpNative.setDataSerializer('json');
-    console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.backlogItemAPI);
-    this.httpNative.setRequestTimeout(60);
-    return this.httpNative
-            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.backlogItemAPI
-                              ,bulkItem,headers);
-  
-  }
-
   getSprintDetailBySprint(sprint : any){
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
 
@@ -77,18 +64,6 @@ export class ReportProvider {
     return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getDetailSprintBySprint
                               ,sprint,headers);
-
-  }
-
-  assignIterationToUser(iterationItem : any){
-    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
-
-    this.httpNative.setDataSerializer('json');
-    console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.assignIterationAPI);
-    this.httpNative.setRequestTimeout(60);
-    return this.httpNative
-            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.assignIterationAPI
-                              ,iterationItem,headers);
 
   }
 

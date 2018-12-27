@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 export class GlobalVariableProvider {
 
   //tirta
-  // public ipUrl : string = 'http://172.18.0.73:8080/';
+  // public ipUrl : string = 'http://172.18.0.93:8080/';
   //local
   public ipUrl : string = 'http://172.18.0.218:8080/';
   public baseUrl : string = 'com.adins.mss.webservices/services/m/';
@@ -35,10 +35,10 @@ export class GlobalVariableProvider {
   public getDetailSprintBySprint : string = 'bulkitem/getDetailSprintBySprint';
   public getDetailSprintBySprintDeveloper : string = 'bulkitem/getDetailSprintBySprintDeveloper';
   
-  public getClaimedSprintByUser : string = '?/getClaimedSprintByUser';
-  public getUnclaimedSprint : string = '?/getUnclaimedSprint';
-  public updateSprintProgress : string = '?/updateSprintProgress';
-  public claimSprint : string = '?/claimSprint';
+  public getClaimedSprintByUser : string = 'bulkitem/getClaimedSprintByUser';
+  public getUnclaimedSprint : string = 'bulkitem/getUnclaimedSprint';
+  public updateSprintProgress : string = 'bulkitem/updateSprintProgress';
+  public claimSprint : string = 'bulkitem/claimSprint';
   
 
 }

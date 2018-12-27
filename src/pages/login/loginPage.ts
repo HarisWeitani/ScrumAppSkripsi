@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HelperMethodProvider } from '../../providers/helper-method/helper-method';
 import { OAuthProvider } from '../../providers/o-auth/oauthProvider';
 import { ErrorHandlerProvider } from '../../providers/error-handler/error-handler';
+import { timeout } from 'rxjs/operators';
 
 /**
  * Generated class for the LoginPage page.
@@ -58,8 +59,8 @@ export class LoginPage {
       username : this.username.value,
       password : this.password.value
     };
-    // this.doLoginBrowser(userLogin);
-    this.doAuthenticate(userLogin);
+    this.doLoginBrowser(userLogin);
+    // this.doAuthenticate(userLogin);
   }
 
   doAuthenticate(userLogin){
@@ -123,29 +124,44 @@ export class LoginPage {
   
   doLoginBrowser(userLogin){
     this.helperMethod.loadingService("Collecting User Info..");
-    this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(
-        (response:any) => {
-          this.helperMethod.loading.dismiss();
-          
-          this.userProvider.user = response;
-          this.events.publish('Auth',1);
-          console.log(response);
-        },
-        (error:any) => {
-          console.log(error);
-          console.error(error.name);
-          console.error(error.status);
-          console.error(error.statusText);
-          this.helperMethod.loading.dismiss();
-  
-          if(error.name == 'TimeoutError'){
-            this.helperMethod.presentToast('Slow Connection',2000,2);
-          }else{
-            this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',2000,3);
-          }
-          
+    setTimeout(
+      () =>{
+        this.userProvider.user = {
+          person_id : '1',
+          job_id : '7',
+          team_id : '3',
+          person_name : 'Audi Aung Pertamax',
+          job_name : 'Dukun',
+          team_name : 'Gunung sinai',
+          is_spv : '0'
         }
-      );
+        this.helperMethod.loading.dismiss();
+        this.events.publish('Auth',1);
+      },500
+    );
+    // this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(
+    //     (response:any) => {
+    //       this.helperMethod.loading.dismiss();
+          
+    //       this.userProvider.user = response;
+    //       this.events.publish('Auth',1);
+    //       console.log(response);
+    //     },
+    //     (error:any) => {
+    //       console.log(error);
+    //       console.error(error.name);
+    //       console.error(error.status);
+    //       console.error(error.statusText);
+    //       this.helperMethod.loading.dismiss();
+  
+    //       if(error.name == 'TimeoutError'){
+    //         this.helperMethod.presentToast('Slow Connection',2000,2);
+    //       }else{
+    //         this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',2000,3);
+    //       }
+          
+    //     }
+    //   );
   }
 
   showHidePassword(){

@@ -1,5 +1,8 @@
 page-user {
 
+    .ionContent{
+        background-color: #caccce;
+    }
     .profile-photo {
         width: 50%;
         height: 50%;
@@ -17,4 +20,14 @@ page-user {
         justify-content: center;
         align-items: center;
     }
+    .headerSprint{
+        background-color: #f7f7f7;
+        margin-top: 20px;
+    }
+
+    .buttonCol{
+        white-space:normal;
+        align-items: center;
+    }
+    
 }

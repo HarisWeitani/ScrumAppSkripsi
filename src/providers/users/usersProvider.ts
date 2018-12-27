@@ -12,6 +12,7 @@ import { HelperMethodProvider } from '../helper-method/helper-method';
 import { HTTP } from '@ionic-native/http';
 import { OAuthProvider } from '../o-auth/oauthProvider';
 import { GlobalVariableProvider } from '../global-variable/global-variable';
+import { SprintDetailed } from '../../models/SprintDetailed';
 
 /*
   Generated class for the UsersProvider provider.
@@ -27,7 +28,8 @@ export class UsersProvider {
 
   user: User;
   userLogin : any;
-  // userOAuth : OAuthToken;
+  claimedSprintDetailList : Array<SprintDetailed>;
+  unclaimedSprintDetailList : Array<SprintDetailed>;
  
   constructor(private http:HttpClient, private helperMethod : HelperMethodProvider,
               public httpNative : HTTP, public oauthProvider : OAuthProvider,

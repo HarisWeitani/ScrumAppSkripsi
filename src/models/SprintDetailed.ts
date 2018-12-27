@@ -5,6 +5,7 @@ export interface SprintDetailed{
     person_id : String;
     definition_of_done : String;
     is_active : String;
+    commited : String;
 
     person_name : String;
     sprint_id : String;

@@ -1,3 +1,4 @@
+import { SprintItemPage } from './../pages/sprint-item/sprint-item';
 import { BulkItemDetailedDeveloperPage } from './../pages/bulk-item-detailed-developer/bulk-item-detailed-developer';
 import { SprintDetailedPage } from './../pages/sprint-detailed/sprint-detailed';
 import { BulkItemDetailedPage } from './../pages/bulk-item-detailed/bulk-item-detailed';
@@ -55,6 +56,7 @@ import { PerfomancePage } from '../pages/perfomance/perfomancePage';
     SprintDetailedDeveloperPage,
     TimeSheetPageModal,
     SprintDetailedPage,
+    SprintItemPage,
     ExpandableComponent
   ],
   imports: [
@@ -86,6 +88,7 @@ import { PerfomancePage } from '../pages/perfomance/perfomancePage';
     SprintDetailedDeveloperPage,
     TimeSheetPageModal,
     SprintDetailedPage,
+    SprintItemPage,
     ExpandableComponent
   ],
   providers: [

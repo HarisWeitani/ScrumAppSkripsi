@@ -7,12 +7,81 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>SprintItemPage</ion-title>
+    <ion-title>Sprint Item</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="ionContent">
+
+  <ion-item class="ionItemSprintDetail">
+    <h1 style="font-weight: bold">{{sprintdetailed.sprint_id}}</h1>
+    <br/>
+    <tr>
+      <td>
+        <h2>Status</h2>
+      </td>
+      <td>
+        <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>
+      </td>
+      <td>
+        <h2>&nbsp;&nbsp;&nbsp;{{sprintdetailed.statusSprint}}</h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h2>PIC</h2>
+      </td>
+      <td>
+        <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>
+      </td>
+      <td>
+        <h2>&nbsp;&nbsp;&nbsp;{{sprintdetailed.person_name}}</h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h2>Sprint</h2>
+      </td>
+      <td>
+        <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>
+      </td>
+      <td>
+        <h2>&nbsp;&nbsp;&nbsp;{{sprintdetailed.sprint}}</h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h2>Duration</h2>
+      </td>
+      <td>
+        <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>
+      </td>
+      <td>
+        <h2>&nbsp;&nbsp;&nbsp;{{sprintdetailed.duration}}</h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h2>Commited</h2>
+      </td>
+      <td>
+        <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>
+      </td>
+      <td>
+        <h2>&nbsp;&nbsp;&nbsp;{{sprintdetailed.commited}}</h2>
+      </td>
+    </tr>
+    <br/>
+    <br/>
+  </ion-item>
+  <ion-item>
+    Definition Of Done
+    <br/>
+  </ion-item>
+  <ion-item class="ionItemDefinitionOfDone" text-wrap>
+    <p>{{sprintdetailed.definition_of_done}}</p>
+  </ion-item>
 
 </ion-content>

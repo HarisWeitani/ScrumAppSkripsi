@@ -1,17 +1,17 @@
-webpackJsonp([15],{
+webpackJsonp([16],{
 
-/***/ 143:
+/***/ 146:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MsActivityProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_http__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__storage_storageProvider__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__storage_storageProvider__ = __webpack_require__(52);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -89,18 +89,18 @@ var MsActivityProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 146:
+/***/ 147:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MsProjectProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_http__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__storage_storageProvider__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__storage_storageProvider__ = __webpack_require__(52);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -178,16 +178,16 @@ var MsProjectProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 147:
+/***/ 148:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimesheetsProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__global_variable_global_variable__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__global_variable_global_variable__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__o_auth_oauthProvider__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__o_auth_oauthProvider__ = __webpack_require__(38);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -256,12 +256,12 @@ var TimesheetsProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 15:
+/***/ 16:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelperMethodProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -332,19 +332,19 @@ var HelperMethodProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 169:
+/***/ 170:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BulkItemDetailedDeveloperPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_perfomance_perfomanceProvider__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sprint_detailed_developer_sprint_detailed_developer__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sprint_detailed_developer_sprint_detailed_developer__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_error_handler_error_handler__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_helper_method_helper_method__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ngx_progressbar__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ngx_progressbar__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -530,20 +530,18 @@ var BulkItemDetailedDeveloperPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 170:
+/***/ 171:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_ms_activity_msActivityProvider__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_ms_project_msProjectProvider__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_o_auth_oauthProvider__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_error_handler_error_handler__ = __webpack_require__(24);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SprintDetailedDeveloperPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sprint_item_sprint_item__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_perfomance_perfomanceProvider__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_progressbar__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -560,204 +558,88 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the SprintDetailedDeveloperPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParames, userProvider, toastCtrl, formBuilder, helperMethod, errorHandler, events, oAuthProvider, msProjectProvider, msActivityProvider) {
+var SprintDetailedDeveloperPage = /** @class */ (function () {
+    function SprintDetailedDeveloperPage(navCtrl, navParams, helperMethod, perfomanceProvider, ngProgress, errorHandler) {
         this.navCtrl = navCtrl;
-        this.navParames = navParames;
-        this.userProvider = userProvider;
-        this.toastCtrl = toastCtrl;
-        this.formBuilder = formBuilder;
+        this.navParams = navParams;
         this.helperMethod = helperMethod;
+        this.perfomanceProvider = perfomanceProvider;
+        this.ngProgress = ngProgress;
         this.errorHandler = errorHandler;
-        this.events = events;
-        this.oAuthProvider = oAuthProvider;
-        this.msProjectProvider = msProjectProvider;
-        this.msActivityProvider = msActivityProvider;
-        this.type = 'password';
-        this.showHide = false;
-        this.loginForm = formBuilder.group({
-            username: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].minLength(3)])],
-            password: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].minLength(3)])]
-        });
+        this.sprintRequest = navParams.get("sprintRequest");
     }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LoginPage ');
-    };
-    LoginPage.prototype.doLogin = function () {
-        var userLogin = {
-            username: this.username.value,
-            password: this.password.value
-        };
-        // this.doLoginBrowser(userLogin);
-        this.doAuthenticate(userLogin);
-    };
-    LoginPage.prototype.doAuthenticate = function (userLogin) {
-        var _this = this;
-        console.log("Do Auth " + userLogin);
-        this.helperMethod.loadingService("Verifying Your Info..");
-        this.oAuthProvider.getOAuthToken(userLogin)
-            .then(function (response) {
-            _this.helperMethod.loading.dismiss();
-            response = JSON.parse(response.data);
-            console.log(response);
-            _this.oAuthProvider.userOAuth = response;
-            console.log(_this.oAuthProvider.userOAuth);
-            _this.doLogindevice(userLogin);
-        }).catch(function (error) {
-            _this.helperMethod.loading.dismiss();
-            _this.errorHandler.catchErrorHandler(error);
-        });
-    };
-    LoginPage.prototype.doLogindevice = function (userLogin) {
-        var _this = this;
-        this.helperMethod.loadingService("Collecting User Info..");
-        this.userProvider.validateLoginDevice(userLogin).then(function (response) {
-            _this.helperMethod.loading.dismiss();
-            console.log(response);
-            var responseData = JSON.parse(response.data);
-            var responseStatus = response.status;
-            console.log(responseData);
-            console.log(responseData.status);
-            if (responseData.status.code == "0") {
-                _this.userProvider.user = responseData;
-                _this.userProvider.userLogin = userLogin;
-                _this.userProvider.saveUserDataToStorage();
-                _this.getAllMsProjectList(userLogin);
-            }
-            else {
-                _this.errorHandler.catchResponseErrorHandler(responseData);
-            }
-        }).catch(function (error) {
-            _this.helperMethod.loading.dismiss();
-            _this.errorHandler.catchErrorHandler(error);
-        });
-    };
-    LoginPage.prototype.doLoginBrowser = function (userLogin) {
-        var _this = this;
-        this.helperMethod.loadingService("Collecting User Info..");
-        this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(function (response) {
-            _this.helperMethod.loading.dismiss();
-            _this.userProvider.user = response;
-            _this.events.publish('Auth', 1);
-            console.log(response);
-        }, function (error) {
-            console.log(error);
-            console.error(error.name);
-            console.error(error.status);
-            console.error(error.statusText);
-            _this.helperMethod.loading.dismiss();
-            if (error.name == 'TimeoutError') {
-                _this.helperMethod.presentToast('Slow Connection', 2000, 2);
-            }
-            else {
-                _this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT', 2000, 3);
-            }
-        });
-    };
-    LoginPage.prototype.showHidePassword = function () {
-        this.showHide = !this.showHide;
-        if (this.showHide) {
-            this.type = 'text';
+    SprintDetailedDeveloperPage.prototype.ionViewDidLoad = function () {
+        if (this.sprintRequest == null) {
+            this.navCtrl.pop();
+            this.helperMethod.presentToast('Please Try Again', 3000, 2);
         }
         else {
-            this.type = 'password';
+            this.getSprintDetailed();
         }
+        console.log('ionViewDidLoad SprintDetailedDeveloperPage');
     };
-    LoginPage.prototype.getAllMsProjectList = function (userLogin) {
+    SprintDetailedDeveloperPage.prototype.onItemPressed = function (item) {
+        console.log("Sprint Detailed");
+        console.log(item.item);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_0__sprint_item_sprint_item__["a" /* SprintItemPage */], { item: item.item });
+    };
+    SprintDetailedDeveloperPage.prototype.getSprintDetailed = function () {
         var _this = this;
-        this.helperMethod.loadingService("Getting All Project List..");
-        this.msProjectProvider.getAllData(userLogin).then(function (response) {
-            _this.helperMethod.loading.dismiss();
+        this.ngProgress.start();
+        this.perfomanceProvider.getSprintDetailBySprint(this.sprintRequest)
+            .then(function (response) {
+            _this.ngProgress.done();
             console.log(response);
             var responseData = JSON.parse(response.data);
             var responseStatus = response.status;
-            console.log(responseData.listProject);
             console.log(responseData.status);
             if (responseData.status.code == "0") {
-                _this.msProjectProvider.msProjectList = responseData.listProject;
-                _this.msProjectProvider.save();
-                _this.getAllMsActivityList(userLogin);
+                _this.sprintDetailedList = responseData.sprintDetailedList;
+                _this.sprintSummary = responseData.sprintSummary;
             }
             else {
                 _this.errorHandler.catchResponseErrorHandler(responseData);
             }
         }).catch(function (error) {
-            _this.helperMethod.loading.dismiss();
+            _this.ngProgress.done();
             _this.errorHandler.catchErrorHandler(error);
         });
     };
-    LoginPage.prototype.getAllMsActivityList = function (userLogin) {
-        var _this = this;
-        this.helperMethod.loadingService("Getting All Activity List..");
-        this.msActivityProvider.getAllData(userLogin).then(function (response) {
-            _this.helperMethod.loading.dismiss();
-            console.log(response);
-            var responseData = JSON.parse(response.data);
-            var responseStatus = response.status;
-            console.log(responseData);
-            console.log(responseData.status);
-            if (responseData.status.code == "0") {
-                _this.msActivityProvider.msActivityList = responseData.listActivity;
-                _this.msActivityProvider.save();
-                _this.events.publish('Auth', 1);
-            }
-            else {
-                _this.errorHandler.catchResponseErrorHandler(responseData);
-            }
-        }).catch(function (error) {
-            _this.helperMethod.loading.dismiss();
-            _this.errorHandler.catchErrorHandler(error);
-        });
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["ViewChild"])('username'),
-        __metadata("design:type", Object)
-    ], LoginPage.prototype, "username", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["ViewChild"])('password'),
-        __metadata("design:type", Object)
-    ], LoginPage.prototype, "password", void 0);
-    LoginPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\login\loginPage.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <!-- <ion-navbar>\n\n    <ion-title>Login</ion-title>\n\n  </ion-navbar> -->\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div id="logo">\n\n    <img src="assets/imgs/IonicLogo.png">\n\n  </div>\n\n  <div id="body">\n\n    <div id="userInput">\n\n      <ion-list inset>\n\n\n\n        <form [formGroup]="loginForm">\n\n\n\n          <ion-item>\n\n            <ion-label floating >Username</ion-label>\n\n            <ion-input formControlName="username" type="text" #username value=\'{{usernameDefaultVal}}\'></ion-input>\n\n\n\n          </ion-item>\n\n\n\n          <ion-item>\n\n            <ion-label floating>Password</ion-label>\n\n            <ion-input formControlName="password" type="{{type}}" #password ></ion-input>\n\n            <button *ngIf="!showHide" ion-button clear color="dark" type="button" item-right (click)="showHidePassword()"> <ion-icon name="ios-eye-off-outline"></ion-icon></button>\n\n            <button *ngIf="showHide" ion-button clear color="dark" type="button" item-right (click)="showHidePassword()"> <ion-icon name="ios-eye-outline"></ion-icon></button>\n\n            \n\n          </ion-item>\n\n\n\n        </form>\n\n\n\n      </ion-list>\n\n    </div>\n\n\n\n    <div id="loginButton">\n\n      <button ion-button block\n\n            [disabled]="!loginForm.valid"\n\n            (click)="doLogin()">\n\n          Sign in\n\n      </button>\n\n    </div>\n\n\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\login\loginPage.html"*/,
+    SprintDetailedDeveloperPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["Component"])({
+            selector: 'page-sprint-detailed-developer',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-detailed-developer\sprint-detailed-developer.html"*/'<!--\n  Generated template for the SprintDetailedDeveloperPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>SprintDetailedDeveloperPage</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="ionContent">\n\n  <ng-progress class="ng-progress" [color]="\'#216fed\'"></ng-progress>\n  \n  <ng-container *ngIf="sprintSummary == null; else elseTemplate">\n    <ion-item class="loadingItem">\n      Loading Item Please Wait...\n    </ion-item>\n  </ng-container>\n  <ng-template #elseTemplate>\n\n    <ion-item class="ionItemBulkDetail">\n      <h1 style="font-weight: bold">{{sprintSummary.bulk_name}}</h1>\n      <h2 style="font-weight: bold">Sprint : {{sprintSummary.sprint}}</h2>\n      <br/>\n      <tr>\n        <td>\n          <h2>Start Date</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;{{sprintSummary.dtm_crt}}</h2>\n        </td>\n      </tr>\n      <tr>\n        <td>\n          <h2>Total Item</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;{{sprintSummary.total_item}} Items</h2>\n        </td>\n      </tr>\n      <br/>\n\n    </ion-item>\n    <!-- <progress-bar \n      [progress]="sprintSummary.percentage" \n      [color-degraded]="{\'0\': \'#00cbcb\',  \'50\': \'#f9c3d3\', \'75\': \'#fd8c8e\'}"\n      class="progress-bar" >\n    </progress-bar> -->\n    <ion-item class="ionItemBulkProgress">\n      <ion-row class="row1">\n        <ion-col>\n          <strong>Done</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.done" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.done}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n        <ion-col>\n          <strong>Review</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.review" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.review}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      \n      <ion-row class="row2">\n        <ion-col>\n          <strong>On Progress</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.on_progress" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.on_progress}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n        <ion-col>\n          <strong>Todo</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.to_do" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.to_do}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      \n    </ion-item>\n\n    <ion-row class="headerSprint">\n        <ion-col>Sprint</ion-col>\n        <ion-col>Status</ion-col>\n        <ion-col>Duration</ion-col>\n    </ion-row>\n\n  </ng-template>\n    \n  <ion-list [virtualScroll]="sprintDetailedList">\n    <button ion-item *virtualItem="let sprintItem" (click)="onItemPressed({item:sprintItem})">\n      <ion-row>\n        <ion-col style="white-space:normal">\n          {{sprintItem.sprint_id}}\n        </ion-col>\n        <ion-col style="white-space:normal">\n          {{sprintItem.statusSprint}}\n        </ion-col>\n        <ion-col style="white-space:normal">\n          {{sprintItem.duration}}\n        </ion-col>\n      </ion-row>\n    </button>\n  </ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-detailed-developer\sprint-detailed-developer.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__["a" /* UsersProvider */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
-            __WEBPACK_IMPORTED_MODULE_8__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */],
-            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["c" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_o_auth_oauthProvider__["a" /* OAuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_ms_project_msProjectProvider__["a" /* MsProjectProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_ms_activity_msActivityProvider__["a" /* MsActivityProvider */]])
-    ], LoginPage);
-    return LoginPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_perfomance_perfomanceProvider__["a" /* PerfomanceProvider */],
+            __WEBPACK_IMPORTED_MODULE_6_ngx_progressbar__["a" /* NgProgress */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */]])
+    ], SprintDetailedDeveloperPage);
+    return SprintDetailedDeveloperPage;
 }());
 
-//# sourceMappingURL=loginPage.js.map
+//# sourceMappingURL=sprint-detailed-developer.js.map
 
 /***/ }),
 
-/***/ 171:
+/***/ 172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BulkItemDetailedPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sprint_detailed_sprint_detailed__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sprint_detailed_sprint_detailed__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_report_reportProvider__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_report_reportProvider__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_progressbar__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_progressbar__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -977,17 +859,18 @@ var BulkItemDetailedPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 172:
+/***/ 173:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SprintDetailedPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_error_handler_error_handler__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_report_reportProvider__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ngx_progressbar__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sprint_item_sprint_item__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_report_reportProvider__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_progressbar__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -997,6 +880,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1032,6 +916,7 @@ var SprintDetailedPage = /** @class */ (function () {
     SprintDetailedPage.prototype.onItemPressed = function (item) {
         console.log("Sprint Detailed");
         console.log(item.item);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_0__sprint_item_sprint_item__["a" /* SprintItemPage */], { item: item.item });
     };
     SprintDetailedPage.prototype.getSprintDetailed = function () {
         var _this = this;
@@ -1056,14 +941,14 @@ var SprintDetailedPage = /** @class */ (function () {
         });
     };
     SprintDetailedPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-sprint-detailed',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-detailed\sprint-detailed.html"*/'<!--\n  Generated template for the SprintDetailedPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>SprintDetailedPage</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="ionContent">\n\n  <ng-progress class="ng-progress" [color]="\'#216fed\'"></ng-progress>\n  \n  <ng-container *ngIf="sprintSummary == null; else elseTemplate">\n    <ion-item class="loadingItem">\n      Loading Item Please Wait...\n    </ion-item>\n  </ng-container>\n  <ng-template #elseTemplate>\n\n    <ion-item class="ionItemBulkDetail">\n      <h1 style="font-weight: bold">{{sprintSummary.bulk_name}}</h1>\n      <h2 style="font-weight: bold">Sprint : {{sprintSummary.sprint}}</h2>\n      <br/>\n      <tr>\n        <td>\n          <h2>Start Date</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;{{sprintSummary.dtm_crt}}</h2>\n        </td>\n      </tr>\n      <tr>\n        <td>\n          <h2>Total Item</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;{{sprintSummary.total_item}} Items</h2>\n        </td>\n      </tr>\n      <br/>\n\n    </ion-item>\n    <!-- <progress-bar \n      [progress]="sprintSummary.percentage" \n      [color-degraded]="{\'0\': \'#00cbcb\',  \'50\': \'#f9c3d3\', \'75\': \'#fd8c8e\'}"\n      class="progress-bar" >\n    </progress-bar> -->\n    <ion-item class="ionItemBulkProgress">\n      <ion-row class="row1">\n        <ion-col>\n          <strong>Done</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.done" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.done}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n        <ion-col>\n          <strong>Review</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.review" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.review}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      \n      <ion-row class="row2">\n        <ion-col>\n          <strong>On Progress</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.on_progress" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.on_progress}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n        <ion-col>\n          <strong>Todo</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.to_do" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.to_do}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      \n    </ion-item>\n\n    <ion-row class="headerSprint">\n        <ion-col>Sprint</ion-col>\n        <ion-col>Status</ion-col>\n        <ion-col>PIC</ion-col>\n    </ion-row>\n\n  </ng-template>\n    \n  <ion-list [virtualScroll]="sprintDetailedList">\n    <button ion-item *virtualItem="let sprintItem" (click)="onItemPressed({item:sprintItem})">\n      <ion-row>\n        <ion-col style="white-space:normal">\n          {{sprintItem.sprint_id}}\n        </ion-col>\n        <ion-col style="white-space:normal">\n          {{sprintItem.statusSprint}}\n        </ion-col>\n        <ion-col style="white-space:normal">\n          {{sprintItem.person_name}}\n        </ion-col>\n      </ion-row>\n    </button>\n  </ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-detailed\sprint-detailed.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
+            selector: 'page-sprint-detailed',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-detailed\sprint-detailed.html"*/'<!--\n  Generated template for the SprintDetailedPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>SprintDetailedPage</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="ionContent">\n\n  <ng-progress class="ng-progress" [color]="\'#216fed\'"></ng-progress>\n  \n  <ng-container *ngIf="sprintSummary == null; else elseTemplate">\n    <ion-item class="loadingItem">\n      Loading Item Please Wait...\n    </ion-item>\n  </ng-container>\n  <ng-template #elseTemplate>\n\n    <ion-item class="ionItemBulkDetail">\n      <h1 style="font-weight: bold">{{sprintSummary.bulk_name}}</h1>\n      <h2 style="font-weight: bold">Sprint : {{sprintSummary.sprint}}</h2>\n      <br/>\n      <tr>\n        <td>\n          <h2>Start Date</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;{{sprintSummary.dtm_crt}}</h2>\n        </td>\n      </tr>\n      <tr>\n        <td>\n          <h2>Total Item</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;{{sprintSummary.total_item}} Items</h2>\n        </td>\n      </tr>\n      <br/>\n\n    </ion-item>\n    <!-- <progress-bar \n      [progress]="sprintSummary.percentage" \n      [color-degraded]="{\'0\': \'#00cbcb\',  \'50\': \'#f9c3d3\', \'75\': \'#fd8c8e\'}"\n      class="progress-bar" >\n    </progress-bar> -->\n    <ion-item class="ionItemBulkProgress">\n      <ion-row class="row1">\n        <ion-col>\n          <strong>Done</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.done" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.done}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n        <ion-col>\n          <strong>Review</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.review"\n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.review}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      \n      <ion-row class="row2">\n        <ion-col>\n          <strong>On Progress</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.on_progress" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.on_progress}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n        <ion-col>\n          <strong>Todo</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.to_do" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.to_do}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      \n    </ion-item>\n\n    <ion-row class="headerSprint">\n        <ion-col>Sprint</ion-col>\n        <ion-col>Status</ion-col>\n        <ion-col>PIC</ion-col>\n    </ion-row>\n\n  </ng-template>\n    \n  <ion-list [virtualScroll]="sprintDetailedList">\n    <button ion-item *virtualItem="let sprintItem" (click)="onItemPressed({item:sprintItem})">\n      <ion-row>\n        <ion-col style="white-space:normal">\n          {{sprintItem.sprint_id}}\n        </ion-col>\n        <ion-col style="white-space:normal">\n          {{sprintItem.statusSprint}}\n        </ion-col>\n        <ion-col style="white-space:normal">\n          {{sprintItem.person_name}}\n        </ion-col>\n      </ion-row>\n    </button>\n  </ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-detailed\sprint-detailed.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_report_reportProvider__["a" /* ReportProvider */],
-            __WEBPACK_IMPORTED_MODULE_5_ngx_progressbar__["a" /* NgProgress */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_report_reportProvider__["a" /* ReportProvider */],
+            __WEBPACK_IMPORTED_MODULE_6_ngx_progressbar__["a" /* NgProgress */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */]])
     ], SprintDetailedPage);
     return SprintDetailedPage;
 }());
@@ -1072,18 +957,249 @@ var SprintDetailedPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 173:
+/***/ 174:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_ms_activity_msActivityProvider__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_ms_project_msProjectProvider__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_o_auth_oauthProvider__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_error_handler_error_handler__ = __webpack_require__(24);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+/**
+ * Generated class for the LoginPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var LoginPage = /** @class */ (function () {
+    function LoginPage(navCtrl, navParames, userProvider, toastCtrl, formBuilder, helperMethod, errorHandler, events, oAuthProvider, msProjectProvider, msActivityProvider) {
+        this.navCtrl = navCtrl;
+        this.navParames = navParames;
+        this.userProvider = userProvider;
+        this.toastCtrl = toastCtrl;
+        this.formBuilder = formBuilder;
+        this.helperMethod = helperMethod;
+        this.errorHandler = errorHandler;
+        this.events = events;
+        this.oAuthProvider = oAuthProvider;
+        this.msProjectProvider = msProjectProvider;
+        this.msActivityProvider = msActivityProvider;
+        this.type = 'password';
+        this.showHide = false;
+        this.loginForm = formBuilder.group({
+            username: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].minLength(3)])],
+            password: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* Validators */].minLength(3)])]
+        });
+    }
+    LoginPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad LoginPage ');
+    };
+    LoginPage.prototype.doLogin = function () {
+        var userLogin = {
+            username: this.username.value,
+            password: this.password.value
+        };
+        this.doLoginBrowser(userLogin);
+        // this.doAuthenticate(userLogin);
+    };
+    LoginPage.prototype.doAuthenticate = function (userLogin) {
+        var _this = this;
+        console.log("Do Auth " + userLogin);
+        this.helperMethod.loadingService("Verifying Your Info..");
+        this.oAuthProvider.getOAuthToken(userLogin)
+            .then(function (response) {
+            _this.helperMethod.loading.dismiss();
+            response = JSON.parse(response.data);
+            console.log(response);
+            _this.oAuthProvider.userOAuth = response;
+            console.log(_this.oAuthProvider.userOAuth);
+            _this.doLogindevice(userLogin);
+        }).catch(function (error) {
+            _this.helperMethod.loading.dismiss();
+            _this.errorHandler.catchErrorHandler(error);
+        });
+    };
+    LoginPage.prototype.doLogindevice = function (userLogin) {
+        var _this = this;
+        this.helperMethod.loadingService("Collecting User Info..");
+        this.userProvider.validateLoginDevice(userLogin).then(function (response) {
+            _this.helperMethod.loading.dismiss();
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData);
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+                _this.userProvider.user = responseData;
+                _this.userProvider.userLogin = userLogin;
+                _this.userProvider.saveUserDataToStorage();
+                _this.getAllMsProjectList(userLogin);
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.helperMethod.loading.dismiss();
+            _this.errorHandler.catchErrorHandler(error);
+        });
+    };
+    LoginPage.prototype.doLoginBrowser = function (userLogin) {
+        var _this = this;
+        this.helperMethod.loadingService("Collecting User Info..");
+        setTimeout(function () {
+            _this.userProvider.user = {
+                person_id: '1',
+                job_id: '7',
+                team_id: '3',
+                person_name: 'Audi Aung Pertamax',
+                job_name: 'Dukun',
+                team_name: 'Gunung sinai',
+                is_spv: '0'
+            };
+            _this.helperMethod.loading.dismiss();
+            _this.events.publish('Auth', 1);
+        }, 500);
+        // this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(
+        //     (response:any) => {
+        //       this.helperMethod.loading.dismiss();
+        //       this.userProvider.user = response;
+        //       this.events.publish('Auth',1);
+        //       console.log(response);
+        //     },
+        //     (error:any) => {
+        //       console.log(error);
+        //       console.error(error.name);
+        //       console.error(error.status);
+        //       console.error(error.statusText);
+        //       this.helperMethod.loading.dismiss();
+        //       if(error.name == 'TimeoutError'){
+        //         this.helperMethod.presentToast('Slow Connection',2000,2);
+        //       }else{
+        //         this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',2000,3);
+        //       }
+        //     }
+        //   );
+    };
+    LoginPage.prototype.showHidePassword = function () {
+        this.showHide = !this.showHide;
+        if (this.showHide) {
+            this.type = 'text';
+        }
+        else {
+            this.type = 'password';
+        }
+    };
+    LoginPage.prototype.getAllMsProjectList = function (userLogin) {
+        var _this = this;
+        this.helperMethod.loadingService("Getting All Project List..");
+        this.msProjectProvider.getAllData(userLogin).then(function (response) {
+            _this.helperMethod.loading.dismiss();
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData.listProject);
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+                _this.msProjectProvider.msProjectList = responseData.listProject;
+                _this.msProjectProvider.save();
+                _this.getAllMsActivityList(userLogin);
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.helperMethod.loading.dismiss();
+            _this.errorHandler.catchErrorHandler(error);
+        });
+    };
+    LoginPage.prototype.getAllMsActivityList = function (userLogin) {
+        var _this = this;
+        this.helperMethod.loadingService("Getting All Activity List..");
+        this.msActivityProvider.getAllData(userLogin).then(function (response) {
+            _this.helperMethod.loading.dismiss();
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData);
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+                _this.msActivityProvider.msActivityList = responseData.listActivity;
+                _this.msActivityProvider.save();
+                _this.events.publish('Auth', 1);
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.helperMethod.loading.dismiss();
+            _this.errorHandler.catchErrorHandler(error);
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["ViewChild"])('username'),
+        __metadata("design:type", Object)
+    ], LoginPage.prototype, "username", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["ViewChild"])('password'),
+        __metadata("design:type", Object)
+    ], LoginPage.prototype, "password", void 0);
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
+            selector: 'page-login',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\login\loginPage.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <!-- <ion-navbar>\n\n    <ion-title>Login</ion-title>\n\n  </ion-navbar> -->\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div id="logo">\n\n    <img src="assets/imgs/IonicLogo.png">\n\n  </div>\n\n  <div id="body">\n\n    <div id="userInput">\n\n      <ion-list inset>\n\n\n\n        <form [formGroup]="loginForm">\n\n\n\n          <ion-item>\n\n            <ion-label floating >Username</ion-label>\n\n            <ion-input formControlName="username" type="text" #username value=\'{{usernameDefaultVal}}\'></ion-input>\n\n\n\n          </ion-item>\n\n\n\n          <ion-item>\n\n            <ion-label floating>Password</ion-label>\n\n            <ion-input formControlName="password" type="{{type}}" #password ></ion-input>\n\n            <button *ngIf="!showHide" ion-button clear color="dark" type="button" item-right (click)="showHidePassword()"> <ion-icon name="ios-eye-off-outline"></ion-icon></button>\n\n            <button *ngIf="showHide" ion-button clear color="dark" type="button" item-right (click)="showHidePassword()"> <ion-icon name="ios-eye-outline"></ion-icon></button>\n\n            \n\n          </ion-item>\n\n\n\n        </form>\n\n\n\n      </ion-list>\n\n    </div>\n\n\n\n    <div id="loginButton">\n\n      <button ion-button block\n\n            [disabled]="!loginForm.valid"\n\n            (click)="doLogin()">\n\n          Sign in\n\n      </button>\n\n    </div>\n\n\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\login\loginPage.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__["a" /* UsersProvider */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
+            __WEBPACK_IMPORTED_MODULE_8__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */],
+            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["c" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_o_auth_oauthProvider__["a" /* OAuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_ms_project_msProjectProvider__["a" /* MsProjectProvider */],
+            __WEBPACK_IMPORTED_MODULE_0__providers_ms_activity_msActivityProvider__["a" /* MsActivityProvider */]])
+    ], LoginPage);
+    return LoginPage;
+}());
+
+//# sourceMappingURL=loginPage.js.map
+
+/***/ }),
+
+/***/ 175:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PerfomancePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bulk_item_detailed_developer_bulk_item_detailed_developer__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bulk_item_detailed_developer_bulk_item_detailed_developer__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_perfomance_perfomanceProvider__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_progressbar__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_progressbar__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1167,18 +1283,18 @@ var PerfomancePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 174:
+/***/ 176:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bulk_item_detailed_bulk_item_detailed__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ngx_progressbar__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bulk_item_detailed_bulk_item_detailed__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ngx_progressbar__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_report_reportProvider__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_report_reportProvider__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__ = __webpack_require__(24);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1291,113 +1407,18 @@ var ReportPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 175:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SprintDetailedDeveloperPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_error_handler_error_handler__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_perfomance_perfomanceProvider__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ngx_progressbar__ = __webpack_require__(38);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-/**
- * Generated class for the SprintDetailedDeveloperPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var SprintDetailedDeveloperPage = /** @class */ (function () {
-    function SprintDetailedDeveloperPage(navCtrl, navParams, helperMethod, perfomanceProvider, ngProgress, errorHandler) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.helperMethod = helperMethod;
-        this.perfomanceProvider = perfomanceProvider;
-        this.ngProgress = ngProgress;
-        this.errorHandler = errorHandler;
-        this.sprintRequest = navParams.get("sprintRequest");
-    }
-    SprintDetailedDeveloperPage.prototype.ionViewDidLoad = function () {
-        if (this.sprintRequest == null) {
-            this.navCtrl.pop();
-            this.helperMethod.presentToast('Please Try Again', 3000, 2);
-        }
-        else {
-            this.getSprintDetailed();
-        }
-        console.log('ionViewDidLoad SprintDetailedDeveloperPage');
-    };
-    SprintDetailedDeveloperPage.prototype.onItemPressed = function (item) {
-        console.log("Sprint Detailed");
-        console.log(item.item);
-    };
-    SprintDetailedDeveloperPage.prototype.getSprintDetailed = function () {
-        var _this = this;
-        this.ngProgress.start();
-        this.perfomanceProvider.getSprintDetailBySprint(this.sprintRequest)
-            .then(function (response) {
-            _this.ngProgress.done();
-            console.log(response);
-            var responseData = JSON.parse(response.data);
-            var responseStatus = response.status;
-            console.log(responseData.status);
-            if (responseData.status.code == "0") {
-                _this.sprintDetailedList = responseData.sprintDetailedList;
-                _this.sprintSummary = responseData.sprintSummary;
-            }
-            else {
-                _this.errorHandler.catchResponseErrorHandler(responseData);
-            }
-        }).catch(function (error) {
-            _this.ngProgress.done();
-            _this.errorHandler.catchErrorHandler(error);
-        });
-    };
-    SprintDetailedDeveloperPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
-            selector: 'page-sprint-detailed-developer',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-detailed-developer\sprint-detailed-developer.html"*/'<!--\n  Generated template for the SprintDetailedDeveloperPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>SprintDetailedDeveloperPage</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="ionContent">\n\n  <ng-progress class="ng-progress" [color]="\'#216fed\'"></ng-progress>\n  \n  <ng-container *ngIf="sprintSummary == null; else elseTemplate">\n    <ion-item class="loadingItem">\n      Loading Item Please Wait...\n    </ion-item>\n  </ng-container>\n  <ng-template #elseTemplate>\n\n    <ion-item class="ionItemBulkDetail">\n      <h1 style="font-weight: bold">{{sprintSummary.bulk_name}}</h1>\n      <h2 style="font-weight: bold">Sprint : {{sprintSummary.sprint}}</h2>\n      <br/>\n      <tr>\n        <td>\n          <h2>Start Date</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;{{sprintSummary.dtm_crt}}</h2>\n        </td>\n      </tr>\n      <tr>\n        <td>\n          <h2>Total Item</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n        </td>\n        <td>\n          <h2>&nbsp;&nbsp;&nbsp;{{sprintSummary.total_item}} Items</h2>\n        </td>\n      </tr>\n      <br/>\n\n    </ion-item>\n    <!-- <progress-bar \n      [progress]="sprintSummary.percentage" \n      [color-degraded]="{\'0\': \'#00cbcb\',  \'50\': \'#f9c3d3\', \'75\': \'#fd8c8e\'}"\n      class="progress-bar" >\n    </progress-bar> -->\n    <ion-item class="ionItemBulkProgress">\n      <ion-row class="row1">\n        <ion-col>\n          <strong>Done</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.done" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.done}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n        <ion-col>\n          <strong>Review</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.review" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.review}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      \n      <ion-row class="row2">\n        <ion-col>\n          <strong>On Progress</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.on_progress" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.on_progress}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n        <ion-col>\n          <strong>Todo</strong>\n          <div class="positionRelative">\n            <round-progress\n              [current]="sprintSummary.to_do" \n              [max]="sprintSummary.total_item"\n              [radius]="45"\n              [stroke]="10"\n              [animationDelay]="400">\n            </round-progress>\n            <div class="percentageValue">\n              {{sprintSummary.to_do}}/{{sprintSummary.total_item}}\n            </div>\n          </div>\n        </ion-col>\n      </ion-row>\n      \n    </ion-item>\n\n    <ion-row class="headerSprint">\n        <ion-col>Sprint</ion-col>\n        <ion-col>Status</ion-col>\n        <ion-col>Duration</ion-col>\n    </ion-row>\n\n  </ng-template>\n    \n  <ion-list [virtualScroll]="sprintDetailedList">\n    <button ion-item *virtualItem="let sprintItem" (click)="onItemPressed({item:sprintItem})">\n      <ion-row>\n        <ion-col style="white-space:normal">\n          {{sprintItem.sprint_id}}\n        </ion-col>\n        <ion-col style="white-space:normal">\n          {{sprintItem.statusSprint}}\n        </ion-col>\n        <ion-col style="white-space:normal">\n          {{sprintItem.duration}}\n        </ion-col>\n      </ion-row>\n    </button>\n  </ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-detailed-developer\sprint-detailed-developer.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_perfomance_perfomanceProvider__["a" /* PerfomanceProvider */],
-            __WEBPACK_IMPORTED_MODULE_5_ngx_progressbar__["a" /* NgProgress */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */]])
-    ], SprintDetailedDeveloperPage);
-    return SprintDetailedDeveloperPage;
-}());
-
-//# sourceMappingURL=sprint-detailed-developer.js.map
-
-/***/ }),
-
-/***/ 176:
+/***/ 177:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__perfomance_perfomancePage__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__perfomance_perfomancePage__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__report_reportPage__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__time_sheet_time_sheetPage__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__user_userPage__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__report_reportPage__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__time_sheet_time_sheetPage__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__user_userPage__ = __webpack_require__(180);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1458,20 +1479,20 @@ var TabsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 177:
+/***/ 178:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimeSheetPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_storage_storageProvider__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__time_sheet_page_modal_time_sheet_page_modal__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_storage_storageProvider__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__time_sheet_page_modal_time_sheet_page_modal__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_helper_method_helper_method__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_timesheets_timesheetsProvider__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_timesheets_timesheetsProvider__ = __webpack_require__(148);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ngx_progressbar__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ngx_progressbar__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1592,18 +1613,18 @@ var TimeSheetPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 178:
+/***/ 179:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimeSheetPageModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_timesheets_timesheetsProvider__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_ms_activity_msActivityProvider__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_timesheets_timesheetsProvider__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_ms_activity_msActivityProvider__ = __webpack_require__(146);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_ms_project_msProjectProvider__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_ms_project_msProjectProvider__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_error_handler_error_handler__ = __webpack_require__(24);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1803,17 +1824,19 @@ var TimeSheetPageModal = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 179:
+/***/ 180:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_storage_storageProvider__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_users_usersProvider__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sprint_item_sprint_item__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngx_progressbar__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_storage_storageProvider__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_error_handler_error_handler__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_users_usersProvider__ = __webpack_require__(23);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1829,6 +1852,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /**
  * Generated class for the UserPage page.
  *
@@ -1836,36 +1861,71 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var UserPage = /** @class */ (function () {
-    function UserPage(navCtrl, navParams, userProvider, helperMethod, errorHandler, storageProvider, events, alertCtrl) {
+    function UserPage(navCtrl, navParams, userProvider, helperMethod, errorHandler, storageProvider, ngProgress, events, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.userProvider = userProvider;
         this.helperMethod = helperMethod;
         this.errorHandler = errorHandler;
         this.storageProvider = storageProvider;
+        this.ngProgress = ngProgress;
         this.events = events;
         this.alertCtrl = alertCtrl;
     }
     UserPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad UserPage');
+        // this.getDetailSprint();
+        this.dataDummy();
     };
-    UserPage.prototype.ionViewWillEnter = function () {
-        console.log('will enter');
+    UserPage.prototype.onItemPressed = function (data) {
+        console.log('On Item Pressed', data.data);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_0__sprint_item_sprint_item__["a" /* SprintItemPage */], { item: data.data });
     };
-    UserPage.prototype.ionViewDidEnter = function () {
-        console.log('Did enter');
-    };
-    UserPage.prototype.onItemPressed = function (userId) {
+    UserPage.prototype.updateProgress = function (data) {
         var _this = this;
-        console.log('On Item Pressed', userId);
-        this.helperMethod.loadingService('Harap tunggu');
-        setTimeout(function () {
+        var request = {
+            mantab: data.data
+        };
+        this.helperMethod.loadingService("Updating your sprint..");
+        this.userProvider.updateSprintProgress(request).then(function (response) {
             _this.helperMethod.loading.dismiss();
-            _this.helperMethod.loadingService('Coba Lagi..');
-            setTimeout(function () {
-                _this.helperMethod.loading.dismiss();
-            }, 1000);
-        }, 3000);
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData);
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.helperMethod.loading.dismiss();
+            _this.errorHandler.catchErrorHandler(error);
+        });
+    };
+    UserPage.prototype.claimSprint = function (data) {
+        var _this = this;
+        var request = {
+            mantab: data.data
+        };
+        this.helperMethod.loadingService("Updating your sprint..");
+        this.userProvider.claimSprint(request).then(function (response) {
+            _this.helperMethod.loading.dismiss();
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData);
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.helperMethod.loading.dismiss();
+            _this.errorHandler.catchErrorHandler(error);
+        });
     };
     UserPage.prototype.doLogout = function () {
         this.alertConfirmLogout();
@@ -1918,25 +1978,208 @@ var UserPage = /** @class */ (function () {
             _this.errorHandler.catchErrorHandler(error);
         });
     };
+    UserPage.prototype.getSprint = function () {
+        var _this = this;
+        var userLogin = {
+            person_id: this.userProvider.user.person_id
+        };
+        this.ngProgress.start();
+        this.userProvider.getClaimedSprintByUser(userLogin)
+            .then(function (response) {
+            _this.ngProgress.done();
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData);
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+                console.log(responseData);
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.ngProgress.done();
+            _this.errorHandler.catchErrorHandler(error);
+        });
+    };
+    UserPage.prototype.getUnclaimedSprint = function () {
+        var _this = this;
+        var userLogin = {
+            person_id: this.userProvider.user.person_id
+        };
+        this.ngProgress.start();
+        this.userProvider.getUnclaimedSprint(userLogin)
+            .then(function (response) {
+            _this.ngProgress.done();
+            console.log(response);
+            var responseData = JSON.parse(response.data);
+            var responseStatus = response.status;
+            console.log(responseData);
+            console.log(responseData.status);
+            if (responseData.status.code == "0") {
+                console.log(responseData);
+            }
+            else {
+                _this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+        }).catch(function (error) {
+            _this.ngProgress.done();
+            _this.errorHandler.catchErrorHandler(error);
+        });
+    };
+    UserPage.prototype.getColor = function (status) {
+        switch (status) {
+            case 'To do':
+                return '#ffffff';
+            case 'On Progress':
+                return '#ff9d00';
+            case 'Review':
+                return '#00e1ff';
+            case 'Done':
+                return '#00c617';
+        }
+    };
+    UserPage.prototype.dataDummy = function () {
+        this.userProvider.claimedSprintDetailList = [
+            {
+                backlog_sprint_id: '1',
+                backlog_id: '1',
+                person_id: '32',
+                definition_of_done: 'aslkdmaskdlmasdkjfndgkjsdnfgjlelkrmlkgsdmflksmdfklgsndfgnlldfmklg',
+                is_active: '1',
+                commited: null,
+                person_name: 'Haris Wei',
+                sprint_id: 'akknsk1123',
+                sprint_backlog: '1',
+                duration: '999',
+                statusSprint: 'To do',
+                dtm_crt: '12/12/2012',
+                dtm_upd: '15/15/2015',
+                sprint: '1',
+                mandays: '1',
+            },
+            {
+                backlog_sprint_id: '1',
+                backlog_id: '1',
+                person_id: '32',
+                definition_of_done: 'aslkdmaskdlmasdkjfndgkjsdnfgjlelkrmlkgsdmflksmdfklgsndfgnlldfmklg',
+                is_active: '1',
+                commited: null,
+                person_name: 'Haris Wei',
+                sprint_id: '1',
+                sprint_backlog: '1',
+                duration: '8',
+                statusSprint: 'On Progress',
+                dtm_crt: '12/12/2012',
+                dtm_upd: '15/15/2015',
+                sprint: '1',
+                mandays: '1',
+            },
+            {
+                backlog_sprint_id: '1',
+                backlog_id: '1',
+                person_id: '32',
+                definition_of_done: 'aslkdmaskdlmasdkjfndgkjsdnfgjlelkrmlkgsdmflksmdfklgsndfgnlldfmklg',
+                is_active: '1',
+                commited: null,
+                person_name: 'Haris Wei',
+                sprint_id: '1',
+                sprint_backlog: '1',
+                duration: '8',
+                statusSprint: 'Review',
+                dtm_crt: '12/12/2012',
+                dtm_upd: '15/15/2015',
+                sprint: '1',
+                mandays: '1',
+            },
+            {
+                backlog_sprint_id: '1',
+                backlog_id: '1',
+                person_id: '32',
+                definition_of_done: 'aslkdmaskdlmasdkjfndgkjsdnfgjlelkrmlkgsdmflksmdfklgsndfgnlldfmklg',
+                is_active: '1',
+                commited: null,
+                person_name: 'Haris Wei',
+                sprint_id: '1',
+                sprint_backlog: '1',
+                duration: '8',
+                statusSprint: 'Done',
+                dtm_crt: '12/12/2012',
+                dtm_upd: '15/15/2015',
+                sprint: '1',
+                mandays: '1',
+            }
+        ];
+        this.userProvider.unclaimedSprintDetailList = [
+            {
+                backlog_sprint_id: '1',
+                backlog_id: '1',
+                person_id: '32',
+                definition_of_done: 'aslkdmaskdlmasdkjfndgkjsdnfgjlelkrmlkgsdmflksmdfklgsndfgnlldfmklg',
+                is_active: '1',
+                commited: null,
+                person_name: null,
+                sprint_id: '1',
+                sprint_backlog: '1',
+                duration: '8',
+                statusSprint: 'Todo',
+                dtm_crt: '12/12/2012',
+                dtm_upd: '15/15/2015',
+                sprint: '1',
+                mandays: '1',
+            },
+            {
+                backlog_sprint_id: '1',
+                backlog_id: '1',
+                person_id: '32',
+                definition_of_done: 'aslkdmaskdlmasdkjfndgkjsdnfgjlelkrmlkgsdmflksmdfklgsndfgnlldfmklg',
+                is_active: '1',
+                commited: null,
+                person_name: null,
+                sprint_id: '1',
+                sprint_backlog: '1',
+                duration: '8',
+                statusSprint: 'Todo',
+                dtm_crt: '12/12/2012',
+                dtm_upd: '15/15/2015',
+                sprint: '1',
+                mandays: '1',
+            },
+            {
+                backlog_sprint_id: '1',
+                backlog_id: '1',
+                person_id: '32',
+                definition_of_done: 'aslkdmaskdlmasdkjfndgkjsdnfgjlelkrmlkgsdmflksmdfklgsndfgnlldfmklg',
+                is_active: '1',
+                commited: null,
+                person_name: null,
+                sprint_id: '1',
+                sprint_backlog: '1',
+                duration: '8',
+                statusSprint: 'Todo',
+                dtm_crt: '12/12/2012',
+                dtm_upd: '15/15/2015',
+                sprint: '1',
+                mandays: '1',
+            }
+        ];
+    };
     UserPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
-            selector: 'page-user',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\user\userPage.html"*/'<!--\n\n  Generated template for the UserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>User</ion-title>\n\n    <ion-buttons end >\n\n      <button ion-button icon-only (click)="doLogout()">\n\n        <ion-icon name="exit"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <div class="north">\n\n    <img class="profile-photo" src="assets/imgs/user/profile_picture_example.jpg"> \n\n  </div>\n\n   \n\n  \n\n  <div>\n\n    <div class="content">\n\n      <ion-item>\n\n        <ion-label>Name : {{userProvider.user.person_name}}</ion-label>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Job : {{userProvider.user.job_name}}</ion-label>\n\n      </ion-item>\n\n    </div>\n\n  </div>\n\n \n\n<!-- \n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let user of allUsers">\n\n      <ion-item (click)="onItemPressed({id: user.name})">\n\n        <ion-avatar item-left>\n\n          <img src="assets/imgs/user/profile_picture_example.jpg">\n\n        </ion-avatar>\n\n        <h2>{{user.name}}</h2>\n\n      </ion-item>\n\n      <ion-item-options>\n\n        <button ion-button color="danger" (click)="onItemCOEG()">\n\n          <ion-icon name="trash"></ion-icon> Delete\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list> -->\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\user\userPage.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["Component"])({
+            selector: 'page-user',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\user\userPage.html"*/'<!--\n\n  Generated template for the UserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>User</ion-title>\n\n    <ion-buttons end >\n\n      <button ion-button icon-only (click)="doLogout()">\n\n        <ion-icon name="exit"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding class="ionContent"> \n\n\n\n  <!-- <div class="north">\n\n    <img class="profile-photo" src="assets/imgs/user/profile_picture_example.jpg"> \n\n  </div>\n\n    -->\n\n  <ng-progress class="ng-progress" [color]="\'#31edda\'"></ng-progress>\n\n  \n\n  <div>\n\n    <ion-item class="content">\n\n      <ion-row>\n\n        <ion-col style="white-space:normal" col-9>\n\n          {{userProvider.user.person_name}}\n\n        </ion-col>\n\n        <ion-col style="white-space:normal" col-3>\n\n          {{userProvider.user.job_name}}\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-item>\n\n  </div>\n\n \n\n  \n\n  <ion-row class="headerSprint">\n\n    <ion-col>Your Claimed Sprint</ion-col>\n\n  </ion-row>\n\n\n\n  <ion-list [virtualScroll]="userProvider.claimedSprintDetailList">\n\n    <ion-item-sliding *virtualItem="let data"> \n\n      <button ion-item class="ionItem" (click)="onItemPressed({data : data})"  \n\n                [ngStyle]="{\'background-color\' :getColor(data.statusSprint)}">\n\n        <ion-row>\n\n          <ion-col style="white-space:normal" col-4>\n\n            {{data.sprint_id}}sdfgsdfgdsfg\n\n          </ion-col>\n\n          <ion-col style="white-space:normal" col-4>\n\n            {{data.duration}} Hours\n\n          </ion-col>\n\n          <ion-col style="white-space:normal" col-4>\n\n            {{data.statusSprint}}\n\n          </ion-col>\n\n        </ion-row>\n\n      </button>\n\n      <ion-item-options>\n\n        <section *ngIf="data.statusSprint == \'To do\'">\n\n          <button ion-button color="light" (click)="updateProgress({data : data})">\n\n            <ion-icon name="paper"></ion-icon> Update\n\n          </button>\n\n        </section>\n\n        <section *ngIf="data.statusSprint == \'On Progress\'">\n\n          <button ion-button color="light" (click)="updateProgress({data : data})">\n\n            <ion-icon name="paper"></ion-icon> Update\n\n          </button>\n\n        </section>\n\n        <section *ngIf="data.statusSprint == \'Review\' && userProvider.user.is_spv == \'1\' ">\n\n          <button ion-button color="light" (click)="updateProgress({data : data})">\n\n            <ion-icon name="paper"></ion-icon> Update\n\n          </button>\n\n        </section>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n\n\n  \n\n  <ion-row class="headerSprint">\n\n    <ion-col>Claim Sprint</ion-col>\n\n    <ion-col></ion-col>\n\n  </ion-row>\n\n\n\n  <ion-list [virtualScroll]="userProvider.unclaimedSprintDetailList">\n\n    <ion-item-sliding *virtualItem="let data"> \n\n      <button ion-item class="ionItem" (click)="onItemPressed({data : data})"  \n\n                [ngStyle]="{\'background-color\' :getColor(data.statusSprint)}">\n\n        <ion-row>\n\n          <ion-col style="white-space:normal" col-8>\n\n            {{data.sprint_id}}\n\n          </ion-col>\n\n          <ion-col style="white-space:normal" col-4>\n\n            {{data.duration}} Hours\n\n          </ion-col>\n\n        </ion-row>\n\n      </button>\n\n      <ion-item-options>\n\n        <button ion-button color="light" (click)="claimSprint({data : data})">\n\n          <ion-icon name="add-circle"></ion-icon> Claim\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\user\userPage.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_users_usersProvider__["a" /* UsersProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_storage_storageProvider__["a" /* StorageProvider */],
-            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__providers_users_usersProvider__["a" /* UsersProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_users_usersProvider__["a" /* UsersProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_helper_method_helper_method__["a" /* HelperMethodProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_helper_method_helper_method__["a" /* HelperMethodProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__providers_storage_storageProvider__["a" /* StorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_storage_storageProvider__["a" /* StorageProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ngx_progressbar__["a" /* NgProgress */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ngx_progressbar__["a" /* NgProgress */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["c" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["c" /* Events */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["a" /* AlertController */]) === "function" && _j || Object])
     ], UserPage);
     return UserPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=userPage.js.map
 
 /***/ }),
 
-/***/ 190:
+/***/ 191:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1949,7 +2192,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 190;
+webpackEmptyAsyncContext.id = 191;
 
 /***/ }),
 
@@ -1958,17 +2201,17 @@ webpackEmptyAsyncContext.id = 190;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__storage_storageProvider__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__storage_storageProvider__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__(249);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators__ = __webpack_require__(140);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__o_auth_oauthProvider__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__global_variable_global_variable__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__o_auth_oauthProvider__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__global_variable_global_variable__ = __webpack_require__(48);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1997,7 +2240,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
   and Angular DI.0
 */
 var UsersProvider = /** @class */ (function () {
-    // userOAuth : OAuthToken;
     function UsersProvider(http, helperMethod, httpNative, oauthProvider, globalVal, storageProvider) {
         this.http = http;
         this.helperMethod = helperMethod;
@@ -2031,6 +2273,42 @@ var UsersProvider = /** @class */ (function () {
         this.httpNative.setRequestTimeout(60);
         return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.userLogoutAPI, userLogin, headers);
+    };
+    UsersProvider.prototype.getClaimedSprintByUser = function (userLogin) {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        console.log(headers);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getClaimedSprintByUser);
+        this.httpNative.setRequestTimeout(60);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getClaimedSprintByUser, userLogin, headers);
+    };
+    UsersProvider.prototype.getUnclaimedSprint = function (userLogin) {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        console.log(headers);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getUnclaimedSprint);
+        this.httpNative.setRequestTimeout(60);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getUnclaimedSprint, userLogin, headers);
+    };
+    UsersProvider.prototype.updateSprintProgress = function (userLogin) {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        console.log(headers);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.updateSprintProgress);
+        this.httpNative.setRequestTimeout(60);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.updateSprintProgress, userLogin, headers);
+    };
+    UsersProvider.prototype.claimSprint = function (userLogin) {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        console.log(headers);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.claimSprint);
+        this.httpNative.setRequestTimeout(60);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.claimSprint, userLogin, headers);
     };
     UsersProvider.prototype.saveUserDataToStorage = function () {
         this.storageProvider.save(this.storageProvider.userKey, this.user);
@@ -2074,15 +2352,98 @@ var UsersProvider = /** @class */ (function () {
     };
     UsersProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_5__helper_method_helper_method__["a" /* HelperMethodProvider */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__["a" /* HTTP */], __WEBPACK_IMPORTED_MODULE_7__o_auth_oauthProvider__["a" /* OAuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_8__global_variable_global_variable__["a" /* GlobalVariableProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__storage_storageProvider__["a" /* StorageProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__helper_method_helper_method__["a" /* HelperMethodProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__helper_method_helper_method__["a" /* HelperMethodProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__["a" /* HTTP */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__["a" /* HTTP */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7__o_auth_oauthProvider__["a" /* OAuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__o_auth_oauthProvider__["a" /* OAuthProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_8__global_variable_global_variable__["a" /* GlobalVariableProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__global_variable_global_variable__["a" /* GlobalVariableProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__storage_storageProvider__["a" /* StorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__storage_storageProvider__["a" /* StorageProvider */]) === "function" && _f || Object])
     ], UsersProvider);
     return UsersProvider;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=usersProvider.js.map
+
+/***/ }),
+
+/***/ 235:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/back-log-report/back-log-report.module": [
+		710,
+		15
+	],
+	"../pages/bulk-item-detailed-developer/bulk-item-detailed-developer.module": [
+		711,
+		14
+	],
+	"../pages/bulk-item-detailed/bulk-item-detailed.module": [
+		712,
+		13
+	],
+	"../pages/login/loginPage.module": [
+		713,
+		12
+	],
+	"../pages/main/main.module": [
+		714,
+		11
+	],
+	"../pages/perfomance/perfomancePage.module": [
+		715,
+		10
+	],
+	"../pages/report-page-modal/report-page-modal.module": [
+		716,
+		9
+	],
+	"../pages/report/reportPage.module": [
+		717,
+		8
+	],
+	"../pages/sprint-detailed-developer/sprint-detailed-developer.module": [
+		718,
+		7
+	],
+	"../pages/sprint-detailed/sprint-detailed.module": [
+		719,
+		6
+	],
+	"../pages/sprint-item/sprint-item.module": [
+		720,
+		5
+	],
+	"../pages/sprint-report/sprint-report.module": [
+		721,
+		0
+	],
+	"../pages/tabs/tabs.module": [
+		722,
+		4
+	],
+	"../pages/time-sheet-page-modal/time-sheet-page-modal.module": [
+		723,
+		3
+	],
+	"../pages/time-sheet/time-sheetPage.module": [
+		724,
+		2
+	],
+	"../pages/user/userPage.module": [
+		725,
+		1
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 235;
+module.exports = webpackAsyncContext;
 
 /***/ }),
 
@@ -2091,8 +2452,8 @@ var UsersProvider = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrorHandlerProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2171,97 +2532,16 @@ var ErrorHandlerProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 335:
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"../pages/back-log-report/back-log-report.module": [
-		709,
-		14
-	],
-	"../pages/bulk-item-detailed-developer/bulk-item-detailed-developer.module": [
-		710,
-		13
-	],
-	"../pages/bulk-item-detailed/bulk-item-detailed.module": [
-		712,
-		12
-	],
-	"../pages/login/loginPage.module": [
-		711,
-		11
-	],
-	"../pages/main/main.module": [
-		713,
-		10
-	],
-	"../pages/perfomance/perfomancePage.module": [
-		714,
-		9
-	],
-	"../pages/report-page-modal/report-page-modal.module": [
-		715,
-		8
-	],
-	"../pages/report/reportPage.module": [
-		716,
-		7
-	],
-	"../pages/sprint-detailed-developer/sprint-detailed-developer.module": [
-		717,
-		6
-	],
-	"../pages/sprint-detailed/sprint-detailed.module": [
-		718,
-		5
-	],
-	"../pages/sprint-report/sprint-report.module": [
-		719,
-		0
-	],
-	"../pages/tabs/tabs.module": [
-		720,
-		4
-	],
-	"../pages/time-sheet-page-modal/time-sheet-page-modal.module": [
-		721,
-		3
-	],
-	"../pages/time-sheet/time-sheetPage.module": [
-		723,
-		2
-	],
-	"../pages/user/userPage.module": [
-		722,
-		1
-	]
-};
-function webpackAsyncContext(req) {
-	var ids = map[req];
-	if(!ids)
-		return Promise.reject(new Error("Cannot find module '" + req + "'."));
-	return __webpack_require__.e(ids[1]).then(function() {
-		return __webpack_require__(ids[0]);
-	});
-};
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = 335;
-module.exports = webpackAsyncContext;
-
-/***/ }),
-
-/***/ 37:
+/***/ 38:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OAuthProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_variable_global_variable__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_http__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__ = __webpack_require__(16);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2325,7 +2605,7 @@ var OAuthProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 381:
+/***/ 382:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2370,7 +2650,7 @@ var BackLogReportPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 382:
+/***/ 383:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2416,7 +2696,7 @@ var MainPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 383:
+/***/ 384:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2471,13 +2751,13 @@ var ReportPageModal = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 384:
+/***/ 385:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(385);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(390);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -2485,56 +2765,58 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 389:
+/***/ 390:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_bulk_item_detailed_developer_bulk_item_detailed_developer__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_sprint_detailed_sprint_detailed__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_bulk_item_detailed_bulk_item_detailed__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_back_log_report_back_log_report__ = __webpack_require__(381);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_report_page_modal_report_page_modal__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(377);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(378);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_common_http__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_http__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_storage__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ngx_progressbar__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angular_progress_bar__ = __webpack_require__(380);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angular_svg_round_progressbar__ = __webpack_require__(379);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angular_svg_round_progressbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_angular_svg_round_progressbar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__app_component__ = __webpack_require__(707);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_main_main__ = __webpack_require__(382);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_login_loginPage__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_tabs_tabs__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_report_reportPage__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_time_sheet_time_sheetPage__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_user_userPage__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_timesheets_timesheetsProvider__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_report_reportProvider__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_time_sheet_page_modal_time_sheet_page_modal__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_expandable_expandable__ = __webpack_require__(708);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_o_auth_oauthProvider__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_storage_storageProvider__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_global_variable_global_variable__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_ms_project_msProjectProvider__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_ms_activity_msActivityProvider__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_error_handler_error_handler__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_sprint_detailed_developer_sprint_detailed_developer__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_perfomance_perfomanceProvider__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_perfomance_perfomancePage__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_sprint_item_sprint_item__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_bulk_item_detailed_developer_bulk_item_detailed_developer__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_sprint_detailed_sprint_detailed__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_bulk_item_detailed_bulk_item_detailed__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_back_log_report_back_log_report__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_report_page_modal_report_page_modal__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(379);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_common_http__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_storage__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ngx_progressbar__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angular_progress_bar__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_angular_svg_round_progressbar__ = __webpack_require__(380);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_angular_svg_round_progressbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_angular_svg_round_progressbar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_component__ = __webpack_require__(708);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_main_main__ = __webpack_require__(383);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_login_loginPage__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_tabs_tabs__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_report_reportPage__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_time_sheet_time_sheetPage__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_user_userPage__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_users_usersProvider__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_timesheets_timesheetsProvider__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_report_reportProvider__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_time_sheet_page_modal_time_sheet_page_modal__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_expandable_expandable__ = __webpack_require__(709);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_o_auth_oauthProvider__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_storage_storageProvider__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_global_variable_global_variable__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_ms_project_msProjectProvider__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_ms_activity_msActivityProvider__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_error_handler_error_handler__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_sprint_detailed_developer_sprint_detailed_developer__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_perfomance_perfomanceProvider__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_perfomance_perfomancePage__ = __webpack_require__(175);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -2577,90 +2859,93 @@ var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_7__angular_core__["NgModule"])({
+        Object(__WEBPACK_IMPORTED_MODULE_8__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_17__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_main_main__["a" /* MainPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_login_loginPage__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_tabs_tabs__["a" /* TabsPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_report_reportPage__["a" /* ReportPage */],
-                __WEBPACK_IMPORTED_MODULE_37__pages_perfomance_perfomancePage__["a" /* PerfomancePage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_time_sheet_time_sheetPage__["a" /* TimeSheetPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_user_userPage__["a" /* UserPage */],
-                __WEBPACK_IMPORTED_MODULE_4__pages_report_page_modal_report_page_modal__["a" /* ReportPageModal */],
-                __WEBPACK_IMPORTED_MODULE_3__pages_back_log_report_back_log_report__["a" /* BackLogReportPage */],
-                __WEBPACK_IMPORTED_MODULE_2__pages_bulk_item_detailed_bulk_item_detailed__["a" /* BulkItemDetailedPage */],
-                __WEBPACK_IMPORTED_MODULE_0__pages_bulk_item_detailed_developer_bulk_item_detailed_developer__["a" /* BulkItemDetailedDeveloperPage */],
-                __WEBPACK_IMPORTED_MODULE_35__pages_sprint_detailed_developer_sprint_detailed_developer__["a" /* SprintDetailedDeveloperPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_time_sheet_page_modal_time_sheet_page_modal__["a" /* TimeSheetPageModal */],
-                __WEBPACK_IMPORTED_MODULE_1__pages_sprint_detailed_sprint_detailed__["a" /* SprintDetailedPage */],
-                __WEBPACK_IMPORTED_MODULE_28__components_expandable_expandable__["a" /* ExpandableComponent */]
+                __WEBPACK_IMPORTED_MODULE_18__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_main_main__["a" /* MainPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_login_loginPage__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_tabs_tabs__["a" /* TabsPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_report_reportPage__["a" /* ReportPage */],
+                __WEBPACK_IMPORTED_MODULE_38__pages_perfomance_perfomancePage__["a" /* PerfomancePage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_time_sheet_time_sheetPage__["a" /* TimeSheetPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_user_userPage__["a" /* UserPage */],
+                __WEBPACK_IMPORTED_MODULE_5__pages_report_page_modal_report_page_modal__["a" /* ReportPageModal */],
+                __WEBPACK_IMPORTED_MODULE_4__pages_back_log_report_back_log_report__["a" /* BackLogReportPage */],
+                __WEBPACK_IMPORTED_MODULE_3__pages_bulk_item_detailed_bulk_item_detailed__["a" /* BulkItemDetailedPage */],
+                __WEBPACK_IMPORTED_MODULE_1__pages_bulk_item_detailed_developer_bulk_item_detailed_developer__["a" /* BulkItemDetailedDeveloperPage */],
+                __WEBPACK_IMPORTED_MODULE_36__pages_sprint_detailed_developer_sprint_detailed_developer__["a" /* SprintDetailedDeveloperPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_time_sheet_page_modal_time_sheet_page_modal__["a" /* TimeSheetPageModal */],
+                __WEBPACK_IMPORTED_MODULE_2__pages_sprint_detailed_sprint_detailed__["a" /* SprintDetailedPage */],
+                __WEBPACK_IMPORTED_MODULE_0__pages_sprint_item_sprint_item__["a" /* SprintItemPage */],
+                __WEBPACK_IMPORTED_MODULE_29__components_expandable_expandable__["a" /* ExpandableComponent */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__["BrowserModule"],
-                __WEBPACK_IMPORTED_MODULE_11__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_15_angular_progress_bar__["a" /* ProgressBarModule */],
-                __WEBPACK_IMPORTED_MODULE_14_ngx_progressbar__["b" /* NgProgressModule */],
-                __WEBPACK_IMPORTED_MODULE_16_angular_svg_round_progressbar__["RoundProgressModule"],
-                __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_17__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser__["BrowserModule"],
+                __WEBPACK_IMPORTED_MODULE_12__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_16_angular_progress_bar__["a" /* ProgressBarModule */],
+                __WEBPACK_IMPORTED_MODULE_15_ngx_progressbar__["b" /* NgProgressModule */],
+                __WEBPACK_IMPORTED_MODULE_17_angular_svg_round_progressbar__["RoundProgressModule"],
+                __WEBPACK_IMPORTED_MODULE_9_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_18__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/back-log-report/back-log-report.module#BackLogReportPageModule', name: 'BackLogReportPage', segment: 'back-log-report', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/bulk-item-detailed-developer/bulk-item-detailed-developer.module#BulkItemDetailedDeveloperPageModule', name: 'BulkItemDetailedDeveloperPage', segment: 'bulk-item-detailed-developer', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/loginPage.module#LoginPageModule', name: 'LoginPage', segment: 'loginPage', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/bulk-item-detailed/bulk-item-detailed.module#BulkItemDetailedPageModule', name: 'BulkItemDetailedPage', segment: 'bulk-item-detailed', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/loginPage.module#LoginPageModule', name: 'LoginPage', segment: 'loginPage', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/main/main.module#MainPageModule', name: 'MainPage', segment: 'main', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/perfomance/perfomancePage.module#PerfomancePageModule', name: 'PerfomancePage', segment: 'perfomancePage', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/report-page-modal/report-page-modal.module#ReportPageModalPageModule', name: 'ReportPageModal', segment: 'report-page-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/report/reportPage.module#ReportPageModule', name: 'ReportPage', segment: 'reportPage', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sprint-detailed-developer/sprint-detailed-developer.module#SprintDetailedDeveloperPageModule', name: 'SprintDetailedDeveloperPage', segment: 'sprint-detailed-developer', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sprint-detailed/sprint-detailed.module#SprintDetailedPageModule', name: 'SprintDetailedPage', segment: 'sprint-detailed', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sprint-item/sprint-item.module#SprintItemPageModule', name: 'SprintItemPage', segment: 'sprint-item', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sprint-report/sprint-report.module#SprintReportPageModule', name: 'SprintReportPage', segment: 'sprint-report', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/time-sheet-page-modal/time-sheet-page-modal.module#TimeSheetPageModalPageModule', name: 'TimeSheetPageModal', segment: 'time-sheet-page-modal', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/user/userPage.module#UserPageModule', name: 'UserPage', segment: 'userPage', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/time-sheet/time-sheetPage.module#TimeSheetPageModule', name: 'TimeSheetPage', segment: 'time-sheetPage', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/time-sheet/time-sheetPage.module#TimeSheetPageModule', name: 'TimeSheetPage', segment: 'time-sheetPage', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/user/userPage.module#UserPageModule', name: 'UserPage', segment: 'userPage', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_13__ionic_storage__["a" /* IonicStorageModule */].forRoot()
+                __WEBPACK_IMPORTED_MODULE_14__ionic_storage__["a" /* IonicStorageModule */].forRoot()
             ],
             schemas: [
-                __WEBPACK_IMPORTED_MODULE_7__angular_core__["CUSTOM_ELEMENTS_SCHEMA"]
+                __WEBPACK_IMPORTED_MODULE_8__angular_core__["CUSTOM_ELEMENTS_SCHEMA"]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_8_ionic_angular__["d" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_9_ionic_angular__["d" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_17__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_main_main__["a" /* MainPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_login_loginPage__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_tabs_tabs__["a" /* TabsPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_report_reportPage__["a" /* ReportPage */],
-                __WEBPACK_IMPORTED_MODULE_37__pages_perfomance_perfomancePage__["a" /* PerfomancePage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_time_sheet_time_sheetPage__["a" /* TimeSheetPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_user_userPage__["a" /* UserPage */],
-                __WEBPACK_IMPORTED_MODULE_4__pages_report_page_modal_report_page_modal__["a" /* ReportPageModal */],
-                __WEBPACK_IMPORTED_MODULE_3__pages_back_log_report_back_log_report__["a" /* BackLogReportPage */],
-                __WEBPACK_IMPORTED_MODULE_2__pages_bulk_item_detailed_bulk_item_detailed__["a" /* BulkItemDetailedPage */],
-                __WEBPACK_IMPORTED_MODULE_0__pages_bulk_item_detailed_developer_bulk_item_detailed_developer__["a" /* BulkItemDetailedDeveloperPage */],
-                __WEBPACK_IMPORTED_MODULE_35__pages_sprint_detailed_developer_sprint_detailed_developer__["a" /* SprintDetailedDeveloperPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_time_sheet_page_modal_time_sheet_page_modal__["a" /* TimeSheetPageModal */],
-                __WEBPACK_IMPORTED_MODULE_1__pages_sprint_detailed_sprint_detailed__["a" /* SprintDetailedPage */],
-                __WEBPACK_IMPORTED_MODULE_28__components_expandable_expandable__["a" /* ExpandableComponent */]
+                __WEBPACK_IMPORTED_MODULE_18__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_main_main__["a" /* MainPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_login_loginPage__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_tabs_tabs__["a" /* TabsPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_report_reportPage__["a" /* ReportPage */],
+                __WEBPACK_IMPORTED_MODULE_38__pages_perfomance_perfomancePage__["a" /* PerfomancePage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_time_sheet_time_sheetPage__["a" /* TimeSheetPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_user_userPage__["a" /* UserPage */],
+                __WEBPACK_IMPORTED_MODULE_5__pages_report_page_modal_report_page_modal__["a" /* ReportPageModal */],
+                __WEBPACK_IMPORTED_MODULE_4__pages_back_log_report_back_log_report__["a" /* BackLogReportPage */],
+                __WEBPACK_IMPORTED_MODULE_3__pages_bulk_item_detailed_bulk_item_detailed__["a" /* BulkItemDetailedPage */],
+                __WEBPACK_IMPORTED_MODULE_1__pages_bulk_item_detailed_developer_bulk_item_detailed_developer__["a" /* BulkItemDetailedDeveloperPage */],
+                __WEBPACK_IMPORTED_MODULE_36__pages_sprint_detailed_developer_sprint_detailed_developer__["a" /* SprintDetailedDeveloperPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_time_sheet_page_modal_time_sheet_page_modal__["a" /* TimeSheetPageModal */],
+                __WEBPACK_IMPORTED_MODULE_2__pages_sprint_detailed_sprint_detailed__["a" /* SprintDetailedPage */],
+                __WEBPACK_IMPORTED_MODULE_0__pages_sprint_item_sprint_item__["a" /* SprintItemPage */],
+                __WEBPACK_IMPORTED_MODULE_29__components_expandable_expandable__["a" /* ExpandableComponent */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_7__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["e" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_24__providers_users_usersProvider__["a" /* UsersProvider */],
-                __WEBPACK_IMPORTED_MODULE_25__providers_timesheets_timesheetsProvider__["a" /* TimesheetsProvider */],
-                __WEBPACK_IMPORTED_MODULE_5__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
-                __WEBPACK_IMPORTED_MODULE_26__providers_report_reportProvider__["a" /* ReportProvider */],
-                __WEBPACK_IMPORTED_MODULE_12__ionic_native_http__["a" /* HTTP */],
-                __WEBPACK_IMPORTED_MODULE_29__providers_o_auth_oauthProvider__["a" /* OAuthProvider */],
-                __WEBPACK_IMPORTED_MODULE_30__providers_storage_storageProvider__["a" /* StorageProvider */],
-                __WEBPACK_IMPORTED_MODULE_31__providers_global_variable_global_variable__["a" /* GlobalVariableProvider */],
-                __WEBPACK_IMPORTED_MODULE_32__providers_ms_project_msProjectProvider__["a" /* MsProjectProvider */],
-                __WEBPACK_IMPORTED_MODULE_33__providers_ms_activity_msActivityProvider__["a" /* MsActivityProvider */],
-                __WEBPACK_IMPORTED_MODULE_34__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */],
-                __WEBPACK_IMPORTED_MODULE_36__providers_perfomance_perfomanceProvider__["a" /* PerfomanceProvider */]
+                __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_8__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_9_ionic_angular__["e" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_25__providers_users_usersProvider__["a" /* UsersProvider */],
+                __WEBPACK_IMPORTED_MODULE_26__providers_timesheets_timesheetsProvider__["a" /* TimesheetsProvider */],
+                __WEBPACK_IMPORTED_MODULE_6__providers_helper_method_helper_method__["a" /* HelperMethodProvider */],
+                __WEBPACK_IMPORTED_MODULE_27__providers_report_reportProvider__["a" /* ReportProvider */],
+                __WEBPACK_IMPORTED_MODULE_13__ionic_native_http__["a" /* HTTP */],
+                __WEBPACK_IMPORTED_MODULE_30__providers_o_auth_oauthProvider__["a" /* OAuthProvider */],
+                __WEBPACK_IMPORTED_MODULE_31__providers_storage_storageProvider__["a" /* StorageProvider */],
+                __WEBPACK_IMPORTED_MODULE_32__providers_global_variable_global_variable__["a" /* GlobalVariableProvider */],
+                __WEBPACK_IMPORTED_MODULE_33__providers_ms_project_msProjectProvider__["a" /* MsProjectProvider */],
+                __WEBPACK_IMPORTED_MODULE_34__providers_ms_activity_msActivityProvider__["a" /* MsActivityProvider */],
+                __WEBPACK_IMPORTED_MODULE_35__providers_error_handler_error_handler__["a" /* ErrorHandlerProvider */],
+                __WEBPACK_IMPORTED_MODULE_37__providers_perfomance_perfomanceProvider__["a" /* PerfomanceProvider */]
             ]
         })
     ], AppModule);
@@ -2671,7 +2956,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 47:
+/***/ 48:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2693,7 +2978,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var GlobalVariableProvider = /** @class */ (function () {
     function GlobalVariableProvider() {
         //tirta
-        // public ipUrl : string = 'http://172.18.0.73:8080/';
+        // public ipUrl : string = 'http://172.18.0.93:8080/';
         //local
         this.ipUrl = 'http://172.18.0.218:8080/';
         this.baseUrl = 'com.adins.mss.webservices/services/m/';
@@ -2711,9 +2996,10 @@ var GlobalVariableProvider = /** @class */ (function () {
         this.getSprintByBulkItem = 'bulkitem/getSprintByBulkItem';
         this.getDetailSprintBySprint = 'bulkitem/getDetailSprintBySprint';
         this.getDetailSprintBySprintDeveloper = 'bulkitem/getDetailSprintBySprintDeveloper';
-        this.backlogItemAPI = '';
-        this.iterationItemAPI = '';
-        this.assignIterationAPI = '';
+        this.getClaimedSprintByUser = 'bulkitem/getClaimedSprintByUser';
+        this.getUnclaimedSprint = 'bulkitem/getUnclaimedSprint';
+        this.updateSprintProgress = 'bulkitem/updateSprintProgress';
+        this.claimSprint = 'bulkitem/claimSprint';
     }
     GlobalVariableProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
@@ -2725,13 +3011,13 @@ var GlobalVariableProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 50:
+/***/ 52:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StorageProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(245);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2781,21 +3067,21 @@ var StorageProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 707:
+/***/ 708:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_helper_method_helper_method__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_tabs_tabs__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_tabs_tabs__ = __webpack_require__(177);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(378);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(377);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_loginPage__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_storage_storageProvider__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_o_auth_oauthProvider__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(379);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_loginPage__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_storage_storageProvider__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_o_auth_oauthProvider__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_error_handler_error_handler__ = __webpack_require__(24);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2899,7 +3185,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 708:
+/***/ 709:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2955,22 +3241,13 @@ var ExpandableComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 90:
+/***/ 72:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__users_usersProvider__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operators__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__global_variable_global_variable__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__o_auth_oauthProvider__ = __webpack_require__(37);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SprintItemPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2982,116 +3259,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-
-
-
-
-
-/*
-  Generated class for the ReportProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var ReportProvider = /** @class */ (function () {
-    function ReportProvider(http, httpNative, globalVal, oauthProvider, userProvider, helperMethod) {
-        this.http = http;
-        this.httpNative = httpNative;
-        this.globalVal = globalVal;
-        this.oauthProvider = oauthProvider;
-        this.userProvider = userProvider;
-        this.helperMethod = helperMethod;
+/**
+ * Generated class for the SprintItemPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var SprintItemPage = /** @class */ (function () {
+    function SprintItemPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.sprintdetailed = navParams.get('item');
+        // this.sprintdetailed.definition_of_done = 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.';
     }
-    ReportProvider.prototype.getBulkItemList = function () {
-        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
-        this.httpNative.setDataSerializer('json');
-        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.bulkItemAPI);
-        this.httpNative.setRequestTimeout(600);
-        return this.httpNative
-            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.bulkItemAPI, this.userProvider.user, headers);
+    SprintItemPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SprintItemPage');
     };
-    ReportProvider.prototype.getDetailedBulkItem = function (bulkItem) {
-        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
-        this.httpNative.setDataSerializer('json');
-        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemAPI);
-        this.httpNative.setRequestTimeout(600);
-        return this.httpNative
-            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemAPI, bulkItem, headers);
-    };
-    ReportProvider.prototype.getBackLogItemByBulkItemList = function (bulkItem) {
-        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
-        this.httpNative.setDataSerializer('json');
-        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.backlogItemAPI);
-        this.httpNative.setRequestTimeout(60);
-        return this.httpNative
-            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.backlogItemAPI, bulkItem, headers);
-    };
-    ReportProvider.prototype.getSprintDetailBySprint = function (sprint) {
-        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
-        this.httpNative.setDataSerializer('json');
-        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getDetailSprintBySprint);
-        this.httpNative.setRequestTimeout(60);
-        return this.httpNative
-            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getDetailSprintBySprint, sprint, headers);
-    };
-    ReportProvider.prototype.assignIterationToUser = function (iterationItem) {
-        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
-        this.httpNative.setDataSerializer('json');
-        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.assignIterationAPI);
-        this.httpNative.setRequestTimeout(60);
-        return this.httpNative
-            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.assignIterationAPI, iterationItem, headers);
-    };
-    ReportProvider.prototype.getAllBulkByUserLogin = function (user) {
-        return this.http.get(this.helperMethod.bulkItemUrl)
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["catchError"])(this.handleError));
-    };
-    ReportProvider.prototype.getBackLogItemByBulkItem = function (selectedBulkItem) {
-        return this.http.get(this.helperMethod.backlogitemUrl)
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["catchError"])(this.handleError));
-    };
-    ReportProvider.prototype.getDetailedBulkItemByBrowser = function (bulkItem) {
-        return this.http.get(this.helperMethod.backlogitemUrl)
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["catchError"])(this.handleError));
-    };
-    //helping method
-    ReportProvider.prototype.extractData = function (res) {
-        var body = res;
-        return body || {};
-    };
-    ReportProvider.prototype.handleError = function (error) {
-        var errMsg;
-        if (error instanceof Response) {
-            var err = error || '';
-            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
-        }
-        else {
-            errMsg = error.message ? error.message : error.toString();
-        }
-        console.error(error.status);
-        console.error(error.statusText);
-        console.error(errMsg);
-        return __WEBPACK_IMPORTED_MODULE_5_rxjs__["Observable"].throw(error);
-    };
-    ReportProvider.prototype.catchError = function (error) {
-        console.log(error);
-        return __WEBPACK_IMPORTED_MODULE_5_rxjs__["Observable"].throw(error.json().error || "Server Error.");
-    };
-    ReportProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */],
-            __WEBPACK_IMPORTED_MODULE_7__global_variable_global_variable__["a" /* GlobalVariableProvider */],
-            __WEBPACK_IMPORTED_MODULE_8__o_auth_oauthProvider__["a" /* OAuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__users_usersProvider__["a" /* UsersProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__["a" /* HelperMethodProvider */]])
-    ], ReportProvider);
-    return ReportProvider;
+    SprintItemPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-sprint-item',template:/*ion-inline-start:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-item\sprint-item.html"*/'<!--\n  Generated template for the SprintItemPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>SprintItemPage</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="ionContent">\n\n  <ion-item class="ionItemSprintDetail">\n    <h1 style="font-weight: bold">{{sprintdetailed.sprint_id}}</h1>\n    <br/>\n    <tr>\n      <td>\n        <h2>Status</h2>\n      </td>\n      <td>\n        <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n      </td>\n      <td>\n        <h2>&nbsp;&nbsp;&nbsp;{{sprintdetailed.statusSprint}}</h2>\n      </td>\n    </tr>\n    <tr>\n      <td>\n        <h2>PIC</h2>\n      </td>\n      <td>\n        <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n      </td>\n      <td>\n        <h2>&nbsp;&nbsp;&nbsp;{{sprintdetailed.person_name}}</h2>\n      </td>\n    </tr>\n    <tr>\n      <td>\n        <h2>Sprint</h2>\n      </td>\n      <td>\n        <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n      </td>\n      <td>\n        <h2>&nbsp;&nbsp;&nbsp;{{sprintdetailed.sprint}}</h2>\n      </td>\n    </tr>\n    <tr>\n      <td>\n        <h2>Duration</h2>\n      </td>\n      <td>\n        <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n      </td>\n      <td>\n        <h2>&nbsp;&nbsp;&nbsp;{{sprintdetailed.duration}}</h2>\n      </td>\n    </tr>\n    <tr>\n      <td>\n        <h2>Commited</h2>\n      </td>\n      <td>\n        <h2>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h2>\n      </td>\n      <td>\n        <h2>&nbsp;&nbsp;&nbsp;{{sprintdetailed.commited}}</h2>\n      </td>\n    </tr>\n    <br/>\n    <br/>\n  </ion-item>\n  <ion-item>\n    Definition Of Done\n    <br/>\n  </ion-item>\n  <ion-item class="ionItemDefinitionOfDone" text-wrap>\n    <p>{{sprintdetailed.definition_of_done}}</p>\n  </ion-item>\n\n</ion-content>\n'/*ion-inline-end:"D:\_SKRIPSI\ScrumApp\src\pages\sprint-item\sprint-item.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    ], SprintItemPage);
+    return SprintItemPage;
 }());
 
-//# sourceMappingURL=reportProvider.js.map
+//# sourceMappingURL=sprint-item.js.map
 
 /***/ }),
 
@@ -3100,12 +3293,12 @@ var ReportProvider = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PerfomanceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global_variable_global_variable__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_http__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global_variable_global_variable__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__o_auth_oauthProvider__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__users_usersProvider__ = __webpack_require__(23);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3177,7 +3370,131 @@ var PerfomanceProvider = /** @class */ (function () {
 
 //# sourceMappingURL=perfomanceProvider.js.map
 
+/***/ }),
+
+/***/ 92:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__users_usersProvider__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operators__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__global_variable_global_variable__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__o_auth_oauthProvider__ = __webpack_require__(38);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+/*
+  Generated class for the ReportProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var ReportProvider = /** @class */ (function () {
+    function ReportProvider(http, httpNative, globalVal, oauthProvider, userProvider, helperMethod) {
+        this.http = http;
+        this.httpNative = httpNative;
+        this.globalVal = globalVal;
+        this.oauthProvider = oauthProvider;
+        this.userProvider = userProvider;
+        this.helperMethod = helperMethod;
+    }
+    ReportProvider.prototype.getBulkItemList = function () {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.bulkItemAPI);
+        this.httpNative.setRequestTimeout(600);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.bulkItemAPI, this.userProvider.user, headers);
+    };
+    ReportProvider.prototype.getDetailedBulkItem = function (bulkItem) {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemAPI);
+        this.httpNative.setRequestTimeout(600);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.detailedBulkItemAPI, bulkItem, headers);
+    };
+    ReportProvider.prototype.getSprintDetailBySprint = function (sprint) {
+        var headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+        this.httpNative.setDataSerializer('json');
+        console.log("URL " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getDetailSprintBySprint);
+        this.httpNative.setRequestTimeout(60);
+        return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.getDetailSprintBySprint, sprint, headers);
+    };
+    ReportProvider.prototype.getAllBulkByUserLogin = function (user) {
+        return this.http.get(this.helperMethod.bulkItemUrl)
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["catchError"])(this.handleError));
+    };
+    ReportProvider.prototype.getBackLogItemByBulkItem = function (selectedBulkItem) {
+        return this.http.get(this.helperMethod.backlogitemUrl)
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["catchError"])(this.handleError));
+    };
+    ReportProvider.prototype.getDetailedBulkItemByBrowser = function (bulkItem) {
+        return this.http.get(this.helperMethod.backlogitemUrl)
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["map"])(this.extractData), Object(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["catchError"])(this.handleError));
+    };
+    //helping method
+    ReportProvider.prototype.extractData = function (res) {
+        var body = res;
+        return body || {};
+    };
+    ReportProvider.prototype.handleError = function (error) {
+        var errMsg;
+        if (error instanceof Response) {
+            var err = error || '';
+            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+        }
+        else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(error.status);
+        console.error(error.statusText);
+        console.error(errMsg);
+        return __WEBPACK_IMPORTED_MODULE_5_rxjs__["Observable"].throw(error);
+    };
+    ReportProvider.prototype.catchError = function (error) {
+        console.log(error);
+        return __WEBPACK_IMPORTED_MODULE_5_rxjs__["Observable"].throw(error.json().error || "Server Error.");
+    };
+    ReportProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */],
+            __WEBPACK_IMPORTED_MODULE_7__global_variable_global_variable__["a" /* GlobalVariableProvider */],
+            __WEBPACK_IMPORTED_MODULE_8__o_auth_oauthProvider__["a" /* OAuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_0__users_usersProvider__["a" /* UsersProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__helper_method_helper_method__["a" /* HelperMethodProvider */]])
+    ], ReportProvider);
+    return ReportProvider;
+}());
+
+//# sourceMappingURL=reportProvider.js.map
+
 /***/ })
 
-},[384]);
+},[385]);
 //# sourceMappingURL=main.js.map
