@@ -59,8 +59,8 @@ export class LoginPage {
       username : this.username.value,
       password : this.password.value
     };
-    this.doLoginBrowser(userLogin);
-    // this.doAuthenticate(userLogin);
+    // this.doLoginBrowser(userLogin);
+    this.doAuthenticate(userLogin);
   }
 
   doAuthenticate(userLogin){
@@ -75,8 +75,7 @@ export class LoginPage {
 
           this.oAuthProvider.userOAuth = response
           console.log(this.oAuthProvider.userOAuth);
-          
-
+      
           this.doLogindevice(userLogin);
 
         }).catch(
@@ -120,7 +119,6 @@ export class LoginPage {
     );
       
   }
-
   
   doLoginBrowser(userLogin){
     this.helperMethod.loadingService("Collecting User Info..");
@@ -130,8 +128,8 @@ export class LoginPage {
           person_id : '1',
           job_id : '7',
           team_id : '3',
-          person_name : 'Audi Aung Pertamax',
-          job_name : 'Dukun',
+          person_name : 'Audi Aung Pertama',
+          job_name : 'Developer',
           team_name : 'Gunung sinai',
           is_spv : '0'
         }
@@ -139,29 +137,6 @@ export class LoginPage {
         this.events.publish('Auth',1);
       },500
     );
-    // this.userProvider.validateLoginBrowser(userLogin).timeout(10000).subscribe(
-    //     (response:any) => {
-    //       this.helperMethod.loading.dismiss();
-          
-    //       this.userProvider.user = response;
-    //       this.events.publish('Auth',1);
-    //       console.log(response);
-    //     },
-    //     (error:any) => {
-    //       console.log(error);
-    //       console.error(error.name);
-    //       console.error(error.status);
-    //       console.error(error.statusText);
-    //       this.helperMethod.loading.dismiss();
-  
-    //       if(error.name == 'TimeoutError'){
-    //         this.helperMethod.presentToast('Slow Connection',2000,2);
-    //       }else{
-    //         this.helperMethod.presentToast('Login Gagal 9999: Jangan Hubungi Team IT',2000,3);
-    //       }
-          
-    //     }
-    //   );
   }
 
   showHidePassword(){

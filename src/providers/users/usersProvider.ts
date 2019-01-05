@@ -109,6 +109,18 @@ export class UsersProvider {
                               ,userLogin,headers);  
   }
 
+  updateSprintProgressSPV(userLogin : any){
+    let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
+
+    console.log(headers);
+    this.httpNative.setDataSerializer('json');
+    console.log("URL TIRTA " + this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.updateSprintProgressSPV);
+    this.httpNative.setRequestTimeout(60);
+    return this.httpNative
+            .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.updateSprintProgressSPV
+                              ,userLogin,headers);  
+  }
+
   claimSprint(userLogin : any){
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
 

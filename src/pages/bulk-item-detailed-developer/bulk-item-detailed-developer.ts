@@ -88,7 +88,6 @@ export class BulkItemDetailedDeveloperPage {
   }
 
   onItemPressed(item){
-    // this.getSprintDetailed(item);
     let sprintRequest = {
       sprint : item.item.sprint,
       bulk_id : this.bulkItemSelected.bulk_id,

@@ -44,20 +44,9 @@ export class ReportPage {
   }
 
   ionViewDidLoad() {
-    this.getAllBulk();
-    console.log('ionViewDidLoad ReportPage ');
-  }
-
-  ionViewWillEnter(){
-    console.log('will enter');
-  }
-  ionViewDidEnter(){
-    console.log('Did enter');
-  }
-
-  getAllBulk(){
     // this.bulkByBrowser();
     this.bulkByDevice();
+    console.log('ionViewDidLoad ReportPage ');
   }
 
   bulkByDevice(){

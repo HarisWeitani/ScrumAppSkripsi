@@ -21,6 +21,8 @@ import { UsersProvider } from '../../providers/users/usersProvider';
 })
 export class UserPage {
 
+  isLoading : Boolean = false;
+
   constructor(private navCtrl: NavController, private navParams: NavParams, 
               public userProvider : UsersProvider,
               private helperMethod :HelperMethodProvider,
@@ -33,81 +35,126 @@ export class UserPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserPage');
-    // this.getSprint();
-    this.dataDummy();
+    this.getSprint();
+    // this.dataDummy();
   }
 
   onItemPressed(data){
-    console.log('On Item Pressed',data.data);
-    this.navCtrl.push(SprintItemPage,{item : data.data});
+    if(this.isLoading == true){
+      this.helperMethod.presentToast("Please Try Again Later, Loading On Progress",2000,1);
+    }else{
+      this.navCtrl.push(SprintItemPage,{item : data.data});
+    }
   }
 
   updateProgress(data){
-    let request = {
-      mantab : data.data
-    };
 
-    this.helperMethod.loadingService("Updating your sprint..");
-    this.userProvider.updateSprintProgress(request).then(
-      (response:any) => {
-        this.helperMethod.loading.dismiss();
+    if(this.isLoading == true){
+      this.helperMethod.presentToast("Please Try Again Later, Loading On Progress",2000,1);
+    }else{
+      let request = {
+        backlog_sprint_id : data.data.backlog_sprint_id
+      };
 
-        console.log(response);
-        let responseData = JSON.parse(response.data);
-        let responseStatus = response.status;
+      if(this.userProvider.user.is_spv == "0"){
+        this.helperMethod.loadingService("Updating your sprint..");
+        this.userProvider.updateSprintProgress(request).then(
+          (response:any) => {
+            this.helperMethod.loading.dismiss();
 
-        console.log(responseData);
-        console.log(responseData.status);
-        if(responseData.status.code == "0"){
+            console.log(response);
+            let responseData = JSON.parse(response.data);
+            let responseStatus = response.status;
 
-        }else {
-          this.errorHandler.catchResponseErrorHandler(responseData);
-        }
+            console.log(responseData);
+            console.log(responseData.status);
+            if(responseData.status.code == "0"){
+              this.getSprint();
+            }else {
+              this.errorHandler.catchResponseErrorHandler(responseData);
+            }
 
-      }).catch(
-      (error:any) => {
+          }).catch(
+          (error:any) => {
 
-        this.helperMethod.loading.dismiss();
-        this.errorHandler.catchErrorHandler(error);
-        
+            this.helperMethod.loading.dismiss();
+            this.errorHandler.catchErrorHandler(error);
+            
+          }
+        );
+      }else if(this.userProvider.user.is_spv == "1"){
+        this.helperMethod.loadingService("Updating your sprint..");
+        this.userProvider.updateSprintProgressSPV(request).then(
+          (response:any) => {
+            this.helperMethod.loading.dismiss();
+
+            console.log(response);
+            let responseData = JSON.parse(response.data);
+            let responseStatus = response.status;
+
+            console.log(responseData);
+            console.log(responseData.status);
+            if(responseData.status.code == "0"){
+              this.getSprint();
+            }else {
+              this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+
+          }).catch(
+          (error:any) => {
+
+            this.helperMethod.loading.dismiss();
+            this.errorHandler.catchErrorHandler(error);
+            
+          }
+        );
       }
-    );
+    }
   }
 
   claimSprint(data){
-    let request = {
-      mantab : data.data
-    };
+    if(this.isLoading == true){
+      this.helperMethod.presentToast("Please Try Again Later, Loading On Progress",2000,1);
+    }else{
+      let request = {
+        person_id : this.userProvider.user.person_id,
+        backlog_sprint_id : data.data.backlog_sprint_id
+      };
 
-    this.helperMethod.loadingService("Updating your sprint..");
-    this.userProvider.claimSprint(request).then(
-      (response:any) => {
-        this.helperMethod.loading.dismiss();
+      this.helperMethod.loadingService("Please Wait...");
+      this.userProvider.claimSprint(request).then(
+        (response:any) => {
+          this.helperMethod.loading.dismiss();
 
-        console.log(response);
-        let responseData = JSON.parse(response.data);
-        let responseStatus = response.status;
+          console.log(response);
+          let responseData = JSON.parse(response.data);
+          let responseStatus = response.status;
 
-        console.log(responseData);
-        console.log(responseData.status);
-        if(responseData.status.code == "0"){
+          console.log(responseData);
+          console.log(responseData.status);
+          if(responseData.status.code == "0"){
+            this.getSprint();
+          }else {
+            this.errorHandler.catchResponseErrorHandler(responseData);
+          }
 
-        }else {
-          this.errorHandler.catchResponseErrorHandler(responseData);
+        }).catch(
+        (error:any) => {
+
+          this.helperMethod.loading.dismiss();
+          this.errorHandler.catchErrorHandler(error);
+          
         }
-
-      }).catch(
-      (error:any) => {
-
-        this.helperMethod.loading.dismiss();
-        this.errorHandler.catchErrorHandler(error);
-        
-      }
-    );
+      );
+    }
   }
 
   doLogout(){
-    this.alertConfirmLogout();
+    if(this.isLoading == true){
+      this.helperMethod.presentToast("Please Try Again Later, Loading On Progress",2000,1);
+    }else{
+      this.alertConfirmLogout();
+    }
   }
 
   alertConfirmLogout(){
@@ -175,10 +222,13 @@ export class UserPage {
     }
 
     this.ngProgress.start();
+    this.isLoading = true;
+
     this.userProvider.getClaimedSprintByUser(userLogin)
         .then(
           (response:any) => {
             this.ngProgress.done();
+            this.isLoading = false;
             console.log(response);
             let responseData = JSON.parse(response.data);
             let responseStatus = response.status;
@@ -187,7 +237,8 @@ export class UserPage {
             console.log(responseData.status);
 
             if(responseData.status.code == "0"){
-              console.log(responseData);
+              this.userProvider.claimedSprintDetailList = responseData.sprintDetail
+              this.getUnclaimedSprint();
             }else {
               this.errorHandler.catchResponseErrorHandler(responseData);
             }
@@ -196,7 +247,8 @@ export class UserPage {
           (error:any) => {
 
             this.ngProgress.done();
-              this.errorHandler.catchErrorHandler(error);
+            this.isLoading = false;
+            this.errorHandler.catchErrorHandler(error);
 
           }
         );
@@ -208,10 +260,12 @@ export class UserPage {
     }
 
     this.ngProgress.start();
+    this.isLoading = true;
     this.userProvider.getUnclaimedSprint(userLogin)
         .then(
           (response:any) => {
             this.ngProgress.done();
+            this.isLoading = false;
             console.log(response);
             let responseData = JSON.parse(response.data);
             let responseStatus = response.status;
@@ -220,7 +274,7 @@ export class UserPage {
             console.log(responseData.status);
 
             if(responseData.status.code == "0"){
-              console.log(responseData);
+              this.userProvider.unclaimedSprintDetailList =responseData.sprintDetail;
             }else {
               this.errorHandler.catchResponseErrorHandler(responseData);
             }
@@ -229,7 +283,8 @@ export class UserPage {
           (error:any) => {
 
             this.ngProgress.done();
-              this.errorHandler.catchErrorHandler(error);
+            this.isLoading = false;
+            this.errorHandler.catchErrorHandler(error);
 
           }
         );

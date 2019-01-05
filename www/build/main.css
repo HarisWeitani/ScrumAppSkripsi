@@ -51688,6 +51688,10 @@ page-sprint-item .ionContent {
   background-color: #caccce;
 }
 
+page-time-sheet .ionContent {
+  background-color: #caccce;
+}
+
 page-time-sheet .ionItemHeader {
   background-color: grey;
   color: white;

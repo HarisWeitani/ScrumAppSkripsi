@@ -24,7 +24,7 @@
     <img class="profile-photo" src="assets/imgs/user/profile_picture_example.jpg"> 
   </div>
     -->
-  <ng-progress class="ng-progress" [color]="'#31edda'"></ng-progress>
+  <ng-progress class="ng-progress" [color]="'#002aff'"></ng-progress>
   
   <div>
     <ion-item class="content">
@@ -50,7 +50,7 @@
                 [ngStyle]="{'background-color' :getColor(data.statusSprint)}">
         <ion-row>
           <ion-col style="white-space:normal" col-4>
-            {{data.sprint_id}}sdfgsdfgdsfg
+            {{data.sprint_id}}
           </ion-col>
           <ion-col style="white-space:normal" col-4>
             {{data.duration}} Hours
@@ -61,7 +61,7 @@
         </ion-row>
       </button>
       <ion-item-options>
-        <section *ngIf="data.statusSprint == 'To do'">
+        <section *ngIf="data.statusSprint == 'To Do'">
           <button ion-button color="light" (click)="updateProgress({data : data})">
             <ion-icon name="paper"></ion-icon> Update
           </button>
