@@ -10,10 +10,16 @@ import { Injectable } from '@angular/core';
 export class GlobalVariableProvider {
 
   //tirta
-  // public ipUrl : string = 'http://172.18.0.250:8080/';
+  // public ipUrl : string = 'http://172.18.0.210:8080/';
   //local
-  public ipUrl : string = 'http://172.18.0.67:8080/';
-  public baseUrl : string = 'com.adins.mss.webservices/services/m/';
+  // public ipUrl : string = 'http://192.168.137.82:8080/';
+  //psd
+  // public ipUrl : string = 'http://psd:10080/';
+  //public
+  public ipUrl : string = 'http://app.ad-ins.com/';
+  
+  // public baseUrl : string = 'com.adins.mss.webservices/services/m/';
+  public baseUrl : string = 'adimobile/projectapp.services/services/m/';
 
   public userLoginAPI : string ='user/login';
   public userLogoutAPI : string = 'user/logout';

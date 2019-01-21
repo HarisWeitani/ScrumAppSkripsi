@@ -26,13 +26,13 @@
     
     <ion-item-sliding *virtualItem="let data" > 
       
-        <ion-item class="ionItem" (click)="onItemPressed({id : data.time_sheet_id})" text-wrap 
+        <ion-item (click)="onItemPressed({id : data.time_sheet_id})" text-wrap 
                   [ngStyle]="(data.is_real == '1') ? 
                             { 
                               'background-color':'#72a8ff' 
                             } : 
                             { 
-                              'background-color':'#c8cace' 
+                              'background-color':'#ffffff' 
                             }">
           <table style="width: 100%">
             <tr>
@@ -72,7 +72,7 @@
               <ion-icon name="paper"></ion-icon> Update
           </button>
         </ion-item-options>
-
+        <br/>
     </ion-item-sliding>
 
   </ion-list>

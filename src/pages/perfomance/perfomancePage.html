@@ -17,6 +17,15 @@
 
   <ng-progress class="ng-progress" [color]="'#002aff'"></ng-progress>
 
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <ng-container *ngIf="perfomance == null; else elseTemplate">
     <ion-item class="loadingItem">
       Loading Item Please Wait...

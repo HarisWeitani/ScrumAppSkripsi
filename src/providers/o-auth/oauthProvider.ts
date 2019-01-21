@@ -14,7 +14,8 @@ import { OAuthToken } from '../../models/OAuthToken';
 @Injectable()
 export class OAuthProvider {
 
-  public oAuthTokenAPI : string = 'com.adins.mss.webservices/oauth/token';
+  // public oAuthTokenAPI : string = 'com.adins.mss.webservices/oauth/token';
+  public oAuthTokenAPI : string = 'adimobile/projectapp.services/oauth/token';
 
   userOAuth : OAuthToken;
 

@@ -16,6 +16,15 @@
 <ion-content padding class="ionContent">
 
   <ng-progress class="ng-progress" [color]="'#002aff'"></ng-progress>
+  
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
 
   <ion-list class="ionList" [virtualScroll]="reportProvider.bulkItemList">
       

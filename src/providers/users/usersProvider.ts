@@ -97,7 +97,7 @@ export class UsersProvider {
                               ,userLogin,headers);  
   }
 
-  updateSprintProgress(userLogin : any){
+  updateSprintProgress(request : any){
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
 
     console.log(headers);
@@ -106,10 +106,10 @@ export class UsersProvider {
     this.httpNative.setRequestTimeout(60);
     return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.updateSprintProgress
-                              ,userLogin,headers);  
+                              ,request,headers);  
   }
 
-  updateSprintProgressSPV(userLogin : any){
+  updateSprintProgressSPV(request : any){
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
 
     console.log(headers);
@@ -118,10 +118,10 @@ export class UsersProvider {
     this.httpNative.setRequestTimeout(60);
     return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.updateSprintProgressSPV
-                              ,userLogin,headers);  
+                              ,request,headers);  
   }
 
-  claimSprint(userLogin : any){
+  claimSprint(request : any){
     let headers = this.oauthProvider.getHeader(this.oauthProvider.userOAuth.access_token);
 
     console.log(headers);
@@ -130,7 +130,7 @@ export class UsersProvider {
     this.httpNative.setRequestTimeout(60);
     return this.httpNative
             .post(this.globalVal.ipUrl + this.globalVal.baseUrl + this.globalVal.claimSprint
-                              ,userLogin,headers);  
+                              ,request,headers);  
   }
 
   saveUserDataToStorage(){

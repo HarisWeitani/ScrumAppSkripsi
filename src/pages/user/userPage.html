@@ -25,7 +25,16 @@
   </div>
     -->
   <ng-progress class="ng-progress" [color]="'#002aff'"></ng-progress>
-  
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <div>
     <ion-item class="content">
       <ion-row>
@@ -38,73 +47,119 @@
       </ion-row>
     </ion-item>
   </div>
+ <!-- spv -->
+  <ng-container *ngIf="userProvider.user.is_spv == '1'; else elseTemplate">
+    
+      <ion-row class="headerSprint">
+          <ion-col>Reviewed Sprint</ion-col>
+        </ion-row>
+      
+        <ion-list [virtualScroll]="userProvider.claimedSprintDetailList">
+          <ion-item-sliding *virtualItem="let data"> 
+            <button ion-item class="ionItem" (click)="onItemPressed({data : data})"  
+                      [ngStyle]="{'background-color' :getColor(data.statusSprint)}">
+              <ion-row>
+                <ion-col style="white-space:normal" col-4>
+                  {{data.sprint_id}}
+                </ion-col>
+                <ion-col style="white-space:normal" col-4>
+                  {{data.duration}} Hours
+                </ion-col>
+                <ion-col style="white-space:normal" col-4>
+                  {{data.statusSprint}}
+                </ion-col>
+              </ion-row>
+            </button>
+            <ion-item-options>
+              <section *ngIf="data.statusSprint == 'To Do'">
+                <button ion-button color="light" (click)="updateProgress({data : data})">
+                  <ion-icon name="paper"></ion-icon> Update
+                </button>
+              </section>
+              <section *ngIf="data.statusSprint == 'On Progress'">
+                <button ion-button color="light" (click)="updateProgress({data : data})">
+                  <ion-icon name="paper"></ion-icon> Update
+                </button>
+              </section>
+              <section *ngIf="data.statusSprint == 'Review'">
+                <button ion-button color="light" (click)="updateProgress({data : data})">
+                  <ion-icon name="paper"></ion-icon> Update
+                </button>
+              </section>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      
+
+  </ng-container>
+  <!-- bukan SPV -->
+  <ng-template #elseTemplate>
+    
+      <ion-row class="headerSprint">
+          <ion-col>Your Claimed Sprint</ion-col>
+        </ion-row>
+      
+        <ion-list [virtualScroll]="userProvider.claimedSprintDetailList">
+          <ion-item-sliding *virtualItem="let data"> 
+            <button ion-item class="ionItem" (click)="onItemPressed({data : data})"  
+                      [ngStyle]="{'background-color' :getColor(data.statusSprint)}">
+              <ion-row>
+                <ion-col style="white-space:normal" col-4>
+                  {{data.sprint_id}}
+                </ion-col>
+                <ion-col style="white-space:normal" col-4>
+                  {{data.duration}} Hours
+                </ion-col>
+                <ion-col style="white-space:normal" col-4>
+                  {{data.statusSprint}}
+                </ion-col>
+              </ion-row>
+            </button>
+            <ion-item-options>
+              <section *ngIf="data.statusSprint == 'To Do'">
+                <button ion-button color="light" (click)="updateProgress({data : data})">
+                  <ion-icon name="paper"></ion-icon> Update
+                </button>
+              </section>
+              <section *ngIf="data.statusSprint == 'On Progress'">
+                <button ion-button color="light" (click)="updateProgress({data : data})">
+                  <ion-icon name="paper"></ion-icon> Update
+                </button>
+              </section>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      
+        
+        <ion-row class="headerSprint">
+          <ion-col>Claim Sprint</ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      
+        <ion-list [virtualScroll]="userProvider.unclaimedSprintDetailList">
+          <ion-item-sliding *virtualItem="let data"> 
+            <button ion-item class="ionItem" (click)="onItemPressed({data : data})"  
+                      [ngStyle]="{'background-color' :getColor(data.statusSprint)}">
+              <ion-row>
+                <ion-col style="white-space:normal" col-8>
+                  {{data.sprint_id}}
+                </ion-col>
+                <ion-col style="white-space:normal" col-4>
+                  {{data.duration}} Hours
+                </ion-col>
+              </ion-row>
+            </button>
+            <ion-item-options>
+              <button ion-button color="light" (click)="claimSprint({data : data})">
+                <ion-icon name="add-circle"></ion-icon> Claim
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+
+  </ng-template>
+  
+
  
-  
-  <ion-row class="headerSprint">
-    <ion-col>Your Claimed Sprint</ion-col>
-  </ion-row>
-
-  <ion-list [virtualScroll]="userProvider.claimedSprintDetailList">
-    <ion-item-sliding *virtualItem="let data"> 
-      <button ion-item class="ionItem" (click)="onItemPressed({data : data})"  
-                [ngStyle]="{'background-color' :getColor(data.statusSprint)}">
-        <ion-row>
-          <ion-col style="white-space:normal" col-4>
-            {{data.sprint_id}}
-          </ion-col>
-          <ion-col style="white-space:normal" col-4>
-            {{data.duration}} Hours
-          </ion-col>
-          <ion-col style="white-space:normal" col-4>
-            {{data.statusSprint}}
-          </ion-col>
-        </ion-row>
-      </button>
-      <ion-item-options>
-        <section *ngIf="data.statusSprint == 'To Do'">
-          <button ion-button color="light" (click)="updateProgress({data : data})">
-            <ion-icon name="paper"></ion-icon> Update
-          </button>
-        </section>
-        <section *ngIf="data.statusSprint == 'On Progress'">
-          <button ion-button color="light" (click)="updateProgress({data : data})">
-            <ion-icon name="paper"></ion-icon> Update
-          </button>
-        </section>
-        <section *ngIf="data.statusSprint == 'Review' && userProvider.user.is_spv == '1' ">
-          <button ion-button color="light" (click)="updateProgress({data : data})">
-            <ion-icon name="paper"></ion-icon> Update
-          </button>
-        </section>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-
-  
-  <ion-row class="headerSprint">
-    <ion-col>Claim Sprint</ion-col>
-    <ion-col></ion-col>
-  </ion-row>
-
-  <ion-list [virtualScroll]="userProvider.unclaimedSprintDetailList">
-    <ion-item-sliding *virtualItem="let data"> 
-      <button ion-item class="ionItem" (click)="onItemPressed({data : data})"  
-                [ngStyle]="{'background-color' :getColor(data.statusSprint)}">
-        <ion-row>
-          <ion-col style="white-space:normal" col-8>
-            {{data.sprint_id}}
-          </ion-col>
-          <ion-col style="white-space:normal" col-4>
-            {{data.duration}} Hours
-          </ion-col>
-        </ion-row>
-      </button>
-      <ion-item-options>
-        <button ion-button color="light" (click)="claimSprint({data : data})">
-          <ion-icon name="add-circle"></ion-icon> Claim
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
 
 </ion-content>

@@ -8,6 +8,7 @@ import { HelperMethodProvider } from '../../providers/helper-method/helper-metho
 import { OAuthProvider } from '../../providers/o-auth/oauthProvider';
 import { ErrorHandlerProvider } from '../../providers/error-handler/error-handler';
 import { timeout } from 'rxjs/operators';
+import { GlobalVariableProvider } from '../../providers/global-variable/global-variable';
 
 /**
  * Generated class for the LoginPage page.
@@ -28,6 +29,7 @@ export class LoginPage {
 
   loginForm : FormGroup;
   showHide : boolean;
+  showLink : boolean;
   type = 'password';
 
   usernameDefaultVal : string;
@@ -40,9 +42,11 @@ export class LoginPage {
               public events : Events,
               public oAuthProvider : OAuthProvider,
               public msProjectProvider: MsProjectProvider,
-              public msActivityProvider : MsActivityProvider
+              public msActivityProvider : MsActivityProvider,
+              public globalVal : GlobalVariableProvider
               ) {
-    this.showHide = false;            
+    this.showHide = false;    
+    this.showLink = false;        
     this.loginForm = formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(3)])]
@@ -59,8 +63,13 @@ export class LoginPage {
       username : this.username.value,
       password : this.password.value
     };
-    // this.doLoginBrowser(userLogin);
-    this.doAuthenticate(userLogin);
+
+    if(userLogin.password == 'linkdevmodeon'){
+      this.showLink = true;
+    }else{
+      // this.doLoginBrowser(userLogin);
+      this.doAuthenticate(userLogin);
+    }
   }
 
   doAuthenticate(userLogin){

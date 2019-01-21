@@ -49,6 +49,34 @@ export class ReportPage {
     console.log('ionViewDidLoad ReportPage ');
   }
 
+  doRefresh(refresher){
+
+    this.reportProvider.getBulkItemList()
+        .then(
+          (response:any) => {
+
+            console.log(response);
+            let responseData = JSON.parse(response.data);
+            let responseStatus = response.status;
+    
+            console.log(responseData.bulkItemList);
+            console.log(responseData.status);
+            if(responseData.status.code == "0"){
+
+              this.reportProvider.bulkItemList = responseData.bulkItemList;
+              refresher.complete();
+            }else {
+              this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+          }).catch(
+          (error:any) => {
+            refresher.complete();
+            this.errorHandler.catchErrorHandler(error);
+            
+          }
+        );
+  }
+
   bulkByDevice(){
     this.ngProgress.start();
 

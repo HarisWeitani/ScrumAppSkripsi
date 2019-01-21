@@ -39,6 +39,44 @@ export class UserPage {
     // this.dataDummy();
   }
 
+  doRefresh(refresher){
+
+    let userLogin = {
+      person_id : this.userProvider.user.person_id
+    }
+
+    this.isLoading = true;
+
+    this.userProvider.getClaimedSprintByUser(userLogin)
+        .then(
+          (response:any) => {
+            refresher.complete();
+            this.isLoading = false;
+            console.log(response);
+            let responseData = JSON.parse(response.data);
+            let responseStatus = response.status;
+
+            console.log(responseData);
+            console.log(responseData.status);
+
+            if(responseData.status.code == "0"){
+              this.userProvider.claimedSprintDetailList = responseData.sprintDetail
+              this.getUnclaimedSprint();
+            }else {
+              this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+
+          }).catch(
+          (error:any) => {
+
+            refresher.complete();
+            this.isLoading = false;
+            this.errorHandler.catchErrorHandler(error);
+
+          }
+        );
+  }
+
   onItemPressed(data){
     if(this.isLoading == true){
       this.helperMethod.presentToast("Please Try Again Later, Loading On Progress",2000,1);

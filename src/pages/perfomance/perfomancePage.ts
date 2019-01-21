@@ -38,6 +38,35 @@ export class PerfomancePage {
     console.log('ionViewDidLoad PerfomancePage');
   }
 
+  doRefresh(refresher){
+
+    this.perfomanceProv.getBulkItemList()
+        .then(
+          (response:any) => {
+            refresher.complete();
+            console.log(response);
+            let responseData = JSON.parse(response.data);
+            let responseStatus = response.status;
+    
+            console.log(responseData);
+            console.log(responseData.status);
+            if(responseData.status.code == "0"){
+
+              this.perfomance = responseData;
+              this.perfomanceList = responseData.perfomanceBulkList;
+
+            }else {
+              this.errorHandler.catchResponseErrorHandler(responseData);
+            }
+          }).catch(
+          (error:any) => {
+            refresher.complete();
+            this.errorHandler.catchErrorHandler(error);
+          
+          }
+        );
+  }
+
   perfomanceByDevice(){
     this.ngProgress.start();
 

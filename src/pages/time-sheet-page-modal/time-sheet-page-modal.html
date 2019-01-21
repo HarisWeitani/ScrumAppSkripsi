@@ -50,8 +50,7 @@
 
     <ion-item>
       <ion-label color="primary" floating>Sprint Id</ion-label>
-      <!-- <ion-input [(ngModel)]="sprintId"></ion-input> -->
-      <ion-select [(ngModel)]="activityDropDown">
+      <ion-select [(ngModel)]="sprintId">
         <ng-container *ngIf="userProvider.claimedSprintDetailList == null; else elseTemplate">
           <ion-option [disabled]="true">No Sprint Found</ion-option>
         </ng-container>
